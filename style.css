@@ -8,18 +8,21 @@
   --content-font-size-caption:calc(.7rem * var(--content-font-scale));
 }
 html, body { width:100%; height:100%; overflow:hidden; }
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 body {
   background:#050505; color:#fff;
   font-family:"Songti SC","Noto Serif SC","Times New Roman",serif;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 button { font:inherit; }
 
 .experience {
-  position:absolute; left:50%; top:50%; width:92vw; height:88vh; overflow:clip;
+  position:absolute; left:50%; top:50%; width:92vw; height:88dvh; overflow:clip;
   transform:translate(-50%,-50%); background:#000; border:1px solid rgba(255,255,255,.18);
   box-shadow:0 1.2rem 4rem rgba(0,0,0,.9); transition:width .45s ease,height .45s ease,border-color .45s ease;
 }
-body.is-fullscreen .experience { width:100vw; height:100vh; border-color:transparent; box-shadow:none; }
+body.is-fullscreen .experience { width:100vw; height:100dvh; border-color:transparent; box-shadow:none; }
 .app { position:relative; width:100%; height:100%; background:#000; }
 .backgrounds { position:absolute; inset:0; }
 .portal-neon {
@@ -204,6 +207,23 @@ html[data-content-font-size="large"] .epilogue-screen.is-safety-condensed .epilo
 }
 .fullscreen-invitation-zh { font-size:.61rem; line-height:1.35; letter-spacing:.09em; }
 .fullscreen-invitation-en { font:500 .61rem/1.35 "Helvetica Neue",Arial,sans-serif; letter-spacing:.035em; }
+
+.desktop-invitation {
+  display:none; position:absolute; z-index:4; left:50%; bottom:8.5rem; width:min(88%,32rem);
+  transform:translateX(-50%); text-align:center;
+}
+.desktop-invitation-zh {
+  font-size:.78rem; line-height:1.4; letter-spacing:.09em; color:rgba(255,255,255,.92);
+  animation:desktop-invitation-glow 2.6s ease-in-out infinite;
+}
+.desktop-invitation-en {
+  margin-top:.3rem; font:500 .64rem/1.4 "Helvetica Neue",Arial,sans-serif; letter-spacing:.04em;
+  color:rgba(255,255,255,.6);
+}
+@keyframes desktop-invitation-glow {
+  0%,100% { text-shadow:0 0 .2rem rgba(255,255,255,.15); opacity:.75; }
+  50% { text-shadow:0 0 .85rem rgba(255,255,255,.85),0 0 .3rem rgba(255,255,255,.6); opacity:1; }
+}
 
 .fullscreen-button,
 .control-button {
@@ -746,20 +766,50 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
 .hotspot-tooltip .tooltip-more { color:#fff; font:600 .58rem/1.4 "Helvetica Neue",Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 
 @media (max-width:900px) {
-  .experience { width:94vw; height:90vh; }
+  .experience { width:100vw; height:100dvh; border:none; }
   .context-panel { width:min(78vw,27rem); }
   .context-collapse { right:min(78vw,27rem); }
-  .timeline { width:97%; gap:.5rem; }
-  .timeline-stop { min-width:3.4rem; }
-  .timeline-title { max-width:9rem; }
-  .timeline-title b { font-size:.56rem; }
-  .timeline-title i { font-size:.48rem; }
   .memory-thought { left:50%; right:auto; top:26%; bottom:auto; width:min(90vw,40rem); max-width:none; }
   .memory-thought.is-center { left:50%; right:auto; top:26%; bottom:auto; transform:translate(-50%,-48%) scale(.985); max-width:none; }
   .memory-thought.is-center.is-visible { transform:translate(-50%,-50%) scale(1); }
   .memory-thought.is-center.is-leaving { transform:translate(-50%,-49.5%) scale(.99); }
   .memory-thought-inner { min-height:8rem; padding:.95rem 1.7rem .9rem; }
   .audio-hint { left:1rem; right:1rem; bottom:9.8rem; max-width:none; }
+
+  /* 时间线:横向滑动 + 吸附居中(snap scroll) */
+  .timeline { width:100%; gap:.4rem; }
+  .timeline-track {
+    overflow-x:auto; overflow-y:hidden;
+    justify-content:flex-start; gap:1.2rem;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding:0 42vw;
+    scrollbar-width:none;
+  }
+  .timeline-track::-webkit-scrollbar { display:none; }
+  .timeline-stop { scroll-snap-align:center; flex:0 0 auto; min-width:3.4rem; }
+  .timeline-title { max-width:9rem; }
+  .timeline-title b { font-size:.56rem; }
+  .timeline-title i { font-size:.48rem; }
+
+  .fullscreen-invitation { display:none; }
+  .desktop-invitation { display:block; }
+}
+
+@media (max-width:600px) {
+  /* 控制栏默认收起,只留一个小图标 */
+  .controls-collapse-toggle {
+    display:flex; align-items:center; justify-content:center;
+    width:2rem; height:2rem; border:0; background:transparent;
+    color:#fff; font-size:1.1rem; cursor:pointer;
+  }
+  .screen-controls > button:not(.controls-collapse-toggle) {
+    width:0; padding:0; opacity:0; pointer-events:none; overflow:hidden;
+    transition:width .25s ease, opacity .2s ease, padding .25s ease;
+  }
+  .screen-controls.is-expanded > button:not(.controls-collapse-toggle) {
+    width:auto; padding:.32rem .52rem; opacity:1; pointer-events:auto;
+  }
 }
 
 @media (max-height:600px) and (orientation:landscape) {
@@ -791,6 +841,8 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
   .epilogue-en { margin-top:.12rem; font-size:calc(.63rem * var(--content-font-scale)); line-height:1.3; }
   .fullscreen-invitation { left:auto; right:1rem; bottom:3.8rem; width:13rem; transform:none; }
   .fullscreen-invitation-zh,.fullscreen-invitation-en { display:none; }
+  .desktop-invitation { left:auto; right:1rem; bottom:3.8rem; width:13rem; transform:none; }
+  .desktop-invitation-en { display:none; }
   .memory-thought { top:48%; bottom:auto; }
   .audio-hint { bottom:7.8rem; }
   html[data-content-font-size="large"] .start-text,

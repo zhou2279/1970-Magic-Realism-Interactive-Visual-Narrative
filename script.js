@@ -938,6 +938,7 @@ const motionModeLabel = motionToggle?.querySelector(".motion-mode-label");
 const soundToggle = document.getElementById("sound-toggle");
 const soundModeLabel = soundToggle?.querySelector(".sound-mode-label");
 const screenControls = document.querySelector(".screen-controls");
+const controlsCollapseToggle = document.getElementById("controls-collapse-toggle");
 const navButtonPrev = document.querySelector(".timeline-arrow-prev");
 const navButtonNext = document.querySelector(".timeline-arrow-next");
 const timelineStops = [...document.querySelectorAll(".timeline-stop")];
@@ -2370,7 +2371,14 @@ function animateCompositeReveal(visual, chapter, duration) {
 }
 
 function setTimeline(scene) {
-  timelineStops.forEach(stop => stop.classList.toggle("is-active", stop.dataset.scene === String(scene)));
+  timelineStops.forEach(stop => {
+    const active = stop.dataset.scene === String(scene);
+    stop.classList.toggle("is-active", active);
+    if (active) {
+      stop.scrollIntoView({ behavior:"smooth", inline:"center", block:"nearest" });
+      navigator.vibrate?.(8); // iPhone Safari 不支持这个 API,会静默忽略,不报错
+    }
+  });
 }
 
 function hasChapterSidebar(target) {
@@ -4624,3 +4632,11 @@ renderContext("start");
 updateContextLocaleChrome();
 updateNav();
 startSequence();
+
+// 手机控制栏展开/收起(collapse toggle)
+if (controlsCollapseToggle && screenControls) {
+  controlsCollapseToggle.addEventListener("click", () => {
+    const expanded = screenControls.classList.toggle("is-expanded");
+    controlsCollapseToggle.setAttribute("aria-expanded", String(expanded));
+  });
+}

@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>1970 · The Door | 门</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -44,6 +44,10 @@
         <p class="fullscreen-invitation-zh">全屏观看，体验更佳</p>
         <p class="fullscreen-invitation-en">This story is best experienced in fullscreen.</p>
       </div>
+    </div>
+    <div class="desktop-invitation" aria-hidden="true">
+      <p class="desktop-invitation-zh">电脑访问，体验更佳</p>
+      <p class="desktop-invitation-en">Best experienced on desktop.</p>
     </div>
   </div>
 
@@ -112,6 +116,7 @@
   </section>
 
   <div class="screen-controls" aria-label="观看控制">
+    <button id="controls-collapse-toggle" class="controls-collapse-toggle" type="button" aria-label="展开控制栏" aria-expanded="false">⋯</button>
     <button class="fullscreen-button fullscreen-button-corner" type="button" aria-label="切换全屏">
       <span class="enter-fullscreen-label motion-control-name">全屏 <i>FULLSCREEN</i></span>
       <span class="exit-fullscreen-label motion-control-name">退出全屏 <i>EXIT FULLSCREEN</i></span>

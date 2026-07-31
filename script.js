@@ -288,7 +288,7 @@ const CHAPTER_6_SOUND = {
   srcM4a:"assets/sound/ch6-ambient.m4a",
   // 先导文阶段不出声：环境声只在画面完全 reveal 后才开始播放（见 revealChapter6Ambient）。
   // 画面完全 reveal 后，从静音直接淡入到满音量（在原满音量基础上整体下调 20%，作为背景音乐应保持安静）。
-  revealVolume:.035,
+  revealVolume:.8,
   revealFadeDuration:1800,
   // 离开第六章（跳转到跋、其他章节或时间线）时的淡出时长。
   exitFadeDuration:1200,

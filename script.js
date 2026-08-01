@@ -36,6 +36,21 @@ const MOTION_SETTINGS = {
     initialOpacity:.06
   },
 
+  // 手机上把序幕/跋这两段文字的初始状态改得更"可见":
+  // 起始透明度从接近 0 提高、模糊和放大幅度减小、开场延迟缩短,
+  // 目的是让用户在加载/低网速时,一进来就能看到一点内容在动,
+  // 不会误以为屏幕是黑的、卡住了。整体渐显的感觉还在,只是不再从"完全看不见"开始。
+  ...(document.documentElement.classList.contains("is-small-device") ? {
+    introText: {
+      initialDelay:120, focusDuration:1700, paragraphGap:280, easing:"easeOutCubic",
+      initialBlurPx:10, blurCurve:1.35, initialScale:1.06, initialLiftRem:.2, initialOpacity:.32
+    },
+    epilogue: {
+      navigationLockDuration:3600, textInitialDelay:140, focusDuration:1500, paragraphGap:230,
+      easing:"easeOutCubic", initialBlurPx:10, blurCurve:1.35, initialScale:1.05, initialLiftRem:.2, initialOpacity:.3
+    }
+  } : {}),
+
   // Intro 星河：全部由 Canvas + requestAnimationFrame 执行。
   // 数量、团簇、漂移、明暗呼吸、粒径、鼠标打散与回弹均只在此处控制；CSS 不参与粒子动效。
   introParticles: {
@@ -744,12 +759,12 @@ const CHAPTERS = [
     image:"assets/chapters/memo-01-1953.jpeg", baseImage:"assets/chapters/motion/ch1-first-frame.jpg", baseOnly:true, year:"1953", title:"儿时父母的书房", titleEn:"My Parents' Study",
     motionOverlays:[
       {
-        id:"ch1-appear", webm:"assets/chapters/motion/ch1-appear.webm",
+        id:"ch1-appear", webm:"assets/chapters/motion/ch1-appear.webm", hevc:"assets/chapters/motion/ch1-appear-hevc.mov",
         placement:"base", layer:2, start:"image-visible", stop:"chapter-exit",
         startDelay:0, fadeInBeforePlay:700, playbackRate:1, loop:false, duration:5500, preload:"auto"
       },
       {
-        id:"ch1-loop", webm:"assets/chapters/motion/ch1-loop.webm",
+        id:"ch1-loop", webm:"assets/chapters/motion/ch1-loop.webm", hevc:"assets/chapters/motion/ch1-loop-hevc.mov",
         placement:"base", layer:3, start:"after-motion", afterMotion:"ch1-appear", stop:"chapter-exit",
         startDelay:0, playbackRate:1, loop:true, preload:"auto"
       }
@@ -771,7 +786,7 @@ const CHAPTERS = [
     image:"assets/chapters/memo-02-1966.jpeg", baseImage:"assets/chapters/motion/ch2-first-frame.jpg", baseOnly:true, year:"1966", title:"芜湖师范学院的楼道", titleEn:"A Corridor at Wuhu Normal University",
     motionOverlays:[
       {
-        id:"ch2-build", webm:"assets/chapters/motion/ch2.webm",
+        id:"ch2-build", webm:"assets/chapters/motion/ch2.webm", hevc:"assets/chapters/motion/ch2-hevc.mov",
         placement:"base", layer:2, start:"image-visible", stop:"chapter-exit",
         startDelay:0, fadeInBeforePlay:500, playbackRate:1, loop:false, duration:3500
       }
@@ -791,12 +806,12 @@ const CHAPTERS = [
     image:"assets/chapters/memo-03-1969-outdoors.jpeg", baseImage:"assets/chapters/motion/ch3-first-frame.jpg", baseOnly:true, year:"1969", title:"红星人民公社的水田", titleEn:"The Rice Paddies of Red Star Commune",
     motionOverlays:[
       {
-        id:"ch3-appear", webm:"assets/chapters/motion/ch3-appear.webm",
+        id:"ch3-appear", webm:"assets/chapters/motion/ch3-appear.webm", hevc:"assets/chapters/motion/ch3-appear-hevc.mov",
         placement:"base", layer:2, start:"image-visible", stop:"chapter-exit",
         startDelay:0, fadeInBeforePlay:500, playbackRate:1, loop:false, duration:2000, preload:"auto"
       },
       {
-        id:"ch3-loop", webm:"assets/chapters/motion/ch3-loop.webm",
+        id:"ch3-loop", webm:"assets/chapters/motion/ch3-loop.webm", hevc:"assets/chapters/motion/ch3-loop-hevc.mov",
         placement:"base", layer:3, start:"after-motion", afterMotion:"ch3-appear", stop:"chapter-exit",
         startDelay:0, playbackRate:1, loop:true, preload:"auto"
       }
@@ -843,13 +858,13 @@ const CHAPTERS = [
     image:"assets/chapters/memo-05-1970-outdoors-dawn.jpeg", baseImage:"assets/chapters/motion/ch5-first-frame.jpg", baseOnly:true, year:"1970", title:"田埂黄昏的门", titleEn:"A Door at Dusk on the Ridge",
     motionOverlays:[
       {
-        id:"ch5-appear", webm:"assets/chapters/motion/ch5-appear.webm",
+        id:"ch5-appear", webm:"assets/chapters/motion/ch5-appear.webm", hevc:"assets/chapters/motion/ch5-appear-hevc.mov",
         placement:"base", layer:2, start:"image-visible", stop:"chapter-exit",
         startDelay:0, fadeInBeforePlay:700, playbackRate:1, loop:false, duration:3000
       },
       {
         // 网页版已将透明门动画预合成到 ch5-appear 的末帧，避免浏览器把透明像素解码成黑/白底。
-        id:"ch5-door-trigger", webm:"assets/chapters/motion/ch5-door-trigger.webm",
+        id:"ch5-door-trigger", webm:"assets/chapters/motion/ch5-door-trigger.webm", hevc:"assets/chapters/motion/ch5-door-trigger-hevc.mov",
         placement:"base", layer:3, start:"interaction", stop:"chapter-exit",
         startDelay:0, fadeInBeforePlay:0, playbackRate:1, loop:false, duration:1167, preload:"auto"
       }
@@ -875,6 +890,7 @@ const CHAPTERS = [
         // 猫在聚光移向它的路径时单独播放一次，结束后露出持续运动的环境底层。
         id:"ch6-cat-once",
         webm:"assets/chapters/motion/ch6-complete.webm?v=20260723-2245",
+        hevc:"assets/chapters/motion/ch6-complete-hevc.mov?v=20260723-2245",
         placement:"base",
         start:"interaction",
         startDelay:0,
@@ -887,6 +903,7 @@ const CHAPTERS = [
         // 人物谈话等环境动作从 memory course 开头持续循环。
         id:"ch6-ambient-loop",
         webm:"assets/chapters/motion/ch6.webm?v=20260723-2247",
+        hevc:"assets/chapters/motion/ch6-hevc.mov?v=20260723-2247",
         placement:"base",
         start:"memory-sequence",
         initialTime:0,
@@ -4486,7 +4503,22 @@ function updateFullscreenState() {
     positionHotspots();
     positionChapterMotionPatches();
   }));
+  updateRotateOverlay();
 }
+
+// 竖屏提示遮罩:只在真手机(is-small-device)+ 竖屏 + 还没进全屏时显示。
+// 横屏、进入全屏、或不是手机,都会自动隐藏。
+const rotateOverlay = document.getElementById("rotate-overlay");
+function updateRotateOverlay() {
+  if (!rotateOverlay) return;
+  const isSmallDevice = document.documentElement.classList.contains("is-small-device");
+  const isPortrait = window.matchMedia("(orientation:portrait)").matches;
+  const shouldShow = isSmallDevice && isPortrait && !isFullscreen();
+  rotateOverlay.classList.toggle("is-visible", shouldShow);
+  rotateOverlay.setAttribute("aria-hidden", String(!shouldShow));
+}
+window.addEventListener("orientationchange", () => setTimeout(updateRotateOverlay, 80));
+window.addEventListener("resize", updateRotateOverlay);
 
 function getFontSizePreset(presetId = fontSizePreference) {
   return FONT_SIZE_PRESETS.find(preset => preset.id === presetId) || FONT_SIZE_PRESETS[0];
@@ -4626,6 +4658,7 @@ updateMotionState();
 updateSoundToggle();
 attachChapter6AudioContextUnlock();
 updateFullscreenState();
+updateRotateOverlay();
 initBackgrounds();
 initIntroParticles();
 renderContext("start");

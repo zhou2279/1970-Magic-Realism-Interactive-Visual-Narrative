@@ -225,8 +225,14 @@ html[data-content-font-size="large"] .epilogue-screen.is-safety-condensed .epilo
   0%,100% { text-shadow:0 0 .2rem rgba(255,255,255,.15); opacity:.75; }
   50% { text-shadow:0 0 .85rem rgba(255,255,255,.85),0 0 .3rem rgba(255,255,255,.6); opacity:1; }
 }
-html.is-small-device .fullscreen-invitation { display:none; }
-html.is-small-device .desktop-invitation { display:block; }
+/* 手机也能进全屏(iOS 16.4+/Android Chrome 都支持 Fullscreen API 了),
+   所以不再隐藏这个按钮,只是提示语换成"横屏体验更佳"。 */
+html.is-small-device .fullscreen-invitation-note { display:none; }
+html.is-small-device .fullscreen-invitation::after {
+  content:"全屏观看，横屏体验更佳 / Fullscreen — best in landscape";
+  display:block; margin-top:.6rem; font-size:.61rem; letter-spacing:.06em;
+  color:rgba(255,255,255,.5); white-space:normal;
+}
 
 .fullscreen-button,
 .control-button {
@@ -840,6 +846,75 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
   .screen-controls.is-expanded > button:not(.controls-collapse-toggle) {
     width:auto; padding:.32rem .52rem; opacity:1; pointer-events:auto;
   }
+}
+
+/* ------------------------------------------------------------------
+   以下这组规则专门用 html.is-small-device 来判断"是不是手机",
+   不用 @media(max-width) 断点。
+   原因:index.html 头部的等比例缩放脚本会把任何 <1280px 的屏幕
+   强制按 1280px 桌面版面渲染,再整体缩小显示——这样一来,
+   CSS 看到的"版面宽度"永远不会小于 1280px,
+   上面 @media(max-width:900px)/(max-width:600px) 这两组手机专属样式
+   (控制栏折叠、更紧凑的间距等)在真手机上其实从来没有触发过。
+   is-small-device 这个 class 是头部脚本用真实物理屏幕宽度
+   (window.screen.width,不受缩放影响)另外打的标记,可以用它来
+   确保这些手机专属样式一定会生效。
+   ------------------------------------------------------------------ */
+html.is-small-device .screen-controls { padding:.22rem; }
+html.is-small-device .controls-collapse-toggle {
+  order:1; position:relative; flex:0 0 auto;
+  display:flex; align-items:center; justify-content:center;
+  width:calc(44px / var(--viewport-scale,1)); height:calc(44px / var(--viewport-scale,1));
+  border:0; border-radius:50%;
+  background:rgba(255,255,255,.13); cursor:pointer;
+}
+html.is-small-device .controls-collapse-toggle-bar {
+  position:absolute; left:50%; width:.85rem; height:1px;
+  background:#fff; transform:translateX(-50%);
+  transition:transform .25s ease, opacity .2s ease;
+}
+html.is-small-device .controls-collapse-toggle-bar:nth-child(1) { top:calc(50% - .3rem); }
+html.is-small-device .controls-collapse-toggle-bar:nth-child(2) { top:50%; }
+html.is-small-device .controls-collapse-toggle-bar:nth-child(3) { top:calc(50% + .3rem); }
+html.is-small-device .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(1) { transform:translateX(-50%) translateY(.3rem) rotate(45deg); }
+html.is-small-device .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(2) { opacity:0; }
+html.is-small-device .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(3) { transform:translateX(-50%) translateY(-.3rem) rotate(-45deg); }
+
+html.is-small-device .screen-controls > button:not(.controls-collapse-toggle) {
+  width:0; padding:0; opacity:0; pointer-events:none; overflow:hidden;
+  transition:width .25s ease, opacity .2s ease, padding .25s ease;
+  min-height:calc(44px / var(--viewport-scale,1));
+}
+html.is-small-device .screen-controls.is-expanded > button:not(.controls-collapse-toggle) {
+  width:auto; padding:.32rem .52rem; opacity:1; pointer-events:auto;
+}
+
+/* 触控区域:手机上的圆点尺寸看起来跟桌面一样,但实际点击范围按物理 44px 放大,
+   避免因为整体缩放导致点击热区比看起来的还要小。 */
+html.is-small-device .control-button,
+html.is-small-device .timeline-arrow {
+  min-width:calc(44px / var(--viewport-scale,1));
+  min-height:calc(44px / var(--viewport-scale,1));
+}
+html.is-small-device .timeline-stop {
+  min-width:calc(44px / var(--viewport-scale,1));
+  min-height:calc(44px / var(--viewport-scale,1));
+}
+
+/* 竖屏提示遮罩:只在手机 + 竖屏时出现,提醒横屏 + 进全屏,箭头指向右上角的全屏按钮。 */
+.rotate-overlay {
+  display:none; position:fixed; inset:0; z-index:200;
+  align-items:center; justify-content:center; flex-direction:column;
+  background:rgba(0,0,0,.5); backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px);
+  pointer-events:none;
+}
+html.is-small-device .rotate-overlay.is-visible { display:flex; pointer-events:auto; }
+.rotate-overlay-text { text-align:center; color:#fff; padding:0 2rem; }
+.rotate-overlay-zh { font-size:1rem; letter-spacing:.06em; margin-bottom:.4rem; }
+.rotate-overlay-en { font:500 .74rem/1.4 "Helvetica Neue",Arial,sans-serif; color:rgba(255,255,255,.72); }
+.rotate-overlay-arrow {
+  position:absolute; top:4.6rem; right:3.2rem; width:5rem; height:5rem;
+  transform:scaleX(-1);
 }
 
 @media (max-height:600px) and (orientation:landscape) {

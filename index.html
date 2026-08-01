@@ -20,8 +20,14 @@
           meta.setAttribute('content',
             'width=' + REFERENCE_WIDTH + ', initial-scale=' + scale +
             ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', viewport-fit=cover');
+          // 版面按 1280px 渲染后又被整体缩小 scale 倍,所以写在 CSS 里的 1rem
+          // 到了真机屏幕上,实际物理尺寸也会缩小 scale 倍。
+          // 把这个缩小倍数存成一个 CSS 变量,方便控件用 calc(目标物理像素 / var(--viewport-scale))
+          // 反向放大,保证按钮在手机上摸起来仍然有足够大的点击区域。
+          document.documentElement.style.setProperty('--viewport-scale', scale);
         } else {
           meta.setAttribute('content', 'width=device-width, initial-scale=1.0, viewport-fit=cover');
+          document.documentElement.style.setProperty('--viewport-scale', '1');
         }
       }
       applyScale();
@@ -147,6 +153,17 @@
       </p>
     </div>
   </section>
+
+  <div id="rotate-overlay" class="rotate-overlay" aria-hidden="true">
+    <div class="rotate-overlay-text">
+      <p class="rotate-overlay-zh">请横屏观看，并点击进入全屏</p>
+      <p class="rotate-overlay-en">Please rotate your phone and enter fullscreen</p>
+    </div>
+    <svg class="rotate-overlay-arrow" viewBox="0 0 160 160" aria-hidden="true">
+      <path d="M20,120 C20,55 70,25 130,28" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M108,16 L134,27 L112,44" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
 
   <div class="screen-controls" aria-label="观看控制">
     <button id="controls-collapse-toggle" class="controls-collapse-toggle" type="button" aria-label="展开控制栏" aria-expanded="false">

@@ -3,6 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <script>
+    // 小屏幕等比例缩放(不重新排版,直接把电脑版面整体缩小显示)。
+    // 参考宽度设为 1280px:任何比这窄的屏幕(手机、平板、缩小的浏览器窗口),
+    // 都会强制按电脑版面(1280px 宽)渲染,再用浏览器原生的 viewport 缩放整体缩小,
+    // 版面、间距、比例跟电脑上完全一致,不会有任何元素被裁掉或重新排版——只是变小了。
+    // 必须放在 <head> 最前面、样式表加载之前执行,否则会先看到一下没缩放的版面再跳变。
+    (function () {
+      var REFERENCE_WIDTH = 1280;
+      var meta = document.querySelector('meta[name="viewport"]');
+      function applyScale() {
+        if (!meta) return;
+        var w = window.innerWidth;
+        if (w < REFERENCE_WIDTH) {
+          var scale = (w / REFERENCE_WIDTH).toFixed(5);
+          meta.setAttribute('content',
+            'width=' + REFERENCE_WIDTH + ', initial-scale=' + scale +
+            ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', viewport-fit=cover');
+        } else {
+          meta.setAttribute('content', 'width=device-width, initial-scale=1.0, viewport-fit=cover');
+        }
+      }
+      applyScale();
+      window.addEventListener('resize', applyScale);
+      window.addEventListener('orientationchange', function () { setTimeout(applyScale, 60); });
+
+      // screen.width 是物理屏幕宽度,不受上面缩放的影响,用它来打一个"小屏幕"标记,
+      // 给需要在小屏幕上换一套文案/样式的地方用(比如"电脑访问,体验更佳"提示),
+      // 不能再用 @media(max-width) 判断了,因为布局宽度已经被强制伪装成 1280px。
+      if (Math.min(window.screen.width, window.screen.height) < 900) {
+        document.documentElement.classList.add('is-small-device');
+      }
+    })();
+  </script>
   <title>1970 · The Door | 门</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -116,7 +149,11 @@
   </section>
 
   <div class="screen-controls" aria-label="观看控制">
-    <button id="controls-collapse-toggle" class="controls-collapse-toggle" type="button" aria-label="展开控制栏" aria-expanded="false">⋯</button>
+    <button id="controls-collapse-toggle" class="controls-collapse-toggle" type="button" aria-label="展开控制栏" aria-expanded="false">
+      <span class="controls-collapse-toggle-bar" aria-hidden="true"></span>
+      <span class="controls-collapse-toggle-bar" aria-hidden="true"></span>
+      <span class="controls-collapse-toggle-bar" aria-hidden="true"></span>
+    </button>
     <button class="fullscreen-button fullscreen-button-corner" type="button" aria-label="切换全屏">
       <span class="enter-fullscreen-label motion-control-name">全屏 <i>FULLSCREEN</i></span>
       <span class="exit-fullscreen-label motion-control-name">退出全屏 <i>EXIT FULLSCREEN</i></span>
@@ -159,6 +196,7 @@
   <nav id="timeline" class="timeline" aria-label="故事时间线">
     <button class="control-button timeline-arrow timeline-arrow-prev" type="button" aria-label="上一幕">←</button>
     <div class="timeline-track">
+     <div class="timeline-track-inner">
       <div class="timeline-line" aria-hidden="true"></div>
       <button class="timeline-stop is-active" type="button" data-scene="start" aria-label="返回序言">
         <span class="timeline-year">序 · Prologue</span><span class="timeline-dot"></span>
@@ -172,6 +210,7 @@
       <button class="timeline-stop" type="button" data-scene="epilogue" aria-label="前往跋">
         <span class="timeline-year">跋 · Epilogue</span><span class="timeline-dot"></span>
       </button>
+     </div>
     </div>
     <button class="control-button timeline-arrow timeline-arrow-next" type="button" aria-label="下一幕">→</button>
   </nav>

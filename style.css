@@ -12,6 +12,7 @@ html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 body {
   background:#050505; color:#fff;
   font-family:"Songti SC","Noto Serif SC","Times New Roman",serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
            env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
@@ -224,6 +225,8 @@ html[data-content-font-size="large"] .epilogue-screen.is-safety-condensed .epilo
   0%,100% { text-shadow:0 0 .2rem rgba(255,255,255,.15); opacity:.75; }
   50% { text-shadow:0 0 .85rem rgba(255,255,255,.85),0 0 .3rem rgba(255,255,255,.6); opacity:1; }
 }
+html.is-small-device .fullscreen-invitation { display:none; }
+html.is-small-device .desktop-invitation { display:block; }
 
 .fullscreen-button,
 .control-button {
@@ -246,6 +249,7 @@ body.is-fullscreen .exit-fullscreen-label { display:inline; }
   box-shadow:0 .35rem 1.4rem rgba(0,0,0,.12); overflow:hidden;
 }
 .screen-controls > button { position:relative; z-index:0; }
+.controls-collapse-toggle { display:none; }
 .fullscreen-button-corner {
   display:flex; align-items:center; min-height:2rem; padding:.32rem .56rem .32rem .66rem;
   border:0; border-radius:999px 0 0 999px; background:transparent;
@@ -351,7 +355,11 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
   font-family:"Helvetica Neue",Arial,sans-serif;
 }
 .timeline-track {
-  position:relative; flex:1; height:4.7rem; display:flex; align-items:flex-start; justify-content:space-between;
+  position:relative; flex:1; height:4.7rem; overflow:visible;
+}
+.timeline-track-inner {
+  position:relative; height:4.7rem; width:100%;
+  display:flex; align-items:flex-start; justify-content:space-between;
 }
 .timeline-line {
   position:absolute; left:3.5%; right:3.5%; top:1.7rem; border-top:1px dashed rgba(255,255,255,.32);
@@ -766,6 +774,10 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
 .hotspot-tooltip .tooltip-more { color:#fff; font:600 .58rem/1.4 "Helvetica Neue",Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 
 @media (max-width:900px) {
+  /* 注意:这个断点现在基本不会再被触发了。
+     因为 index.html 里新加的缩放脚本,只要屏幕比 1280px 窄,
+     就会把版面强制按 1280px 宽渲染再整体缩小,所以布局宽度不会再小于 900px。
+     这里面原来的规则先保留、不删,万一以后要改回"真正重新排版"的做法还能用得上。 */
   .experience { width:100vw; height:100dvh; border:none; }
   .context-panel { width:min(78vw,27rem); }
   .context-collapse { right:min(78vw,27rem); }
@@ -776,33 +788,51 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
   .memory-thought-inner { min-height:8rem; padding:.95rem 1.7rem .9rem; }
   .audio-hint { left:1rem; right:1rem; bottom:9.8rem; max-width:none; }
 
-  /* 时间线:横向滑动 + 吸附居中(snap scroll) */
+  /* 时间线:横向滑动 + 吸附居中(snap scroll)。
+     inner 是真正被滚动的那一层,虚线和圆点在同一层一起滚动,虚线不会再"断开"。 */
   .timeline { width:100%; gap:.4rem; }
   .timeline-track {
     overflow-x:auto; overflow-y:hidden;
-    justify-content:flex-start; gap:1.2rem;
     scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;
-    padding:0 42vw;
     scrollbar-width:none;
   }
   .timeline-track::-webkit-scrollbar { display:none; }
-  .timeline-stop { scroll-snap-align:center; flex:0 0 auto; min-width:3.4rem; }
-  .timeline-title { max-width:9rem; }
+  .timeline-track-inner {
+    justify-content:flex-start; gap:1.1rem; width:max-content;
+    padding:0 42vw; /* 让首尾也能滑到屏幕正中,制造居中吸附感 */
+  }
+  .timeline-stop { scroll-snap-align:center; scroll-snap-stop:always; flex:0 0 auto; min-width:3.2rem; }
+  .timeline-line { left:calc(42vw + 1.6rem); right:calc(42vw + 1.6rem); }
+  .timeline-title { max-width:8rem; }
   .timeline-title b { font-size:.56rem; }
   .timeline-title i { font-size:.48rem; }
-
-  .fullscreen-invitation { display:none; }
-  .desktop-invitation { display:block; }
 }
 
 @media (max-width:600px) {
-  /* 控制栏默认收起,只留一个小图标 */
+  /* 控制栏:默认只显示一个圆形汉堡按钮,点开才展开四个开关。
+     order:1 让这个按钮始终排在容器最右边(锚定边);
+     展开时容器往左边变宽,这个按钮的屏幕位置不会跟着挪动,
+     所以在同一个位置就能点开/点关,不会出现"打开了关不掉"的问题。 */
+  .screen-controls { padding:.22rem; }
   .controls-collapse-toggle {
+    order:1; position:relative; flex:0 0 auto;
     display:flex; align-items:center; justify-content:center;
-    width:2rem; height:2rem; border:0; background:transparent;
-    color:#fff; font-size:1.1rem; cursor:pointer;
+    width:2.1rem; height:2.1rem; border:0; border-radius:50%;
+    background:rgba(255,255,255,.13); cursor:pointer;
   }
+  .controls-collapse-toggle-bar {
+    position:absolute; left:50%; width:.85rem; height:1px;
+    background:#fff; transform:translateX(-50%);
+    transition:transform .25s ease, opacity .2s ease;
+  }
+  .controls-collapse-toggle-bar:nth-child(1) { top:.75rem; }
+  .controls-collapse-toggle-bar:nth-child(2) { top:1.05rem; }
+  .controls-collapse-toggle-bar:nth-child(3) { top:1.35rem; }
+  .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(1) { transform:translateX(-50%) translateY(.3rem) rotate(45deg); }
+  .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(2) { opacity:0; }
+  .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(3) { transform:translateX(-50%) translateY(-.3rem) rotate(-45deg); }
+
   .screen-controls > button:not(.controls-collapse-toggle) {
     width:0; padding:0; opacity:0; pointer-events:none; overflow:hidden;
     transition:width .25s ease, opacity .2s ease, padding .25s ease;
@@ -823,7 +853,7 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
   .step-zh { font-size:calc(1.02rem * var(--content-font-scale)); }
   .step-en { font-size:calc(.72rem * var(--content-font-scale)); }
   .timeline { bottom:0; height:3.5rem; }
-  .timeline-track,.timeline-stop { height:3.5rem; }
+  .timeline-track,.timeline-track-inner,.timeline-stop { height:3.5rem; }
   .timeline-line { top:1.25rem; }
   .timeline-dot { top:.99rem; width:.52rem; height:.52rem; }
   .timeline-year { top:.02rem; font-size:.5rem; }

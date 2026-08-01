@@ -1267,8 +1267,10 @@ function shouldUseAppleAlphaVideo() {
   const userAgent = navigator.userAgent || "";
   const isIOS = /iPhone|iPad|iPod/i.test(userAgent)
     || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  const isSafari = /Safari/i.test(userAgent) && !/(Chrome|Chromium|CriOS|Edg|OPR|Android)/i.test(userAgent);
-  return isIOS || isSafari;
+  // 桌面 Safari（没有触屏的 Mac）保持原来的 webm 播放,不走 hevc——
+  // desktop 体验是设计优先级,一直用 webm 没问题,hevc 文件更大,
+  // 没必要在桌面上多绕一层。只有真正的触屏 iOS 设备才用 hevc。
+  return isIOS;
 }
 
 function configureMotionMedia(media) {

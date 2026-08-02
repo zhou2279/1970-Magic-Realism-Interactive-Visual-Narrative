@@ -691,8 +691,8 @@ const HOTSPOTS = [
       zh:"心里的念头", en:"Thoughts Kept Inside",
       note:"黑色手写字是沈蕙兰在每日批判会中没有说出口的心里念头。",
       noteEn:"The black handwriting records thoughts that Shen Huilan does not say aloud during the daily struggle session.",
-      learnMoreZh:"爹的信上個月沒來。\n\n我的手指又泡白了。\n\n我記得，小時候——\n\n我聽說，有人家裡……\n\n我今年二十六歲。\n\n我讀過五年大學！！\n\n娘上封信說家裡都好，「都好」兩個字寫得很重。\n\n我記得《詩經》裡有一句——\n\n惠國今年要高中畢業了，我們不知道他會被分到哪。\n\n不明白。\n\n我不知道這樣的年頭還有幾個。",
-      learnMoreEn:"No letter from Father came last month.\n\nMy fingers are pale and soaked again.\n\nI remember. When I was small—\n\nI heard. In someone's family…\n\nI am twenty-six this year.\n\nI studied five years at university!!\n\nIn her last letter, Mother wrote that everything at home was fine. She pressed hard on those two words: fine.\n\nI remember a line from the Book of Songs—\n\nHuiguo graduates high school this year. We don't know where he'll be sent.\n\nI don't understand.\n\nI don't know how many more years like this there will be.",
+      learnMoreZh:"黑色手写文字记录她没有公开说出的心声。此处将逐句提供英文翻译；除《诗经》及其在文革时期的处境外，不增加额外历史说明。",
+      learnMoreEn:"The black handwriting records thoughts Shen Huilan does not say aloud during the daily struggle session. This section will provide line-by-line English translations, with additional context limited to the Book of Songs and its position during the Cultural Revolution.",
       hideChapterContext:true
     },
     {
@@ -701,8 +701,8 @@ const HOTSPOTS = [
       zh:"批判会发言", en:"Speech at the Struggle Session",
       note:"白色印刷字是沈蕙兰在每日批判会上实际说出口、经过自我审核的发言。",
       noteEn:"The white printed text records what Shen Huilan says aloud after revising her thoughts into politically acceptable language.",
-      learnMoreZh:"思想改造是长期的任务。\n\n灵魂深处爆发革命，狠斗“私”字一闪念。\n\n知识分子必须与工农相结合。\n\n个人服从组织，局部服从整体。\n\n广阔天地，大有作为。\n\n接受贫下中农再教育是光荣的。",
-      learnMoreEn:"Ideological reform is a long-term task.\n\nWage revolution in the depths of the soul; fiercely battle every flicker of \"self.\"\n\nIntellectuals must integrate with workers and peasants.\n\nThe individual obeys the organization; the part obeys the whole.\n\nA vast world awaits, where much can be achieved.\n\nIt is an honor to accept re-education from the poor and lower-middle peasants.",
+      learnMoreZh:"白色印刷文字是她把心里念头改写成政治上安全、可以公开说出的语言。此处将逐句提供英文翻译，并简要说明相关话术来源，以及它如何批判、压制对应的内心话。",
+      learnMoreEn:"The white printed text is the politically permissible language into which she reshapes her private thoughts before speaking. This section will provide line-by-line translations and brief notes on the rhetoric’s sources and how it disciplines the corresponding inner voice.",
       hideChapterContext:true
     }
   ],
@@ -833,6 +833,7 @@ const CHAPTERS = [
         id:"ch4-text",
         webm:"assets/chapters/motion/ch4-text.webm",
         hevc:"assets/chapters/motion/ch4-text-hevc.mov",
+        hevcOnDesktop:true,
         placement:"base", layer:2, start:"image-entry", stop:"chapter-exit",
         startDelay:3500, playbackRate:1, opacity:.82, blendMode:"normal",
         loop:false, duration:5000
@@ -841,6 +842,7 @@ const CHAPTERS = [
         id:"ch4-mao-glow",
         webm:"assets/chapters/motion/ch4-mao-glow.webm",
         hevc:"assets/chapters/motion/ch4-mao-glow-hevc.mov",
+        hevcOnDesktop:true,
         placement:"base", layer:3, start:"image-entry", stop:"chapter-exit",
         startDelay:0, playbackRate:1, loop:true
       }
@@ -1227,7 +1229,8 @@ function initBackgrounds() {
       : `<img class="chapter-bg chapter-bg-composite" src="${chapter.image}" alt="${chapter.title}：完成拼贴图">`;
     const motionOverlays = chapter.motionOverlays || (chapter.motionOverlay ? [chapter.motionOverlay] : []);
     const motionMedia = motionOverlays.map(overlay => {
-      const motionSource = shouldUseAppleAlphaVideo() && overlay.hevc ? overlay.hevc : overlay.webm;
+      const useHevc = overlay.hevc && (shouldUseAppleAlphaVideo() || (overlay.hevcOnDesktop && isDesktopSafari()));
+      const motionSource = useHevc ? overlay.hevc : overlay.webm;
       const loopAttribute = overlay.loop && overlay.loopStart == null ? "loop" : "";
       const hasFrame = Boolean(overlay.frame);
       const frameClass = hasFrame ? " is-frame" : "";
@@ -1271,6 +1274,16 @@ function shouldUseAppleAlphaVideo() {
   // desktop 体验是设计优先级,一直用 webm 没问题,hevc 文件更大,
   // 没必要在桌面上多绕一层。只有真正的触屏 iOS 设备才用 hevc。
   return isIOS;
+}
+
+// 第四章一直用的是"桌面 Safari 也走 hevc"这套旧逻辑,本来就没问题,
+// 所以单独给它开个例外,不受上面"桌面一律用 webm"的新规则影响。
+function isDesktopSafari() {
+  const userAgent = navigator.userAgent || "";
+  const isTouch = /iPhone|iPad|iPod/i.test(userAgent)
+    || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const isSafari = /Safari/i.test(userAgent) && !/(Chrome|Chromium|CriOS|Edg|OPR|Android)/i.test(userAgent);
+  return isSafari && !isTouch;
 }
 
 function configureMotionMedia(media) {

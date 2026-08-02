@@ -909,13 +909,15 @@ html.is-small-device .timeline-stop {
   pointer-events:none;
 }
 html.is-small-device .rotate-overlay.is-visible { display:flex; pointer-events:auto; }
-.rotate-overlay-text { text-align:center; color:#fff; padding:0 2rem; }
-.rotate-overlay-zh { font-size:1rem; letter-spacing:.06em; margin-bottom:.4rem; }
-.rotate-overlay-en { font:500 .74rem/1.4 "Helvetica Neue",Arial,sans-serif; color:rgba(255,255,255,.72); }
-.rotate-overlay-arrow {
-  position:absolute; top:4.6rem; right:3.2rem; width:5rem; height:5rem;
-  transform:scaleX(-1);
+.rotate-overlay-text {
+  text-align:center; color:#fff; cursor:pointer;
+  padding:1.9rem 2.1rem; margin:0 2rem; border-radius:1.3rem;
+  border:1px solid rgba(255,255,255,.38); background:rgba(255,255,255,.09);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
 }
+.rotate-overlay-zh { font-size:1.7rem; font-weight:600; letter-spacing:.07em; margin-bottom:.55rem; }
+.rotate-overlay-en { font:500 .95rem/1.5 "Helvetica Neue",Arial,sans-serif; color:rgba(255,255,255,.82); }
+.rotate-overlay-arrow { display:none; }
 
 @media (max-height:600px) and (orientation:landscape) {
   .screen-controls { top:.7rem; right:.7rem; }

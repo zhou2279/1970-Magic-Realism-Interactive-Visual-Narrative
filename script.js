@@ -4534,6 +4534,8 @@ function updateRotateOverlay() {
 }
 window.addEventListener("orientationchange", () => setTimeout(updateRotateOverlay, 80));
 window.addEventListener("resize", updateRotateOverlay);
+// 遮罩本身现在就是可点击的进入全屏入口(不再依赖点到它下面、被完全遮挡的角落按钮)。
+rotateOverlay?.addEventListener("click", toggleFullscreen);
 
 function getFontSizePreset(presetId = fontSizePreference) {
   return FONT_SIZE_PRESETS.find(preset => preset.id === presetId) || FONT_SIZE_PRESETS[0];

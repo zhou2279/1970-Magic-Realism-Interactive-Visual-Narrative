@@ -335,6 +335,38 @@ const CHAPTER_4_SOUND = {
   loopTailSeconds:.3
 };
 
+// 第二章 BGM（ch2-loop）：与 Ch4/Ch6 相同的 sample-accurate 无缝循环方案。
+// 先导文阶段不出声；画面出现的一刻（showImage）才开始播放，与 ch2-once-shatter 同时触发。
+const CHAPTER_2_LOOP_SOUND = {
+  srcOgg:"assets/sound/ch2-loop.ogg",
+  srcM4a:"assets/sound/ch2-loop.m4a",
+  // 循环声部音量 —— 后期在这里调节（0 = 静音，1 = 满音量）。
+  revealVolume:1,
+  revealFadeDuration:1800,
+  exitFadeDuration:1200,
+  unmuteFadeDuration:500,
+  // 实测两个源文件的编码器 padding 并不一样，因此分开裁剪（浏览器 decodeAudioData 不会
+  // 自动读取 m4a 的 gapless 元数据，会把 AAC 编码器加的静音一起解码出来）：
+  // - ch2-loop.ogg（Vorbis）：开头无可裁静音，内容从第 0 秒开始；结尾约 21ms 真静音。
+  // - ch2-loop.m4a（AAC）：开头约 47.9ms 真静音（标准 2112-sample 编码器 priming delay）；
+  //   结尾约 21ms 真静音，与 ogg 版本一致。
+  loopStartSecondsOgg:0,
+  loopEndTrimSecondsOgg:.025,
+  loopStartSecondsM4a:.05,
+  loopEndTrimSecondsM4a:.025,
+  loopTailSeconds:.3
+};
+
+// 第二章一次性音效（ch2-once-shatter）：单次播放，不循环，与 ch2-loop 同时触发。
+// 走与第五章开门音效相同的 decodeAudioData → AudioBufferSourceNode 管线（共用同一个
+// AudioContext），使用独立的 GainNode，音量与 ch2-loop 互不影响。
+const CHAPTER_2_ONCE_SOUND = {
+  srcOgg:"assets/sound/ch2-once-shatter.ogg",
+  srcM4a:"assets/sound/ch2-once-shatter.m4a",
+  // 一次性音效音量 —— 后期在这里调节。
+  volume:.6
+};
+
 // 第五章开门音效：单次播放（不循环），与门开启动效同时触发。
 // 走与第六章环境声相同的 decodeAudioData → AudioBufferSourceNode 管线（共用同一个 AudioContext），
 // 但使用独立的 GainNode，音量与 Ch6 环境声互不影响。
@@ -710,6 +742,7 @@ const HOTSPOTS = [
   []
 ];
 
+const CHAPTER_2_INDEX = 1;
 const CHAPTER_4_INDEX = 3;
 const CHAPTER_6_INDEX = 5;
 const CHAPTER_6_MEMORY_CUES = [
@@ -1043,6 +1076,24 @@ let doorSoundBuffer = null;
 let doorSoundBufferPromise = null;
 let doorSoundUseFallbackElement = false;
 let doorSoundAudioEl = null;
+
+// 第二章循环声部（ch2-loop）状态，实现方式与第四章环境声完全一致。
+let chapter2LoopAudioEl = null;
+let chapter2LoopGainNode = null;
+let chapter2LoopFadeFrame = null;
+let chapter2LoopBuffer = null;
+let chapter2LoopBufferPromise = null;
+let chapter2LoopBufferIsM4a = false;
+let chapter2LoopBufferSource = null;
+let chapter2LoopUseFallbackElement = false;
+let chapter2LoopRevealed = false;
+
+// 第二章一次性音效（ch2-once-shatter）状态，实现方式与第五章开门音效完全一致。
+let chapter2OnceGainNode = null;
+let chapter2OnceBuffer = null;
+let chapter2OnceBufferPromise = null;
+let chapter2OnceUseFallbackElement = false;
+let chapter2OnceAudioEl = null;
 let narrativePointerStart = null;
 let epilogueSafetyFrame = null;
 const introParticlePointer = {
@@ -1946,6 +1997,7 @@ function enterEpilogue() {
   if (epilogueActive) return;
   if (chapterIndex === CHAPTER_6_INDEX) stopChapter6Ambient();
   if (chapterIndex === CHAPTER_4_INDEX) stopChapter4Ambient();
+  if (chapterIndex === CHAPTER_2_INDEX) stopChapter2Loop();
   busy = true;
   startActive = false;
   epilogueActive = true;
@@ -2001,6 +2053,7 @@ function dismissStart(immediate = false) {
 function showStart() {
   if (chapterIndex === CHAPTER_6_INDEX) stopChapter6Ambient();
   if (chapterIndex === CHAPTER_4_INDEX) stopChapter4Ambient();
+  if (chapterIndex === CHAPTER_2_INDEX) stopChapter2Loop();
   hideEpilogue();
   startScreen.prepend(introParticles);
   startTimers.forEach(clearTimeout);
@@ -2448,6 +2501,7 @@ async function enterChapter(index, initialStep = 0) {
   teardownChapter6Memory();
   if (chapterIndex === CHAPTER_6_INDEX && index !== CHAPTER_6_INDEX) stopChapter6Ambient();
   if (chapterIndex === CHAPTER_4_INDEX && index !== CHAPTER_4_INDEX) stopChapter4Ambient();
+  if (chapterIndex === CHAPTER_2_INDEX && index !== CHAPTER_2_INDEX) stopChapter2Loop();
   chapterIndex = index;
   stepIndex = initialStep;
   phase = "text";
@@ -2475,6 +2529,7 @@ async function showImage() {
   app.className = "app is-image-mode is-transitioning is-js-fading";
   if (chapter.baseOnly) startChapterMotion(visual, "image-entry");
   if (chapterIndex === CHAPTER_4_INDEX) revealChapter4Ambient();
+  if (chapterIndex === CHAPTER_2_INDEX) { revealChapter2Loop(); playChapter2OnceSound(); }
   let hotspotMotion = Promise.resolve();
   renderHotspots();
   updateNav();
@@ -3072,6 +3127,14 @@ function ensureChapter6AudioContext() {
   chapter4AmbientGainNode = chapter6AudioContext.createGain();
   chapter4AmbientGainNode.gain.value = 0;
   chapter4AmbientGainNode.connect(chapter6AudioContext.destination);
+  // 第二章循环声部的独立 GainNode，共用同一个 AudioContext。
+  chapter2LoopGainNode = chapter6AudioContext.createGain();
+  chapter2LoopGainNode.gain.value = 0;
+  chapter2LoopGainNode.connect(chapter6AudioContext.destination);
+  // 第二章一次性音效的独立 GainNode，音量与 ch2-loop 互不影响。
+  chapter2OnceGainNode = chapter6AudioContext.createGain();
+  chapter2OnceGainNode.gain.value = CHAPTER_2_ONCE_SOUND.volume;
+  chapter2OnceGainNode.connect(chapter6AudioContext.destination);
   return chapter6AudioContext;
 }
 
@@ -3400,6 +3463,329 @@ function unmuteChapter4AmbientIfActive() {
 }
 
 // ============================================================
+// 第二章循环声部（ch2-loop）：实现方式与第四章环境声完全一致（decodeAudioData →
+// AudioBufferSourceNode，sample-accurate 无缝循环，<audio> 元素兜底）。
+// 先导文阶段不出声；画面出现的一刻（showImage）才开始播放，与 ch2-once-shatter 同时触发。
+// ============================================================
+function loadChapter2LoopBuffer() {
+  if (chapter2LoopBuffer) return Promise.resolve(chapter2LoopBuffer);
+  if (chapter2LoopBufferPromise) return chapter2LoopBufferPromise;
+  const context = ensureChapter6AudioContext();
+  if (!context) return Promise.resolve(null);
+  const probe = new Audio();
+  const canPlayM4a = probe.canPlayType("audio/mp4; codecs=mp4a.40.2");
+  chapter2LoopBufferIsM4a = Boolean(canPlayM4a);
+  const src = canPlayM4a ? CHAPTER_2_LOOP_SOUND.srcM4a : CHAPTER_2_LOOP_SOUND.srcOgg;
+  chapter2LoopBufferPromise = fetch(src)
+    .then(response => {
+      if (!response.ok) throw new Error(`fetch failed: ${response.status}`);
+      return response.arrayBuffer();
+    })
+    .then(arrayBuffer => context.decodeAudioData(arrayBuffer))
+    .then(buffer => {
+      chapter2LoopBuffer = buffer;
+      return buffer;
+    })
+    .catch(fetchError => {
+      console.warn("[ch2-loop-sound] decodeAudioData pipeline unavailable, falling back to <audio> element:", fetchError);
+      chapter2LoopUseFallbackElement = true;
+      return null;
+    });
+  return chapter2LoopBufferPromise;
+}
+
+function stopChapter2LoopBufferSource() {
+  if (!chapter2LoopBufferSource) return;
+  try { chapter2LoopBufferSource.onended = null; chapter2LoopBufferSource.stop(); } catch (_) {}
+  chapter2LoopBufferSource = null;
+}
+
+function startChapter2LoopBufferSource(buffer) {
+  const context = ensureChapter6AudioContext();
+  if (!context || !buffer || !chapter2LoopGainNode) return false;
+  stopChapter2LoopBufferSource();
+  const source = context.createBufferSource();
+  source.buffer = buffer;
+  source.loop = true;
+  const loopStartSeconds = chapter2LoopBufferIsM4a ? CHAPTER_2_LOOP_SOUND.loopStartSecondsM4a : CHAPTER_2_LOOP_SOUND.loopStartSecondsOgg;
+  const loopEndTrimSeconds = chapter2LoopBufferIsM4a ? CHAPTER_2_LOOP_SOUND.loopEndTrimSecondsM4a : CHAPTER_2_LOOP_SOUND.loopEndTrimSecondsOgg;
+  const loopStart = Math.max(0, Math.min(buffer.duration, loopStartSeconds || 0));
+  const loopEnd = Math.max(loopStart, buffer.duration - Math.max(0, loopEndTrimSeconds || 0));
+  source.loopStart = loopStart;
+  source.loopEnd = loopEnd;
+  source.connect(chapter2LoopGainNode);
+  source.start(0, loopStart);
+  chapter2LoopBufferSource = source;
+  return true;
+}
+
+function ensureChapter2LoopElement() {
+  if (chapter2LoopAudioEl) return chapter2LoopAudioEl;
+  const context = ensureChapter6AudioContext();
+  if (!context) { console.warn("[ch2-loop-sound] AudioContext unavailable"); return null; }
+  const audio = new Audio();
+  audio.preload = "auto";
+  audio.loop = false;
+  audio.crossOrigin = "anonymous";
+  const canPlayM4a = audio.canPlayType("audio/mp4; codecs=mp4a.40.2");
+  audio.src = canPlayM4a ? CHAPTER_2_LOOP_SOUND.srcM4a : CHAPTER_2_LOOP_SOUND.srcOgg;
+  audio.addEventListener("error", () => {
+    if (audio.dataset.fallbackTried) {
+      console.warn("[ch2-loop-sound] could not load ambient audio (both sources failed)");
+      return;
+    }
+    audio.dataset.fallbackTried = "1";
+    const fallbackSrc = audio.src.includes(encodeURI(CHAPTER_2_LOOP_SOUND.srcM4a).split("/").pop())
+      ? CHAPTER_2_LOOP_SOUND.srcOgg
+      : CHAPTER_2_LOOP_SOUND.srcM4a;
+    console.warn("[ch2-loop-sound] primary source failed, falling back to:", fallbackSrc);
+    audio.src = fallbackSrc;
+    audio.load();
+  });
+  audio.addEventListener("timeupdate", () => {
+    if (!audio.duration) return;
+    if (audio.currentTime >= audio.duration - CHAPTER_2_LOOP_SOUND.loopTailSeconds) audio.currentTime = 0;
+  });
+  audio.addEventListener("ended", () => {
+    if (!chapter2LoopGainNode) return;
+    try { audio.currentTime = 0; } catch (_) {}
+    audio.play().catch(() => {});
+  });
+  const source = context.createMediaElementSource(audio);
+  source.connect(chapter2LoopGainNode);
+  chapter2LoopAudioEl = audio;
+  return audio;
+}
+
+function startChapter2LoopFallbackElement() {
+  const context = ensureChapter6AudioContext();
+  const audio = ensureChapter2LoopElement();
+  if (!context || !audio) return;
+  audio.currentTime = 0;
+  audio.play()?.catch(playbackError => console.warn("[ch2-loop-sound] play() failed:", playbackError));
+}
+
+function startChapter2LoopSource() {
+  if (chapter2LoopUseFallbackElement) {
+    startChapter2LoopFallbackElement();
+    return;
+  }
+  loadChapter2LoopBuffer().then(buffer => {
+    if (buffer) {
+      if (!startChapter2LoopBufferSource(buffer)) startChapter2LoopFallbackElement();
+    } else {
+      startChapter2LoopFallbackElement();
+    }
+  });
+}
+
+function stopChapter2LoopSourceOnly() {
+  stopChapter2LoopBufferSource();
+  if (chapter2LoopAudioEl) chapter2LoopAudioEl.pause();
+}
+
+function isChapter2LoopSourcePlaying() {
+  return Boolean(chapter2LoopBufferSource) || (chapter2LoopAudioEl && !chapter2LoopAudioEl.paused);
+}
+
+function cancelChapter2LoopFade() {
+  if (chapter2LoopFadeFrame) cancelAnimationFrame(chapter2LoopFadeFrame);
+  chapter2LoopFadeFrame = null;
+}
+
+function setChapter2LoopGain(value) {
+  if (chapter2LoopGainNode) chapter2LoopGainNode.gain.value = value;
+}
+
+function getChapter2LoopGain() {
+  return chapter2LoopGainNode ? chapter2LoopGainNode.gain.value : 0;
+}
+
+function fadeChapter2Loop(targetVolume, duration) {
+  if (!chapter2LoopGainNode) return;
+  cancelChapter2LoopFade();
+  const clampedTarget = Math.max(0, Math.min(1, targetVolume));
+  if (!soundEnabled) {
+    setChapter2LoopGain(0);
+    stopChapter2LoopSourceOnly();
+    return;
+  }
+  if (duration <= 0 || prefersReducedMotion()) {
+    setChapter2LoopGain(clampedTarget);
+    return;
+  }
+  const startVolume = getChapter2LoopGain();
+  const startedAt = performance.now();
+  const step = now => {
+    const progress = Math.min(1, (now - startedAt) / duration);
+    setChapter2LoopGain(startVolume + (clampedTarget - startVolume) * progress);
+    if (progress < 1) chapter2LoopFadeFrame = requestAnimationFrame(step);
+    else chapter2LoopFadeFrame = null;
+  };
+  chapter2LoopFadeFrame = requestAnimationFrame(step);
+}
+
+function ensureChapter2LoopPlaying() {
+  if (!soundEnabled) return;
+  const context = ensureChapter6AudioContext();
+  if (!context) return;
+  if (context.state === "suspended") context.resume().catch(() => {});
+  if (isChapter2LoopSourcePlaying()) return;
+  startChapter2LoopSource();
+}
+
+// 由 showImage() 在第二章画面出现的一刻调用：先导文阶段始终静音，
+// 淡入到满音量，与 playChapter2OnceSound() 同时触发。
+function revealChapter2Loop() {
+  if (chapterIndex !== CHAPTER_2_INDEX) return;
+  chapter2LoopRevealed = true;
+  if (!soundEnabled) { setChapter2LoopGain(0); return; }
+  ensureChapter2LoopPlaying();
+  fadeChapter2Loop(CHAPTER_2_LOOP_SOUND.revealVolume, CHAPTER_2_LOOP_SOUND.revealFadeDuration);
+}
+
+// 离开第二章（跳转其他章节、时间线）时调用：淡出并停止。
+function stopChapter2Loop() {
+  if (!chapter2LoopGainNode) return;
+  chapter2LoopRevealed = false;
+  if (!soundEnabled || prefersReducedMotion()) {
+    cancelChapter2LoopFade();
+    setChapter2LoopGain(0);
+    stopChapter2LoopSourceOnly();
+    return;
+  }
+  cancelChapter2LoopFade();
+  const duration = CHAPTER_2_LOOP_SOUND.exitFadeDuration;
+  const startVolume = getChapter2LoopGain();
+  const startedAt = performance.now();
+  const step = now => {
+    const progress = Math.min(1, (now - startedAt) / duration);
+    setChapter2LoopGain(startVolume * (1 - progress));
+    if (progress < 1) chapter2LoopFadeFrame = requestAnimationFrame(step);
+    else {
+      chapter2LoopFadeFrame = null;
+      stopChapter2LoopSourceOnly();
+    }
+  };
+  chapter2LoopFadeFrame = requestAnimationFrame(step);
+}
+
+// 用户在静音状态下打开「声音」开关，且当前正处于第二章：音频从头播放并淡入。
+function unmuteChapter2LoopIfActive() {
+  if (chapterIndex !== CHAPTER_2_INDEX) return;
+  cancelChapter2LoopFade();
+  setChapter2LoopGain(0);
+  const target = chapter2LoopRevealed ? CHAPTER_2_LOOP_SOUND.revealVolume : 0;
+  if (target <= 0) return;
+  const context = ensureChapter6AudioContext();
+  if (!context) return;
+  if (context.state === "suspended") context.resume().catch(() => {});
+  startChapter2LoopSource();
+  fadeChapter2Loop(target, CHAPTER_2_LOOP_SOUND.unmuteFadeDuration);
+}
+
+// ============================================================
+// 第二章一次性音效（ch2-once-shatter）：单次播放，不循环，与 ch2-loop 同时触发。
+// 实现方式与第五章开门音效完全一致（decodeAudioData → AudioBufferSourceNode 主管线，
+// <audio> 元素兜底）。音量由独立的 chapter2OnceGainNode 控制，
+// 见 CHAPTER_2_ONCE_SOUND.volume（后期调音量改那里即可）。
+// ============================================================
+function loadChapter2OnceBuffer() {
+  if (chapter2OnceBuffer) return Promise.resolve(chapter2OnceBuffer);
+  if (chapter2OnceBufferPromise) return chapter2OnceBufferPromise;
+  const context = ensureChapter6AudioContext();
+  if (!context) return Promise.resolve(null);
+  const probe = new Audio();
+  const canPlayM4a = probe.canPlayType("audio/mp4; codecs=mp4a.40.2");
+  const src = canPlayM4a ? CHAPTER_2_ONCE_SOUND.srcM4a : CHAPTER_2_ONCE_SOUND.srcOgg;
+  chapter2OnceBufferPromise = fetch(src)
+    .then(response => {
+      if (!response.ok) throw new Error(`fetch failed: ${response.status}`);
+      return response.arrayBuffer();
+    })
+    .then(arrayBuffer => context.decodeAudioData(arrayBuffer))
+    .then(buffer => {
+      chapter2OnceBuffer = buffer;
+      return buffer;
+    })
+    .catch(fetchError => {
+      console.warn("[ch2-once-sound] decodeAudioData pipeline unavailable, falling back to <audio> element:", fetchError);
+      chapter2OnceUseFallbackElement = true;
+      return null;
+    });
+  return chapter2OnceBufferPromise;
+}
+
+function playChapter2OnceBuffer(buffer) {
+  const context = ensureChapter6AudioContext();
+  if (!context || !buffer || !chapter2OnceGainNode) return false;
+  const source = context.createBufferSource();
+  source.buffer = buffer;
+  source.loop = false; // 单次播放，不重复
+  source.connect(chapter2OnceGainNode);
+  source.start(0);
+  return true;
+}
+
+function ensureChapter2OnceElement() {
+  if (chapter2OnceAudioEl) return chapter2OnceAudioEl;
+  const context = ensureChapter6AudioContext();
+  if (!context) { console.warn("[ch2-once-sound] AudioContext unavailable"); return null; }
+  const audio = new Audio();
+  audio.preload = "auto";
+  audio.loop = false; // 单次播放，不重复
+  audio.crossOrigin = "anonymous";
+  const canPlayM4a = audio.canPlayType("audio/mp4; codecs=mp4a.40.2");
+  audio.src = canPlayM4a ? CHAPTER_2_ONCE_SOUND.srcM4a : CHAPTER_2_ONCE_SOUND.srcOgg;
+  audio.addEventListener("error", () => {
+    if (audio.dataset.fallbackTried) {
+      console.warn("[ch2-once-sound] could not load one-shot sound (both sources failed)");
+      return;
+    }
+    audio.dataset.fallbackTried = "1";
+    const fallbackSrc = audio.src.includes(encodeURI(CHAPTER_2_ONCE_SOUND.srcM4a).split("/").pop())
+      ? CHAPTER_2_ONCE_SOUND.srcOgg
+      : CHAPTER_2_ONCE_SOUND.srcM4a;
+    console.warn("[ch2-once-sound] primary source failed, falling back to:", fallbackSrc);
+    audio.src = fallbackSrc;
+    audio.load();
+  });
+  const source = context.createMediaElementSource(audio);
+  source.connect(chapter2OnceGainNode);
+  chapter2OnceAudioEl = audio;
+  return audio;
+}
+
+function playChapter2OnceFallbackElement() {
+  const context = ensureChapter6AudioContext();
+  const audio = ensureChapter2OnceElement();
+  if (!context || !audio) return;
+  audio.currentTime = 0;
+  audio.play()?.catch(playbackError => console.warn("[ch2-once-sound] play() failed:", playbackError));
+}
+
+// 统一入口：优先主管线（AudioBufferSourceNode，单次播放），回退兜底 <audio> 元素。
+// 若声音已被静音（soundEnabled === false）则不播放。由 showImage() 在第二章
+// 画面出现的一刻调用，与 revealChapter2Loop() 同时触发。
+function playChapter2OnceSound() {
+  if (!soundEnabled) return;
+  const context = ensureChapter6AudioContext();
+  if (!context) return;
+  if (context.state === "suspended") context.resume().catch(() => {});
+  if (chapter2OnceUseFallbackElement) {
+    playChapter2OnceFallbackElement();
+    return;
+  }
+  loadChapter2OnceBuffer().then(buffer => {
+    if (buffer) {
+      if (!playChapter2OnceBuffer(buffer)) playChapter2OnceFallbackElement();
+    } else {
+      playChapter2OnceFallbackElement();
+    }
+  });
+}
+
+// ============================================================
 // 第五章开门音效：单次播放，不循环。
 // 与 Ch6 环境声共用同一个 AudioContext，走相同的 decodeAudioData → AudioBufferSourceNode
 // 主管线，fetch/decode 失败时回退到 <audio> 元素。音量由独立的 doorSoundGainNode 控制，
@@ -3666,6 +4052,8 @@ function unlockChapter6AudioContextOnFirstGesture() {
     loadChapter6AmbientBuffer();
     loadChapter4AmbientBuffer();
     loadDoorSoundBuffer();
+    loadChapter2LoopBuffer();
+    loadChapter2OnceBuffer();
   }
 }
 function attachChapter6AudioContextUnlock() {
@@ -3694,6 +4082,9 @@ function toggleSound() {
     loadChapter4AmbientBuffer();
     unmuteChapter4AmbientIfActive();
     loadDoorSoundBuffer();
+    loadChapter2LoopBuffer();
+    unmuteChapter2LoopIfActive();
+    loadChapter2OnceBuffer();
   } else {
     cancelChapter6AmbientFade();
     setChapter6AmbientGain(0);
@@ -3701,6 +4092,9 @@ function toggleSound() {
     cancelChapter4AmbientFade();
     setChapter4AmbientGain(0);
     stopChapter4AmbientSource();
+    cancelChapter2LoopFade();
+    setChapter2LoopGain(0);
+    stopChapter2LoopSourceOnly();
   }
 }
 

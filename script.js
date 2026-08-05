@@ -434,8 +434,8 @@ const CHAPTER_5_LOOP_SOUND = {
   revealFadeDuration:1800,
   exitFadeDuration:1200,
   unmuteFadeDuration:500,
-  // 悬停门 / 开门后的目标音量：常态音量的 50%。
-  duckVolume:.5,
+  // 悬停门 / 开门后的目标音量：之前 0.5 的 40%，即常态音量的 20%。
+  duckVolume:.2,
   // 「瞬间」降低/恢复的时长——刻意短，制造类似 timeline 切章节时的突然感，而非缓慢淡出。
   duckFadeDuration:220,
   loopStartSecondsOgg:0,
@@ -1173,6 +1173,7 @@ let chapter2OnceBuffer = null;
 let chapter2OnceBufferPromise = null;
 let chapter2OnceUseFallbackElement = false;
 let chapter2OnceAudioEl = null;
+let chapter2OnceBufferSource = null;
 
 // 第三章循环声部（ch3-loop）状态，实现方式与第二章循环声完全一致（ogg/m4a 分开裁剪）。
 let chapter3LoopAudioEl = null;
@@ -2103,6 +2104,7 @@ function enterEpilogue() {
   if (chapterIndex === CHAPTER_6_INDEX) stopChapter6Ambient();
   if (chapterIndex === CHAPTER_4_INDEX) stopChapter4Ambient();
   if (chapterIndex === CHAPTER_2_INDEX) stopChapter2Loop();
+  if (chapterIndex === CHAPTER_2_INDEX) stopChapter2OnceSound();
   if (chapterIndex === CHAPTER_3_INDEX) stopChapter3Loop();
   if (chapterIndex === CHAPTER_5_INDEX) stopChapter5Loop();
   busy = true;
@@ -2162,6 +2164,7 @@ function showStart() {
   if (chapterIndex === CHAPTER_6_INDEX) stopChapter6Ambient();
   if (chapterIndex === CHAPTER_4_INDEX) stopChapter4Ambient();
   if (chapterIndex === CHAPTER_2_INDEX) stopChapter2Loop();
+  if (chapterIndex === CHAPTER_2_INDEX) stopChapter2OnceSound();
   if (chapterIndex === CHAPTER_3_INDEX) stopChapter3Loop();
   if (chapterIndex === CHAPTER_5_INDEX) stopChapter5Loop();
   hideEpilogue();
@@ -2613,6 +2616,7 @@ async function enterChapter(index, initialStep = 0) {
   if (chapterIndex === CHAPTER_6_INDEX && index !== CHAPTER_6_INDEX) stopChapter6Ambient();
   if (chapterIndex === CHAPTER_4_INDEX && index !== CHAPTER_4_INDEX) stopChapter4Ambient();
   if (chapterIndex === CHAPTER_2_INDEX && index !== CHAPTER_2_INDEX) stopChapter2Loop();
+  if (chapterIndex === CHAPTER_2_INDEX && index !== CHAPTER_2_INDEX) stopChapter2OnceSound();
   if (chapterIndex === CHAPTER_3_INDEX && index !== CHAPTER_3_INDEX) stopChapter3Loop();
   if (chapterIndex === CHAPTER_5_INDEX && index !== CHAPTER_5_INDEX) stopChapter5Loop();
   chapterIndex = index;
@@ -4071,7 +4075,11 @@ function playChapter2OnceBuffer(buffer) {
   source.buffer = buffer;
   source.loop = false; // 单次播放，不重复
   source.connect(chapter2OnceGainNode);
+  source.onended = () => {
+    if (chapter2OnceBufferSource === source) chapter2OnceBufferSource = null;
+  };
   source.start(0);
+  chapter2OnceBufferSource = source;
   return true;
 }
 
@@ -4110,6 +4118,19 @@ function playChapter2OnceFallbackElement() {
   if (!context || !audio) return;
   audio.currentTime = 0;
   audio.play()?.catch(playbackError => console.warn("[ch2-once-sound] play() failed:", playbackError));
+}
+
+// 离开第二章（跳转其他章节、时间线、回到开场页）时调用：不管播放到哪个进度，
+// 立即打断——不淡出、不等播完，这是「一次性音效」而非环境声，没有淡出的必要。
+function stopChapter2OnceSound() {
+  if (chapter2OnceBufferSource) {
+    try { chapter2OnceBufferSource.onended = null; chapter2OnceBufferSource.stop(); } catch (_) {}
+    chapter2OnceBufferSource = null;
+  }
+  if (chapter2OnceAudioEl && !chapter2OnceAudioEl.paused) {
+    chapter2OnceAudioEl.pause();
+    try { chapter2OnceAudioEl.currentTime = 0; } catch (_) {}
+  }
 }
 
 // 统一入口：优先主管线（AudioBufferSourceNode，单次播放），回退兜底 <audio> 元素。
@@ -4923,6 +4944,7 @@ function toggleSound() {
     cancelChapter2LoopFade();
     setChapter2LoopGain(0);
     stopChapter2LoopSourceOnly();
+    stopChapter2OnceSound();
     cancelChapter3LoopFade();
     setChapter3LoopGain(0);
     stopChapter3LoopSourceOnly();

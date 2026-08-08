@@ -796,20 +796,20 @@ const HOTSPOTS = [
       id:"ch04-inner-thoughts", xPx:420, yPx:640,
       variant:"text-group",
       zh:"心里的念头", en:"Thoughts Kept Inside",
-      note:"黑色手写字是沈蕙兰在每日批判会中没有说出口的心里念头。",
-      noteEn:"The black handwriting records thoughts that Shen Huilan does not say aloud during the daily struggle session.",
-      learnMoreZh:"黑色手写文字记录她没有公开说出的心声。此处将逐句提供英文翻译；除《诗经》及其在文革时期的处境外，不增加额外历史说明。",
-      learnMoreEn:"The black handwriting records thoughts Shen Huilan does not say aloud during the daily struggle session. This section will provide line-by-line English translations, with additional context limited to the Book of Songs and its position during the Cultural Revolution.",
+      note:"爹的信上個月沒來。<br>我的手指又泡白了。<br>我記得，小時候——<br>我聽說，有人家裡……<br>我今年二十六歲。<br>我讀過五年大學！！<br>娘上封信說家裡都好，「都好」兩個字写得很重。<br>我記得《詩經》裡有一句——<br>惠國今年要高中畢業了，我們不知道他會被分到哪。<br>不明白。<br>我不知道這樣的年頭还有幾個。",
+      noteEn:"Father’s letter didn’t come last month.<br>My fingers have gone soft and white again.<br>I remember, when I was young——<br>I heard, someone’s family……<br>I am twenty-six this year.<br>I studied five years at university!!<br>Mother’s last letter said everything at home was fine — the words “all fine” were written heavy on the page.<br>I remember a line from the Book of Songs——<br>Huiguo graduates high school this year; we don’t know where he’ll be assigned.<br>I don’t understand.<br>I don’t know how many more years like this there will be.",
+      learnMoreZh:"黑色手写字是沈蕙兰在每日批判会中没有说出口的心里念头，逐句抄录如上，右侧为对应英文翻译。\n\n繁简夹写｜这段文字以繁体为主，其中“写”“还”两字保留简体写法，是有意为之，并非笔误：沈蕙兰生于1944年，识字与最初的书写习惯成形于1956年《汉字简化方案》公布之前；简化字自1956年2月起分批推行，1964年《简化字总表》完成修订，整个过程持续近十年。一个在这段变革之前学会写字、之后又长期在简化字环境中生活书写的人，笔下出现繁简混用，符合这代人的真实书写经验。\n\n《诗经》在文革中的处境｜《诗经》属于旧文学传统，与其他古典典籍一样，在“破四旧”氛围中容易被视为需要批判或搁置的对象；具体篇目和处境因地区、单位和个人而异。",
+      learnMoreEn:"The black handwriting records the thoughts Shen Huilan does not say aloud during the daily struggle session, transcribed here line by line, with the English translation alongside.\n\nMixed traditional and simplified characters｜This text is written mostly in traditional characters, but two characters — “写” (write) and “还” (still) — appear in their simplified forms. This is intentional, not an error. Shen Huilan was born in 1944, and her literacy and early handwriting habits formed before the 1956 Chinese Character Simplification Scheme was issued. Simplified characters were introduced in stages starting February 1956, with the revised Complete List of Simplified Characters finalized in 1964 — a transition that unfolded over nearly a decade. For someone who learned to write before that shift and then lived and wrote for years under simplified characters, a mix of both forms reflects the lived experience of her generation.\n\nThe Book of Songs during the Cultural Revolution｜As part of the old literary tradition, the Book of Songs, like other classical texts, could be treated as something requiring criticism or setting aside amid the “Destroy the Four Olds” climate; specific circumstances varied by place, work unit, and individual.",
       hideChapterContext:true
     },
     {
       id:"ch04-struggle-session-speech", xPx:1280, yPx:640,
       variant:"text-group",
       zh:"批判会发言", en:"Speech at the Struggle Session",
-      note:"白色印刷字是沈蕙兰在每日批判会上实际说出口、经过自我审核的发言。",
-      noteEn:"The white printed text records what Shen Huilan says aloud after revising her thoughts into politically acceptable language.",
-      learnMoreZh:"白色印刷文字是她把心里念头改写成政治上安全、可以公开说出的语言。此处将逐句提供英文翻译，并简要说明相关话术来源，以及它如何批判、压制对应的内心话。",
-      learnMoreEn:"The white printed text is the politically permissible language into which she reshapes her private thoughts before speaking. This section will provide line-by-line translations and brief notes on the rhetoric’s sources and how it disciplines the corresponding inner voice.",
+      note:"思想改造是长期的任务。<br>灵魂深处爆发革命，狠斗“私”字一闪念。<br>知识分子必须与工农相结合。<br>个人服从组织，局部服从整体。<br>广阔天地，大有作为。<br>接受贫下中再教育是光荣的。",
+      noteEn:"Ideological remolding is a long-term task.<br>Revolution must erupt in the depths of the soul — fight fiercely against every flicker of the word “self.”<br>Intellectuals must integrate with workers and peasants.<br>The individual obeys the organization; the part obeys the whole.<br>A vast world offers great opportunity.<br>Accepting re-education from the poor and lower-middle peasants is an honor.",
+      learnMoreZh:"白色印刷字是她把心里念头改写成政治上安全、可以公开说出的语言，简体字，逐句抄录如上，右侧为对应英文翻译。这些说法都是文革及上山下乡时期的常见政治用语，不指向某一次具体讲话。",
+      learnMoreEn:"The white printed text is the politically acceptable language into which she reshapes her private thoughts before speaking, transcribed here in simplified characters line by line, with the English translation alongside. These phrases were common political language during the Cultural Revolution and the Up to the Mountains movement, not quotations from one specific speech.",
       hideChapterContext:true
     }
   ],

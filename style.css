@@ -166,6 +166,19 @@ body.is-fullscreen .experience { width:100vw; height:100dvh; border-color:transp
 .epilogue-en { display:block; margin-top:.24rem; font:calc(.79rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.65); }
 .epilogue-subparagraph { display:block; margin-top:.1em; }
 .epilogue-en i { font-weight:400; }
+.epilogue-cta { margin-top:.9rem; }
+.epilogue-fullstory-link {
+  display:inline-flex; flex-direction:column; align-items:center; gap:.18rem;
+  padding:.62rem 1.5rem; border:1px solid rgba(255,255,255,.32); border-radius:2px;
+  color:rgba(255,255,255,.82); text-decoration:none; letter-spacing:.08em;
+  transition:border-color .3s ease,color .3s ease,background .3s ease;
+}
+.epilogue-fullstory-link:hover,
+.epilogue-fullstory-link:focus-visible {
+  border-color:rgba(255,196,120,.75); color:#fff; background:rgba(255,196,120,.08);
+}
+.epilogue-fullstory-zh { font-size:var(--content-font-size-zh); }
+.epilogue-fullstory-en { font:calc(.72rem * var(--content-font-scale))/1.4 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.6); }
 html[data-content-font-size="large"] .start-text,
 html[data-content-font-size="large"] .epilogue-text {
   width:88vw;

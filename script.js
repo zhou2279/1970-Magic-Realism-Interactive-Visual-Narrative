@@ -572,9 +572,12 @@ const TERMS = {
 const CONTEXTS = [
   {
     title: "儿时父母的书房", titleEn: "My Parents’ Study · 1953",
-    zh: "1950年代，教师和读书人家里的书房常兼作读书、备课、藏书和待客的地方。字典、古典小说、画报、家庭照片和宣传画可以放在同一间屋里，这种并置并不矛盾：新中国早期的政治图像已经进入学校、单位和家庭，旧书与新宣传也会在日常空间中同时存在。\n\n1966年以后，这类私人收藏变得危险。旧书、旧画、月份牌和家族照片可能在“破四旧”与抄家中被查抄、封存、涂污或烧毁。书房因此不再只是家庭记忆，也会成为家庭成分和思想倾向被审查的地方。",
-    en: "In the 1950s, the study of a teacher or reader often served several uses at once: reading, lesson preparation, book storage, and receiving visitors. Dictionaries, classical fiction, pictorials, family photographs, and propaganda posters could occupy the same room. This mixture was not contradictory. In early PRC domestic life, older books and new political imagery often existed side by side.\n\nAfter 1966, such private collections became vulnerable. Old books, paintings, yuefenpai calendar posters, and family photographs could be seized, sealed away, defaced, or burned during house searches and the Pò Sìjiù (“Destroy the Four Olds”) campaign. A study could therefore become a place where a family’s class background and thoughts were inspected.",
-    material: "合成记忆图像｜书房、家庭照片、宣传画与古典仕女图层"
+    zh: "1950年代，教师和读书人家里的书房常兼作读书、备课、藏书和待客的地方。字典、古典小说、画报、家庭照片和宣传画可以放在同一间屋里，这种并置并不矛盾：新中国早期的政治图像已经进入学校、单位和家庭，旧书与新宣传也会在日常空间中同时存在。\n\n1966年以后，这类私人收藏变得危险。旧书、旧画、月份牌和家族照片可能在“破四旧”与抄家中被查抄、封存、涂污或烧毁。书房因此不再只是家庭记忆，也会成为家庭成分和思想倾向被审查的地方。\n\n背景音乐｜书房中回响的是《夜来香》。黎锦光作曲并作词（唱片署名“金玉谷”），1944年首度发表，最初由歌影双栖的李香兰（山口淑子）演唱。此后这首歌因演唱者身份与曲风，在不同历史时期数次被禁。沈家藏有一张唱片，五十年代只敢在家中放得很轻，歌声总是模糊；文革开始后，连这样模糊的声音也彻底消失。[1]",
+    en: "In the 1950s, the study of a teacher or reader often served several uses at once: reading, lesson preparation, book storage, and receiving visitors. Dictionaries, classical fiction, pictorials, family photographs, and propaganda posters could occupy the same room. This mixture was not contradictory. In early PRC domestic life, older books and new political imagery often existed side by side.\n\nAfter 1966, such private collections became vulnerable. Old books, paintings, yuefenpai calendar posters, and family photographs could be seized, sealed away, defaced, or burned during house searches and the Pò Sìjiù (“Destroy the Four Olds”) campaign. A study could therefore become a place where a family’s class background and thoughts were inspected.\n\nBackground music｜The study resounds with “Yeh Lai Hsiang” (“Fragrance of the Night”). Composed and written by Li Jinguang (credited on the original record under the pen name Jin Yugu), it was first released in 1944, originally sung by Li Xianglan (Yamaguchi Yoshiko), a bilingual Chinese–Japanese singer and actress. The song was subsequently banned more than once across different periods, tied to both its singer’s identity and its musical style. The Shen family kept a copy of the record; in the 1950s they dared play it only very quietly at home, its sound always muffled. Once the Cultural Revolution began, even that faint sound disappeared entirely.[1]",
+    material: "合成记忆图像｜书房、家庭照片、宣传画与古典仕女图层",
+    sources: [
+      { zh:"[1] 中文维基百科：《夜来香》（歌曲）词条", en:"[1] Chinese Wikipedia: “Yeh Lai Hsiang” (song) entry", href:"https://zh.wikipedia.org/zh-tw/夜来香_(歌曲)" }
+    ]
   },
   {
     title: "学校与公开批判", titleEn: "Schools and Public Denunciation · 1966",
@@ -647,62 +650,67 @@ const HOTSPOTS = [
       zh:"中苏友好宣传画", en:"Chinese-Soviet Friendship Poster",
       note:"红旗与并置的人物形象，把国家间的政治友好带进家庭日常观看的空间。",
       noteEn:"Red flags and paired figures bring the political alliance between China and the Soviet Union into the visual life of the home.",
-      learnMoreZh:"历史核心｜20世纪50年代的中苏友好宣传常用并肩人物、红旗、工业建设和集体劳动表现两国结盟、苏联援助与社会主义现代化。[1]\n\n与沈蕙兰的关系｜海报挂在父亲书房里。对童年的沈蕙兰来说，政治宣传与书籍、备课和家庭生活同时存在。\n\n脚注｜[1] 准确题名、作者、年份与原始图片来源仍待确认。",
-      learnMoreEn:"History core｜Chinese-Soviet friendship posters of the 1950s often used paired figures, red flags, industrial construction, and collective labor to represent alliance, Soviet assistance, and socialist modernization.[1]\n\nShen Huilan｜The poster hangs in Father’s study. In Shen Huilan’s childhood, political propaganda shares the room with books, lesson preparation, and family life.\n\nNotes｜[1] The title, artist, date, and original image source remain unconfirmed.",
-      reviewFlag:"待确认：海报的准确标题、创作年份、作者及图片来源。"
+      learnMoreZh:"历史核心｜20世纪50年代的中苏友好宣传常用并肩人物、红旗、工业建设和集体劳动表现两国结盟、苏联援助与社会主义现代化。[1]\n\n与沈蕙兰的关系｜海报挂在父亲书房里。对童年的沈蕙兰来说，政治宣传与书籍、备课和家庭生活同时存在。\n\n图像说明｜这张宣传画为合成图像，参照同期海报风格绘制，非某件原作的复原。[1]",
+      learnMoreEn:"History core｜Chinese-Soviet friendship posters of the 1950s often used paired figures, red flags, industrial construction, and collective labor to represent alliance, Soviet assistance, and socialist modernization.[1]\n\nShen Huilan｜The poster hangs in Father’s study. In Shen Huilan’s childhood, political propaganda shares the room with books, lesson preparation, and family life.\n\nImage note｜This poster is a composite image styled after posters of the same period, not a reproduction of one specific original.[1]",
+      source:"[1] Chineseposters.net · 中苏友好主题海报系列（视觉参考）",
+      sourceUrl:"https://chineseposters.net/themes/soviet-union"
     },
     {
       id:"ch01-calendar-family", xPx:321, yPx:833,
       zh:"月份牌《合家欢》", en:"Yuefenpai Calendar Poster: A Happy Family",
-      note:"月份牌把广告、日历与理想化的家庭图像结合，曾是近代城市家庭常见的商业视觉文化。",
-      noteEn:"Yuefenpai combined advertising and calendars with idealized domestic scenes and were once common in urban households.",
-      learnMoreZh:"历史核心｜月份牌把商品广告、日历与理想化人物或家庭图像结合，是近代城市商业视觉文化的一部分。[1]\n\n与沈蕙兰的关系｜沈蕙兰小时候喜欢看《合家欢》。画中完整、安定的家庭后来与她在文革中的家庭离散形成对照。\n\n脚注｜[1] 作者、制作年代、品牌与原始收藏来源仍待确认。",
-      learnMoreEn:"History core｜Yuefenpai combined advertising and calendars with idealized figures or domestic scenes and formed part of modern urban commercial culture.[1]\n\nShen Huilan｜Shen Huilan enjoys looking at A Happy Family as a child. Its orderly, intact household later contrasts with the separation of her own family during the Cultural Revolution.\n\nNotes｜[1] The artist, date, brand, and original collection remain unconfirmed.",
-      reviewFlag:"待补：作品作者、制作年份、品牌与原始收藏来源。"
+      note:"杭稺英，1930年代，奉天太阳烟公司广告。画中人物着西式服饰，背景为西式建筑。",
+      noteEn:"By Hang Zhiying, 1930s, an advertisement for the Mukden Sun Tobacco Company. The figure wears Western-style clothing against a Western-style architectural backdrop.",
+      learnMoreZh:"历史核心｜月份牌是诞生于清末上海的广告宣传画，把商品广告、日历与理想化人物或家庭图像结合在一起，是近代城市商业视觉文化的一部分，现已列入上海市非物质文化遗产。[1]《合家欢》由杭稺英绘制于1930年代，是奉天太阳烟公司的广告月份牌。[2]\n\n与沈蕙兰的关系｜沈蕙兰小时候喜欢看《合家欢》。画中完整、安定的家庭后来与她在文革中的家庭离散形成对照。",
+      learnMoreEn:"History core｜Yuefenpai originated as advertising posters in late-Qing Shanghai, combining commercial advertising, calendars, and idealized figures or domestic scenes; the form is now listed as Shanghai intangible cultural heritage.[1] A Happy Family was painted by Hang Zhiying in the 1930s as an advertising calendar for the Mukden Sun Tobacco Company.[2]\n\nShen Huilan｜Shen Huilan enjoys looking at A Happy Family as a child. Its orderly, intact household later contrasts with the separation of her own family during the Cultural Revolution.",
+      source:"[1][2] 中文维基百科“月份牌”词条 · Openmuseum 开放博物馆",
+      sourceUrl:"https://plaza.openmuseum.tw/muse/exhibition/81fbcee965c82f35d00cd1e343feb449#front"
     },
     {
       id:"ch01-young-companion", xPx:993, yPx:780,
       zh:"《良友》画报封面女郎", en:"Cover Girl of The Young Companion",
-      note:"《良友》以女性肖像、摄影、时事与文艺内容共同构成近代中国都市生活的视觉窗口。",
-      noteEn:"The Young Companion combined female portraiture, photography, current affairs, literature, and art as a visual record of modern Chinese urban life.",
-      learnMoreZh:"《良友》1926年创刊、1945年终刊，女性封面之外还有新闻、摄影、文学、艺术和都市生活。[1]\n\n这本旧画报由母亲留下。蕙兰小时候从封面看见城市时装，也看见家庭生活以外的成年世界。\n\n脚注｜[1] 画面中的封面人物、期号与年份仍待确认。",
-      learnMoreEn:"Published from 1926 to 1945, The Young Companion included female cover portraits, news, photography, literature, art, and urban life.[1]\n\nThe old pictorial was left by Mother. As a child, Huilan sees city fashion on its cover and an adult world beyond the household.\n\nNotes｜[1] The cover subject, issue number, and date remain unconfirmed.",
+      note:"画面参照《良友》1937年4月15日第127期封面。封面女郎的卷发、西式妆容与服装，展现了当时都市女性的摩登形象。",
+      noteEn:"The image references the cover of The Young Companion, issue 127, dated 15 April 1937. The cover woman’s curled hair, Western-style makeup, and clothing present the modern urban woman of the period.",
+      learnMoreZh:"历史核心｜《良友》1926年创刊、1945年停刊，是中国近代第一本大型综合性摄影图文画报，封面多用知名女性、影星或社会名流，内容涵盖战争、政治、文娱与风俗，深刻影响了当时的都市摩登美学。[1]\n\n与沈蕙兰的关系｜母亲生于1918年，逐月订阅的《良友》陪伴她的少女与青年时期成长；这本刊物在蕙兰出生（1944年）后一年停刊。旧画册留在家里，母亲会翻看，年幼的蕙兰也一起看，从封面想象城市与时装，也想象自己长大后的样子。",
+      learnMoreEn:"History core｜The Young Companion was founded in 1926 and ceased publication in 1945, China’s first large-format illustrated photographic magazine. Its covers often featured well-known women, film stars, or society figures, and its content spanned war, politics, entertainment, and social life, shaping the modern urban aesthetics of its time.[1]\n\nShen Huilan｜Mother was born in 1918; the monthly issues of The Young Companion she subscribed to accompanied her through girlhood and young womanhood. The magazine ceased publication a year after Huilan was born, in 1944. The old bound volumes stayed in the house — Mother would page through them, and young Huilan looked along with her, imagining the city and its fashions, and imagining, too, what she herself might grow up to become.",
       anchorZh:"这是母亲年轻时订阅并留在家中的旧画报。蕙兰从封面想象都市、时装和画面之外的成年世界。",
       anchorEn:"This is an older pictorial Mother subscribed to and kept at home. Huilan imagines fashion, the city, and an adult world beyond its cover.",
-      reviewFlag:"待确认：封面人物身份、期号与原始封面年份。"
+      source:"[1] 良友画报 1937.04.15 第127期 · archive.org",
+      sourceUrl:"https://archive.org/details/liangyou-1937.04.15"
     },
     {
       id:"ch01-gu-huichuntang", xPx:1176, yPx:539,
       zh:"月份牌《谷回春堂广告》", en:"Yuefenpai Advertisement for Gu Huichun Tang",
-      note:"谢之光，1931年。富丽的室内陈设与时装女性共同构成商品广告中的现代生活想象。",
-      noteEn:"Painted by Xie Zhiguang in 1931, the advertisement combines a fashionable woman and an elaborate interior in a commercial image of modern life.",
-      learnMoreZh:"历史核心｜谢之光1931年绘制的药品月份牌广告，把时装女性、洋派室内和商品宣传组合成当时的现代生活图景。[1]\n\n与沈蕙兰的关系｜沈蕙兰小时候喜欢画中人物的服装。文革中，这类月份牌可能被归为“资产阶级生活方式”或“四旧”，私人审美也可能受到政治审查。\n\n脚注｜[1] 规范题名、收藏机构与图片授权仍待确认。",
-      learnMoreEn:"History core｜Xie Zhiguang’s 1931 pharmaceutical calendar advertisement combines a fashionable woman, a Western-style interior, and commercial promotion in a contemporary image of modern life.[1]\n\nShen Huilan｜As a child, Shen Huilan is drawn to the figure’s clothing. During the Cultural Revolution, such yuefenpai could be condemned as bourgeois culture or one of the Four Olds, bringing private taste under political scrutiny.\n\nNotes｜[1] The formal title, collection, and image rights remain unconfirmed.",
-      reviewFlag:"待补：原作收藏机构、规范英文题名与可公开使用的图片来源。"
+      note:"谢之光，1931年。谷回春堂是以“健胃固肠丸”闻名的药商，此海报即为该产品所作的商业月份牌。",
+      noteEn:"Painted by Xie Zhiguang in 1931. Gu Huichun Tang was a pharmaceutical merchant known for its “stomach and intestine” tonic pills, and this poster is the yuefenpai advertisement made for that product.",
+      learnMoreZh:"历史核心｜谢之光1931年绘制的药品月份牌广告，把时装女性、洋派室内和商品宣传组合成当时的现代生活图景，为谷回春堂的“健胃固肠丸”所作。[1]\n\n与沈蕙兰的关系｜沈蕙兰小时候喜欢画中人物的服装。文革中，这类月份牌可能被归为“资产阶级生活方式”或“四旧”，私人审美也可能受到政治审查。",
+      learnMoreEn:"History core｜Xie Zhiguang’s 1931 pharmaceutical calendar advertisement combines a fashionable woman, a Western-style interior, and commercial promotion in a contemporary image of modern life, made for Gu Huichun Tang’s “stomach and intestine” tonic pills.[1]\n\nShen Huilan｜As a child, Shen Huilan is drawn to the figure’s clothing. During the Cultural Revolution, such yuefenpai could be condemned as bourgeois culture or one of the Four Olds, bringing private taste under political scrutiny.",
+      source:"[1] Openmuseum 开放博物馆",
+      sourceUrl:"https://plaza.openmuseum.tw/muse/exhibition/81fbcee965c82f35d00cd1e343feb449#front"
     },
     {
       id:"ch01-dipper-scripture", xPx:819, yPx:173,
       zh:"《太上玄灵北斗本命延生真经》彩绘本", en:"Illustrated Scripture of the Northern Dipper",
       note:"明嘉靖二十一年（1542）纸本泥金彩绘本，以金彩和人物图像表现道教星辰信仰。",
       noteEn:"A 1542 illustrated manuscript on paper, using gold pigment and figures to represent Daoist astral belief.",
-      learnMoreZh:"这件明嘉靖二十一年（1542）纸本泥金彩绘本，把道教文字、神仙谱系和仪式图像放在同一书页。[1]\n\n父亲读志怪故事时，蕙兰会看画里的仙人和云气。她先从书页上认识这些形象。\n\n脚注｜[1] 图片来自书格；具体馆藏、卷册信息与授权范围仍待确认。",
-      learnMoreEn:"This 1542 illustrated scripture brings Daoist writing, divine lineages, and ritual images together on a single page.[1]\n\nWhen Father reads tales of the strange, Huilan studies the immortals and clouds in the picture. She first knows these figures from a page.\n\nNotes｜[1] The image is from Shuge; the collection record, volume details, and rights remain to be confirmed.",
+      learnMoreZh:"这件明嘉靖二十一年（1542）纸本泥金彩绘本，把道教文字、神仙谱系和仪式图像放在同一书页。原件曾见于苏富比拍卖记录，画面所用扫描件由书格整理发布。[1]\n\n父亲读志怪故事时，蕙兰会看画里的仙人和云气。她先从书页上认识这些形象。",
+      learnMoreEn:"This 1542 illustrated scripture brings Daoist writing, divine lineages, and ritual images together on a single page. The original appeared in a Sotheby’s auction record; the scan used here was compiled and published by Shuge.[1]\n\nWhen Father reads tales of the strange, Huilan studies the immortals and clouds in the picture. She first knows these figures from a page.",
       anchorZh:"这是文人家庭收藏的旧画。蕙兰喜欢看腾云驾雾的仙人，也喜欢听父亲读中国的志怪与玄幻故事。",
       anchorEn:"This is an old painting kept by a scholarly family. Huilan likes the immortals moving through clouds and the strange tales Father reads aloud.",
-      source:"书格",
-      sourceUrl:"https://www.shuge.org/meet/topic/138221/",
-      reviewFlag:"图片来源已确认为书格；待确认具体馆藏、卷册信息及图片授权范围。"
+      source:"[1] 书格（镜像）· 原件苏富比拍卖记录",
+      sourceUrl:"https://shuge.hanjihebi.com/书格网站资源/明内府彩绘本系列/太上玄灵北斗本命延生真经.明嘉靖二十一年纸本泥金彩绘本.苏富比拍卖.pdf"
     },
     {
       id:"ch01-dream-red-chamber", xPx:1555, yPx:344,
-      zh:"《红楼梦》图册", en:"Illustrated Album of Dream of the Red Chamber",
-      note:"图册画有人物、服饰和室内场景。读者可以在读文字以外，慢慢看人物穿什么、住在什么样的房间里。",
-      noteEn:"The album shows figures, clothing, and interiors. It lets readers linger over what the characters wear and the rooms they inhabit, alongside the written text.",
-      learnMoreZh:"历史核心｜《红楼梦》通过绣像、人物册页与连环图画等形式传播，人物服饰和室内空间也成为阅读经验的一部分。[1]\n\n与沈蕙兰的关系｜沈蕙兰喜欢观看图中人物的服装。对她来说，读小说既包括文字，也包括对人物和生活方式的视觉认识。\n\n脚注｜[1] 画家、刊刻年代、具体版本与图片来源仍待确认。",
-      learnMoreEn:"History core｜Dream of the Red Chamber circulated through portraits, album leaves, and sequential illustrations. Clothing and interiors therefore formed part of the reading experience.[1]\n\nShen Huilan｜Shen Huilan is especially interested in the figures’ clothing. For her, reading the novel includes both the text and a visual encounter with its characters and ways of life.\n\nNotes｜[1] The artist, date, edition, and image source remain unconfirmed.",
+      zh:"《红楼梦赋图册》", en:"Illustrated Album of Rhapsodies on Dream of the Red Chamber",
+      note:"清代沈谦作赋、盛昱录，约绘于同治十二年，全套二十幅（此本缺一帧），现藏爱尔兰切斯特·比替图书馆（Chester Beatty Library）。",
+      noteEn:"Rhapsodies by Shen Qian, transcribed by Sheng Yu, painted around the twelfth year of the Tongzhi reign (c. 1873); twenty leaves in the complete set (this album is missing one), now held at the Chester Beatty Library, Ireland.",
+      learnMoreZh:"历史核心｜《红楼梦》通过绣像、人物册页与连环图画等形式传播，人物服饰和室内空间也成为阅读经验的一部分。[1]《红楼梦赋图册》由清代沈谦撰二十首题咏《红楼梦》的赋文，盛昱录写，配以精美插图，内容包括葬花赋、芦雪亭赏雪赋等篇目，约绘于清同治十二年，现藏爱尔兰切斯特·比替博物馆。[2]\n\n与沈蕙兰的关系｜沈蕙兰喜欢观看图中人物的服装。对她来说，读小说既包括文字，也包括对人物和生活方式的视觉认识。",
+      learnMoreEn:"History core｜Dream of the Red Chamber circulated through portraits, album leaves, and sequential illustrations. Clothing and interiors therefore formed part of the reading experience.[1] The Illustrated Album of Rhapsodies on Dream of the Red Chamber pairs twenty rhapsodies on the novel, composed by the Qing scholar Shen Qian and transcribed by Sheng Yu, with fine illustrations covering scenes such as burying the flowers and viewing snow at the Lu Xue Pavilion. It was painted around the twelfth year of the Tongzhi reign and is now held at the Chester Beatty Library in Ireland.[2]\n\nShen Huilan｜Shen Huilan is especially interested in the figures’ clothing. For her, reading the novel includes both the text and a visual encounter with its characters and ways of life.",
       anchorZh:"沈蕙兰最喜欢看图中人物华丽的衣服；在她的童年记忆里，读小说也意味着长时间凝视这些人物。",
       anchorEn:"Shen Huilan especially loves the figures’ elaborate clothing. In her childhood memory, reading the novel also means spending long stretches of time looking at its characters.",
-      reviewFlag:"待确认：图册的画家、刊刻年代、具体版本及图片来源；坐标靠近右缘，在iPad横屏上会因裁切自动隐藏。"
+      source:"[2] 书格：《红楼梦赋图册》",
+      sourceUrl:"https://www.shuge.org/view/hong_lou_meng_fu_tu_ce/",
+      reviewFlag:"坐标靠近右缘，在iPad横屏上会因裁切自动隐藏，待版面复核。"
     }
   ],
   [

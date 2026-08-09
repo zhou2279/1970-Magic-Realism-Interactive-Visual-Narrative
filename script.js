@@ -771,7 +771,8 @@ const HOTSPOTS = [
       learnMoreZh:"历史核心｜题名、编者与出版单位已由海报原件的边注文字确认：《早已森严壁垒 更加众志成城》（宣传画），晋南地区革命委员会政工组 编，晋南地区工艺美术厂制，约1969年，统一书号/编号：临地革国统字第70001号。[1]\n\n红、黑、白的高对比便于快速印刷和远距离识读，也把人物、口号与政治立场组织成明确的视觉秩序。举枪、持镜、举书与共同前进，是文革群众宣传画反复使用的动作组合，用领袖著作赋予群众行动以政治权威。\n\n脚注｜[1] 题名与出版信息据海报实物边注；图片授权与馆藏来源仍待确认，现有文件带 PrintnSell 水印。",
       learnMoreEn:"History core｜The title, compiler, and publisher are confirmed from the marginal text printed on the poster itself: Zǎoyǐ Sēnyán Bìlěi, Gèngjiā Zhòngzhì Chéngchéng [Already Heavily Fortified, Our Wills Unite Like a Fortress] (propaganda poster), compiled by the Political Work Group of the Jinnan Regional Revolutionary Committee, printed by the Jinnan Regional Arts and Crafts Factory, circa 1969, Serial No. 70001.[1]\n\nHigh-contrast red, black, and white supported rapid printing and distant legibility while organizing figures, slogans, and political positions into a clear visual order. Raised rifles, binoculars, raised books, and collective forward movement recur throughout Cultural Revolution mass propaganda, using the leader's writings to authorize mass action.\n\nNotes｜[1] Title and publication details are drawn from the marginal text on the poster itself. Image rights and archival provenance remain unconfirmed; the available file carries a PrintnSell watermark.",
       image:"assets/references/ch02-red-guard-poster.jpeg",
-      source:"C004186A.jpg（用户上传原图）",
+      source:"《早已森严壁垒 更加众志成城》宣传画复制品·C004186 · The Collector's Guild",
+      sourceUrl:"https://www.germanmilitaria.com/OtherNations/photos/C004186.html",
       galleryIntroZh:"以下海报用于辨认同时期常见的红、黑、白构图、集体人物、举书动作与政治口号，供比对参考，并非本画面所用海报的出处。",
       galleryIntroEn:"These posters are visual references for the period's red-black-white palette, collective figures, raised books, and political slogans, shown for comparison only and not the source of the poster used in this scene.",
       gallery:[
@@ -1096,6 +1097,7 @@ const introParticles = document.getElementById("intro-particles");
 const epilogueScreen = document.getElementById("epilogue-screen");
 const epilogueText = epilogueScreen?.querySelector(".epilogue-text");
 const epilogueParagraphs = [...document.querySelectorAll(".epilogue-paragraph")];
+const epilogueCta = epilogueScreen?.querySelector(".epilogue-cta");
 const doorWash = document.getElementById("door-wash");
 const doorWashCanvas = document.getElementById("door-wash-canvas");
 const startParagraphs = [...document.querySelectorAll(".start-paragraph")];
@@ -1126,6 +1128,8 @@ const imageLightboxBackdrop = imageLightbox?.querySelector(".image-lightbox-back
 const fullStoryScreen = document.getElementById("full-story-screen");
 function openFullStoryScreen() {
   if (!fullStoryScreen) return;
+  closeContext(); // 全文阅读跟跋的历史背景侧栏没关系，打开前先把它关掉
+  document.body.classList.add("is-full-story-open"); // 靠这个类隐藏侧栏按钮和时间线，避免跟正文抢地方、抢注意力
   fullStoryScreen.classList.add("is-active");
   fullStoryScreen.setAttribute("aria-hidden", "false");
   fullStoryScreen.scrollTop = 0;
@@ -1134,20 +1138,13 @@ function closeFullStoryScreen() {
   if (!fullStoryScreen) return;
   fullStoryScreen.classList.remove("is-active");
   fullStoryScreen.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("is-full-story-open");
 }
 // 全文阅读的繁体是脚本一次性转换出来的（跟侧栏 buildTraditionalContextBodies 是同一个思路），
 // 正文是静态的，不会重新渲染，所以只需要在页面初始化时转一次。
 function buildTraditionalStoryBody() {
   if (!fullStoryScreen) return;
-  fullStoryScreen.querySelectorAll(".story-hant").forEach(node => node.remove());
-  fullStoryScreen.querySelectorAll(".story-zh").forEach(source => {
-    const traditional = source.cloneNode(true);
-    traditional.classList.remove("story-zh");
-    traditional.classList.add("story-hant");
-    traditional.setAttribute("lang", "zh-Hant");
-    convertElementToTraditional(traditional);
-    source.after(traditional);
-  });
+  buildTraditionalStaticVariant("story-zh", "story-hant", fullStoryScreen);
 }
 
 // 参考图片右下角的放大镜：弹出居中大图 + 75% 黑色背景遮罩，点遮罩关闭。
@@ -1172,22 +1169,20 @@ document.addEventListener("click", event => {
     openImageLightbox(zoomButton.dataset.zoomSrc, zoomButton.dataset.zoomAlt, zoomButton.dataset.zoomCaption);
     return;
   }
-  // "小说原文阅读"从可折叠的 <details> 改成拐角按钮样式，展开/收起靠这段接管。
-  const novelToggle = event.target.closest(".context-novel-toggle");
-  if (novelToggle) {
-    const body = novelToggle.nextElementSibling;
-    const expanded = novelToggle.getAttribute("aria-expanded") === "true";
-    novelToggle.setAttribute("aria-expanded", String(!expanded));
-    if (body) body.hidden = expanded;
-    return;
-  }
-  if (event.target.closest("#open-full-story")) {
+  // 侧栏里的"小说原文阅读"不再是本地展开/收起一段可能是空的摘录，
+  // 而是直接跳到全文阅读覆盖层——章节侧栏从来没有真正填过 novelZh，
+  // 之前点了只会展开一句"本章小说原文尚未导入"，等于没反应。
+  if (event.target.closest("#open-full-story") || event.target.closest("[data-open-full-story]")) {
     openFullStoryScreen();
     return;
   }
   if (event.target.closest("[data-full-story-close]")) {
     closeFullStoryScreen();
+    return;
   }
+  // 先导文期的术语列表：点列表里的某一条，等同于点正文里对应的上标数字。
+  const termListRow = event.target.closest("[data-term-list-id]");
+  if (termListRow) openContext(termListRow.dataset.termListId);
 });
 imageLightboxBackdrop?.addEventListener("click", closeImageLightbox);
 document.addEventListener("keydown", event => {
@@ -1391,6 +1386,21 @@ function buildTraditionalContextBodies() {
   });
 }
 
+// 通用版：给一批"简体是写死在 HTML 里的静态节点"生成繁体镜像，思路跟上面 buildTraditionalContextBodies
+// 一样（克隆 + convertElementToTraditional），但可以传任意 zh/hant 类名对，序言、跋、跋的按钮、
+// 全文阅读的"返回"都用这一个函数处理，不用每处各写一遍。静态内容只用转一次，不用每次语言切换都重转。
+function buildTraditionalStaticVariant(zhClass, hantClass, root = document) {
+  root.querySelectorAll("." + hantClass).forEach(node => node.remove());
+  root.querySelectorAll("." + zhClass).forEach(source => {
+    const traditional = source.cloneNode(true);
+    traditional.classList.remove(zhClass);
+    traditional.classList.add(hantClass);
+    traditional.setAttribute("lang", "zh-Hant");
+    convertElementToTraditional(traditional);
+    source.after(traditional);
+  });
+}
+
 // 这个函数现在管全站（不再只管侧栏）：任何带 data-context-chinese 的中文标签，
 // 不管长在主屏控制栏、开门按钮，还是侧栏里，都会在这里被统一切换简繁。
 function updateContextChineseLabels() {
@@ -1445,6 +1455,7 @@ function renderReferenceGallery(hotspot) {
   const thumbnails = hotspot.gallery.map((item, index) => `
     <button class="reference-gallery-thumb" type="button" data-gallery-index="${index}" aria-pressed="false" aria-label="放大查看：${escapeHTML(item.zh)}">
       <img src="${item.image}" alt="${escapeHTML(item.zh)}" loading="lazy">
+      <span class="reference-gallery-thumb-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></span>
     </button>`).join("");
   const circulationLinks = (hotspot.circulationLinks || []).map(item =>
     `<li><a href="${item.href}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.label)}</a></li>`
@@ -2132,6 +2143,7 @@ function cancelEpilogueAnimations(finish = false) {
     paragraph.style.removeProperty("filter");
     paragraph.style.removeProperty("transform");
   });
+  epilogueCta?.classList.add("is-visible");
 }
 
 function animateEpilogueParagraph(paragraph, duration) {
@@ -2201,6 +2213,7 @@ function startEpilogueSequence() {
     paragraph.style.removeProperty("filter");
     paragraph.style.removeProperty("transform");
   });
+  epilogueCta?.classList.remove("is-visible");
   if (prefersReducedMotion()) {
     fastForwardEpilogue();
     return;
@@ -2211,6 +2224,15 @@ function startEpilogueSequence() {
       animateEpilogueParagraph(paragraph, settings.focusDuration);
     }, time));
   });
+  // "阅读完整故事"按钮不再跟屏幕一起提前淡入——等最后一段文字动效走完，
+  // 按钮才跟着出现，读完文字再看见入口，顺序上更合理。
+  const lastParagraphIndex = Math.max(0, epilogueParagraphs.length - 1);
+  const lastParagraphDoneAt = settings.textInitialDelay
+    + lastParagraphIndex * (settings.focusDuration + settings.paragraphGap)
+    + settings.focusDuration;
+  epilogueTimers.push(setTimeout(() => {
+    epilogueCta?.classList.add("is-visible");
+  }, lastParagraphDoneAt));
   epilogueTimers.push(setTimeout(() => {
     if (!epilogueActive) return;
     busy = false;
@@ -2231,6 +2253,7 @@ function hideEpilogue() {
   epilogueScreen.setAttribute("aria-hidden", "true");
   app.removeAttribute("aria-hidden");
   epilogueParagraphs.forEach(paragraph => paragraph.classList.remove("is-visible"));
+  epilogueCta?.classList.remove("is-visible");
   busy = false;
 }
 
@@ -2788,6 +2811,7 @@ async function showImage() {
   if (chapterIndex === CHAPTER_5_INDEX) revealChapter5Loop();
   let hotspotMotion = Promise.resolve();
   renderHotspots();
+  renderContext(chapterIndex);
   updateNav();
   const settings = MOTION_SETTINGS.chapterReveal;
   await fadeBackgroundToFull(visual, settings.baseFadeDuration);
@@ -2873,6 +2897,7 @@ async function showTextFromImage() {
   phase = "text";
   stepIndex = CHAPTERS[chapterIndex].steps.length - 1;
   renderChapterText();
+  renderContext(chapterIndex);
   narrative.classList.add("is-visible");
   updateNav();
   await delay(MOTION_SETTINGS.chapterReveal.imageToTextDelay);
@@ -2987,6 +3012,36 @@ function renderContext(target, hotspot = null) {
     return;
   }
   const context = CONTEXTS[target];
+  // 章节先导文阶段（phase === "text"，场景/hotspot 还没出场）打开侧栏，
+  // 不该直接把整章的场景背景（比如"父母的书房"这种属于后面画面阶段的信息）端出来——
+  // 这时候侧栏该做的只是先导文本身的术语表：把这段文字里所有带上标数字的词汇列成清单，
+  // 数字对应正文里的上标，点哪条效果等同于点正文里对应的上标数字。
+  if (!hotspot && phase === "text" && typeof target === "number") {
+    const seenTermIds = new Set();
+    const termRows = [...document.querySelectorAll("#narrative .term-ref")]
+      .map(button => button.dataset.term)
+      .filter(id => {
+        if (!id || !TERMS[id] || seenTermIds.has(id)) return false;
+        seenTermIds.add(id);
+        return true;
+      })
+      .sort((a, b) => TERMS[a].number - TERMS[b].number)
+      .map(id => {
+        const term = TERMS[id];
+        return `<button class="context-term-list-item" type="button" data-term-list-id="${id}">
+          <span class="context-term-list-number" aria-hidden="true">${term.number}</span>
+          <span class="context-term-list-label">${renderContextChineseLabel(term.zh)}<span class="context-term-list-en">${term.en}</span></span>
+        </button>`;
+      }).join("");
+    contextContent.innerHTML = `
+      <h2>${renderContextChineseLabel(context?.titleZh || "先导文")}</h2><p class="context-title-en">${context?.titleEn || "Lead-in text"}</p>
+      <p class="context-body-zh">点击文中的上标数字，或下面清单里对应的词条，查看术语解释。</p>
+      <p class="context-en context-body-en">Select a superscript number in the text, or the matching entry below, to read the term note.</p>
+      ${termRows ? `<div class="context-term-list">${termRows}</div>` : ""}`;
+    buildTraditionalContextBodies();
+    updateContextChineseLabels();
+    return;
+  }
   const referenceItems = (context.references || []).map(reference => {
     const captionZh = reference.captionZh || reference.caption || "";
     const captionEn = reference.captionEn || reference.caption || "";
@@ -3007,7 +3062,12 @@ function renderContext(target, hotspot = null) {
     <ul class="context-sources">
       ${(context.sources || []).map(source => `<li><a href="${source.href}" target="_blank" rel="noopener noreferrer"><span class="context-body-zh">${source.zh}</span><span class="context-en context-body-en">${source.en}</span></a></li>`).join("")}
     </ul>` : "";
-  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspot.zh)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspot.zh)}" data-zoom-caption="${escapeHTML(hotspot.source || "")}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspot.source ? `<figcaption><small>${hotspot.source}</small></figcaption>` : ""}</figure>` : "";
+  const hotspotSourceHtml = hotspot?.source
+    ? (hotspot.sourceUrl
+        ? `<small><a class="context-reference-credit" href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer">${hotspot.source}</a></small>`
+        : `<small>${hotspot.source}</small>`)
+    : "";
+  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspot.zh)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspot.zh)}" data-zoom-caption="${escapeHTML(hotspot.source || "")}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspotSourceHtml ? `<figcaption>${hotspotSourceHtml}</figcaption>` : ""}</figure>` : "";
   const hotspotSource = hotspot?.source && !hotspot?.image ? `<p class="hotspot-source">图片来源 · ${hotspot.sourceUrl ? `<a href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer">${hotspot.source}</a>` : hotspot.source}</p>` : "";
   const hotspotReading = hotspot?.learnMoreZh ? `
     <div class="hotspot-reading">
@@ -3020,23 +3080,30 @@ function renderContext(target, hotspot = null) {
     <blockquote class="context-anchor context-body-zh">${hotspot.anchorZh}</blockquote>
     ${hotspot.anchorEn ? `<blockquote class="context-anchor context-en context-body-en">${hotspot.anchorEn}</blockquote>` : ""}` : "";
   const hotspotReferences = `${hotspotImage}${hotspotGallery}${hotspotSource}`;
-  const hasReferences = Boolean(hotspotReferences || referenceItems || contextSources);
+  // 章节级的"参考图片"（context.references）和脚注列表（context.sources）只属于默认场景侧栏，
+  // 不该跟着漏进某个具体 hotspot 的侧栏里——点开一个具体的点，就只该看到这个点自己的图片/来源，
+  // 不该把整章的背景音乐脚注、整章的参考图片一起搭进来。
+  // 有图片内容（hotspotReferences / referenceItems）才叫"参考图片"；如果这一章只有文字脚注
+  // （context.sources），标题要换成"参考资料"，不能挂着"参考图片"的名字却什么图都没有。
+  // 两者都没有时，整个手风琴直接不渲染，不留一个空标题。
+  const hasImageReferences = Boolean(hotspot ? hotspotReferences : (hotspotReferences || referenceItems));
+  const hasTextSources = Boolean(!hotspot && contextSources);
+  const hasReferences = hasImageReferences || hasTextSources;
+  const referencesLabel = hasImageReferences ? "参考图片" : "参考资料";
+  const referencesLabelEn = hasImageReferences ? "References" : "Sources";
   const chapterContext = hotspot?.hideChapterContext ? "" : `
     ${hotspot ? "" : `<div class="context-primary">
       ${renderContextParagraphs(context.zh, "context-body-zh")}
       ${renderContextParagraphs(context.en, "context-en context-body-en")}
     </div>`}
     ${hasReferences ? `<details class="context-section">
-      <summary>${renderContextChineseLabel("参考图片")} <span>References</span></summary>
-      ${hotspotReferences}${referenceItems}${contextSources}
+      <summary>${renderContextChineseLabel(referencesLabel)} <span>${referencesLabelEn}</span></summary>
+      ${hotspot ? hotspotReferences : `${hotspotReferences}${referenceItems}${contextSources}`}
     </details>` : ""}
     <div class="context-novel-section">
-      <button class="context-novel-toggle" type="button" aria-expanded="false">
+      <button class="context-novel-toggle fullscreen-button" type="button" data-open-full-story>
         ${renderContextChineseLabel("小说原文阅读")} <span>Read the novel</span>
       </button>
-      <div class="context-novel-body" hidden>
-        ${context.novelZh ? `<blockquote class="context-body-zh">${context.novelZh}</blockquote><p class="context-en context-body-en">${context.novelEn || ""}</p>` : `<p class="context-empty context-body-zh">本章小说原文尚未导入。</p><p class="context-empty context-body-en">Novel excerpt not yet added.</p>`}
-      </div>
     </div>`;
   contextContent.innerHTML = `
     <h2>${renderContextChineseLabel(hotspot ? hotspot.zh : context.title)}</h2>
@@ -3148,7 +3215,7 @@ function showMemoryThought(zh, en, interactive = false) {
   memoryThought.className = `memory-thought is-center${interactive ? " is-interactive" : ""}`;
   memoryThought.innerHTML = `
     <div class="memory-thought-inner">
-      <p class="memory-thought-zh" lang="zh-CN">${zh}</p>
+      <p class="memory-thought-zh" lang="zh-CN">${convertZh(zh)}</p>
       <p class="memory-thought-en" lang="en">${en}</p>
     </div>`;
   memoryThought.classList.remove("is-leaving");
@@ -6114,6 +6181,17 @@ mainLanguageButtons.forEach(button => {
 });
 renderContext("start");
 updateContextChineseLabels();
+buildTraditionalStaticVariant("start-zh", "start-hant");
+buildTraditionalStaticVariant("epilogue-zh", "epilogue-hant");
+buildTraditionalStaticVariant("epilogue-fullstory-zh", "epilogue-fullstory-hant");
+buildTraditionalStaticVariant("story-back-zh", "story-back-hant");
+// 序言"进入/退出全屏"大按钮、按钮下方的邀请文案、时间线上"序/跋"两个站点的年份标签、
+// 六章时间线的场景标题——之前中英一直是拼在同一段字符串/同一节点里显示，现在拆成
+// 简/繁/英三个独立节点，繁体同样靠这个通用克隆函数生成。
+buildTraditionalStaticVariant("start-fullscreen-zh", "start-fullscreen-hant");
+buildTraditionalStaticVariant("fullscreen-invitation-zh", "fullscreen-invitation-hant");
+buildTraditionalStaticVariant("timeline-year-zh", "timeline-year-hant");
+buildTraditionalStaticVariant("timeline-title-zh", "timeline-title-hant");
 buildTraditionalStoryBody();
 updateContextLocaleChrome();
 updateNav();

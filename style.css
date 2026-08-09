@@ -144,7 +144,7 @@ body.is-fullscreen .experience { width:100vw; height:100dvh; border-color:transp
   margin-bottom:1.15rem; transform-origin:center; will-change:opacity,filter,transform;
 }
 .start-paragraph.is-visible { opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
-.start-zh { display:block; font-size:var(--content-font-size-zh); line-height:1.7; letter-spacing:.055em; color:rgba(255,255,255,.78); margin-bottom:.24rem; }
+.start-zh, .start-hant { display:block; font-size:var(--content-font-size-zh); line-height:1.7; letter-spacing:.055em; color:rgba(255,255,255,.78); margin-bottom:.24rem; }
 .start-en { display:block; font:calc(var(--start-en-font-size,.95rem) * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.7); }
 
 .epilogue-screen {
@@ -162,13 +162,21 @@ body.is-fullscreen .experience { width:100vw; height:100dvh; border-color:transp
   transform-origin:center; will-change:opacity,filter,transform;
 }
 .epilogue-paragraph.is-visible { opacity:1; filter:blur(0); transform:translateY(0) scale(1); }
-.epilogue-zh { display:block; font-size:var(--content-font-size-zh); line-height:1.7; letter-spacing:.055em; color:rgba(255,255,255,.82); }
+.epilogue-zh, .epilogue-hant { display:block; font-size:var(--content-font-size-zh); line-height:1.7; letter-spacing:.055em; color:rgba(255,255,255,.82); }
 .epilogue-en { display:block; margin-top:.24rem; font:calc(.79rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.65); }
 .epilogue-subparagraph { display:block; margin-top:.1em; }
 .epilogue-en i { font-weight:400; }
-.epilogue-cta { margin-top:.9rem; }
-/* 与序言的进入全屏按钮共用 .fullscreen-button 的圆角胶囊/描边/毛玻璃底，
-   这里只叠加跋独有的文字排版和 hover 强调色，不再自己另起一套方形描边样式。 */
+/* .epilogue-cta 现在是 .epilogue-text 的兄弟节点，不再混在逐句渐显的段落队列里，
+   但也不再跟屏幕一起提前淡入——JS 会在最后一段文字动效走完后才加上 .is-visible，
+   读完文字、按钮才出现，顺序上跟着叙事走。 */
+.epilogue-cta {
+  position:absolute; z-index:4; left:50%; bottom:8.5rem; width:min(88%,32rem);
+  transform:translateX(-50%); text-align:center;
+  opacity:0; pointer-events:none; transition:opacity 1s ease;
+}
+.epilogue-cta.is-visible { opacity:1; pointer-events:auto; }
+/* 与序言的进入全屏按钮共用 .fullscreen-button 的圆角胶囊/描边/毛玻璃底，字号也直接继承
+   .fullscreen-button 自己的 .7rem 无衬线字，不再单独覆盖成正文那么大——这样两个按钮才是真的一样。 */
 .epilogue-fullstory-link {
   display:inline-flex; flex-direction:column; align-items:center; gap:.18rem;
   text-decoration:none; letter-spacing:.08em; padding:.62rem 1.5rem;
@@ -177,8 +185,7 @@ body.is-fullscreen .experience { width:100vw; height:100dvh; border-color:transp
 .epilogue-fullstory-link:focus-visible {
   border-color:rgba(255,196,120,.75); background:rgba(255,196,120,.08);
 }
-.epilogue-fullstory-zh { font-size:var(--content-font-size-zh); }
-.epilogue-fullstory-en { font:calc(.72rem * var(--content-font-scale))/1.4 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.6); }
+.epilogue-fullstory-zh, .epilogue-fullstory-hant, .epilogue-fullstory-en { font:inherit; letter-spacing:inherit; color:inherit; }
 html[data-content-font-size="large"] .start-text,
 html[data-content-font-size="large"] .epilogue-text {
   width:88vw;
@@ -201,7 +208,8 @@ html[data-content-font-size="large"] .epilogue-paragraph { margin-bottom:.95rem;
   padding-bottom:0;
 }
 .epilogue-screen.is-safety-condensed .epilogue-paragraph { margin-bottom:.52rem; }
-.epilogue-screen.is-safety-condensed .epilogue-zh { line-height:1.5; }
+.epilogue-screen.is-safety-condensed .epilogue-zh,
+.epilogue-screen.is-safety-condensed .epilogue-hant { line-height:1.5; }
 .epilogue-screen.is-safety-condensed .epilogue-en {
   margin-top:.08rem;
   line-height:1.26;
@@ -219,7 +227,7 @@ html[data-content-font-size="large"] .epilogue-screen.is-safety-condensed .epilo
   display:flex; align-items:baseline; justify-content:center; gap:.65rem;
   margin-top:.6rem; color:rgba(255,255,255,.5); white-space:nowrap;
 }
-.fullscreen-invitation-zh { font-size:.61rem; line-height:1.35; letter-spacing:.09em; }
+.fullscreen-invitation-zh,.fullscreen-invitation-hant { font-size:.61rem; line-height:1.35; letter-spacing:.09em; }
 .fullscreen-invitation-en { font:500 .61rem/1.35 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.035em; }
 
 .desktop-invitation {
@@ -270,8 +278,8 @@ body.is-fullscreen .exit-fullscreen-label { display:inline; }
 .screen-controls > button { position:relative; z-index:0; }
 .controls-collapse-toggle { display:none; }
 .fullscreen-button-corner {
-  display:flex; align-items:center; min-height:2rem; padding:.32rem .56rem .32rem .66rem;
-  border:0; border-radius:999px 0 0 999px; background:transparent;
+  display:flex; align-items:center; min-height:1.6rem; padding:.2rem .56rem .2rem .66rem;
+  border:0; border-left:1px solid rgba(255,255,255,.18); border-radius:0; background:transparent;
   color:rgba(255,255,255,.7); opacity:.78;
   font:500 .56rem/1 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.055em;
   backdrop-filter:none; -webkit-backdrop-filter:none;
@@ -281,7 +289,7 @@ body.is-fullscreen .exit-fullscreen-label { display:inline; }
   color:#fff; opacity:1; background:rgba(255,255,255,.08); outline:none;
 }
 .motion-button {
-  display:flex; align-items:center; gap:.4rem; min-height:2rem; padding:.32rem .52rem .32rem .6rem;
+  display:flex; align-items:center; gap:.4rem; min-height:1.6rem; padding:.2rem .52rem .2rem .6rem;
   border:0; border-left:1px solid rgba(255,255,255,.18); border-radius:0;
   background:transparent; color:rgba(255,255,255,.7); cursor:pointer; opacity:.78;
   font:500 .56rem/1 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.055em;
@@ -298,31 +306,42 @@ body.is-fullscreen .exit-fullscreen-label { display:inline; }
 .motion-control-name i {
   margin-left:.2rem; font-style:normal; font-size:.94em; letter-spacing:.08em; opacity:.48;
 }
+/* 顶部胶囊里"全屏/字号/动效/声音"这几颗按钮：中文用 data-context-chinese（简繁共用同一节点，
+   JS 直接替换文字），英文缩写在 <i> 里——选哪个语言就只显示哪个，不再中英一起露出来。 */
+html[data-main-language="zh-hans"] .fullscreen-button-corner i,
+html[data-main-language="zh-hant"] .fullscreen-button-corner i,
+html[data-main-language="zh-hans"] .motion-button i,
+html[data-main-language="zh-hant"] .motion-button i {
+  display:none;
+}
+html[data-main-language="en"] .fullscreen-button-corner [data-context-chinese],
+html[data-main-language="en"] .motion-button [data-context-chinese] {
+  display:none;
+}
 
-/* 语言切换器：从侧栏搬到主控制栏后，按同一排按钮的高度/字号/分隔线风格对齐，不再单独长一个圆角胶囊。 */
-.main-language-toggle { display:flex; align-items:center; min-height:2rem; border-left:1px solid rgba(255,255,255,.18); }
+/* 语言切换器现在是胶囊最左边的一组，按同一排按钮的高度/字号/分隔线风格对齐，
+   自己不再单独长一个圆角胶囊——最左边那颗按钮（简）继承胶囊自己的左侧圆角。 */
+.main-language-toggle { display:flex; align-items:center; min-height:1.6rem; }
 .main-language-toggle button {
-  min-height:2rem; padding:.32rem .5rem; border:0; background:transparent; cursor:pointer;
-  color:rgba(255,255,255,.7); opacity:.78;
+  min-height:1.6rem; min-width:2.1rem; padding:.2rem .5rem; border:0; background:transparent; cursor:pointer;
+  color:rgba(255,255,255,.7); opacity:.78; text-align:center;
   font:500 .56rem/1 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.055em;
   transition:color .25s ease,opacity .25s ease,background .25s ease;
 }
 .main-language-toggle button:hover,.main-language-toggle button:focus-visible { color:#fff; opacity:1; background:rgba(255,255,255,.08); outline:none; }
 .main-language-toggle button[aria-pressed="true"] { color:#fff; opacity:1; background:rgba(255,255,255,.13); }
-/* English 是整条 .screen-controls 胶囊最右边的按钮，它的高亮背景需要自己带右侧圆角，
+/* 简/繁/ENG 是整条 .screen-controls 胶囊最左边的一组按钮，它的高亮背景需要自己带左侧圆角，
    否则矩形背景只能靠父容器 overflow:hidden 硬裁，贴着胶囊弧线看会不圆润、错位。 */
-.main-language-toggle button:last-child { border-radius:0 999px 999px 0; }
+.main-language-toggle button:first-child { border-radius:999px 0 0 999px; }
+/* 声音是现在整条胶囊最右边的按钮，同样的道理，右侧圆角要自己带，跟胶囊弧线对上。 */
+.sound-button { border-radius:0 999px 999px 0; }
 
 /* 三态互斥：中文（简体/繁体）状态下，把所有英文对照行都藏起来；English 状态下反过来藏中文行。
    之前是中英一起显示、只有 English 才单独隐藏中文，现在改成三个状态互不重叠——
    跟侧栏的规则统一，选哪个语言就只看哪个语言，不再顺带看到另一种。 */
 html[data-main-language="en"] .step-zh,
 html[data-main-language="en"] .tooltip-zh,
-html[data-main-language="en"] .start-zh,
-html[data-main-language="en"] .epilogue-zh,
-html[data-main-language="en"] .epilogue-fullstory-zh,
-html[data-main-language="en"] .memory-thought-zh,
-html[data-main-language="en"] .story-back-zh {
+html[data-main-language="en"] .memory-thought-zh {
   display:none;
 }
 html[data-main-language="zh-hans"] .step-en,
@@ -331,20 +350,69 @@ html[data-main-language="zh-hans"] .tooltip-translation,
 html[data-main-language="zh-hant"] .tooltip-translation,
 html[data-main-language="zh-hans"] .tooltip-note-en,
 html[data-main-language="zh-hant"] .tooltip-note-en,
-html[data-main-language="zh-hans"] .start-en,
-html[data-main-language="zh-hant"] .start-en,
-html[data-main-language="zh-hans"] .epilogue-en,
-html[data-main-language="zh-hant"] .epilogue-en,
-html[data-main-language="zh-hans"] .epilogue-fullstory-en,
-html[data-main-language="zh-hant"] .epilogue-fullstory-en,
 html[data-main-language="zh-hans"] .memory-thought-en,
-html[data-main-language="zh-hant"] .memory-thought-en,
+html[data-main-language="zh-hant"] .memory-thought-en {
+  display:none;
+}
+/* 序言 / 跋 / 跋的"阅读完整故事"按钮 / 全文阅读的"返回" / 全文阅读正文，
+   这几处简繁不是共用同一份文字——繁体是脚本用 convertElementToTraditional() 转出来的独立克隆节点
+   （-hant 类），跟英文一样是"三选一各自独立显示"，不是"简繁共用、只切中英"的两态规则。 */
+html[data-main-language="zh-hans"] .start-hant,
+html[data-main-language="zh-hans"] .start-en,
+html[data-main-language="zh-hant"] .start-zh,
+html[data-main-language="zh-hant"] .start-en,
+html[data-main-language="en"] .start-zh,
+html[data-main-language="en"] .start-hant,
+html[data-main-language="zh-hans"] .epilogue-hant,
+html[data-main-language="zh-hans"] .epilogue-en,
+html[data-main-language="zh-hant"] .epilogue-zh,
+html[data-main-language="zh-hant"] .epilogue-en,
+html[data-main-language="en"] .epilogue-zh,
+html[data-main-language="en"] .epilogue-hant,
+html[data-main-language="zh-hans"] .epilogue-fullstory-hant,
+html[data-main-language="zh-hans"] .epilogue-fullstory-en,
+html[data-main-language="zh-hant"] .epilogue-fullstory-zh,
+html[data-main-language="zh-hant"] .epilogue-fullstory-en,
+html[data-main-language="en"] .epilogue-fullstory-zh,
+html[data-main-language="en"] .epilogue-fullstory-hant,
+html[data-main-language="zh-hans"] .story-back-hant,
 html[data-main-language="zh-hans"] .story-back-en,
-html[data-main-language="zh-hant"] .story-back-en {
+html[data-main-language="zh-hant"] .story-back-zh,
+html[data-main-language="zh-hant"] .story-back-en,
+html[data-main-language="en"] .story-back-zh,
+html[data-main-language="en"] .story-back-hant {
   display:none;
 }
 /* 全文阅读页是简/繁/英三态各自独立文字（繁体是脚本转换出来的 .story-hant，不是共用简体那份），
    跟别处"简繁共用一份文字、只切中英"的两态规则不一样，单独写。 */
+/* 序言大按钮"进入/退出全屏"、按钮下方的邀请文案、时间线上"序/跋"两个站点的年份标签、
+   六章时间线的场景标题——都是简/繁/英三态各自独立文字（繁体同样是脚本转换出来的 -hant 克隆）。 */
+html[data-main-language="zh-hans"] .start-fullscreen-hant,
+html[data-main-language="zh-hans"] .start-fullscreen-en,
+html[data-main-language="zh-hant"] .start-fullscreen-zh,
+html[data-main-language="zh-hant"] .start-fullscreen-en,
+html[data-main-language="en"] .start-fullscreen-zh,
+html[data-main-language="en"] .start-fullscreen-hant,
+html[data-main-language="zh-hans"] .fullscreen-invitation-hant,
+html[data-main-language="zh-hans"] .fullscreen-invitation-en,
+html[data-main-language="zh-hant"] .fullscreen-invitation-zh,
+html[data-main-language="zh-hant"] .fullscreen-invitation-en,
+html[data-main-language="en"] .fullscreen-invitation-zh,
+html[data-main-language="en"] .fullscreen-invitation-hant,
+html[data-main-language="zh-hans"] .timeline-year-hant,
+html[data-main-language="zh-hans"] .timeline-year-en,
+html[data-main-language="zh-hant"] .timeline-year-zh,
+html[data-main-language="zh-hant"] .timeline-year-en,
+html[data-main-language="en"] .timeline-year-zh,
+html[data-main-language="en"] .timeline-year-hant,
+html[data-main-language="zh-hans"] .timeline-title-hant,
+html[data-main-language="zh-hans"] .timeline-title-en,
+html[data-main-language="zh-hant"] .timeline-title-zh,
+html[data-main-language="zh-hant"] .timeline-title-en,
+html[data-main-language="en"] .timeline-title-zh,
+html[data-main-language="en"] .timeline-title-hant {
+  display:none;
+}
 html[data-main-language="zh-hans"] .story-hant,
 html[data-main-language="zh-hans"] .story-en,
 html[data-main-language="zh-hant"] .story-zh,
@@ -369,14 +437,6 @@ html[data-sound="on"] #sound-toggle .motion-switch::after { transform:translateX
 .motion-mode-label { min-width:1.8rem; color:rgba(255,255,255,.62); white-space:nowrap; text-align:center; }
 .start-screen:not(.is-hidden) ~ .screen-controls { z-index:110; opacity:1; pointer-events:auto; }
 .start-screen:not(.is-hidden) ~ .screen-controls .fullscreen-button-corner { display:none; }
-.start-screen:not(.is-hidden) ~ .screen-controls #font-size-toggle {
-  border-left:0;
-  border-radius:999px 0 0 999px;
-  padding-left:.7rem;
-}
-.start-screen:not(.is-hidden) ~ .screen-controls #motion-toggle {
-  border-radius:0; padding-left:.72rem;
-}
 .sound-button { border-radius:0 999px 999px 0; padding-right:.44rem; }
 .control-button {
   width:2.25rem; height:2.25rem; display:inline-flex; align-items:center; justify-content:center;
@@ -459,8 +519,8 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
   width:max-content; max-width:13rem; opacity:0; pointer-events:none; color:#fff; white-space:nowrap;
   transition:opacity .55s ease,transform .55s ease;
 }
-.timeline-title b { display:block; font:500 .65rem/1.2 "Noto Serif SC","Songti SC",serif; letter-spacing:.08em; }
-.timeline-title i { display:block; margin-top:.18rem; font:normal .55rem/1.2 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.62); }
+.timeline-title-zh,.timeline-title-hant { display:block; font:500 .65rem/1.2 "Noto Serif SC","Songti SC",serif; letter-spacing:.08em; }
+.timeline-title-en { display:block; margin-top:.18rem; font:normal .55rem/1.2 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.62); }
 .timeline-stop.is-active .timeline-title { opacity:.88; transform:translateX(-50%) translateY(0); }
 .timeline-arrow { flex:0 0 auto; margin-top:.575rem; opacity:.65; }
 .timeline-arrow:hover,.timeline-arrow:focus-visible { opacity:1; }
@@ -511,9 +571,24 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 .context-content h2 { font-size:calc(1.35rem * var(--content-font-scale)); line-height:1.35; font-weight:400; letter-spacing:.05em; margin-bottom:.35rem; }
 .context-content .context-title-en { font:calc(.92rem * var(--content-font-scale))/1.4 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.68); margin-bottom:1.6rem; }
 .context-content p { font-size:var(--content-font-size-ui); line-height:1.8; color:rgba(255,255,255,.75); margin-bottom:1rem; }
-.context-content .context-en { font:normal calc(.86rem * var(--content-font-scale))/1.65 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.72); }
+.context-content .context-en { font:normal calc(.96rem * var(--content-font-scale))/1.7 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.72); }
 .context-rule { width:2.5rem; border:0; border-top:1px solid rgba(255,255,255,.28); margin:1.5rem 0; }
 .context-material { font:600 .58rem/1 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif !important; letter-spacing:.15em; color:rgba(255,255,255,.42) !important; }
+/* 先导文阶段的术语清单：每条对应正文里的一个上标数字，点了跟点正文里的上标效果一样。 */
+.context-term-list { display:flex; flex-direction:column; gap:.15rem; margin-top:1.2rem; }
+.context-term-list-item {
+  display:flex; align-items:flex-start; gap:.65rem; width:100%; text-align:left;
+  border:0; border-radius:.5rem; background:transparent; cursor:pointer; padding:.55rem .5rem;
+  transition:background .2s ease;
+}
+.context-term-list-item:hover,.context-term-list-item:focus-visible { background:rgba(255,255,255,.07); outline:none; }
+.context-term-list-number {
+  flex:0 0 auto; display:flex; align-items:center; justify-content:center;
+  width:1.3rem; height:1.3rem; margin-top:.1rem; border:1px solid rgba(255,255,255,.4); border-radius:50%;
+  font:600 .68rem/1 Georgia,serif; color:rgba(255,255,255,.85);
+}
+.context-term-list-label { display:block; font-size:var(--content-font-size-zh); line-height:1.5; color:rgba(255,255,255,.86); }
+.context-term-list-en { display:block; margin-top:.15rem; font:calc(.82rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.55); }
 .context-primary { padding-bottom:.75rem; }
 .epilogue-context-section { padding:1rem 0 .15rem; border-top:1px solid rgba(255,255,255,.16); }
 .epilogue-context-section:first-child { padding-top:0; border-top:0; }
@@ -585,6 +660,12 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
   transition:opacity .3s ease,visibility 0s linear .3s;
 }
 .full-story-screen.is-active { opacity:1; visibility:visible; pointer-events:auto; transition-delay:0s; }
+/* 全文阅读跟跋的历史背景侧栏、时间线都无关，打开全文阅读时把这两个都藏起来，
+   避免侧栏按钮抢戏、时间线的文字跟正文重叠打架。 */
+body.is-full-story-open #context-toggle,
+body.is-full-story-open #timeline {
+  display:none !important;
+}
 .story-page { max-width:40rem; margin:0 auto; }
 .story-back {
   display:inline-flex; align-items:center; gap:.4rem; border:0; background:none; cursor:pointer;
@@ -601,12 +682,12 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 }
 .story-p { margin-bottom:1.3rem; }
 .story-zh,.story-hant {
-  display:block; font-size:1.02rem; line-height:1.95; letter-spacing:.03em; text-align:justify;
+  display:block; font-size:calc(1.02rem * var(--content-font-scale)); line-height:1.95; letter-spacing:.03em; text-align:justify;
   color:rgba(255,255,255,.9);
 }
 .story-en {
   display:block; margin-top:.32rem; font-family:"Newsreader","Times New Roman",Georgia,serif;
-  font-size:.88rem; line-height:1.65; letter-spacing:.01em; text-align:justify;
+  font-size:calc(.88rem * var(--content-font-scale)); line-height:1.65; letter-spacing:.01em; text-align:justify;
   color:rgba(255,255,255,.72);
 }
 .story-break { text-align:center; margin:2.1rem 0; color:rgba(255,255,255,.35); letter-spacing:1em; font-size:.8rem; }
@@ -615,8 +696,8 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 @media (max-width:640px) {
   .full-story-screen { padding:8vh 7vw 14vh; }
   .story-title { font-size:1.5rem; }
-  .story-zh,.story-hant { font-size:.96rem; line-height:1.8; }
-  .story-en { font-size:.81rem; line-height:1.55; }
+  .story-zh,.story-hant { font-size:calc(.96rem * var(--content-font-scale)); line-height:1.8; }
+  .story-en { font-size:calc(.81rem * var(--content-font-scale)); line-height:1.55; }
 }
 .context-sources { margin:1.1rem 0 .2rem; padding:0; list-style:none; border-top:1px solid rgba(255,255,255,.12); }
 .context-sources li { padding:.7rem 0; border-bottom:1px solid rgba(255,255,255,.1); font-size:var(--content-font-size-caption); line-height:1.5; }
@@ -625,36 +706,34 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 .context-section blockquote,
 .context-novel-body blockquote { border-left:1px solid rgba(255,255,255,.35); padding-left:1rem; font-size:calc(.84rem * var(--content-font-scale)); line-height:1.9; color:rgba(255,255,255,.78); white-space:pre-line; }
 
-/* "小说原文阅读"不再走跟"参考图片"一样的手风琴(+/- summary)样式，改成拐角按钮：
-   单边圆角小胶囊，视觉上跟全屏/字号那几个角按钮是一路的，点了原地展开下面的正文。 */
-.context-novel-section { border-top:1px solid rgba(255,255,255,.18); padding:.9rem 0; }
-.context-novel-section:last-child { border-bottom:1px solid rgba(255,255,255,.18); }
-.context-novel-toggle {
-  display:inline-flex; align-items:baseline; gap:.4rem; cursor:pointer;
-  border:1px solid rgba(255,255,255,.32); border-radius:999px 0 999px 999px;
-  background:rgba(255,255,255,.05); padding:.4rem .85rem;
-  font-size:var(--content-font-size-ui-sm); letter-spacing:.05em; color:rgba(255,255,255,.9);
-  transition:background .25s ease,border-color .25s ease;
+/* "小说原文阅读"不再是本地展开一段侧栏摘录，而是直接跳到全文阅读——
+   跟其它入口共用 .fullscreen-button 的圆角胶囊/描边/毛玻璃底，形状统一。
+   固定在侧栏底部（position:sticky），滚动到任何一段历史背景都始终看得见、点得到。 */
+.context-novel-section {
+  position:sticky; bottom:-2rem; z-index:5; margin:1.4rem -2rem -2rem; padding:.9rem 2rem 2rem;
+  border-top:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(rgba(18,18,18,0),rgba(18,18,18,.86) 35%,rgba(18,18,18,.94));
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
 }
-.context-novel-toggle:hover,.context-novel-toggle:focus-visible {
-  background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.6); outline:none;
-}
+.context-novel-toggle { width:100%; justify-content:center; text-align:center; }
 .context-novel-toggle span {
+  margin-left:.4rem;
   font:calc(.68rem * var(--content-font-scale))/1.3 "Newsreader","Times New Roman",Georgia,serif;
-  color:rgba(255,255,255,.5);
+  color:rgba(255,255,255,.55);
 }
-.context-novel-toggle[aria-expanded="true"] { background:rgba(255,255,255,.13); }
-.context-novel-body { margin-top:1rem; }
-.context-novel-body[hidden] { display:none; }
 .hotspot-reading { margin:1rem 0; }
 .context-reading-section { margin-bottom:.9rem !important; }
 .context-reading-section.is-personal { margin-top:1.15rem; padding-top:.9rem; border-top:1px dotted rgba(255,255,255,.28); font-style:italic; color:rgba(255,255,255,.57); }
 .context-reading-label { display:block; margin-bottom:.34rem; font:600 .58rem/1.25 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.88); }
 .hotspot-reading-en { margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.13); }
-.context-en .context-reading-section { font:normal calc(.8rem * var(--content-font-scale))/1.65 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.55); }
+.context-en .context-reading-section { font:normal calc(.9rem * var(--content-font-scale))/1.7 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.55); }
 .context-en .context-reading-section.is-personal { font-style:italic; color:rgba(255,255,255,.57); }
 .context-en .context-reading-label { font:600 .55rem/1.25 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; font-style:normal; color:rgba(255,255,255,.58); }
-.context-reading-section.is-supporting { margin-top:1rem; padding-top:.72rem; border-top:1px solid rgba(255,255,255,.1); font-size:calc(.72rem * var(--content-font-scale)); line-height:1.65; color:rgba(255,255,255,.5); }
+/* 之前脚注（"脚注｜..."、"Notes｜..."这两类）单独给了更小的字号，跟同一个侧栏里
+   "与蕙兰故事的关系"/"历史核心"这类正文段落挨在一起看,字号忽大忽小很违和。
+   现在脚注跟正文用同一个字号，只靠更淡的颜色、上分隔线和稍紧的行距来做视觉上的"降一级"，
+   不再靠改字号。 */
+.context-reading-section.is-supporting { margin-top:1rem; padding-top:.72rem; border-top:1px solid rgba(255,255,255,.1); line-height:1.6; color:rgba(255,255,255,.5); }
 .context-citation { margin-left:.08em; font:600 .58rem/1 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; color:rgba(255,255,255,.78); vertical-align:super; }
 .hotspot-source { font:.68rem/1.5 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; color:rgba(255,255,255,.48) !important; }
 .hotspot-source a { color:rgba(255,255,255,.72); text-underline-offset:.18em; }
@@ -667,6 +746,14 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 .reference-gallery-thumb { position:relative; aspect-ratio:3/4; padding:0; overflow:hidden; border:1px solid rgba(255,255,255,.2); border-radius:.5rem; background:rgba(255,255,255,.04); cursor:zoom-in; opacity:.78; transition:opacity .25s ease,border-color .25s ease,transform .25s ease; }
 .reference-gallery-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
 .reference-gallery-thumb:hover,.reference-gallery-thumb:focus-visible,.reference-gallery-thumb[aria-pressed="true"] { opacity:1; border-color:rgba(255,255,255,.72); transform:translateY(-2px); outline:none; }
+/* 缩略图右下角的放大镜，和单图参考（.context-reference-zoom）用同一套视觉语言，保持全站图片放大入口一致。 */
+.reference-gallery-thumb-zoom {
+  position:absolute; z-index:2; right:.35rem; bottom:.35rem;
+  display:flex; align-items:center; justify-content:center; width:1.5rem; height:1.5rem;
+  border:1px solid rgba(255,255,255,.5); border-radius:50%; background:rgba(0,0,0,.55);
+  color:#fff; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+.reference-gallery-thumb-zoom svg { width:.78rem; height:.78rem; }
 .reference-gallery-viewer { position:relative; margin:1rem 0; padding:.65rem; border:1px solid rgba(255,255,255,.18); border-radius:.65rem; background:rgba(255,255,255,.055); }
 .reference-gallery-viewer[hidden] { display:none; }
 .reference-gallery-large { display:block; width:100%; max-height:62vh; object-fit:contain; border-radius:.35rem; background:rgba(0,0,0,.25); }
@@ -709,7 +796,7 @@ body.is-light-narrative .timeline-stop.is-active { color:#111; }
 body.is-light-narrative .timeline-dot { background:rgba(255,255,255,.82); box-shadow:0 0 0 .22rem rgba(255,255,255,.45); }
 body.is-light-narrative .timeline-stop.is-active .timeline-dot { background:#111; box-shadow:0 0 .8rem rgba(0,0,0,.28); }
 body.is-light-narrative .timeline-title { color:#111; }
-body.is-light-narrative .timeline-title i { color:rgba(0,0,0,.58); }
+body.is-light-narrative .timeline-title-en { color:rgba(0,0,0,.58); }
 body.is-light-narrative .context-toggle {
   border-color:rgba(0,0,0,.28); background:rgba(255,255,255,.62); color:rgba(0,0,0,.7);
 }
@@ -985,8 +1072,8 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
   .timeline-stop { scroll-snap-align:center; scroll-snap-stop:always; flex:0 0 auto; min-width:3.2rem; }
   .timeline-line { left:calc(42vw + 1.6rem); right:calc(42vw + 1.6rem); }
   .timeline-title { max-width:8rem; }
-  .timeline-title b { font-size:.56rem; }
-  .timeline-title i { font-size:.48rem; }
+  .timeline-title-zh,.timeline-title-hant { font-size:.56rem; }
+  .timeline-title-en { font-size:.48rem; }
 }
 
 @media (max-width:600px) {
@@ -1013,11 +1100,13 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
   .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(2) { opacity:0; }
   .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(3) { transform:translateX(-50%) translateY(-.3rem) rotate(-45deg); }
 
-  .screen-controls > button:not(.controls-collapse-toggle) {
+  .screen-controls > button:not(.controls-collapse-toggle),
+  .screen-controls > .main-language-toggle {
     width:0; padding:0; opacity:0; pointer-events:none; overflow:hidden;
     transition:width .25s ease, opacity .2s ease, padding .25s ease;
   }
-  .screen-controls.is-expanded > button:not(.controls-collapse-toggle) {
+  .screen-controls.is-expanded > button:not(.controls-collapse-toggle),
+  .screen-controls.is-expanded > .main-language-toggle {
     width:auto; padding:.32rem .52rem; opacity:1; pointer-events:auto;
   }
 }
@@ -1054,12 +1143,14 @@ html.is-small-device .screen-controls.is-expanded .controls-collapse-toggle-bar:
 html.is-small-device .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(2) { opacity:0; }
 html.is-small-device .screen-controls.is-expanded .controls-collapse-toggle-bar:nth-child(3) { transform:translateX(-50%) translateY(-.3rem) rotate(-45deg); }
 
-html.is-small-device .screen-controls > button:not(.controls-collapse-toggle) {
+html.is-small-device .screen-controls > button:not(.controls-collapse-toggle),
+html.is-small-device .screen-controls > .main-language-toggle {
   width:0; padding:0; opacity:0; pointer-events:none; overflow:hidden;
   transition:width .25s ease, opacity .2s ease, padding .25s ease;
   min-height:calc(44px / var(--viewport-scale,1));
 }
-html.is-small-device .screen-controls.is-expanded > button:not(.controls-collapse-toggle) {
+html.is-small-device .screen-controls.is-expanded > button:not(.controls-collapse-toggle),
+html.is-small-device .screen-controls.is-expanded > .main-language-toggle {
   width:auto; padding:.32rem .52rem; opacity:1; pointer-events:auto;
 }
 
@@ -1114,14 +1205,14 @@ html.is-small-device .rotate-overlay.is-visible { display:flex; pointer-events:a
   .context-collapse { right:min(68vw,25rem); }
   .start-text { width:min(72vw,44rem); padding-bottom:3.3rem; }
   .start-paragraph { margin-bottom:.58rem; }
-  .start-zh { font-size:calc(.78rem * var(--content-font-scale)); line-height:1.45; }
+  .start-zh, .start-hant { font-size:calc(.78rem * var(--content-font-scale)); line-height:1.45; }
   .start-en { font-size:calc(var(--start-en-font-size-mobile,.76rem) * var(--content-font-scale)); line-height:1.3; }
   .epilogue-text { width:min(72vw,44rem); padding-bottom:3.2rem; }
   .epilogue-paragraph { margin-bottom:.58rem; }
-  .epilogue-zh { font-size:calc(.78rem * var(--content-font-scale)); line-height:1.45; }
+  .epilogue-zh, .epilogue-hant { font-size:calc(.78rem * var(--content-font-scale)); line-height:1.45; }
   .epilogue-en { margin-top:.12rem; font-size:calc(.63rem * var(--content-font-scale)); line-height:1.3; }
   .fullscreen-invitation { left:auto; right:1rem; bottom:3.8rem; width:13rem; transform:none; }
-  .fullscreen-invitation-zh,.fullscreen-invitation-en { display:none; }
+  .fullscreen-invitation-zh,.fullscreen-invitation-hant,.fullscreen-invitation-en { display:none; }
   .desktop-invitation { left:auto; right:1rem; bottom:3.8rem; width:13rem; transform:none; }
   .desktop-invitation-en { display:none; }
   .memory-thought { top:48%; bottom:auto; }

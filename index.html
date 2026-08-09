@@ -79,8 +79,8 @@
     </div>
     <div class="fullscreen-invitation">
       <button class="fullscreen-button fullscreen-button-start" type="button" aria-label="进入全屏观看">
-        <span class="enter-fullscreen-label">进入全屏&nbsp; / &nbsp;Enter fullscreen</span>
-        <span class="exit-fullscreen-label">退出全屏&nbsp; / &nbsp;Exit fullscreen</span>
+        <span class="enter-fullscreen-label"><span class="start-fullscreen-zh">进入全屏</span><span class="start-fullscreen-en">Enter fullscreen</span></span>
+        <span class="exit-fullscreen-label"><span class="start-fullscreen-zh">退出全屏</span><span class="start-fullscreen-en">Exit fullscreen</span></span>
       </button>
       <div class="fullscreen-invitation-note">
         <p class="fullscreen-invitation-zh">全屏观看，体验更佳</p>
@@ -154,12 +154,12 @@
         <span class="epilogue-zh"><span>退休那年，学生送给她一株君子兰。</span><span class="epilogue-subparagraph">她把它放在窗台上，养得很好，年年开花。</span></span>
         <span class="epilogue-en"><span>When she retired, her students gave her a clivia.</span><span class="epilogue-subparagraph">She kept it on the windowsill. It bloomed every year.</span></span>
       </p>
-      <p class="epilogue-paragraph epilogue-cta" data-index="8">
-        <button class="epilogue-fullstory-link fullscreen-button" type="button" id="open-full-story">
-          <span class="epilogue-fullstory-zh">阅读完整故事</span>
-          <span class="epilogue-fullstory-en">Read the Full Story</span>
-        </button>
-      </p>
+    </div>
+    <div class="epilogue-cta">
+      <button class="epilogue-fullstory-link fullscreen-button" type="button" id="open-full-story">
+        <span class="epilogue-fullstory-zh">阅读完整故事</span>
+        <span class="epilogue-fullstory-en">Read the Full Story</span>
+      </button>
     </div>
   </section>
 
@@ -180,6 +180,11 @@
       <span class="controls-collapse-toggle-bar" aria-hidden="true"></span>
       <span class="controls-collapse-toggle-bar" aria-hidden="true"></span>
     </button>
+    <div class="main-language-toggle" role="group" aria-label="全站语言">
+      <button type="button" data-main-language="zh-hans" aria-pressed="true">简</button>
+      <button type="button" data-main-language="zh-hant" aria-pressed="false">繁</button>
+      <button type="button" data-main-language="en" aria-pressed="false">ENG</button>
+    </div>
     <button class="fullscreen-button fullscreen-button-corner" type="button" aria-label="切换全屏">
       <span class="enter-fullscreen-label motion-control-name"><span data-context-chinese data-hans="全屏">全屏</span> <i>FULLSCREEN</i></span>
       <span class="exit-fullscreen-label motion-control-name"><span data-context-chinese data-hans="退出全屏">退出全屏</span> <i>EXIT FULLSCREEN</i></span>
@@ -199,11 +204,6 @@
       <span class="motion-switch sound-switch" aria-hidden="true"></span>
       <span class="motion-mode-label sound-mode-label">OFF</span>
     </button>
-    <div class="main-language-toggle" role="group" aria-label="全站语言">
-      <button type="button" data-main-language="zh-hans" aria-pressed="true">簡體</button>
-      <button type="button" data-main-language="zh-hant" aria-pressed="false">繁體</button>
-      <button type="button" data-main-language="en" aria-pressed="false">English</button>
-    </div>
   </div>
 
   <button id="context-toggle" class="context-toggle" type="button" aria-expanded="false" aria-controls="context-panel">
@@ -308,16 +308,16 @@
      <div class="timeline-track-inner">
       <div class="timeline-line" aria-hidden="true"></div>
       <button class="timeline-stop is-active" type="button" data-scene="start" aria-label="返回序言">
-        <span class="timeline-year">序 · Prologue</span><span class="timeline-dot"></span>
+        <span class="timeline-year"><span class="timeline-year-zh">序</span><span class="timeline-year-en">Prologue</span></span><span class="timeline-dot"></span>
       </button>
-      <button class="timeline-stop" type="button" data-scene="0"><span class="timeline-year">1953</span><span class="timeline-dot"></span><span class="timeline-title"><b>儿时父母的书房</b><i>My Parents’ Study</i></span></button>
-      <button class="timeline-stop" type="button" data-scene="1"><span class="timeline-year">1966</span><span class="timeline-dot"></span><span class="timeline-title"><b>芜湖师范学院的楼道</b><i>A Corridor at Wuhu Normal University</i></span></button>
-      <button class="timeline-stop" type="button" data-scene="2"><span class="timeline-year">1969 · I</span><span class="timeline-dot"></span><span class="timeline-title"><b>红星人民公社的水田</b><i>The Rice Paddies of Red Star Commune</i></span></button>
-      <button class="timeline-stop" type="button" data-scene="3"><span class="timeline-year">1969 · II</span><span class="timeline-dot"></span><span class="timeline-title"><b>公社大队会议室</b><i>The Brigade Meeting Room</i></span></button>
-      <button class="timeline-stop" type="button" data-scene="4"><span class="timeline-year">1970 · I</span><span class="timeline-dot"></span><span class="timeline-title"><b>田埂黄昏的门</b><i>A Door at Dusk on the Ridge</i></span></button>
-      <button class="timeline-stop" type="button" data-scene="5"><span class="timeline-year">1970 · II</span><span class="timeline-dot"></span><span class="timeline-title"><b>门的另一边</b><i>The Other Side of the Door</i></span></button>
+      <button class="timeline-stop" type="button" data-scene="0"><span class="timeline-year">1953</span><span class="timeline-dot"></span><span class="timeline-title"><span class="timeline-title-zh">儿时父母的书房</span><span class="timeline-title-en">My Parents’ Study</span></span></button>
+      <button class="timeline-stop" type="button" data-scene="1"><span class="timeline-year">1966</span><span class="timeline-dot"></span><span class="timeline-title"><span class="timeline-title-zh">芜湖师范学院的楼道</span><span class="timeline-title-en">A Corridor at Wuhu Normal University</span></span></button>
+      <button class="timeline-stop" type="button" data-scene="2"><span class="timeline-year">1969 · I</span><span class="timeline-dot"></span><span class="timeline-title"><span class="timeline-title-zh">红星人民公社的水田</span><span class="timeline-title-en">The Rice Paddies of Red Star Commune</span></span></button>
+      <button class="timeline-stop" type="button" data-scene="3"><span class="timeline-year">1969 · II</span><span class="timeline-dot"></span><span class="timeline-title"><span class="timeline-title-zh">公社大队会议室</span><span class="timeline-title-en">The Brigade Meeting Room</span></span></button>
+      <button class="timeline-stop" type="button" data-scene="4"><span class="timeline-year">1970 · I</span><span class="timeline-dot"></span><span class="timeline-title"><span class="timeline-title-zh">田埂黄昏的门</span><span class="timeline-title-en">A Door at Dusk on the Ridge</span></span></button>
+      <button class="timeline-stop" type="button" data-scene="5"><span class="timeline-year">1970 · II</span><span class="timeline-dot"></span><span class="timeline-title"><span class="timeline-title-zh">门的另一边</span><span class="timeline-title-en">The Other Side of the Door</span></span></button>
       <button class="timeline-stop" type="button" data-scene="epilogue" aria-label="前往跋">
-        <span class="timeline-year">跋 · Epilogue</span><span class="timeline-dot"></span>
+        <span class="timeline-year"><span class="timeline-year-zh">跋</span><span class="timeline-year-en">Epilogue</span></span><span class="timeline-dot"></span>
       </button>
      </div>
     </div>

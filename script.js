@@ -486,6 +486,22 @@ try {
   fontSizePreference = localStorage.getItem("1970-font-size-preference") || "standard";
 } catch (_) {}
 
+// 先导文（prologue lead text，即开场 .start-en）英文字号：原先是 .79rem（桌面）/ .63rem（移动端），
+// 比中文小太多，此处按约 20% 放大后取整。想手动微调就直接改这两个数字。
+const START_EN_FONT_SIZE_DESKTOP_REM = 0.95; // 原 0.79rem
+const START_EN_FONT_SIZE_MOBILE_REM = 0.76;  // 原 0.63rem
+document.documentElement.style.setProperty("--start-en-font-size", `${START_EN_FONT_SIZE_DESKTOP_REM}rem`);
+document.documentElement.style.setProperty("--start-en-font-size-mobile", `${START_EN_FONT_SIZE_MOBILE_REM}rem`);
+
+// 全局语言状态：不再只作用于侧栏，主屏叙事正文 / hotspot 提示 / 控制栏文案都读这一个值。
+// 三个状态：zh-hans（默认，简体）、zh-hant（繁体）、en（仅英文，隐藏中文行）。
+// 不做浏览器语言自动检测——只有用户自己点过切换器，localStorage 里才会有记录，否则永远从简体开场。
+let mainLanguage = "zh-hans";
+try {
+  const savedLanguage = localStorage.getItem("1970-language-preference");
+  if (["zh-hans", "zh-hant", "en"].includes(savedLanguage)) mainLanguage = savedLanguage;
+} catch (_) {}
+
 function prefersReducedMotion() {
   if (motionPreference === "full") return false;
   if (motionPreference === "reduced") return true;
@@ -606,10 +622,18 @@ const CONTEXTS = [
   },
   {
     title: "门的另一边", titleEn: "The Other Side · Greenwich Village, 1970",
-    zh: "1970年前后的格林尼治村，是曼哈顿一个以住宅为主、同时分布着书店、咖啡馆和小型演出场所的街区。红砖公寓的底层常有临街商铺。到了晚上，居民、学生、店员、乐手和来看演出的人会出现在同一片街道上。[6]\n\n独立书店不仅卖书，也会张贴公告，供人碰面和交换信息。1967年开业的奥斯卡·王尔德纪念书店是其中一个重要例子。它出售正面讨论同性恋生活的书籍和期刊，也为社群提供活动信息和聚会空间。[1]\n\n咖啡馆和小型演出场所散布在住宅之间，民谣、蓝调、诗歌朗诵和实验戏剧因此进入街区的日常生活。Gerde's Folk City是当时重要的民谣演出场所，鲍勃·迪伦早期曾在这里演出。[3][11]\n\n本章画面组合了这些同时期的街区元素，并非复原某一条具体街道。",
-    en: "Around 1970, Greenwich Village was a Manhattan neighbourhood made up mainly of residences, with bookshops, coffeehouses, and small performance venues among them. Street-level shops often occupied the ground floors of red-brick apartment buildings. At night, residents, students, shop workers, musicians, and people arriving for a show shared the same streets.[6]\n\nIndependent bookshops did more than sell books. They also posted notices and gave people places to meet and exchange information. The Oscar Wilde Memorial Bookshop, which opened in 1967, was an important example. It sold books and periodicals that discussed gay and lesbian life positively and provided activity information and meeting space for the community.[1]\n\nCoffeehouses and small performance venues stood among residential buildings, bringing folk music, blues, poetry readings, and experimental theatre into everyday neighbourhood life. Gerde's Folk City was an important folk venue where Bob Dylan played early engagements.[3][11]\n\nThis chapter combines elements found in the neighbourhood around 1970 rather than reconstructing a specific street.",
+    zh: "1970年前后的格林尼治村，是曼哈顿一个以住宅为主、同时分布着书店、咖啡馆和小型演出场所的街区。红砖公寓的底层常有临街商铺。到了晚上，居民、学生、店员、乐手和来看演出的人会出现在同一片街道上。[1]\n\n独立书店不仅卖书，也会张贴公告，供人碰面和交换信息。1967年开业的奥斯卡·王尔德纪念书店是其中一个重要例子。它出售正面讨论同性恋生活的书籍和期刊，也为社群提供活动信息和聚会空间。[2]\n\n咖啡馆和小型演出场所散布在住宅之间，民谣、蓝调、诗歌朗诵和实验戏剧因此进入街区的日常生活。Gerde's Folk City是当时重要的民谣演出场所，鲍勃·迪伦早期曾在这里演出。[3][4]\n\n本章画面组合了这些同时期的街区元素，并非复原某一条具体街道。",
+    en: "Around 1970, Greenwich Village was a Manhattan neighbourhood made up mainly of residences, with bookshops, coffeehouses, and small performance venues among them. Street-level shops often occupied the ground floors of red-brick apartment buildings. At night, residents, students, shop workers, musicians, and people arriving for a show shared the same streets.[1]\n\nIndependent bookshops did more than sell books. They also posted notices and gave people places to meet and exchange information. The Oscar Wilde Memorial Bookshop, which opened in 1967, was an important example. It sold books and periodicals that discussed gay and lesbian life positively and provided activity information and meeting space for the community.[2]\n\nCoffeehouses and small performance venues stood among residential buildings, bringing folk music, blues, poetry readings, and experimental theatre into everyday neighbourhood life. Gerde's Folk City was an important folk venue where Bob Dylan played early engagements.[3][4]\n\nThis chapter combines elements found in the neighbourhood around 1970 rather than reconstructing a specific street.",
     material: "合成场景｜格林尼治村夜间街道、书店、咖啡馆与1970年代车辆",
     references: [
+      {
+        image:"https://www.warhol.org/wp-content/uploads/2014/08/2.jpg",
+        alt:"The Velvet Underground and Nico performing at The Dom with light and film projections, 1966",
+        captionZh:"1966年，Velvet Underground 与 Nico 在 The Dom 演出，舞台配有灯光与影像投影",
+        captionEn:"The Velvet Underground and Nico performing at The Dom, 1966, with stage lighting and film projections",
+        source:"The Andy Warhol Museum",
+        href:"https://www.warhol.org/"
+      },
       {
         image:"https://www.nyclgbtsites.org/wp-content/uploads/2021/06/Craig-Rodwell-2-NYPL-1.jpeg",
         alt:"Craig Rodwell and Mei-Mei Sanford at the Oscar Wilde Memorial Bookshop in 1970",
@@ -617,13 +641,29 @@ const CONTEXTS = [
         captionEn:"Craig Rodwell and Mei-Mei Sanford at the Oscar Wilde Memorial Bookshop, 1970",
         source:"Diana Davies / The New York Public Library",
         href:"https://www.nyclgbtsites.org/site/oscar-wilde-memorial-bookshop/"
+      },
+      {
+        image:"https://www.nyclgbtsites.org/wp-content/uploads/2021/06/Caffe-Cino-3-1.jpeg",
+        alt:"Caffe Cino, an Off-Off-Broadway performance space in Greenwich Village",
+        captionZh:"Caffe Cino，格林尼治村一家咖啡馆兼外外百老汇（Off-Off-Broadway）演出场地",
+        captionEn:"Caffe Cino, a coffeehouse and Off-Off-Broadway performance space in Greenwich Village",
+        source:"NYC LGBTQ Historic Sites Project",
+        href:"https://www.nyclgbtsites.org/site/caffe-cino/"
+      },
+      {
+        image:"https://www.nyclgbtsites.org/wp-content/uploads/2021/06/Christopher-Street-Liberation-Day-March-June-1970.-Photo-by-Fred-W.-McDarrah.jpg",
+        alt:"Christopher Street Liberation Day, June 1970",
+        captionZh:"Christopher Street Liberation Day 游行，1970年6月",
+        captionEn:"Christopher Street Liberation Day march, June 1970",
+        source:"Fred W. McDarrah / NYC LGBTQ Historic Sites Project",
+        href:"https://www.nyclgbtsites.org/"
       }
     ],
     sources: [
-      { zh:"[1] NYC LGBTQ Historic Sites Project：Oscar Wilde Memorial Bookshop 史料页", en:"[1] NYC LGBTQ Historic Sites Project: Oscar Wilde Memorial Bookshop", href:"https://www.nyclgbtsites.org/site/oscar-wilde-memorial-bookshop/" },
+      { zh:"[1] Village Preservation：Greenwich Village 的街区、画廊、剧场与社会运动史", en:"[1] Village Preservation: Greenwich Village neighbourhood, gallery, theatre, and social-movement history", href:"https://villagepreservation.org/resources/neighborhood-history/" },
+      { zh:"[2] NYC LGBTQ Historic Sites Project：Oscar Wilde Memorial Bookshop 史料页", en:"[2] NYC LGBTQ Historic Sites Project: Oscar Wilde Memorial Bookshop", href:"https://www.nyclgbtsites.org/site/oscar-wilde-memorial-bookshop/" },
       { zh:"[3] Village Preservation：1961-1970 年的 Greenwich Village 音乐与咖啡店文化", en:"[3] Village Preservation: Folk Music in Greenwich Village, 1961-1970", href:"https://villagepreservation.org/2015/01/06/folk-music-in-greenwich-village-1961-1970s/" },
-      { zh:"[6] Village Preservation：Greenwich Village 的街区、画廊、剧场与社会运动史", en:"[6] Village Preservation: Greenwich Village neighbourhood, gallery, theatre, and social-movement history", href:"https://villagepreservation.org/resources/neighborhood-history/" },
-      { zh:"[11] Village Preservation：Gerde's Folk City及其演出者", en:"[11] Village Preservation: Gerde's Folk City and its performers", href:"https://villagepreservation.org/2018/03/28/gerdes-folk-city-the-end-of-a-greenwich-village-icon/" }
+      { zh:"[4] Village Preservation：Gerde's Folk City及其演出者", en:"[4] Village Preservation: Gerde's Folk City and its performers", href:"https://villagepreservation.org/2018/03/28/gerdes-folk-city-the-end-of-a-greenwich-village-icon/" }
     ]
   }
 ];
@@ -725,15 +765,15 @@ const HOTSPOTS = [
     },
     {
       id:"ch02-red-guard-poster", xPx:1027, yPx:596,
-      zh:"红卫兵宣传画", en:"Red Guard Propaganda Poster",
-      note:"红卫兵手举《毛泽东选集》。文革宣传把举书、挥臂和共同前进的动作反复组合，用领袖著作赋予群众行动以政治权威，并把不同的人塑造成意志一致的革命集体。",
-      noteEn:"Red Guards raise Selected Works of Mao Zedong. Cultural Revolution propaganda repeatedly combined raised books, lifted arms, and forward movement, using the leader’s writings to authorize mass action and recasting distinct individuals as a revolutionary collective with a single will.",
-      learnMoreZh:"历史核心｜红、黑、白的高对比便于快速印刷和远距离识读，也把人物、口号与政治立场组织成明确的视觉秩序。举书、挥臂和共同前进，是文革群众宣传画反复使用的动作组合。画中人高举的可能是《毛泽东选集》；下方口号仍需复核。[1]\n\n脚注｜[1] 准确题名、年份、作者、出版单位、口号识读与图片授权仍待确认。",
-      learnMoreEn:"History core｜High-contrast red, black, and white supported rapid printing and distant legibility while organizing figures, slogans, and political positions into a clear visual order. Raised books, lifted arms, and collective forward movement recur throughout Cultural Revolution mass propaganda. The figure may be holding Selected Works of Mao Zedong; the lower slogan still requires verification.[1]\n\nNotes｜[1] The title, date, artist, publisher, slogan transcription, and image rights remain unconfirmed.",
+      zh:"《早已森严壁垒 更加众志成城》", en:"Zǎoyǐ Sēnyán Bìlěi, Gèngjiā Zhòngzhì Chéngchéng (“Already Heavily Fortified, Our Wills Unite Like a Fortress”)",
+      note:"五名民兵举枪、望远镜与《毛泽东选集》，背景是围观的人群与标语。约1969年，晋南地区革命委员会政工组编，晋南地区工艺美术厂制。",
+      noteEn:"Five militia figures hold rifles, binoculars, and Selected Works of Mao Zedong, with crowds and slogans in the background. Circa 1969, compiled by the Political Work Group of the Jinnan Regional Revolutionary Committee and printed by the Jinnan Regional Arts and Crafts Factory.",
+      learnMoreZh:"历史核心｜题名、编者与出版单位已由海报原件的边注文字确认：《早已森严壁垒 更加众志成城》（宣传画），晋南地区革命委员会政工组 编，晋南地区工艺美术厂制，约1969年，统一书号/编号：临地革国统字第70001号。[1]\n\n红、黑、白的高对比便于快速印刷和远距离识读，也把人物、口号与政治立场组织成明确的视觉秩序。举枪、持镜、举书与共同前进，是文革群众宣传画反复使用的动作组合，用领袖著作赋予群众行动以政治权威。\n\n脚注｜[1] 题名与出版信息据海报实物边注；图片授权与馆藏来源仍待确认，现有文件带 PrintnSell 水印。",
+      learnMoreEn:"History core｜The title, compiler, and publisher are confirmed from the marginal text printed on the poster itself: Zǎoyǐ Sēnyán Bìlěi, Gèngjiā Zhòngzhì Chéngchéng [Already Heavily Fortified, Our Wills Unite Like a Fortress] (propaganda poster), compiled by the Political Work Group of the Jinnan Regional Revolutionary Committee, printed by the Jinnan Regional Arts and Crafts Factory, circa 1969, Serial No. 70001.[1]\n\nHigh-contrast red, black, and white supported rapid printing and distant legibility while organizing figures, slogans, and political positions into a clear visual order. Raised rifles, binoculars, raised books, and collective forward movement recur throughout Cultural Revolution mass propaganda, using the leader's writings to authorize mass action.\n\nNotes｜[1] Title and publication details are drawn from the marginal text on the poster itself. Image rights and archival provenance remain unconfirmed; the available file carries a PrintnSell watermark.",
       image:"assets/references/ch02-red-guard-poster.jpeg",
-      source:"原始参考图｜宣传画2-.jpeg",
-      galleryIntroZh:"以下海报用于辨认同时期常见的红、黑、白构图、集体人物、举书动作与政治口号。它们不是本画面所用海报的出处；画面中的书可能是《毛泽东选集》或《毛主席语录》，应按每件馆藏记录分别辨认。",
-      galleryIntroEn:"These posters are visual references for the period’s red-black-white palette, collective figures, raised books, and political slogans. They are not the source of the poster used in this scene. The raised books may be Selected Works of Mao Zedong or Quotations from Chairman Mao and are identified separately in each catalog record.",
+      source:"C004186A.jpg（用户上传原图）",
+      galleryIntroZh:"以下海报用于辨认同时期常见的红、黑、白构图、集体人物、举书动作与政治口号，供比对参考，并非本画面所用海报的出处。",
+      galleryIntroEn:"These posters are visual references for the period's red-black-white palette, collective figures, raised books, and political slogans, shown for comparison only and not the source of the poster used in this scene.",
       gallery:[
         {
           image:"assets/references/red-guard-gallery/e15-569.jpg",
@@ -773,7 +813,7 @@ const HOTSPOTS = [
           href:"https://www.germanmilitaria.com/OtherNations/photos/C004186.html"
         }
       ],
-      reviewFlag:"待考证：准确题名、创作年份、作者、出版单位、原始收藏来源及图片授权；现有文件带 PrintnSell 水印。"
+      reviewFlag:"题名、编者、出版单位、年份与统一书号已据海报原件边注确认，无需再核实。仍待考证：原始收藏来源及图片授权；现有文件带 PrintnSell 水印。"
     },
     {
       id:"ch02-fractured-childhood-memory", xPx:389, yPx:265,
@@ -1077,7 +1117,85 @@ const contextPanel = document.getElementById("context-panel");
 const contextClose = document.getElementById("context-close");
 const contextCollapse = document.getElementById("context-collapse");
 const contextContent = document.getElementById("context-content");
-const contextLanguageButtons = [...document.querySelectorAll("[data-context-language]")];
+const imageLightbox = document.getElementById("image-lightbox");
+const imageLightboxImg = imageLightbox?.querySelector(".image-lightbox-img");
+const imageLightboxCaption = imageLightbox?.querySelector(".image-lightbox-caption");
+const imageLightboxBackdrop = imageLightbox?.querySelector(".image-lightbox-backdrop");
+
+// 全文阅读——原来是独立的 full-story.html，现在合并成主体验里的一层全屏覆盖，靠 .is-active 显隐。
+const fullStoryScreen = document.getElementById("full-story-screen");
+function openFullStoryScreen() {
+  if (!fullStoryScreen) return;
+  fullStoryScreen.classList.add("is-active");
+  fullStoryScreen.setAttribute("aria-hidden", "false");
+  fullStoryScreen.scrollTop = 0;
+}
+function closeFullStoryScreen() {
+  if (!fullStoryScreen) return;
+  fullStoryScreen.classList.remove("is-active");
+  fullStoryScreen.setAttribute("aria-hidden", "true");
+}
+// 全文阅读的繁体是脚本一次性转换出来的（跟侧栏 buildTraditionalContextBodies 是同一个思路），
+// 正文是静态的，不会重新渲染，所以只需要在页面初始化时转一次。
+function buildTraditionalStoryBody() {
+  if (!fullStoryScreen) return;
+  fullStoryScreen.querySelectorAll(".story-hant").forEach(node => node.remove());
+  fullStoryScreen.querySelectorAll(".story-zh").forEach(source => {
+    const traditional = source.cloneNode(true);
+    traditional.classList.remove("story-zh");
+    traditional.classList.add("story-hant");
+    traditional.setAttribute("lang", "zh-Hant");
+    convertElementToTraditional(traditional);
+    source.after(traditional);
+  });
+}
+
+// 参考图片右下角的放大镜：弹出居中大图 + 75% 黑色背景遮罩，点遮罩关闭。
+// 图片是动态渲染进侧栏的，所以放大镜按钮用事件委托，绑一次即可。
+function openImageLightbox(src, alt, caption) {
+  if (!imageLightbox || !imageLightboxImg) return;
+  imageLightboxImg.src = src;
+  imageLightboxImg.alt = alt || "";
+  if (imageLightboxCaption) imageLightboxCaption.textContent = caption || "";
+  imageLightbox.classList.add("is-open");
+  imageLightbox.setAttribute("aria-hidden", "false");
+}
+function closeImageLightbox() {
+  if (!imageLightbox) return;
+  imageLightbox.classList.remove("is-open");
+  imageLightbox.setAttribute("aria-hidden", "true");
+  if (imageLightboxImg) imageLightboxImg.src = "";
+}
+document.addEventListener("click", event => {
+  const zoomButton = event.target.closest(".context-reference-zoom");
+  if (zoomButton) {
+    openImageLightbox(zoomButton.dataset.zoomSrc, zoomButton.dataset.zoomAlt, zoomButton.dataset.zoomCaption);
+    return;
+  }
+  // "小说原文阅读"从可折叠的 <details> 改成拐角按钮样式，展开/收起靠这段接管。
+  const novelToggle = event.target.closest(".context-novel-toggle");
+  if (novelToggle) {
+    const body = novelToggle.nextElementSibling;
+    const expanded = novelToggle.getAttribute("aria-expanded") === "true";
+    novelToggle.setAttribute("aria-expanded", String(!expanded));
+    if (body) body.hidden = expanded;
+    return;
+  }
+  if (event.target.closest("#open-full-story")) {
+    openFullStoryScreen();
+    return;
+  }
+  if (event.target.closest("[data-full-story-close]")) {
+    closeFullStoryScreen();
+  }
+});
+imageLightboxBackdrop?.addEventListener("click", closeImageLightbox);
+document.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+  if (imageLightbox?.classList.contains("is-open")) { closeImageLightbox(); return; }
+  if (fullStoryScreen?.classList.contains("is-active")) closeFullStoryScreen();
+});
+const mainLanguageButtons = [...document.querySelectorAll("[data-main-language]")];
 const memoryLayer = document.getElementById("memory-layer");
 const memoryVignette = document.getElementById("memory-vignette");
 const memoryCuesEl = document.getElementById("memory-cues");
@@ -1241,6 +1359,14 @@ function localizeTraditionalChinese(value) {
   }, value);
 }
 
+// 通用小工具：给一段简体字符串，按当前全局语言状态决定要不要转成繁体。
+// mainLanguage 是 "zh-hans" 或 "en" 时原样返回（en 状态下中文行本来就会被 CSS 隐藏，转不转不影响观感，
+// 但仍转换一次以保持逻辑单一来源，避免以后有人在 en 状态下不小心又把中文行显示出来时，看到没转换的简体）。
+function convertZh(value) {
+  if (mainLanguage !== "zh-hant") return value;
+  return localizeTraditionalChinese(traditionalConverter(value));
+}
+
 function convertElementToTraditional(element) {
   const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
   const textNodes = [];
@@ -1265,8 +1391,10 @@ function buildTraditionalContextBodies() {
   });
 }
 
+// 这个函数现在管全站（不再只管侧栏）：任何带 data-context-chinese 的中文标签，
+// 不管长在主屏控制栏、开门按钮，还是侧栏里，都会在这里被统一切换简繁。
 function updateContextChineseLabels() {
-  const traditional = contextPanel.dataset.language === "zh-hant";
+  const traditional = mainLanguage === "zh-hant";
   document.querySelectorAll("[data-context-chinese]").forEach(label => {
     const simplified = label.dataset.hans || label.textContent;
     label.textContent = traditional
@@ -1276,13 +1404,13 @@ function updateContextChineseLabels() {
 }
 
 function updateContextLocaleChrome() {
-  const traditional = contextPanel.dataset.language === "zh-hant";
+  const traditional = mainLanguage === "zh-hant";
   contextPanel.setAttribute("aria-label", traditional ? "歷史脈絡" : "历史背景");
   contextClose?.setAttribute("aria-label", traditional ? "關閉歷史脈絡" : "关闭历史背景");
   contextCollapse?.setAttribute("aria-label", traditional ? "收起歷史脈絡" : "收起历史背景");
   contextCollapse?.setAttribute("title", traditional ? "收起側欄" : "收起侧栏");
-  const languageGroupLabel = traditional ? "側欄內文語言" : "侧栏正文语言";
-  document.querySelector(".context-language-toggle")?.setAttribute("aria-label", languageGroupLabel);
+  const languageGroupLabel = traditional ? "全站語言" : "全站语言";
+  document.querySelector(".main-language-toggle")?.setAttribute("aria-label", languageGroupLabel);
 }
 
 function renderRichText(text, refs = [], language) {
@@ -2194,7 +2322,7 @@ function renderChapterText() {
   const chapter = CHAPTERS[chapterIndex];
   narrative.innerHTML = `<div class="poem">${chapter.steps.map((step, index) => `
     <div class="poem-step" data-step="${index}">
-      <div class="step-zh">${renderRichText(step.zh, step.refs, "zh")}</div>
+      <div class="step-zh">${convertZh(renderRichText(step.zh, step.refs, "zh"))}</div>
       <div class="step-en">${renderRichText(step.en, step.refs, "en")}</div>
     </div>`).join("")}</div>`;
   visualStep = stepIndex;
@@ -2862,17 +2990,24 @@ function renderContext(target, hotspot = null) {
   const referenceItems = (context.references || []).map(reference => {
     const captionZh = reference.captionZh || reference.caption || "";
     const captionEn = reference.captionEn || reference.caption || "";
-    const image = `<img src="${reference.image}" alt="${reference.alt || captionZh || captionEn || "参考图片"}" loading="lazy">`;
-    const media = reference.href
-      ? `<a href="${reference.href}" target="_blank" rel="noopener noreferrer">${image}</a>`
-      : image;
-    return `<figure class="context-reference">${media}<figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${reference.source ? `<small>${reference.source}</small>` : ""}</figcaption></figure>`;
+    const altText = reference.alt || captionZh || captionEn || "参考图片";
+    const image = `<img src="${reference.image}" alt="${escapeHTML(altText)}" loading="lazy">`;
+    // 图片本身不再包一层 <a> 跳转链接——点图片会打断沉浸感，且用户并没有点"打开新标签页"的明确意图。
+    // 只有下面这行来源/credit 文字带下划线可点，点它是清楚的、有意为之的动作。
+    const sourceHtml = reference.source
+      ? (reference.href
+          ? `<small><a class="context-reference-credit" href="${reference.href}" target="_blank" rel="noopener noreferrer">${reference.source}</a></small>`
+          : `<small>${reference.source}</small>`)
+      : "";
+    const zoomCaption = escapeHTML([captionZh, reference.source].filter(Boolean).join(" · "));
+    const zoomButton = `<button class="context-reference-zoom" type="button" data-zoom-src="${reference.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption="${zoomCaption}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>`;
+    return `<figure class="context-reference">${image}${zoomButton}<figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${sourceHtml}</figcaption></figure>`;
   }).join("");
   const contextSources = (context.sources || []).length ? `
     <ul class="context-sources">
       ${(context.sources || []).map(source => `<li><a href="${source.href}" target="_blank" rel="noopener noreferrer"><span class="context-body-zh">${source.zh}</span><span class="context-en context-body-en">${source.en}</span></a></li>`).join("")}
     </ul>` : "";
-  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${hotspot.zh}">${hotspot.source ? `<figcaption><small>${hotspot.source}</small></figcaption>` : ""}</figure>` : "";
+  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspot.zh)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspot.zh)}" data-zoom-caption="${escapeHTML(hotspot.source || "")}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspot.source ? `<figcaption><small>${hotspot.source}</small></figcaption>` : ""}</figure>` : "";
   const hotspotSource = hotspot?.source && !hotspot?.image ? `<p class="hotspot-source">图片来源 · ${hotspot.sourceUrl ? `<a href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer">${hotspot.source}</a>` : hotspot.source}</p>` : "";
   const hotspotReading = hotspot?.learnMoreZh ? `
     <div class="hotspot-reading">
@@ -2895,10 +3030,14 @@ function renderContext(target, hotspot = null) {
       <summary>${renderContextChineseLabel("参考图片")} <span>References</span></summary>
       ${hotspotReferences}${referenceItems}${contextSources}
     </details>` : ""}
-    <details class="context-section">
-      <summary>${renderContextChineseLabel("小说原文阅读")} <span>Read the novel</span></summary>
-      ${context.novelZh ? `<blockquote class="context-body-zh">${context.novelZh}</blockquote><p class="context-en context-body-en">${context.novelEn || ""}</p>` : `<p class="context-empty context-body-zh">本章小说原文尚未导入。</p><p class="context-empty context-body-en">Novel excerpt not yet added.</p>`}
-    </details>`;
+    <div class="context-novel-section">
+      <button class="context-novel-toggle" type="button" aria-expanded="false">
+        ${renderContextChineseLabel("小说原文阅读")} <span>Read the novel</span>
+      </button>
+      <div class="context-novel-body" hidden>
+        ${context.novelZh ? `<blockquote class="context-body-zh">${context.novelZh}</blockquote><p class="context-en context-body-en">${context.novelEn || ""}</p>` : `<p class="context-empty context-body-zh">本章小说原文尚未导入。</p><p class="context-empty context-body-en">Novel excerpt not yet added.</p>`}
+      </div>
+    </div>`;
   contextContent.innerHTML = `
     <h2>${renderContextChineseLabel(hotspot ? hotspot.zh : context.title)}</h2>
     <p class="context-title-en">${hotspot ? hotspot.en : context.titleEn}</p>
@@ -2909,14 +3048,34 @@ function renderContext(target, hotspot = null) {
   bindReferenceGallery(hotspot);
 }
 
-function setContextLanguage(language) {
+// 全局唯一入口：不管是主屏按钮还是侧栏，语言切换都走这一个函数。
+// 三件事：①记住选择 ②重新渲染当前正在显示的内容 ③告诉 CSS 现在是哪个语言状态。
+function setMainLanguage(language) {
   const nextLanguage = ["zh-hans", "zh-hant", "en"].includes(language) ? language : "zh-hans";
-  contextPanel.dataset.language = nextLanguage;
-  contextLanguageButtons.forEach(button => {
-    button.setAttribute("aria-pressed", String(button.dataset.contextLanguage === nextLanguage));
+  mainLanguage = nextLanguage;
+  try { localStorage.setItem("1970-language-preference", nextLanguage); } catch (_) {}
+
+  document.documentElement.dataset.mainLanguage = nextLanguage; // 给 CSS 用，比如 en 状态下隐藏中文行
+  contextPanel.dataset.language = nextLanguage; // 侧栏原有的簡/繁/EN 单字段显示逻辑继续复用，不用改 CSS
+
+  mainLanguageButtons.forEach(button => {
+    button.setAttribute("aria-pressed", String(button.dataset.mainLanguage === nextLanguage));
   });
+
   updateContextChineseLabels();
   updateContextLocaleChrome();
+
+  // 侧栏内容如果已经渲染过（比如面板正开着），跟着重新生成一次繁体镜像
+  if (contextContent && contextContent.children.length) buildTraditionalContextBodies();
+
+  // 主线叙事正文是整章一起生成的（不是逐句生成），语言变了就整章重画一次，
+  // 阅读进度（当前停在第几句）不会跟着重置，因为 renderChapterText 只负责重新拼字，
+  // 真正记录"现在读到哪"的 stepIndex / visualStep 是另外两个变量，不会被这次重画动到。
+  if (narrative && narrative.querySelector(".poem")) renderChapterText();
+
+  // hotspot 提示框是鼠标悬停才出现的短生命周期元素，切换语言这一刻它多半没在显示；
+  // 就不额外加状态去刷新它了，下次悬停触发时会自动用最新的 mainLanguage 生成文字。
+  if (tooltip) tooltip.classList.remove("is-visible");
 }
 
 function openContext(target = chapterIndex, hotspot = null) {
@@ -5697,7 +5856,7 @@ async function openDoorTransition(event) {
 }
 
 function showTooltip(button, hotspot) {
-  tooltip.innerHTML = `<strong>${hotspot.zh}</strong><span class="tooltip-translation">${hotspot.en}</span><p>${hotspot.note}</p>${hotspot.noteEn ? `<p class="tooltip-note-en">${hotspot.noteEn}</p>` : ""}<p class="tooltip-more">查看背景 / Learn more →</p>`;
+  tooltip.innerHTML = `<strong class="tooltip-zh">${convertZh(hotspot.zh)}</strong><span class="tooltip-translation">${hotspot.en}</span><p class="tooltip-zh">${convertZh(hotspot.note)}</p>${hotspot.noteEn ? `<p class="tooltip-note-en">${hotspot.noteEn}</p>` : ""}<p class="tooltip-more">${convertZh("查看背景")} / Learn more →</p>`;
   const experienceRect = experience.getBoundingClientRect();
   const buttonRect = button.getBoundingClientRect();
   const x = buttonRect.left - experienceRect.left + buttonRect.width / 2;
@@ -5916,7 +6075,7 @@ contextToggle.addEventListener("click", () => {
 });
 contextClose.addEventListener("click", closeContext);
 contextCollapse.addEventListener("click", closeContext);
-contextLanguageButtons.forEach(button => button.addEventListener("click", () => setContextLanguage(button.dataset.contextLanguage)));
+mainLanguageButtons.forEach(button => button.addEventListener("click", () => setMainLanguage(button.dataset.mainLanguage)));
 timelineStops.forEach(stop => stop.addEventListener("click", () => {
   cancelChapter6Glance("timeline");
   const scene = stop.dataset.scene;
@@ -5942,7 +6101,20 @@ updateFullscreenState();
 updateRotateOverlay();
 initBackgrounds();
 initIntroParticles();
+// 用保存下来的语言状态（没保存过就是默认简体）点亮控制栏按钮、贴好 html[data-main-language]，
+// 这样第一屏渲染出来的时候，简繁 / 中英 就已经是对的，不会先闪一下简体再跳到用户上次的选择。
+document.documentElement.dataset.mainLanguage = mainLanguage;
+// 之前这里漏了侧栏自己的 data-language 同步——contextPanel 的简/繁/英显示逻辑单独读它自己的 data-language 属性，
+// HTML 里写死的初始值是 zh-hans。如果只在点击语言切换按钮时才同步（setMainLanguage 里那行），
+// 刷新页面后 localStorage 里明明记着 en，html[data-main-language] 也对了，但侧栏这个属性没人补，
+// 侧栏内容就会一直显示简体，直到用户重新点一次语言按钮。这里补上，跟上面那行一起做。
+contextPanel.dataset.language = mainLanguage;
+mainLanguageButtons.forEach(button => {
+  button.setAttribute("aria-pressed", String(button.dataset.mainLanguage === mainLanguage));
+});
 renderContext("start");
+updateContextChineseLabels();
+buildTraditionalStoryBody();
 updateContextLocaleChrome();
 updateNav();
 startSequence();

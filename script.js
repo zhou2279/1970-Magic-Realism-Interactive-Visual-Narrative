@@ -588,6 +588,7 @@ const TERMS = {
 const CONTEXTS = [
   {
     title: "儿时父母的书房", titleEn: "My Parents’ Study · 1953",
+    leadZh: "1953年", leadEn: "1953",
     zh: "1950年代，教师和读书人家里的书房常兼作读书、备课、藏书和待客的地方。字典、古典小说、画报、家庭照片和宣传画可以放在同一间屋里，这种并置并不矛盾：新中国早期的政治图像已经进入学校、单位和家庭，旧书与新宣传也会在日常空间中同时存在。\n\n1966年以后，这类私人收藏变得危险。旧书、旧画、月份牌和家族照片可能在“破四旧”与抄家中被查抄、封存、涂污或烧毁。书房因此不再只是家庭记忆，也会成为家庭成分和思想倾向被审查的地方。\n\n背景音乐｜书房中回响的是《夜来香》。黎锦光作曲并作词（唱片署名“金玉谷”），1944年首度发表，最初由歌影双栖的李香兰（山口淑子）演唱。此后这首歌因演唱者身份与曲风，在不同历史时期数次被禁。沈家藏有一张唱片，五十年代只敢在家中放得很轻，歌声总是模糊；文革开始后，连这样模糊的声音也彻底消失。[1]",
     en: "In the 1950s, the study of a teacher or reader often served several uses at once: reading, lesson preparation, book storage, and receiving visitors. Dictionaries, classical fiction, pictorials, family photographs, and propaganda posters could occupy the same room. This mixture was not contradictory. In early PRC domestic life, older books and new political imagery often existed side by side.\n\nAfter 1966, such private collections became vulnerable. Old books, paintings, yuefenpai calendar posters, and family photographs could be seized, sealed away, defaced, or burned during house searches and the Pò Sìjiù (“Destroy the Four Olds”) campaign. A study could therefore become a place where a family’s class background and thoughts were inspected.\n\nBackground music｜The study resounds with “Yeh Lai Hsiang” (“Fragrance of the Night”). Composed and written by Li Jinguang (credited on the original record under the pen name Jin Yugu), it was first released in 1944, originally sung by Li Xianglan (Yamaguchi Yoshiko), a bilingual Chinese–Japanese singer and actress. The song was subsequently banned more than once across different periods, tied to both its singer’s identity and its musical style. The Shen family kept a copy of the record; in the 1950s they dared play it only very quietly at home, its sound always muffled. Once the Cultural Revolution began, even that faint sound disappeared entirely.[1]",
     material: "合成记忆图像｜书房、家庭照片、宣传画与古典仕女图层",
@@ -597,18 +598,21 @@ const CONTEXTS = [
   },
   {
     title: "学校与公开批判", titleEn: "Schools and Public Denunciation · 1966",
+    leadZh: "1966年", leadEn: "1966",
     zh: "这类老式高校教学楼和机关楼在1950至60年代很常见。长走廊、成排房门、厚墙、裸露灯泡和克制装饰，来自强调秩序、集体通行和机构功能的建筑习惯，也带有苏联规划与建筑教育的影响。\n\n1966年学校停课后，校园没有停止运转，而是被重新用于政治动员。走廊、办公室门口和公告墙可以迅速变成张贴大字报、围观指控和组织批判的公共场所。建筑原本服务于教学和行政秩序；在运动中，这种集体性也让私人遭遇很难继续留在私人范围内。",
     en: "This kind of older university or government building was common in the 1950s and 1960s. Long corridors, repeated doors, thick walls, exposed bulbs, and restrained decoration came from an institutional approach that valued order, collective circulation, and function. Soviet planning and architectural education also shaped these spaces.\n\nAfter schools closed in 1966, campuses did not simply fall silent. They were repurposed for political mobilization. Corridors, office doors, and notice walls could quickly become public sites for dàzìbào, accusation, and organized criticism. The building had been designed for teaching and administration. During the movement, its collective layout also made private suffering difficult to keep private.",
     material: "合成记忆图像｜学校走廊、手写大字报、红色宣传碎片"
   },
   {
     title: "下乡与人民公社", titleEn: "Sent-down Youth and the Commune · 1968-1969",
+    leadZh: "1968－1969年", leadEn: "1968–1969",
     zh: "1968年12月以后，大批城市青年被送到农村、农场和边疆地区接受再教育。到达公社后，个人生活被纳入生产队和生产大队的安排：出工、记工分、分配口粮、政治学习，都由集体制度管理。\n\n宣传画常把农业劳动画成丰收、队列和昂扬姿态。水田里的实际日子更具体：长时间弯腰，脚和腿泡在水里，蚊虫驱不完，伤口反复感染。对一个刚离开学校不久的年轻教师来说，“劳动改造”不是抽象口号，而是每天从身体上重新学习服从。",
     en: "After December 1968, large numbers of urban young people were sent to farms, villages, and frontier regions for re-education. Once they arrived at a commune, private life was absorbed into the routines of the production team and brigade: work assignments, work points, grain distribution, and political study.\n\nPropaganda often showed farm labor as harvest, formation, and uplift. Work in a rice paddy was more bodily and exact: hours bent over, feet and legs in water, mosquitoes that would not disperse, wounds that became infected again and again. For a young teacher recently removed from school, “labor reform” was not an abstract slogan. It was obedience learned through the body.",
     material: "合成记忆图像｜宣传画、稻田倒影与公社劳动场景"
   },
   {
     title: "会议室里的自我审查", titleEn: "Self-surveillance in the Meeting Room · 1969",
+    leadZh: "1969年", leadEn: "1969",
     zh: "生产大队会议室是公社日常政治生活的重要空间。这里可以安排劳动、传达通知，也可以政治学习、忆苦思甜、思想汇报和批斗。毛泽东像、政治口号和黑板不是装饰，它们把会议室变成一个持续提醒人如何说话、如何表态的场所。\n\n对参加者来说，开会不只是听通知。一个人要学会把自己的想法整理成当时认可的话，也要在必要时检讨“不该有”的念头。长期处在这种环境中，自我审查会变成一种日常技能。",
     en: "The production brigade meeting room was an important space of everyday political life in a commune. It could be used for work assignments and announcements, as well as political study, speak-bitterness meetings, ideological reports, and struggle sessions. Portraits of Mao Zedong, political slogans, and blackboards were not decoration. They turned the room into a place that continually instructed people how to speak and how to take a position.\n\nFor participants, meetings were not only about receiving notices. A person had to learn how to translate private thought into approved language, and sometimes how to criticize thoughts they were not supposed to have. Over time, self-surveillance became a daily skill.",
     material: "合成记忆图像｜大队会议室、政治标语、黑板与领袖像"
@@ -622,6 +626,7 @@ const CONTEXTS = [
   },
   {
     title: "门的另一边", titleEn: "The Other Side · Greenwich Village, 1970",
+    leadZh: "1970年·格林尼治村", leadEn: "Greenwich Village, 1970",
     zh: "1970年前后的格林尼治村，是曼哈顿一个以住宅为主、同时分布着书店、咖啡馆和小型演出场所的街区。红砖公寓的底层常有临街商铺。到了晚上，居民、学生、店员、乐手和来看演出的人会出现在同一片街道上。[1]\n\n独立书店不仅卖书，也会张贴公告，供人碰面和交换信息。1967年开业的奥斯卡·王尔德纪念书店是其中一个重要例子。它出售正面讨论同性恋生活的书籍和期刊，也为社群提供活动信息和聚会空间。[2]\n\n咖啡馆和小型演出场所散布在住宅之间，民谣、蓝调、诗歌朗诵和实验戏剧因此进入街区的日常生活。Gerde's Folk City是当时重要的民谣演出场所，鲍勃·迪伦早期曾在这里演出。[3][4]\n\n本章画面组合了这些同时期的街区元素，并非复原某一条具体街道。",
     en: "Around 1970, Greenwich Village was a Manhattan neighbourhood made up mainly of residences, with bookshops, coffeehouses, and small performance venues among them. Street-level shops often occupied the ground floors of red-brick apartment buildings. At night, residents, students, shop workers, musicians, and people arriving for a show shared the same streets.[1]\n\nIndependent bookshops did more than sell books. They also posted notices and gave people places to meet and exchange information. The Oscar Wilde Memorial Bookshop, which opened in 1967, was an important example. It sold books and periodicals that discussed gay and lesbian life positively and provided activity information and meeting space for the community.[2]\n\nCoffeehouses and small performance venues stood among residential buildings, bringing folk music, blues, poetry readings, and experimental theatre into everyday neighbourhood life. Gerde's Folk City was an important folk venue where Bob Dylan played early engagements.[3][4]\n\nThis chapter combines elements found in the neighbourhood around 1970 rather than reconstructing a specific street.",
     material: "合成场景｜格林尼治村夜间街道、书店、咖啡馆与1970年代车辆",
@@ -702,6 +707,7 @@ const HOTSPOTS = [
       noteEn:"By Hang Zhiying, 1930s, an advertisement for the Mukden Sun Tobacco Company. The figure wears Western-style clothing against a Western-style architectural backdrop.",
       learnMoreZh:"历史核心｜月份牌是诞生于清末上海的广告宣传画，把商品广告、日历与理想化人物或家庭图像结合在一起，是近代城市商业视觉文化的一部分，现已列入上海市非物质文化遗产。[1]《合家欢》由杭稺英绘制于1930年代，是奉天太阳烟公司的广告月份牌。[2]\n\n与沈蕙兰的关系｜沈蕙兰小时候喜欢看《合家欢》。画中完整、安定的家庭后来与她在文革中的家庭离散形成对照。",
       learnMoreEn:"History core｜Yuefenpai originated as advertising posters in late-Qing Shanghai, combining commercial advertising, calendars, and idealized figures or domestic scenes; the form is now listed as Shanghai intangible cultural heritage.[1] A Happy Family was painted by Hang Zhiying in the 1930s as an advertising calendar for the Mukden Sun Tobacco Company.[2]\n\nShen Huilan｜Shen Huilan enjoys looking at A Happy Family as a child. Its orderly, intact household later contrasts with the separation of her own family during the Cultural Revolution.",
+      image:"assets/references/ch1-gallery/月份牌-合家歡.jpg",
       source:"[1][2] 中文维基百科“月份牌”词条 · Openmuseum 开放博物馆",
       sourceUrl:"https://plaza.openmuseum.tw/muse/exhibition/81fbcee965c82f35d00cd1e343feb449#front"
     },
@@ -714,6 +720,7 @@ const HOTSPOTS = [
       learnMoreEn:"History core｜The Young Companion was founded in 1926 and ceased publication in 1945, China’s first large-format illustrated photographic magazine. Its covers often featured well-known women, film stars, or society figures, and its content spanned war, politics, entertainment, and social life, shaping the modern urban aesthetics of its time.[1]\n\nShen Huilan｜Mother was born in 1918; the monthly issues of The Young Companion she subscribed to accompanied her through girlhood and young womanhood. The magazine ceased publication a year after Huilan was born, in 1944. The old bound volumes stayed in the house — Mother would page through them, and young Huilan looked along with her, imagining the city and its fashions, and imagining, too, what she herself might grow up to become.",
       anchorZh:"这是母亲年轻时订阅并留在家中的旧画报。蕙兰从封面想象都市、时装和画面之外的成年世界。",
       anchorEn:"This is an older pictorial Mother subscribed to and kept at home. Huilan imagines fashion, the city, and an adult world beyond its cover.",
+      image:"assets/references/ch1-gallery/liangyou-no.127.jpg",
       source:"[1] 良友画报 1937.04.15 第127期 · archive.org",
       sourceUrl:"https://archive.org/details/liangyou-1937.04.15"
     },
@@ -724,6 +731,7 @@ const HOTSPOTS = [
       noteEn:"Painted by Xie Zhiguang in 1931. Gu Huichun Tang was a pharmaceutical merchant known for its “stomach and intestine” tonic pills, and this poster is the yuefenpai advertisement made for that product.",
       learnMoreZh:"历史核心｜谢之光1931年绘制的药品月份牌广告，把时装女性、洋派室内和商品宣传组合成当时的现代生活图景，为谷回春堂的“健胃固肠丸”所作。[1]\n\n与沈蕙兰的关系｜沈蕙兰小时候喜欢画中人物的服装。文革中，这类月份牌可能被归为“资产阶级生活方式”或“四旧”，私人审美也可能受到政治审查。",
       learnMoreEn:"History core｜Xie Zhiguang’s 1931 pharmaceutical calendar advertisement combines a fashionable woman, a Western-style interior, and commercial promotion in a contemporary image of modern life, made for Gu Huichun Tang’s “stomach and intestine” tonic pills.[1]\n\nShen Huilan｜As a child, Shen Huilan is drawn to the figure’s clothing. During the Cultural Revolution, such yuefenpai could be condemned as bourgeois culture or one of the Four Olds, bringing private taste under political scrutiny.",
+      image:"assets/references/ch1-gallery/月份牌-谷 回春堂廣告.jpg",
       source:"[1] Openmuseum 开放博物馆",
       sourceUrl:"https://plaza.openmuseum.tw/muse/exhibition/81fbcee965c82f35d00cd1e343feb449#front"
     },
@@ -736,6 +744,7 @@ const HOTSPOTS = [
       learnMoreEn:"This 1542 illustrated scripture brings Daoist writing, divine lineages, and ritual images together on a single page. The original appeared in a Sotheby’s auction record; the scan used here was compiled and published by Shuge.[1]\n\nWhen Father reads tales of the strange, Huilan studies the immortals and clouds in the picture. She first knows these figures from a page.",
       anchorZh:"这是文人家庭收藏的旧画。蕙兰喜欢看腾云驾雾的仙人，也喜欢听父亲读中国的志怪与玄幻故事。",
       anchorEn:"This is an old painting kept by a scholarly family. Huilan likes the immortals moving through clouds and the strange tales Father reads aloud.",
+      image:"assets/references/ch1-gallery/太上玄灵北斗本命延生真经.jpg",
       source:"[1] 书格（镜像）· 原件苏富比拍卖记录",
       sourceUrl:"https://shuge.hanjihebi.com/书格网站资源/明内府彩绘本系列/太上玄灵北斗本命延生真经.明嘉靖二十一年纸本泥金彩绘本.苏富比拍卖.pdf"
     },
@@ -748,6 +757,7 @@ const HOTSPOTS = [
       learnMoreEn:"History core｜Dream of the Red Chamber circulated through portraits, album leaves, and sequential illustrations. Clothing and interiors therefore formed part of the reading experience.[1] The Illustrated Album of Rhapsodies on Dream of the Red Chamber pairs twenty rhapsodies on the novel, composed by the Qing scholar Shen Qian and transcribed by Sheng Yu, with fine illustrations covering scenes such as burying the flowers and viewing snow at the Lu Xue Pavilion. It was painted around the twelfth year of the Tongzhi reign and is now held at the Chester Beatty Library in Ireland.[2]\n\nShen Huilan｜Shen Huilan is especially interested in the figures’ clothing. For her, reading the novel includes both the text and a visual encounter with its characters and ways of life.",
       anchorZh:"沈蕙兰最喜欢看图中人物华丽的衣服；在她的童年记忆里，读小说也意味着长时间凝视这些人物。",
       anchorEn:"Shen Huilan especially loves the figures’ elaborate clothing. In her childhood memory, reading the novel also means spending long stretches of time looking at its characters.",
+      image:"assets/references/ch1-gallery/hong_lou_meng_fu_tu_ce.jpg",
       source:"[2] 书格：《红楼梦赋图册》",
       sourceUrl:"https://www.shuge.org/view/hong_lou_meng_fu_tu_ce/",
       reviewFlag:"坐标靠近右缘，在iPad横屏上会因裁切自动隐藏，待版面复核。"
@@ -1180,9 +1190,6 @@ document.addEventListener("click", event => {
     closeFullStoryScreen();
     return;
   }
-  // 先导文期的术语列表：点列表里的某一条，等同于点正文里对应的上标数字。
-  const termListRow = event.target.closest("[data-term-list-id]");
-  if (termListRow) openContext(termListRow.dataset.termListId);
 });
 imageLightboxBackdrop?.addEventListener("click", closeImageLightbox);
 document.addEventListener("keydown", event => {
@@ -1453,7 +1460,7 @@ function renderLayeredReading(text, language = "zh") {
 function renderReferenceGallery(hotspot) {
   if (!hotspot?.gallery?.length) return "";
   const thumbnails = hotspot.gallery.map((item, index) => `
-    <button class="reference-gallery-thumb" type="button" data-gallery-index="${index}" aria-pressed="false" aria-label="放大查看：${escapeHTML(item.zh)}">
+    <button class="reference-gallery-thumb" type="button" data-gallery-index="${index}" aria-label="放大查看：${escapeHTML(item.zh)}">
       <img src="${item.image}" alt="${escapeHTML(item.zh)}" loading="lazy">
       <span class="reference-gallery-thumb-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></span>
     </button>`).join("");
@@ -1466,17 +1473,6 @@ function renderReferenceGallery(hotspot) {
       <p class="context-body-zh">${hotspot.galleryIntroZh}</p>
       <p class="context-en context-body-en">${hotspot.galleryIntroEn}</p>
       <div class="reference-gallery-grid">${thumbnails}</div>
-      <figure class="reference-gallery-viewer" hidden>
-        <button class="reference-gallery-close" type="button" aria-label="关闭大图">×</button>
-        <img class="reference-gallery-large" src="" alt="">
-        <figcaption>
-          <strong class="reference-gallery-zh context-body-zh"></strong>
-          <span class="reference-gallery-en context-body-en"></span>
-          <span class="reference-gallery-meta-zh context-body-zh"></span>
-          <span class="reference-gallery-meta-en context-body-en"></span>
-          <a class="reference-gallery-credit" href="" target="_blank" rel="noopener noreferrer"></a>
-        </figcaption>
-      </figure>
       ${circulationLinks ? `
         <div class="circulation-records">
           <h4>${renderContextChineseLabel("同图流通记录")} <span>Circulation records</span></h4>
@@ -1487,39 +1483,18 @@ function renderReferenceGallery(hotspot) {
     </section>`;
 }
 
+// 缩略图点了直接打开全站统一的居中大图弹窗（image-lightbox），跟其它参考图片同一套看图方式，
+// 不再是侧栏里单独一套"点了在原地展开一张大图"的机制。
 function bindReferenceGallery(hotspot) {
   if (!hotspot?.gallery?.length) return;
-  const viewer = contextContent.querySelector(".reference-gallery-viewer");
-  const large = contextContent.querySelector(".reference-gallery-large");
   const buttons = [...contextContent.querySelectorAll(".reference-gallery-thumb")];
-  const close = contextContent.querySelector(".reference-gallery-close");
-  const setText = (selector, value) => {
-    const element = contextContent.querySelector(selector);
-    if (element) element.textContent = value || "";
-  };
   buttons.forEach(button => button.addEventListener("click", () => {
     const index = Number(button.dataset.galleryIndex);
     const item = hotspot.gallery[index];
     if (!item) return;
-    large.src = item.image;
-    large.alt = item.zh;
-    setText(".reference-gallery-zh", item.zh);
-    setText(".reference-gallery-en", item.en);
-    setText(".reference-gallery-meta-zh", item.metaZh);
-    setText(".reference-gallery-meta-en", item.metaEn);
-    const credit = contextContent.querySelector(".reference-gallery-credit");
-    credit.href = item.href;
-    credit.textContent = `${item.credit} · 查看馆藏记录 / View catalog record`;
-    buildTraditionalContextBodies();
-    viewer.hidden = false;
-    buttons.forEach(candidate => candidate.setAttribute("aria-pressed", String(candidate === button)));
-    viewer.scrollIntoView({ block:"nearest", behavior:"smooth" });
+    const caption = [item.zh, item.metaZh, item.credit].filter(Boolean).join(" · ");
+    openImageLightbox(item.image, item.zh, caption);
   }));
-  close?.addEventListener("click", () => {
-    viewer.hidden = true;
-    large.removeAttribute("src");
-    buttons.forEach(button => button.setAttribute("aria-pressed", "false"));
-  });
 }
 
 function initBackgrounds() {
@@ -2953,6 +2928,46 @@ function goBackwardDirect() {
   updateNav();
 }
 
+// 术语手风琴：扫描指定容器（序言文本 / 当前先导文段落）里出现过的上标术语按钮，去重、按编号
+// 排序，生成默认展开、点了才收起的 <details> 列表——不再是一个只显示词名、点了就跳走的按钮，
+// 也不再挂圆圈编号：编号只是内部排序用，不是要给读者看的标签。
+function buildTermAccordion(rootSelector) {
+  const seenTermIds = new Set();
+  const ids = [...document.querySelectorAll(`${rootSelector} .term-ref`)]
+    .map(button => button.dataset.term)
+    .filter(id => {
+      if (!id || !TERMS[id] || seenTermIds.has(id)) return false;
+      seenTermIds.add(id);
+      return true;
+    })
+    .sort((a, b) => TERMS[a].number - TERMS[b].number);
+  if (!ids.length) return "";
+  const items = ids.map(id => {
+    const term = TERMS[id];
+    return `<details class="context-term-item" data-term-id="${id}" open>
+      <summary class="context-term-item-summary">
+        <span class="context-term-item-label">${renderContextChineseLabel(term.zh)}<span class="context-term-item-en">${term.en}</span></span>
+      </summary>
+      <div class="context-term-item-body">
+        <p class="context-body-zh">${term.bodyZh}</p>
+        <p class="context-en context-body-en">${term.bodyEn}</p>
+      </div>
+    </details>`;
+  }).join("");
+  return `<div class="context-term-list">${items}</div>`;
+}
+
+// 正文里点一个上标数字，效果是"在当前这页（序言/先导文）里展开并滚到对应术语"，
+// 不再是"跳到一个只剩这一条术语的空页面"——侧栏内容和术语解释永远在同一页上。
+function focusTermInContext(termId) {
+  const item = contextContent.querySelector(`.context-term-item[data-term-id="${termId}"]`);
+  if (!item) return;
+  item.open = true;
+  item.scrollIntoView({ block: "center", behavior: "smooth" });
+  item.classList.add("is-highlighted");
+  setTimeout(() => item.classList.remove("is-highlighted"), 1400);
+}
+
 function renderContext(target, hotspot = null) {
   if (typeof target === "string" && TERMS[target]) {
     const term = TERMS[target];
@@ -2965,13 +2980,15 @@ function renderContext(target, hotspot = null) {
     return;
   }
   if (target === "start") {
+    // 标题不再只写"1966"：序言本身横跨1944年（蕙兰出生）到下放，只写单一年份会让人误以为
+    // 序言讲的就是1966年这一件事。文革的起止年代放进正文一句话里，不放title。
+    // 正文也不再重复术语①"文化大革命"已经讲过的内容（起止年代、冲击范围）——两边写的是同一件事，
+    // 这里只留序言自己的、术语条目里没有的信息：故事人物和这十年的关系。
     contextContent.innerHTML = `
-      <h2>${renderContextChineseLabel("序言：1966")}</h2><p class="context-title-en">Prologue · 1966</p>
-      <p class="context-body-zh">1966年，文化大革命开始。学校停课，工作单位和家庭生活都受到冲击；许多人被批斗、迁徙或长期与亲人分离。文中的上标词汇解释这段经历常用的政治语言。</p>
-      <p class="context-en context-body-en">The Cultural Revolution began in 1966. Schools closed, workplaces and family life were disrupted, and many people faced denunciation, displacement, or long separation from relatives. Superscript terms in the text explain the political language of the period.</p>
-      <hr class="context-rule">
-      <p class="context-material context-body-zh">点击文中的上标数字查看术语</p>
-      <p class="context-material context-body-en">Select a superscript number to read the term note.</p>`;
+      <h2>${renderContextChineseLabel("序言")}</h2><p class="context-title-en">Prologue</p>
+      <p class="context-body-zh">沈蕙兰的家庭背景，与她即将经历的、持续十年的政治动荡（1966－1976）。</p>
+      <p class="context-en context-body-en">Shen Huilan's family background, and the decade of political upheaval (1966–1976) she was about to live through.</p>
+      ${buildTermAccordion(".start-text")}`;
     buildTraditionalContextBodies();
     updateContextChineseLabels();
     return;
@@ -3017,27 +3034,11 @@ function renderContext(target, hotspot = null) {
   // 这时候侧栏该做的只是先导文本身的术语表：把这段文字里所有带上标数字的词汇列成清单，
   // 数字对应正文里的上标，点哪条效果等同于点正文里对应的上标数字。
   if (!hotspot && phase === "text" && typeof target === "number") {
-    const seenTermIds = new Set();
-    const termRows = [...document.querySelectorAll("#narrative .term-ref")]
-      .map(button => button.dataset.term)
-      .filter(id => {
-        if (!id || !TERMS[id] || seenTermIds.has(id)) return false;
-        seenTermIds.add(id);
-        return true;
-      })
-      .sort((a, b) => TERMS[a].number - TERMS[b].number)
-      .map(id => {
-        const term = TERMS[id];
-        return `<button class="context-term-list-item" type="button" data-term-list-id="${id}">
-          <span class="context-term-list-number" aria-hidden="true">${term.number}</span>
-          <span class="context-term-list-label">${renderContextChineseLabel(term.zh)}<span class="context-term-list-en">${term.en}</span></span>
-        </button>`;
-      }).join("");
+    // "先导文"是开发内部对这个阶段的分类名，不该端给读者看；这里只给一个纯历史、纯年代的标题
+    // （见每章 CONTEXTS 条目的 leadZh/leadEn），画面出现后才切到那章真正的场景标题。
     contextContent.innerHTML = `
-      <h2>${renderContextChineseLabel(context?.titleZh || "先导文")}</h2><p class="context-title-en">${context?.titleEn || "Lead-in text"}</p>
-      <p class="context-body-zh">点击文中的上标数字，或下面清单里对应的词条，查看术语解释。</p>
-      <p class="context-en context-body-en">Select a superscript number in the text, or the matching entry below, to read the term note.</p>
-      ${termRows ? `<div class="context-term-list">${termRows}</div>` : ""}`;
+      <h2>${renderContextChineseLabel(context?.leadZh || context?.title || "")}</h2><p class="context-title-en">${context?.leadEn || context?.titleEn || ""}</p>
+      ${buildTermAccordion("#narrative")}`;
     buildTraditionalContextBodies();
     updateContextChineseLabels();
     return;
@@ -6128,7 +6129,18 @@ document.addEventListener("click", event => {
     }
   }
   const termButton = event.target.closest(".term-ref");
-  if (termButton) openContext(termButton.dataset.term);
+  if (termButton) {
+    const termId = termButton.dataset.term;
+    // 序言阶段、或章节先导文阶段（画面还没出现）点上标：留在同一页，展开对应术语；
+    // 其它情况（比如画面阶段的 hotspot 直接挂了 term）维持原来的单独术语页。
+    const stayOnPage = TERMS[termId] && !epilogueActive && (startActive || phase === "text");
+    if (stayOnPage) {
+      openContext(startActive ? "start" : chapterIndex);
+      requestAnimationFrame(() => focusTermInContext(termId));
+    } else {
+      openContext(termId);
+    }
+  }
 });
 fullscreenButtons.forEach(button => button.addEventListener("click", toggleFullscreen));
 fontSizeToggle?.addEventListener("click", cycleFontSizePreference);

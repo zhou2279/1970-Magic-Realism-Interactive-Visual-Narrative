@@ -574,21 +574,32 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 .context-content .context-en { font:normal calc(.96rem * var(--content-font-scale))/1.7 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.72); }
 .context-rule { width:2.5rem; border:0; border-top:1px solid rgba(255,255,255,.28); margin:1.5rem 0; }
 .context-material { font:600 .58rem/1 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif !important; letter-spacing:.15em; color:rgba(255,255,255,.42) !important; }
-/* 先导文阶段的术语清单：每条对应正文里的一个上标数字，点了跟点正文里的上标效果一样。 */
-.context-term-list { display:flex; flex-direction:column; gap:.15rem; margin-top:1.2rem; }
-.context-term-list-item {
-  display:flex; align-items:flex-start; gap:.65rem; width:100%; text-align:left;
-  border:0; border-radius:.5rem; background:transparent; cursor:pointer; padding:.55rem .5rem;
-  transition:background .2s ease;
+/* 序言/先导文阶段的术语手风琴：默认全部展开（<details open>），点标题收起——留在同一页，
+   不再是点了就跳到一个只剩这条术语的空页面；也不再挂圆圈编号，编号只用于内部排序。 */
+.context-term-list { display:flex; flex-direction:column; gap:.5rem; margin-top:1.2rem; }
+.context-term-item {
+  border:1px solid rgba(255,255,255,.14); border-radius:.6rem; overflow:hidden;
+  background:rgba(255,255,255,.03); transition:background .3s ease;
 }
-.context-term-list-item:hover,.context-term-list-item:focus-visible { background:rgba(255,255,255,.07); outline:none; }
-.context-term-list-number {
-  flex:0 0 auto; display:flex; align-items:center; justify-content:center;
-  width:1.3rem; height:1.3rem; margin-top:.1rem; border:1px solid rgba(255,255,255,.4); border-radius:50%;
-  font:600 .68rem/1 Georgia,serif; color:rgba(255,255,255,.85);
+.context-term-item.is-highlighted { background:rgba(255,255,255,.16); }
+.context-term-item-summary {
+  display:flex; align-items:center; justify-content:space-between; gap:.6rem;
+  list-style:none; cursor:pointer; padding:.65rem .85rem;
 }
-.context-term-list-label { display:block; font-size:var(--content-font-size-zh); line-height:1.5; color:rgba(255,255,255,.86); }
-.context-term-list-en { display:block; margin-top:.15rem; font:calc(.82rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.55); }
+.context-term-item-summary::-webkit-details-marker { display:none; }
+.context-term-item-summary::after {
+  content:"−"; flex:0 0 auto; font-family:Arial,sans-serif; color:rgba(255,255,255,.5);
+}
+.context-term-item:not([open]) .context-term-item-summary::after { content:"+"; }
+.context-term-item-label { display:block; font-size:var(--content-font-size-zh); line-height:1.5; color:rgba(255,255,255,.86); }
+.context-term-item-en { display:block; margin-top:.15rem; font:calc(.82rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.55); }
+.context-term-item-body { padding:0 .85rem .8rem; }
+.context-term-item-body p { margin:0; font-size:calc(.86rem * var(--content-font-scale)); line-height:1.7; }
+.context-term-item-body .context-body-zh { color:rgba(255,255,255,.8); }
+.context-term-item-body .context-en {
+  margin-top:.4rem; color:rgba(255,255,255,.55);
+  font-family:"Newsreader","Times New Roman",Georgia,serif; font-style:italic;
+}
 .context-primary { padding-bottom:.75rem; }
 .epilogue-context-section { padding:1rem 0 .15rem; border-top:1px solid rgba(255,255,255,.16); }
 .epilogue-context-section:first-child { padding-top:0; border-top:0; }
@@ -710,12 +721,10 @@ body.is-full-story-open #timeline {
    跟其它入口共用 .fullscreen-button 的圆角胶囊/描边/毛玻璃底，形状统一。
    固定在侧栏底部（position:sticky），滚动到任何一段历史背景都始终看得见、点得到。 */
 .context-novel-section {
-  position:sticky; bottom:-2rem; z-index:5; margin:1.4rem -2rem -2rem; padding:.9rem 2rem 2rem;
-  border-top:1px solid rgba(255,255,255,.18);
-  background:linear-gradient(rgba(18,18,18,0),rgba(18,18,18,.86) 35%,rgba(18,18,18,.94));
-  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  position:sticky; bottom:1rem; z-index:5; margin:1.6rem 0 0; padding:0;
+  display:flex; justify-content:center;
 }
-.context-novel-toggle { width:100%; justify-content:center; text-align:center; }
+.context-novel-toggle { width:auto; justify-content:center; text-align:center; }
 .context-novel-toggle span {
   margin-left:.4rem;
   font:calc(.68rem * var(--content-font-scale))/1.3 "Newsreader","Times New Roman",Georgia,serif;
@@ -745,8 +754,9 @@ body.is-full-story-open #timeline {
 .reference-gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.55rem; margin:1rem 0; }
 .reference-gallery-thumb { position:relative; aspect-ratio:3/4; padding:0; overflow:hidden; border:1px solid rgba(255,255,255,.2); border-radius:.5rem; background:rgba(255,255,255,.04); cursor:zoom-in; opacity:.78; transition:opacity .25s ease,border-color .25s ease,transform .25s ease; }
 .reference-gallery-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-.reference-gallery-thumb:hover,.reference-gallery-thumb:focus-visible,.reference-gallery-thumb[aria-pressed="true"] { opacity:1; border-color:rgba(255,255,255,.72); transform:translateY(-2px); outline:none; }
-/* 缩略图右下角的放大镜，和单图参考（.context-reference-zoom）用同一套视觉语言，保持全站图片放大入口一致。 */
+.reference-gallery-thumb:hover,.reference-gallery-thumb:focus-visible { opacity:1; border-color:rgba(255,255,255,.72); transform:translateY(-2px); outline:none; }
+/* 缩略图右下角的放大镜，和单图参考（.context-reference-zoom）用同一套视觉语言，保持全站图片放大入口一致；
+   点击缩略图直接打开全局居中大图（#image-lightbox），侧栏里不再单独再放一套小型内嵌大图。 */
 .reference-gallery-thumb-zoom {
   position:absolute; z-index:2; right:.35rem; bottom:.35rem;
   display:flex; align-items:center; justify-content:center; width:1.5rem; height:1.5rem;
@@ -754,17 +764,6 @@ body.is-full-story-open #timeline {
   color:#fff; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
 }
 .reference-gallery-thumb-zoom svg { width:.78rem; height:.78rem; }
-.reference-gallery-viewer { position:relative; margin:1rem 0; padding:.65rem; border:1px solid rgba(255,255,255,.18); border-radius:.65rem; background:rgba(255,255,255,.055); }
-.reference-gallery-viewer[hidden] { display:none; }
-.reference-gallery-large { display:block; width:100%; max-height:62vh; object-fit:contain; border-radius:.35rem; background:rgba(0,0,0,.25); }
-.reference-gallery-close { position:absolute; z-index:1; top:.95rem; right:.95rem; width:1.8rem; height:1.8rem; padding:0; border:1px solid rgba(255,255,255,.52); border-radius:50%; background:rgba(0,0,0,.58); color:#fff; cursor:pointer; font:300 1rem/1 Arial,sans-serif; }
-.reference-gallery-viewer figcaption { padding:.7rem .15rem .15rem; }
-.reference-gallery-viewer figcaption > * { display:block; }
-.reference-gallery-zh { font-size:calc(.78rem * var(--content-font-scale)); line-height:1.55; font-weight:500; color:rgba(255,255,255,.9); }
-.reference-gallery-en { margin-top:.2rem; font:italic var(--content-font-size-caption)/1.45 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.62); }
-.reference-gallery-meta-zh,.reference-gallery-meta-en { margin-top:.5rem; font-size:calc(.63rem * var(--content-font-scale)); line-height:1.5; color:rgba(255,255,255,.54); }
-.reference-gallery-meta-en { margin-top:.12rem; font-family:"Newsreader","Times New Roman",Georgia,serif; font-style:italic; }
-.reference-gallery-credit { margin-top:.6rem; font-size:calc(.61rem * var(--content-font-scale)); line-height:1.5; color:rgba(255,255,255,.7); text-underline-offset:.18em; }
 .circulation-records { margin-top:1.15rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.12); }
 .circulation-records > p { font-size:var(--content-font-size-caption); line-height:1.65; margin-bottom:.5rem; color:rgba(255,255,255,.58); }
 .circulation-records ul { margin:.75rem 0 0; padding-left:1rem; }

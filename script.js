@@ -690,11 +690,29 @@ const HOTSPOTS = [
       zh:"《康熙字典》中的“沈蕙兰”", en:"“Shen Huilan” in the Kangxi Dictionary",
       note:"三个姓名用字从字典页中浮现，连接她对文字、书房与家庭记忆的最初认识。",
       noteEn:"The three characters of her name emerge from the dictionary page, linking literacy with her earliest memories of the study and family life.",
-      learnMoreZh:"《康熙字典》成书于清代，按部首和笔画检字；《新华字典》是20世纪面向现代读者的小型工具书，两者的体例和用途不同。[1]\n\n蕙兰小时候在父亲书房里逐字查自己的名字。字页、姓名和识字这几件事留在同一段家庭记忆里。\n\n脚注｜[1] 画面所用版本及“用地支检索部首”的具体方法仍待确认。",
-      learnMoreEn:"Compiled in the Qing dynasty, the Kangxi Dictionary organizes characters by radicals and stroke counts. The Xinhua Dictionary is a compact twentieth-century reference work for modern readers; the two work differently.[1]\n\nAs a child, Huilan looks up the characters of her name in Father’s study. The dictionary page, her name, and learning to read belong to the same family memory.\n\nNotes｜[1] The edition shown and the stated lookup method still require confirmation.",
+      learnMoreZh:"《康熙字典》成书于清代，按部首和笔画检字；《新华字典》是20世纪面向现代读者的小型工具书，两者的体例和用途不同。[1]\n\n蕙兰小时候在父亲书房里逐字查自己的名字。字页、姓名和识字这几件事留在同一段家庭记忆里。\n\n脚注｜[1] 《康熙字典》的检字法：先析出待查字的部首，数其笔画；按部首笔画数在《部首目录》中查得该部首所属的地支卷册——正文按子丑寅卯辰巳午未申酉戌亥十二地支分卷，每卷再分上中下三册，全书共三十六册；再扣除部首，按古法算画规则计算剩余笔画数；据此翻到对应卷册的《检字表》，在该部首下按剩余笔画数找到目标字及正文页码；最后翻至正文，以反切法标注读音，并核对所引古籍的释义。",
+      learnMoreEn:"Compiled in the Qing dynasty, the Kangxi Dictionary organizes characters by radicals and stroke counts. The Xinhua Dictionary is a compact twentieth-century reference work for modern readers; the two work differently.[1]\n\nAs a child, Huilan looks up the characters of her name in Father’s study. The dictionary page, her name, and learning to read belong to the same family memory.\n\nNotes｜[1] The Kangxi Dictionary's lookup method: first extract the character's radical and count its strokes; use that stroke count to find the radical in the Radical Index, which gives the volume under one of the twelve Earthly Branches — the main text is divided into twelve branch-volumes (zǐ, chǒu, yín, mǎo, chén, sì, wǔ, wèi, shēn, yǒu, xū, hài), each split into upper, middle, and lower fascicles, thirty-six fascicles in total; subtract the radical's strokes and count the character's remaining strokes by the traditional method; use that count to locate the character in that volume's Character-Finding Table under its radical, which gives the page number in the main text; finally, turn to that page, where the pronunciation is given by the fǎnqiè method alongside citations from classical sources.",
       anchorZh:"蕙兰曾在父亲书房里查自己名字的三个字。放大的字页留住的是她刚认识名字时的记忆。",
       anchorEn:"Huilan once looks up the three characters of her name in Father’s study. The enlarged page holds the memory of first recognizing them.",
-      reviewFlag:"待确认：表格中的“用地支检索部首”具体指哪一种《康熙字典》检字标记或版本。"
+      galleryIntroZh:"以下三页对应“沈”“蕙”“兰”三字在《康熙字典》中各自所在的检字页。",
+      galleryIntroEn:"The three pages below correspond to where each character of “Shen”, “Hui”, and “Lan” appears in the Kangxi Dictionary.",
+      gallery:[
+        {
+          image:"assets/references/ch1-gallery/kangxi-shen.jpeg",
+          zh:"“沈”字所在检字页：巳集上",
+          en:"The page where “Shen” (沈) appears — Sì fascicle, upper"
+        },
+        {
+          image:"assets/references/ch1-gallery/kangxi-hui.jpeg",
+          zh:"“蕙”字所在检字页：申集中",
+          en:"The page where “Hui” (蕙) appears — Shēn fascicle, middle"
+        },
+        {
+          image:"assets/references/ch1-gallery/kangxi-lan.jpeg",
+          zh:"“兰（蘭）”字所在检字页：申集上",
+          en:"The page where “Lan” (兰 / 蘭) appears — Shēn fascicle, upper"
+        }
+      ]
     },
     {
       id:"ch01-china-soviet-friendship", xPx:514, yPx:228,
@@ -765,8 +783,7 @@ const HOTSPOTS = [
       anchorEn:"Shen Huilan especially loves the figures’ elaborate clothing. In her childhood memory, reading the novel also means spending long stretches of time looking at its characters.",
       image:"assets/references/ch1-gallery/1.jpg",
       source:"[2] 书格：《红楼梦赋图册》",
-      sourceUrl:"https://www.shuge.org/view/hong_lou_meng_fu_tu_ce/",
-      reviewFlag:"坐标靠近右缘，在iPad横屏上会因裁切自动隐藏，待版面复核。"
+      sourceUrl:"https://www.shuge.org/view/hong_lou_meng_fu_tu_ce/"
     }
   ],
   [
@@ -777,7 +794,6 @@ const HOTSPOTS = [
       noteEn:"The poster crosses out Father Shen Hongli’s name. The accusation on the left reads, “Promoting feudal dross and poisoning revolutionary youth.” The slogans on the right read: “Resolutely criticize the bourgeois reactionary line! Down with all cow demons and snake spirits! Revolutionary teachers and students, unite! Carry the Great Proletarian Cultural Revolution through to the end!”",
       learnMoreZh:"大字报把政治指控写成公开张贴、围观和传播的文字。“牛鬼蛇神”是边界很宽的政治标签；“宣扬封建糟粕，毒害革命青年”是运动中的政治定性，不是司法罪名。[1]\n\n这张大字报写着父亲沈鸿礼的姓名、他教古代文学的事和相关罪名。蕙兰站在楼道里看见它，没有发言。\n\n脚注｜[1] 政治术语已有资料依据；姓名、罪名和口号需按最终画面逐字复核。",
       learnMoreEn:"Dàzìbào made political accusations public, open to posting, watching, and circulation. Niúguǐ Shéshén (“Cow Demons and Snake Spirits”) was a political label with broad and shifting boundaries. “Promoting feudal dross and poisoning revolutionary youth” was a political designation, not a judicial charge.[1]\n\nThis poster carries Father Shen Hongli’s name, his teaching of classical literature, and the accusation against him. Huilan sees it in the corridor and says nothing.\n\nNotes｜[1] The political terms are documented; the name, accusation, and slogans must be checked against the final image.",
-      reviewFlag:"已按叙事设定写入沈鸿礼姓名与罪名；这些字句需以最终画面逐字复核。"
     },
     {
       id:"ch02-red-guard-poster", xPx:1027, yPx:596,
@@ -820,7 +836,6 @@ const HOTSPOTS = [
           href:"https://chineseposters.net/posters/pc-1968-009"
         }
       ],
-      reviewFlag:"题名、编者、出版单位、年份与统一书号已据海报原件边注确认，无需再核实。仍待考证：原始收藏来源及图片授权。"
     },
     {
       id:"ch02-fractured-childhood-memory", xPx:389, yPx:265,
@@ -829,16 +844,39 @@ const HOTSPOTS = [
       noteEn:"The yuefenpai calendar posters she loved as a child, and her own name found in Father’s Kangxi Dictionary.",
       learnMoreZh:"1966年“破四旧”期间，旧书、月份牌等物品可能被查抄、停售、封存或毁损。红卫兵抄家在各地做法不同，也有很大的任意性，不能说所有《康熙字典》都被毁了。[1][2]\n\n沈家的月份牌被撕碎，《康熙字典》被泼墨焚烧。对蕙兰来说，一件连着她爱看的图画，一件连着她自己的名字；后来它们都被说成“不正确”。\n\n脚注｜[1] 中发〔67〕158号及新华书店记录反映查抄、封存与停售。[2] 1970年9月17日周恩来在辞书会议上谈到《新华字典》与《康熙字典》的继承关系。沈家字典的具体遭遇属于人物经历。",
       learnMoreEn:"During the 1966 Pò Sìjiù (“Destroy the Four Olds”) campaign, old books and yuefenpai could be seized, withdrawn, sealed away, or destroyed. Red Guard raids varied by place and could be arbitrary. The evidence does not support the claim that every Kangxi Dictionary was destroyed.[1][2]\n\nThe Shen family’s yuefenpai is torn apart and its Kangxi Dictionary is splashed with ink and burned. One belongs to Huilan’s childhood pictures; the other to learning her own name. Later both are called “incorrect.”\n\nNotes｜[1] Central Document No. 158 and Xinhua Bookstore records document confiscation, sequestration, and withdrawal. [2] On 17 September 1970, Zhou Enlai discussed the lineage from Kangxi Dictionary to Xinhua Dictionary. The fate of the Shen family copy belongs to the character’s history.",
-      reviewFlag:"多来源证据链支持传统字书在文革中遭到结构性排斥、停售、封存与毁损风险；红卫兵抄家具有地方差异和任意性，不能概括为所有《康熙字典》均被毁。沈家《康熙字典》的具体遭遇属于小说中的家庭记忆。王力、吕叔湘及普通读者回忆中关于《康熙字典》的具体表述，待取得可定位的原文与页码后再列为直接引证。"
     }
   ],
   [
-    { x:50, y:32, zh:"公社宣传画", en:"Commune Propaganda Image", note:"公社宣传常以集体队列、丰收和昂扬姿态表现农业劳动。", noteEn:"Commune propaganda often represented agricultural labor through collective formations, abundant harvests, and energetic poses.", term:"commune" },
+    {
+      id:"ch03-commune-poster", x:50, y:32, zh:"公社宣传画", en:"Commune Propaganda Image",
+      note:"公社宣传常以集体队列、丰收和昂扬姿态表现农业劳动。", noteEn:"Commune propaganda often represented agricultural labor through collective formations, abundant harvests, and energetic poses.", term:"commune",
+      learnMoreZh:"1968年12月，毛泽东发出“知识青年到农村去，接受贫下中农的再教育，很有必要”的指示，上山下乡运动由此大规模展开。此后的宣传画常描绘青年背起行装、扛着农具奔赴农村，或与农民并肩劳动的画面，配合“广阔天地，大有作为”一类口号，把下乡表现为青年建功立业的正面选择。[1]\n\n蕙兰下放时经过的公社，墙上贴的正是同一类宣传画。画面里的昂扬姿态，和她自己被审查、下放改造的处境并不是一回事。\n\n脚注｜[1] 上山下乡宣传画的主题与相关口号参见人民网《上山下乡运动中的知青图像》。",
+      learnMoreEn:"In December 1968, Mao Zedong issued the directive that “it is highly necessary for educated youth to go to the countryside to be re-educated by the poor and lower-middle peasants,” launching the mass Up to the Mountains and Down to the Villages movement. Propaganda posters that followed often showed young people setting off for the countryside with bedrolls and farm tools, or working alongside peasants, paired with slogans like “A vast world, where much can be accomplished” — framing resettlement as a positive path to achievement for the young.[1]\n\nThe commune Huilan passed through after being sent down displayed this same kind of poster. Its upbeat postures had little to do with her own situation of being reviewed and sent for reform through labor.\n\nNotes｜[1] Themes and slogans of Up to the Mountains and Down to the Villages posters follow People's Daily Online, “Images of Educated Youth in the Up to the Mountains and Down to the Villages Movement.”",
+      galleryIntroZh:"以下为同类主题的上山下乡宣传画参考。",
+      galleryIntroEn:"A reference image of an Up to the Mountains and Down to the Villages poster from the same period.",
+      gallery:[
+        {
+          image:"assets/references/ch4-gallery/上山下乡.jpg",
+          zh:"上山下乡运动主题宣传画",
+          en:"Up to the Mountains and Down to the Villages propaganda poster"
+        }
+      ]
+    },
     { x:55, y:77, zh:"水稻田", en:"Rice Paddy", note:"长期浸水和弯腰劳动使水田成为皮疹、伤口感染和腰背损伤的来源。", noteEn:"Prolonged immersion and bent-over labor made rice paddies a source of rashes, wound infections, and back injuries." }
   ],
   [
-    { x:51, y:13, zh:"政治标语", en:"Political Slogans", note:"政治口号长期悬挂在会议室，使政策语言成为集体生活的固定环境。", noteEn:"Political slogans remained on meeting-room walls, making official language a permanent part of collective life." },
-    { x:50, y:40, zh:"领袖像", en:"Portrait of Mao Zedong", note:"在机关、学校和公社集体空间中，领袖像通常占据正面或中心位置。", noteEn:"In offices, schools, and commune meeting spaces, portraits of Mao Zedong commonly occupied the front wall or visual center." },
+    { x:51, y:13, zh:"政治标语", en:"Political Slogans",
+      note:"政治口号长期悬挂在会议室，使政策语言成为集体生活的固定环境。", noteEn:"Political slogans remained on meeting-room walls, making official language a permanent part of collective life.",
+      id:"ch04-slogans",
+      learnMoreZh:"文革期间，机关、学校、商店和生产队等集体场所普遍悬挂政治标语和语录牌，内容随运动阶段更换，但版式与悬挂位置相对固定，长期占据视线所及之处。1966年至1971年间，多地一度流行“早请示、晚汇报”：开工或开会前后，集体面对毛主席像诵读语录、汇报当日思想，将政治学习嵌入日常作息，1971年九一三事件后这一仪式逐渐衰落。[1]\n\n蕙兰在这间会议室里参加过许多轮批判和检讨。墙上的标语很少换位置，换的是每一轮被点名的人。\n\n脚注｜[1] “早请示、晚汇报”的流行时段及仪式内容参见中文维基百科相应词条。",
+      learnMoreEn:"During the Cultural Revolution, political slogans and quotation boards were displayed throughout offices, schools, shops, and production teams. Wording changed with each phase of the movement, but the format and placement stayed largely fixed, occupying the same field of view for years. Between 1966 and 1971, many workplaces practiced “morning request, evening report” (zǎo qǐngshì, wǎn huìbào): before and after work or meetings, people gathered before a portrait of Mao to recite quotations and report on their thinking, folding political study into the daily schedule. The ritual declined after the September 13th Incident in 1971.[1]\n\nHuilan sat through many rounds of criticism and self-criticism in this room. The slogans on the wall rarely moved. What changed each round was who was singled out.\n\nNotes｜[1] Chinese Wikipedia, “Zǎo Qǐngshì Wǎn Huìbào” (“Morning Request, Evening Report”) entry."
+    },
+    { x:50, y:40, zh:"领袖像", en:"Portrait of Mao Zedong",
+      note:"在机关、学校和公社集体空间中，领袖像通常占据正面或中心位置。", noteEn:"In offices, schools, and commune meeting spaces, portraits of Mao Zedong commonly occupied the front wall or visual center.",
+      id:"ch04-mao-portrait",
+      learnMoreZh:"机关、学校和公社的会议室、办公室等集体空间普遍悬挂毛泽东画像，通常置于正面或视觉中心，与语录牌、标语共同构成会议室的固定陈设。“早请示、晚汇报”仪式即面对这类画像进行：开工前“请示”，收工前“汇报”，1966年至1971年间在多地流行，此后逐渐废止。[1]\n\n蕙兰在这间会议室里，抬头就能看到墙上的画像。画像不会说话，却始终“在场”，看着每一轮批判和检讨。\n\n脚注｜[1] 同上。",
+      learnMoreEn:"Portraits of Mao Zedong were commonly displayed in the meeting rooms and offices of government offices, schools, and communes, usually placed on the front wall or at the visual center, forming a fixed part of the room's furnishings alongside quotation boards and slogans. The “morning request, evening report” ritual was performed facing such a portrait — “requesting instructions” before work, “reporting” before leaving — a practice that spread widely between 1966 and 1971 before falling out of use.[1]\n\nIn this meeting room, Huilan only had to look up to see the portrait on the wall. It said nothing, but it was always there, watching each round of criticism and self-criticism.\n\nNotes｜[1] See note above."
+    },
     {
       id:"ch04-inner-thoughts", xPx:420, yPx:640,
       variant:"text-group",
@@ -1501,20 +1539,29 @@ function renderLayeredReading(text, language = "zh") {
   }).join("");
 }
 
-function renderReferenceGallery(source, headingZh = "同类海报视觉语言", headingEn = "Related poster language") {
-  if (!source?.gallery?.length) return "";
-  const thumbnails = source.gallery.map((item, index) => `
-    <button class="reference-gallery-thumb" type="button" data-gallery-index="${index}" aria-label="放大查看：${escapeHTML(item.zh)}">
-      <img src="${item.image}" alt="${escapeHTML(item.zh)}" loading="lazy">
-      <span class="reference-gallery-thumb-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></span>
-    </button>`).join("");
-  return `
-    <section class="reference-gallery" aria-labelledby="reference-gallery-title">
-      <h3 id="reference-gallery-title">${renderContextChineseLabel(headingZh)} <span>${headingEn}</span></h3>
-      ${source.galleryIntroZh ? `<p class="context-body-zh">${source.galleryIntroZh}</p>` : ""}
-      ${source.galleryIntroEn ? `<p class="context-en context-body-en">${source.galleryIntroEn}</p>` : ""}
-      <div class="reference-gallery-grid">${thumbnails}</div>
-    </section>`;
+// 所有"参考图片"手风琴里的图，不管是章节级的 gallery（比如第六章）还是某个 hotspot 自己的
+// gallery（比如第一章"沈蕙兰"三字的检字页、第二章红卫兵海报），都用同一种卡片渲染——跟单张
+// referenceItems/hotspotImage 视觉上完全一致，不再各自起一个"同类海报视觉语言"之类的小标题，
+// 全部平铺在"参考图片"这一个标题下面。
+function renderGalleryFigures(items = []) {
+  return items.map(item => {
+    const captionZh = [item.zh, item.metaZh].filter(Boolean).join(" · ");
+    const captionEn = [item.en, item.metaEn].filter(Boolean).join(" · ") || captionZh;
+    const altText = item.zh || item.en || "参考图片";
+    const sourceHtml = item.credit
+      ? (item.href
+          ? `<small><a class="context-reference-credit" href="${item.href}" target="_blank" rel="noopener noreferrer">${item.credit}</a></small>`
+          : `<small>${item.credit}</small>`)
+      : "";
+    const zoomCaptionZh = escapeHTML([captionZh, item.credit].filter(Boolean).join(" · "));
+    const zoomCaptionEn = escapeHTML([captionEn, item.credit].filter(Boolean).join(" · "));
+    return `<figure class="context-reference"><img src="${item.image}" alt="${escapeHTML(altText)}" loading="lazy"><button class="context-reference-zoom" type="button" data-zoom-src="${item.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button><figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${sourceHtml}</figcaption></figure>`;
+  }).join("");
+}
+
+function renderGalleryIntro(source) {
+  if (!source?.galleryIntroZh && !source?.galleryIntroEn) return "";
+  return `<p class="context-gallery-intro context-body-zh">${source.galleryIntroZh || ""}</p><p class="context-gallery-intro context-en context-body-en">${source.galleryIntroEn || ""}</p>`;
 }
 
 // 缩略图点了直接打开全站统一的居中大图弹窗（image-lightbox），跟其它参考图片同一套看图方式，
@@ -3007,7 +3054,7 @@ function renderContext(target, hotspot = null) {
   if (typeof target === "string" && TERMS[target]) {
     const term = TERMS[target];
     contextContent.innerHTML = `
-      <h2>${renderContextChineseLabel(term.zh)}</h2><p class="context-title-en">${term.en}</p>
+      <h2 class="context-title-zh">${renderContextChineseLabel(term.zh)}</h2><p class="context-title-en">${term.en}</p>
       <p class="context-body-zh">${term.bodyZh}</p><p class="context-en context-body-en">${term.bodyEn}</p>
       <hr class="context-rule"><p class="context-material">${renderContextChineseLabel("术语说明")} · TERM NOTE ${term.number}</p>`;
     buildTraditionalContextBodies();
@@ -3020,7 +3067,7 @@ function renderContext(target, hotspot = null) {
     // 正文也不再重复术语①"文化大革命"已经讲过的内容（起止年代、冲击范围）——两边写的是同一件事，
     // 这里只留序言自己的、术语条目里没有的信息：故事人物和这十年的关系。
     contextContent.innerHTML = `
-      <h2>${renderContextChineseLabel("序言")}</h2><p class="context-title-en">Prologue</p>
+      <h2 class="context-title-zh">${renderContextChineseLabel("序言")}</h2><p class="context-title-en">Prologue</p>
       <p class="context-body-zh">沈蕙兰的家庭背景，与她即将经历的、持续十年的政治动荡（1966－1976）。</p>
       <p class="context-en context-body-en">Shen Huilan's family background, and the decade of political upheaval (1966–1976) she was about to live through.</p>
       ${buildTermAccordion(".start-text")}`;
@@ -3030,7 +3077,7 @@ function renderContext(target, hotspot = null) {
   }
   if (target === "epilogue") {
     contextContent.innerHTML = `
-      <h2>${renderContextChineseLabel("跋")}</h2><p class="context-title-en">Epilogue</p>
+      <h2 class="context-title-zh">${renderContextChineseLabel("跋")}</h2><p class="context-title-en">Epilogue</p>
       <div class="context-primary">
         <section class="epilogue-context-section">
           <h3>${renderContextChineseLabel("七十年代末：平反与返城")}<small>Late 1970s: Rehabilitation and Return</small></h3>
@@ -3049,7 +3096,7 @@ function renderContext(target, hotspot = null) {
         </section>
       </div>
       <details class="context-section">
-        <summary>${renderContextChineseLabel("参考资料")} <span>References</span></summary>
+        <summary>${renderContextChineseLabel("参考资料")} <span class="context-en-label">References</span></summary>
         <ol class="epilogue-context-sources">
           <li><a href="https://dag.tsinghua.edu.cn/info/1066/2801.htm" target="_blank" rel="noopener noreferrer">[1] 清华大学档案馆：1978年教育领域的拨乱反正</a></li>
           <li><a href="https://www.tsyzm.cn/CN/Y2014/V1/I11/95" target="_blank" rel="noopener noreferrer">[2] 金大陆：《知青下乡与返城：凸显历史的转折》</a></li>
@@ -3115,13 +3162,17 @@ function renderContext(target, hotspot = null) {
       <div class="hotspot-reading-zh context-body-zh">${renderLayeredReading(hotspot.learnMoreZh, "zh")}</div>
       ${hotspot.learnMoreEn ? `<div class="context-en hotspot-reading-en context-body-en">${renderLayeredReading(hotspot.learnMoreEn, "en")}</div>` : ""}
     </div>` : "";
-  const hotspotGallery = renderReferenceGallery(hotspot);
-  const contextGallery = !hotspot ? renderReferenceGallery(context, "同类场景视觉参考", "Related scene references") : "";
+  // 所有 gallery（章节级的，比如第六章；或某个 hotspot 自己的，比如第一章检字页、第二章
+  // 红卫兵海报）统一摊平成跟单张参考图一样的卡片，不再各起一个子标题，全部并入"参考图片"。
+  const hotspotGalleryIntro = hotspot ? renderGalleryIntro(hotspot) : "";
+  const hotspotGallery = hotspot?.gallery?.length ? renderGalleryFigures(hotspot.gallery) : "";
+  const contextGalleryIntro = !hotspot ? renderGalleryIntro(context) : "";
+  const contextGallery = !hotspot && context?.gallery?.length ? renderGalleryFigures(context.gallery) : "";
   const hotspotNoteEn = hotspot?.noteEn ? `<p class="context-en context-body-en">${hotspot.noteEn}</p>` : "";
   const hotspotAnchor = hotspot?.anchorZh && !hotspot?.learnMoreZh?.includes("与沈蕙兰的关系｜") ? `
     <blockquote class="context-anchor context-body-zh">${hotspot.anchorZh}</blockquote>
     ${hotspot.anchorEn ? `<blockquote class="context-anchor context-en context-body-en">${hotspot.anchorEn}</blockquote>` : ""}` : "";
-  const hotspotReferences = `${hotspotImage}${hotspotGallery}${hotspotSource}`;
+  const hotspotReferences = `${hotspotImage}${hotspotGalleryIntro}${hotspotGallery}${hotspotSource}`;
   // 章节级的"参考图片"（context.references）和脚注列表（context.sources）只属于默认场景侧栏，
   // 不该跟着漏进某个具体 hotspot 的侧栏里——点开一个具体的点，就只该看到这个点自己的图片/来源，
   // 不该把整章的背景音乐脚注、整章的参考图片一起搭进来。
@@ -3131,11 +3182,11 @@ function renderContext(target, hotspot = null) {
   const hasImageReferences = Boolean(hotspot ? hotspotReferences : (hotspotReferences || referenceItems || contextGallery));
   const hasTextSources = Boolean(!hotspot && contextSources);
   const imagesAccordion = hasImageReferences ? `<details class="context-section" open>
-      <summary>${renderContextChineseLabel("参考图片")} <span>References</span></summary>
-      ${hotspot ? hotspotReferences : `${hotspotReferences}${referenceItems}${contextGallery}`}
+      <summary>${renderContextChineseLabel("参考图片")} <span class="context-en-label">References</span></summary>
+      ${hotspot ? hotspotReferences : `${hotspotReferences}${referenceItems}${contextGalleryIntro}${contextGallery}`}
     </details>` : "";
   const sourcesAccordion = hasTextSources ? `<details class="context-section">
-      <summary>${renderContextChineseLabel("参考资料")} <span>Sources</span></summary>
+      <summary>${renderContextChineseLabel("参考资料")} <span class="context-en-label">Sources</span></summary>
       ${contextSources}
     </details>` : "";
   const chapterContext = hotspot?.hideChapterContext ? "" : `
@@ -3147,11 +3198,11 @@ function renderContext(target, hotspot = null) {
     ${sourcesAccordion}
     <div class="context-novel-section">
       <button class="context-novel-toggle fullscreen-button" type="button" data-open-full-story>
-        ${renderContextChineseLabel("小说原文阅读")} <span>Read the novel</span>
+        ${renderContextChineseLabel("小说原文阅读")} <span class="context-en-label">Read the novel</span>
       </button>
     </div>`;
   contextContent.innerHTML = `
-    <h2>${renderContextChineseLabel(hotspot ? hotspot.zh : context.title)}</h2>
+    <h2 class="context-title-zh">${renderContextChineseLabel(hotspot ? hotspot.zh : context.title)}</h2>
     <p class="context-title-en">${hotspot ? hotspot.en : context.titleEn}</p>
     ${hotspot ? `<p class="context-body-zh">${hotspot.note}</p>${hotspotNoteEn}${hotspotReading}${hotspotAnchor}<hr class="context-rule">` : ""}
     ${chapterContext}`;

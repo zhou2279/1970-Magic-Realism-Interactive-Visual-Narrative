@@ -589,8 +589,8 @@ const CONTEXTS = [
   {
     title: "儿时父母的书房", titleEn: "My Parents’ Study · 1953",
     leadZh: "1953－1966年·旧藏与新政", leadEn: "1953–1966 · Old Collections, New Politics",
-    leadNoteZh: "1953年，中国开始执行第一个五年计划，社会进入大规模建设的新阶段；家中旧藏的字典、古画与新时期的宣传画尚能并存，直到1966年“破四旧”改变了这一切。",
-    leadNoteEn: "In 1953, China began its First Five-Year Plan, entering a new phase of large-scale nation-building; a family's old dictionaries and paintings could still sit beside the new era's propaganda imagery — until 1966, when the Destroy the Four Olds campaign changed everything.",
+    leadNoteZh: "1953年，中国开始执行第一个五年计划，社会进入大规模建设的新阶段；家中旧藏的字典、古画与新时期的宣传画尚能并存，直到1966年“破四旧”改变了这一切。\n\n来源｜<a class=\"context-lead-note-source\" href=\"http://paper.people.com.cn/rmzk/html/2020-12/23/content_2025418.htm\" target=\"_blank\" rel=\"noopener noreferrer\">人民日报：《新中国第一个五年计划诞生记》</a>",
+    leadNoteEn: "In 1953, China began its First Five-Year Plan, entering a new phase of large-scale nation-building; a family's old dictionaries and paintings could still sit beside the new era's propaganda imagery — until 1966, when the Destroy the Four Olds campaign changed everything.\n\nSource｜<a class=\"context-lead-note-source\" href=\"http://paper.people.com.cn/rmzk/html/2020-12/23/content_2025418.htm\" target=\"_blank\" rel=\"noopener noreferrer\">People's Daily: \u201cThe Birth of New China's First Five-Year Plan\u201d</a>",
     zh: "1950年代，教师和读书人家里的书房常兼作读书、备课、藏书和待客的地方。字典、古典小说、画报、家庭照片和宣传画可以放在同一间屋里，这种并置并不矛盾：新中国早期的政治图像已经进入学校、单位和家庭，旧书与新宣传也会在日常空间中同时存在。\n\n1966年以后，这类私人收藏变得危险。旧书、旧画、月份牌和家族照片可能在“破四旧”与抄家中被查抄、封存、涂污或烧毁。书房因此不再只是家庭记忆，也会成为家庭成分和思想倾向被审查的地方。\n\n背景音乐｜书房中回响的是《夜来香》。黎锦光作曲并作词（唱片署名“金玉谷”），1944年首度发表，最初由歌影双栖的李香兰（山口淑子）演唱。此后这首歌因演唱者身份与曲风，在不同历史时期数次被禁。沈家藏有一张唱片，五十年代只敢在家中放得很轻，歌声总是模糊；文革开始后，连这样模糊的声音也彻底消失。[1]",
     en: "In the 1950s, the study of a teacher or reader often served several uses at once: reading, lesson preparation, book storage, and receiving visitors. Dictionaries, classical fiction, pictorials, family photographs, and propaganda posters could occupy the same room. This mixture was not contradictory. In early PRC domestic life, older books and new political imagery often existed side by side.\n\nAfter 1966, such private collections became vulnerable. Old books, paintings, yuefenpai calendar posters, and family photographs could be seized, sealed away, defaced, or burned during house searches and the Pò Sìjiù (“Destroy the Four Olds”) campaign. A study could therefore become a place where a family’s class background and thoughts were inspected.\n\nBackground music｜The study resounds with “Yeh Lai Hsiang” (“Fragrance of the Night”). Composed and written by Li Jinguang (credited on the original record under the pen name Jin Yugu), it was first released in 1944, originally sung by Li Xianglan (Yamaguchi Yoshiko), a bilingual Chinese–Japanese singer and actress. The song was subsequently banned more than once across different periods, tied to both its singer’s identity and its musical style. The Shen family kept a copy of the record; in the 1950s they dared play it only very quietly at home, its sound always muffled. Once the Cultural Revolution began, even that faint sound disappeared entirely.[1]",
     material: "合成记忆图像｜书房、家庭照片、宣传画与古典仕女图层",
@@ -601,8 +601,8 @@ const CONTEXTS = [
   {
     title: "学校与公开批判", titleEn: "Schools and Public Denunciation · 1966",
     leadZh: "1966－1967年·大字报与批判会", leadEn: "1966–1967 · Big-Character Posters and Denunciation Meetings",
-    leadNoteZh: "1966年8月，“破四旧”运动在“红八月”期间达到高潮，红卫兵走上街头抄家、焚书、批斗所谓“牛鬼蛇神”；直到次年官方文件出面遏制，这类行动才逐渐收敛。学校的走廊与教室，也在这段时间被改造成张贴大字报、组织批判会的场所。",
-    leadNoteEn: "In August 1966, the campaign to Destroy the Four Olds reached its peak during the so-called \u201cRed August,\u201d as Red Guards searched homes, burned books, and denounced so-called \u201cmonsters and demons\u201d in the streets; only after an official directive the following year did such actions begin to subside. During this period, school corridors and classrooms were also repurposed as sites for posting big-character posters and holding denunciation meetings.",
+    leadNoteZh: "1966年8月，“破四旧”运动在“红八月”期间达到高潮，红卫兵走上街头抄家、焚书、批斗所谓“牛鬼蛇神”；直到次年官方文件出面遏制，这类行动才逐渐收敛。学校的走廊与教室，也在这段时间被改造成张贴大字报、组织批判会的场所。\n\n来源｜<a class=\"context-lead-note-source\" href=\"https://zh.wikipedia.org/wiki/%E7%A0%B4%E5%9B%9B%E8%88%8A\" target=\"_blank\" rel=\"noopener noreferrer\">维基百科：《破四旧》</a>",
+    leadNoteEn: "In August 1966, the campaign to Destroy the Four Olds reached its peak during the so-called \u201cRed August,\u201d as Red Guards searched homes, burned books, and denounced so-called \u201cmonsters and demons\u201d in the streets; only after an official directive the following year did such actions begin to subside. During this period, school corridors and classrooms were also repurposed as sites for posting big-character posters and holding denunciation meetings.\n\nSource｜<a class=\"context-lead-note-source\" href=\"https://zh.wikipedia.org/wiki/%E7%A0%B4%E5%9B%9B%E8%88%8A\" target=\"_blank\" rel=\"noopener noreferrer\">Wikipedia (Chinese): \u201cDestroy the Four Olds\u201d</a>",
     zh: "这类老式高校教学楼和机关楼在1950至60年代很常见。长走廊、成排房门、厚墙、裸露灯泡和克制装饰，来自强调秩序、集体通行和机构功能的建筑习惯，也带有苏联规划与建筑教育的影响。\n\n1966年学校停课后，校园没有停止运转，而是被重新用于政治动员。走廊、办公室门口和公告墙可以迅速变成张贴大字报、围观指控和组织批判的公共场所。建筑原本服务于教学和行政秩序；在运动中，这种集体性也让私人遭遇很难继续留在私人范围内。",
     en: "This kind of older university or government building was common in the 1950s and 1960s. Long corridors, repeated doors, thick walls, exposed bulbs, and restrained decoration came from an institutional approach that valued order, collective circulation, and function. Soviet planning and architectural education also shaped these spaces.\n\nAfter schools closed in 1966, campuses did not simply fall silent. They were repurposed for political mobilization. Corridors, office doors, and notice walls could quickly become public sites for dàzìbào, accusation, and organized criticism. The building had been designed for teaching and administration. During the movement, its collective layout also made private suffering difficult to keep private.",
     material: "合成记忆图像｜学校走廊、手写大字报、红色宣传碎片"
@@ -610,8 +610,8 @@ const CONTEXTS = [
   {
     title: "下乡与人民公社", titleEn: "Sent-down Youth and the Commune · 1968-1969",
     leadZh: "1968－1969年·公社与工分", leadEn: "1968–1969 · The Commune and Work Points",
-    leadNoteZh: "1968年12月，《人民日报》发布毛泽东“知识青年到农村去，接受贫下中农的再教育”的指示，大规模上山下乡运动由此展开；数以百万计的城市青年被送往农村、农场与边疆，在生产队与生产大队的工分制度下重新安排自己的劳动与生活。",
-    leadNoteEn: "In December 1968, the People\u2019s Daily published Mao Zedong\u2019s directive that \u201ceducated youth should go to the countryside to be re-educated by the poor and lower-middle peasants,\u201d launching the mass Down to the Countryside Movement; millions of urban youth were sent to villages, farms, and frontier regions, their labor and daily lives reorganized under the production team\u2019s work-point system.",
+    leadNoteZh: "1968年12月，《人民日报》发布毛泽东“知识青年到农村去，接受贫下中农的再教育”的指示，大规模上山下乡运动由此展开；数以百万计的城市青年被送往农村、农场与边疆，在生产队与生产大队的工分制度下重新安排自己的劳动与生活。\n\n来源｜<a class=\"context-lead-note-source\" href=\"https://cn.chinadaily.com.cn/a/202104/07/WS606d254aa3101e7ce9747dfb.html\" target=\"_blank\" rel=\"noopener noreferrer\">中国日报网：《百年宏图·上山下乡》</a>",
+    leadNoteEn: "In December 1968, the People\u2019s Daily published Mao Zedong\u2019s directive that \u201ceducated youth should go to the countryside to be re-educated by the poor and lower-middle peasants,\u201d launching the mass Down to the Countryside Movement; millions of urban youth were sent to villages, farms, and frontier regions, their labor and daily lives reorganized under the production team\u2019s work-point system.\n\nSource｜<a class=\"context-lead-note-source\" href=\"https://cn.chinadaily.com.cn/a/202104/07/WS606d254aa3101e7ce9747dfb.html\" target=\"_blank\" rel=\"noopener noreferrer\">China Daily: \u201cA Century in Focus \u00b7 Down to the Countryside\u201d</a>",
     zh: "1968年12月以后，大批城市青年被送到农村、农场和边疆地区接受再教育。到达公社后，个人生活被纳入生产队和生产大队的安排：出工、记工分、分配口粮、政治学习，都由集体制度管理。\n\n宣传画常把农业劳动画成丰收、队列和昂扬姿态。水田里的实际日子更具体：长时间弯腰，脚和腿泡在水里，蚊虫驱不完，伤口反复感染。对一个刚离开学校不久的年轻教师来说，“劳动改造”不是抽象口号，而是每天从身体上重新学习服从。",
     en: "After December 1968, large numbers of urban young people were sent to farms, villages, and frontier regions for re-education. Once they arrived at a commune, private life was absorbed into the routines of the production team and brigade: work assignments, work points, grain distribution, and political study.\n\nPropaganda often showed farm labor as harvest, formation, and uplift. Work in a rice paddy was more bodily and exact: hours bent over, feet and legs in water, mosquitoes that would not disperse, wounds that became infected again and again. For a young teacher recently removed from school, “labor reform” was not an abstract slogan. It was obedience learned through the body.",
     material: "合成记忆图像｜宣传画、稻田倒影与公社劳动场景"
@@ -619,8 +619,8 @@ const CONTEXTS = [
   {
     title: "会议室里的自我审查", titleEn: "Self-surveillance in the Meeting Room · 1969",
     leadZh: "1969－1970年·忆苦思甜与批斗会", leadEn: "1969–1970 · Speak-Bitterness Meetings and Struggle Sessions",
-    leadNoteZh: "“斗私批修”是毛泽东1967年提出、此后长期推行的政治方针，要求每个人清查、批判自己的“私心”。忆苦思甜、思想汇报与批斗会，是这一方针在生产队日常生活里的具体形式——蕙兰在会议室里经历的，正是这套仪式化的自我审查。",
-    leadNoteEn: "\u201cFighting self-interest, criticizing revisionism\u201d was a political directive Mao Zedong put forward in 1967 and sustained for years afterward, requiring everyone to examine and denounce their own \u201cselfish thoughts.\u201d Speak-bitterness sessions, self-reports, and struggle meetings were how this directive took shape in a production team\u2019s daily life \u2014 the ritualized self-scrutiny Huilan experiences in the meeting room.",
+    leadNoteZh: "“斗私批修”是毛泽东1967年提出、此后长期推行的政治方针，要求每个人清查、批判自己的“私心”。忆苦思甜、思想汇报与批斗会，是这一方针在生产队日常生活里的具体形式——蕙兰在会议室里经历的，正是这套仪式化的自我审查。\n\n来源｜<a class=\"context-lead-note-source\" href=\"https://zh.wikipedia.org/zh-hans/%E6%96%97%E7%A7%81%E6%89%B9%E4%BF%AE\" target=\"_blank\" rel=\"noopener noreferrer\">维基百科：《斗私批修》</a>",
+    leadNoteEn: "\u201cFighting self-interest, criticizing revisionism\u201d was a political directive Mao Zedong put forward in 1967 and sustained for years afterward, requiring everyone to examine and denounce their own \u201cselfish thoughts.\u201d Speak-bitterness sessions, self-reports, and struggle meetings were how this directive took shape in a production team\u2019s daily life \u2014 the ritualized self-scrutiny Huilan experiences in the meeting room.\n\nSource｜<a class=\"context-lead-note-source\" href=\"https://zh.wikipedia.org/zh-hans/%E6%96%97%E7%A7%81%E6%89%B9%E4%BF%AE\" target=\"_blank\" rel=\"noopener noreferrer\">Wikipedia (Chinese): \u201cDou Si Pi Xiu\u201d</a>",
     zh: "生产大队会议室是公社日常政治生活的重要空间。这里可以安排劳动、传达通知，也可以政治学习、忆苦思甜、思想汇报和批斗。毛泽东像、政治口号和黑板不是装饰，它们把会议室变成一个持续提醒人如何说话、如何表态的场所。\n\n对参加者来说，开会不只是听通知。一个人要学会把自己的想法整理成当时认可的话，也要在必要时检讨“不该有”的念头。长期处在这种环境中，自我审查会变成一种日常技能。",
     en: "The production brigade meeting room was an important space of everyday political life in a commune. It could be used for work assignments and announcements, as well as political study, speak-bitterness meetings, ideological reports, and struggle sessions. Portraits of Mao Zedong, political slogans, and blackboards were not decoration. They turned the room into a place that continually instructed people how to speak and how to take a position.\n\nFor participants, meetings were not only about receiving notices. A person had to learn how to translate private thought into approved language, and sometimes how to criticize thoughts they were not supposed to have. Over time, self-surveillance became a daily skill.",
     material: "合成记忆图像｜大队会议室、政治标语、黑板与领袖像"
@@ -634,43 +634,38 @@ const CONTEXTS = [
   },
   {
     title: "门的另一边", titleEn: "The Other Side · Greenwich Village, 1970",
-    leadZh: "1960年代－1970年·书店、咖啡馆与民谣", leadEn: "1960s–1970 · Bookshops, Coffeehouses, and Folk Music",
-    leadNoteZh: "1960年代，格林尼治村的民谣场景与民权运动、和平运动的进程紧密交织——皮特·西格的《我们终将胜利》成为民权运动的圣歌，鲍勃·迪伦、琼·贝兹等歌手也曾投身声援。独立书店与咖啡馆因此不只是营业场所，也是居民、学生与运动参与者碰面、交换信息的地方。",
-    leadNoteEn: "Through the 1960s, Greenwich Village\u2019s folk music scene became closely intertwined with the course of the civil rights and peace movements \u2014 Pete Seeger\u2019s \u201cWe Shall Overcome\u201d became an anthem of the civil rights struggle, and singers such as Bob Dylan and Joan Baez lent their support. Independent bookshops and coffeehouses were therefore more than places of business; they were where residents, students, and movement participants met and exchanged information.",
-    zh: "1970年前后的格林尼治村，是曼哈顿一个以住宅为主、同时分布着书店、咖啡馆和小型演出场所的街区。红砖公寓的底层常有临街商铺。到了晚上，居民、学生、店员、乐手和来看演出的人会出现在同一片街道上。[1]\n\n独立书店不仅卖书，也会张贴公告，供人碰面和交换信息。1967年开业的奥斯卡·王尔德纪念书店是其中一个重要例子。它出售正面讨论同性恋生活的书籍和期刊，也为社群提供活动信息和聚会空间。[2]\n\n咖啡馆和小型演出场所散布在住宅之间，民谣、蓝调、诗歌朗诵和实验戏剧因此进入街区的日常生活。Gerde's Folk City是当时重要的民谣演出场所，鲍勃·迪伦早期曾在这里演出。[3][4]\n\n本章画面组合了这些同时期的街区元素，并非复原某一条具体街道。",
-    en: "Around 1970, Greenwich Village was a Manhattan neighbourhood made up mainly of residences, with bookshops, coffeehouses, and small performance venues among them. Street-level shops often occupied the ground floors of red-brick apartment buildings. At night, residents, students, shop workers, musicians, and people arriving for a show shared the same streets.[1]\n\nIndependent bookshops did more than sell books. They also posted notices and gave people places to meet and exchange information. The Oscar Wilde Memorial Bookshop, which opened in 1967, was an important example. It sold books and periodicals that discussed gay and lesbian life positively and provided activity information and meeting space for the community.[2]\n\nCoffeehouses and small performance venues stood among residential buildings, bringing folk music, blues, poetry readings, and experimental theatre into everyday neighbourhood life. Gerde's Folk City was an important folk venue where Bob Dylan played early engagements.[3][4]\n\nThis chapter combines elements found in the neighbourhood around 1970 rather than reconstructing a specific street.",
+    zh: "1970年前后的格林尼治村，是曼哈顿一个以住宅为主、同时分布着书店、咖啡馆和小型演出场所的街区。红砖公寓的底层常有临街商铺。到了晚上，居民、学生、店员、乐手和来看演出的人会出现在同一片街道上。[1]\n\n独立书店不仅卖书，也会张贴公告，供人碰面和交换信息。1967年开业的奥斯卡·王尔德纪念书店是其中一个重要例子。它出售正面讨论同性恋生活的书籍和期刊，也为社群提供活动信息和聚会空间。[2]\n\n咖啡馆和小型演出场所散布在住宅之间，民谣、蓝调、诗歌朗诵和实验戏剧因此进入街区的日常生活。Gerde's Folk City是当时重要的民谣演出场所，鲍勃·迪伦早期曾在这里演出。整个1960年代，这里的民谣场景与民权运动、和平运动的进程也一直交织在一起。[3][4][5]\n\n本章画面组合了这些同时期的街区元素，并非复原某一条具体街道。",
+    en: "Around 1970, Greenwich Village was a Manhattan neighbourhood made up mainly of residences, with bookshops, coffeehouses, and small performance venues among them. Street-level shops often occupied the ground floors of red-brick apartment buildings. At night, residents, students, shop workers, musicians, and people arriving for a show shared the same streets.[1]\n\nIndependent bookshops did more than sell books. They also posted notices and gave people places to meet and exchange information. The Oscar Wilde Memorial Bookshop, which opened in 1967, was an important example. It sold books and periodicals that discussed gay and lesbian life positively and provided activity information and meeting space for the community.[2]\n\nCoffeehouses and small performance venues stood among residential buildings, bringing folk music, blues, poetry readings, and experimental theatre into everyday neighbourhood life. Gerde's Folk City was an important folk venue where Bob Dylan played early engagements. Throughout the 1960s, this folk scene also remained closely intertwined with the course of the civil rights and peace movements.[3][4][5]\n\nThis chapter combines elements found in the neighbourhood around 1970 rather than reconstructing a specific street.",
     material: "合成场景｜格林尼治村夜间街道、书店、咖啡馆与1970年代车辆",
-    references: [
+    galleryIntroZh: "以下是本章画面所参考的同时期格林尼治村街区影像：书店、咖啡馆演出空间与1970年游行现场，用于确认场景元素，并非画面本身的直接出处。",
+    galleryIntroEn: "These are period photographs of the Greenwich Village neighbourhood referenced for this chapter's scene — bookshops, coffeehouse performance spaces, and a 1970 march — shown to confirm scene elements, not as the direct source of the composited image.",
+    gallery: [
       {
         image:"https://www.warhol.org/wp-content/uploads/2014/08/2.jpg",
-        alt:"The Velvet Underground and Nico performing at The Dom with light and film projections, 1966",
-        captionZh:"1966年，Velvet Underground 与 Nico 在 The Dom 演出，舞台配有灯光与影像投影",
-        captionEn:"The Velvet Underground and Nico performing at The Dom, 1966, with stage lighting and film projections",
-        source:"The Andy Warhol Museum",
+        zh:"1966年，Velvet Underground 与 Nico 在 The Dom 演出，舞台配有灯光与影像投影",
+        en:"The Velvet Underground and Nico performing at The Dom, 1966, with stage lighting and film projections",
+        credit:"The Andy Warhol Museum",
         href:"https://www.warhol.org/"
       },
       {
         image:"https://www.nyclgbtsites.org/wp-content/uploads/2021/06/Craig-Rodwell-2-NYPL-1.jpeg",
-        alt:"Craig Rodwell and Mei-Mei Sanford at the Oscar Wilde Memorial Bookshop in 1970",
-        captionZh:"克雷格·罗德韦尔（Craig Rodwell）与梅梅·桑福德（Mei-Mei Sanford）在奥斯卡·王尔德纪念书店，1970年",
-        captionEn:"Craig Rodwell and Mei-Mei Sanford at the Oscar Wilde Memorial Bookshop, 1970",
-        source:"Diana Davies / The New York Public Library",
+        zh:"克雷格·罗德韦尔（Craig Rodwell）与梅梅·桑福德（Mei-Mei Sanford）在奥斯卡·王尔德纪念书店，1970年",
+        en:"Craig Rodwell and Mei-Mei Sanford at the Oscar Wilde Memorial Bookshop, 1970",
+        credit:"Diana Davies / The New York Public Library",
         href:"https://www.nyclgbtsites.org/site/oscar-wilde-memorial-bookshop/"
       },
       {
         image:"https://www.nyclgbtsites.org/wp-content/uploads/2021/06/Caffe-Cino-3-1.jpeg",
-        alt:"Caffe Cino, an Off-Off-Broadway performance space in Greenwich Village",
-        captionZh:"Caffe Cino，格林尼治村一家咖啡馆兼外外百老汇（Off-Off-Broadway）演出场地",
-        captionEn:"Caffe Cino, a coffeehouse and Off-Off-Broadway performance space in Greenwich Village",
-        source:"NYC LGBTQ Historic Sites Project",
+        zh:"Caffe Cino，格林尼治村一家咖啡馆兼外外百老汇（Off-Off-Broadway）演出场地",
+        en:"Caffe Cino, a coffeehouse and Off-Off-Broadway performance space in Greenwich Village",
+        credit:"NYC LGBTQ Historic Sites Project",
         href:"https://www.nyclgbtsites.org/site/caffe-cino/"
       },
       {
         image:"https://www.nyclgbtsites.org/wp-content/uploads/2021/06/Christopher-Street-Liberation-Day-March-June-1970.-Photo-by-Fred-W.-McDarrah.jpg",
-        alt:"Christopher Street Liberation Day, June 1970",
-        captionZh:"Christopher Street Liberation Day 游行，1970年6月",
-        captionEn:"Christopher Street Liberation Day march, June 1970",
-        source:"Fred W. McDarrah / NYC LGBTQ Historic Sites Project",
+        zh:"Christopher Street Liberation Day 游行，1970年6月",
+        en:"Christopher Street Liberation Day march, June 1970",
+        credit:"Fred W. McDarrah / NYC LGBTQ Historic Sites Project",
         href:"https://www.nyclgbtsites.org/"
       }
     ],
@@ -678,7 +673,8 @@ const CONTEXTS = [
       { zh:"[1] Village Preservation：Greenwich Village 的街区、画廊、剧场与社会运动史", en:"[1] Village Preservation: Greenwich Village neighbourhood, gallery, theatre, and social-movement history", href:"https://villagepreservation.org/resources/neighborhood-history/" },
       { zh:"[2] NYC LGBTQ Historic Sites Project：Oscar Wilde Memorial Bookshop 史料页", en:"[2] NYC LGBTQ Historic Sites Project: Oscar Wilde Memorial Bookshop", href:"https://www.nyclgbtsites.org/site/oscar-wilde-memorial-bookshop/" },
       { zh:"[3] Village Preservation：1961-1970 年的 Greenwich Village 音乐与咖啡店文化", en:"[3] Village Preservation: Folk Music in Greenwich Village, 1961-1970", href:"https://villagepreservation.org/2015/01/06/folk-music-in-greenwich-village-1961-1970s/" },
-      { zh:"[4] Village Preservation：Gerde's Folk City及其演出者", en:"[4] Village Preservation: Gerde's Folk City and its performers", href:"https://villagepreservation.org/2018/03/28/gerdes-folk-city-the-end-of-a-greenwich-village-icon/" }
+      { zh:"[4] Village Preservation：Gerde's Folk City及其演出者", en:"[4] Village Preservation: Gerde's Folk City and its performers", href:"https://villagepreservation.org/2018/03/28/gerdes-folk-city-the-end-of-a-greenwich-village-icon/" },
+      { zh:"[5] Village Preservation：格林尼治村民谣的历史与遗产", en:"[5] Village Preservation: Talkin' Greenwich Village — Folk Music's Legacy", href:"https://www.villagepreservation.org/2024/11/12/talkin-greenwich-village-folk-musics-legacy-in-the-village/" }
     ]
   }
 ];
@@ -730,7 +726,7 @@ const HOTSPOTS = [
       learnMoreEn:"History core｜The Young Companion was founded in 1926 and ceased publication in 1945, China’s first large-format illustrated photographic magazine. Its covers often featured well-known women, film stars, or society figures, and its content spanned war, politics, entertainment, and social life, shaping the modern urban aesthetics of its time.[1]\n\nShen Huilan｜Mother was born in 1918; the monthly issues of The Young Companion she subscribed to accompanied her through girlhood and young womanhood. The magazine ceased publication a year after Huilan was born, in 1944. The old bound volumes stayed in the house — Mother would page through them, and young Huilan looked along with her, imagining the city and its fashions, and imagining, too, what she herself might grow up to become.",
       anchorZh:"这是母亲年轻时订阅并留在家中的旧画报。蕙兰从封面想象都市、时装和画面之外的成年世界。",
       anchorEn:"This is an older pictorial Mother subscribed to and kept at home. Huilan imagines fashion, the city, and an adult world beyond its cover.",
-      image:"assets/references/ch1-gallery/5.jpg",
+      image:"assets/references/ch1-gallery/5.jpeg",
       source:"[1] 良友画报 1937.04.15 第127期 · archive.org",
       sourceUrl:"https://archive.org/details/liangyou-1937.04.15"
     },
@@ -754,7 +750,7 @@ const HOTSPOTS = [
       learnMoreEn:"This 1542 illustrated scripture brings Daoist writing, divine lineages, and ritual images together on a single page. The original appeared in a Sotheby’s auction record; the scan used here was compiled and published by Shuge.[1]\n\nWhen Father reads tales of the strange, Huilan studies the immortals and clouds in the picture. She first knows these figures from a page.",
       anchorZh:"这是文人家庭收藏的旧画。蕙兰喜欢看腾云驾雾的仙人，也喜欢听父亲读中国的志怪与玄幻故事。",
       anchorEn:"This is an old painting kept by a scholarly family. Huilan likes the immortals moving through clouds and the strange tales Father reads aloud.",
-      image:"assets/references/ch1-gallery/2.jpg",
+      image:"assets/references/ch1-gallery/2.jpeg",
       source:"[1] 书格（镜像）· 原件苏富比拍卖记录",
       sourceUrl:"https://shuge.hanjihebi.com/书格网站资源/明内府彩绘本系列/太上玄灵北斗本命延生真经.明嘉靖二十一年纸本泥金彩绘本.苏富比拍卖.pdf"
     },
@@ -788,8 +784,8 @@ const HOTSPOTS = [
       zh:"《早已森严壁垒 更加众志成城》", en:"Zǎoyǐ Sēnyán Bìlěi, Gèngjiā Zhòngzhì Chéngchéng (“Already Heavily Fortified, Our Wills Unite Like a Fortress”)",
       note:"五名民兵举枪、望远镜与《毛泽东选集》，背景是围观的人群与标语。约1969年，晋南地区革命委员会政工组编，晋南地区工艺美术厂制。",
       noteEn:"Five militia figures hold rifles, binoculars, and Selected Works of Mao Zedong, with crowds and slogans in the background. Circa 1969, compiled by the Political Work Group of the Jinnan Regional Revolutionary Committee and printed by the Jinnan Regional Arts and Crafts Factory.",
-      learnMoreZh:"历史核心｜题名、编者与出版单位已由海报原件的边注文字确认：《早已森严壁垒 更加众志成城》（宣传画），晋南地区革命委员会政工组 编，晋南地区工艺美术厂制，约1969年，统一书号/编号：临地革国统字第70001号。[1]\n\n红、黑、白的高对比便于快速印刷和远距离识读，也把人物、口号与政治立场组织成明确的视觉秩序。举枪、持镜、举书与共同前进，是文革群众宣传画反复使用的动作组合，用领袖著作赋予群众行动以政治权威。\n\n脚注｜[1] 题名与出版信息据海报实物边注；图片授权与馆藏来源仍待确认，现有文件带 PrintnSell 水印。",
-      learnMoreEn:"History core｜The title, compiler, and publisher are confirmed from the marginal text printed on the poster itself: Zǎoyǐ Sēnyán Bìlěi, Gèngjiā Zhòngzhì Chéngchéng [Already Heavily Fortified, Our Wills Unite Like a Fortress] (propaganda poster), compiled by the Political Work Group of the Jinnan Regional Revolutionary Committee, printed by the Jinnan Regional Arts and Crafts Factory, circa 1969, Serial No. 70001.[1]\n\nHigh-contrast red, black, and white supported rapid printing and distant legibility while organizing figures, slogans, and political positions into a clear visual order. Raised rifles, binoculars, raised books, and collective forward movement recur throughout Cultural Revolution mass propaganda, using the leader's writings to authorize mass action.\n\nNotes｜[1] Title and publication details are drawn from the marginal text on the poster itself. Image rights and archival provenance remain unconfirmed; the available file carries a PrintnSell watermark.",
+      learnMoreZh:"历史核心｜题名、编者与出版单位已由海报原件的边注文字确认：《早已森严壁垒 更加众志成城》（宣传画），晋南地区革命委员会政工组 编，晋南地区工艺美术厂制，约1969年，统一书号/编号：临地革国统字第70001号。[1]\n\n红、黑、白的高对比便于快速印刷和远距离识读，也把人物、口号与政治立场组织成明确的视觉秩序。举枪、持镜、举书与共同前进，是文革群众宣传画反复使用的动作组合，用领袖著作赋予群众行动以政治权威。\n\n脚注｜[1] 题名与出版信息据海报实物边注确认。",
+      learnMoreEn:"History core｜The title, compiler, and publisher are confirmed from the marginal text printed on the poster itself: Zǎoyǐ Sēnyán Bìlěi, Gèngjiā Zhòngzhì Chéngchéng [Already Heavily Fortified, Our Wills Unite Like a Fortress] (propaganda poster), compiled by the Political Work Group of the Jinnan Regional Revolutionary Committee, printed by the Jinnan Regional Arts and Crafts Factory, circa 1969, Serial No. 70001.[1]\n\nHigh-contrast red, black, and white supported rapid printing and distant legibility while organizing figures, slogans, and political positions into a clear visual order. Raised rifles, binoculars, raised books, and collective forward movement recur throughout Cultural Revolution mass propaganda, using the leader's writings to authorize mass action.\n\nNotes｜[1] Title and publication details are confirmed from the marginal text on the poster itself.",
       image:"assets/references/red-guard-gallery/1.jpg",
       source:"《早已森严壁垒 更加众志成城》宣传画复制品·C004186 · The Collector's Guild",
       sourceUrl:"https://www.germanmilitaria.com/OtherNations/photos/C004186.html",
@@ -824,17 +820,7 @@ const HOTSPOTS = [
           href:"https://chineseposters.net/posters/pc-1968-009"
         }
       ],
-      circulationLinks:[
-        {
-          label:"Militaria Barcelona｜约 51 × 73 cm",
-          href:"https://militariabcn.com/en/republica-popular-de-china-cartel-de-propaganda-maoista-aproximadamente-51-x-73-cm-m16"
-        },
-        {
-          label:"The Collector’s Guild｜C004186 Chinese Propaganda Poster",
-          href:"https://www.germanmilitaria.com/OtherNations/photos/C004186.html"
-        }
-      ],
-      reviewFlag:"题名、编者、出版单位、年份与统一书号已据海报原件边注确认，无需再核实。仍待考证：原始收藏来源及图片授权；现有文件带 PrintnSell 水印。"
+      reviewFlag:"题名、编者、出版单位、年份与统一书号已据海报原件边注确认，无需再核实。仍待考证：原始收藏来源及图片授权。"
     },
     {
       id:"ch02-fractured-childhood-memory", xPx:389, yPx:265,
@@ -1144,11 +1130,43 @@ const imageLightboxImg = imageLightbox?.querySelector(".image-lightbox-img");
 const imageLightboxCaption = imageLightbox?.querySelector(".image-lightbox-caption");
 const imageLightboxBackdrop = imageLightbox?.querySelector(".image-lightbox-backdrop");
 
+// 全文阅读期间背景音效和动态图层都不该继续播放——进全文阅读前统一暂停，
+// 退出时再按当前章节把它们唤醒，不写死某一章。
+function stopAllChapterAmbient() {
+  stopChapter1Ambient();
+  stopChapter2Loop();
+  stopChapter3Loop();
+  stopChapter4Ambient();
+  stopChapter5Loop();
+  stopChapter6Ambient();
+}
+function resumeCurrentChapterAmbient() {
+  if (!soundEnabled) return;
+  if (chapterIndex === CHAPTER_1_INDEX) revealChapter1Ambient();
+  if (chapterIndex === CHAPTER_2_INDEX) revealChapter2Loop();
+  if (chapterIndex === CHAPTER_3_INDEX) revealChapter3Loop();
+  if (chapterIndex === CHAPTER_4_INDEX) revealChapter4Ambient();
+  if (chapterIndex === CHAPTER_5_INDEX) revealChapter5Loop();
+  if (chapterIndex === CHAPTER_6_INDEX) revealChapter6Ambient();
+}
+let fullStoryPausedMotion = [];
+function pauseAllChapterMotionForFullStory() {
+  fullStoryPausedMotion = [...document.querySelectorAll(".chapter-motion-layer.is-playing")]
+    .filter(media => !media.paused);
+  fullStoryPausedMotion.forEach(media => media.pause());
+}
+function resumeChapterMotionAfterFullStory() {
+  fullStoryPausedMotion.forEach(media => { media.play().catch(() => {}); });
+  fullStoryPausedMotion = [];
+}
+
 // 全文阅读——原来是独立的 full-story.html，现在合并成主体验里的一层全屏覆盖，靠 .is-active 显隐。
 const fullStoryScreen = document.getElementById("full-story-screen");
 function openFullStoryScreen() {
   if (!fullStoryScreen) return;
   closeContext(); // 全文阅读跟跋的历史背景侧栏没关系，打开前先把它关掉
+  stopAllChapterAmbient();
+  pauseAllChapterMotionForFullStory();
   document.body.classList.add("is-full-story-open"); // 靠这个类隐藏侧栏按钮和时间线，避免跟正文抢地方、抢注意力
   fullStoryScreen.classList.add("is-active");
   fullStoryScreen.setAttribute("aria-hidden", "false");
@@ -1159,6 +1177,8 @@ function closeFullStoryScreen() {
   fullStoryScreen.classList.remove("is-active");
   fullStoryScreen.setAttribute("aria-hidden", "true");
   document.body.classList.remove("is-full-story-open");
+  resumeChapterMotionAfterFullStory();
+  resumeCurrentChapterAmbient();
 }
 // 全文阅读的繁体是脚本一次性转换出来的（跟侧栏 buildTraditionalContextBodies 是同一个思路），
 // 正文是静态的，不会重新渲染，所以只需要在页面初始化时转一次。
@@ -1169,11 +1189,25 @@ function buildTraditionalStoryBody() {
 
 // 参考图片右下角的放大镜：弹出居中大图 + 75% 黑色背景遮罩，点遮罩关闭。
 // 图片是动态渲染进侧栏的，所以放大镜按钮用事件委托，绑一次即可。
-function openImageLightbox(src, alt, caption) {
+let lightboxCaptionZh = "";
+let lightboxCaptionEn = "";
+function updateImageLightboxCaption() {
+  if (!imageLightboxCaption) return;
+  if (mainLanguage === "en") {
+    imageLightboxCaption.textContent = lightboxCaptionEn || lightboxCaptionZh || "";
+  } else if (mainLanguage === "zh-hant") {
+    imageLightboxCaption.textContent = traditionalConverter(lightboxCaptionZh || "");
+  } else {
+    imageLightboxCaption.textContent = lightboxCaptionZh || "";
+  }
+}
+function openImageLightbox(src, alt, captionZh, captionEn) {
   if (!imageLightbox || !imageLightboxImg) return;
   imageLightboxImg.src = src;
   imageLightboxImg.alt = alt || "";
-  if (imageLightboxCaption) imageLightboxCaption.textContent = caption || "";
+  lightboxCaptionZh = captionZh || "";
+  lightboxCaptionEn = captionEn || captionZh || "";
+  updateImageLightboxCaption();
   imageLightbox.classList.add("is-open");
   imageLightbox.setAttribute("aria-hidden", "false");
 }
@@ -1183,10 +1217,10 @@ function closeImageLightbox() {
   imageLightbox.setAttribute("aria-hidden", "true");
   if (imageLightboxImg) imageLightboxImg.src = "";
 }
-document.addEventListener("click", event => {
+  document.addEventListener("click", event => {
   const zoomButton = event.target.closest(".context-reference-zoom");
   if (zoomButton) {
-    openImageLightbox(zoomButton.dataset.zoomSrc, zoomButton.dataset.zoomAlt, zoomButton.dataset.zoomCaption);
+    openImageLightbox(zoomButton.dataset.zoomSrc, zoomButton.dataset.zoomAlt, zoomButton.dataset.zoomCaptionZh, zoomButton.dataset.zoomCaptionEn);
     return;
   }
   // 侧栏里的"小说原文阅读"不再是本地展开/收起一段可能是空的摘录，
@@ -1467,43 +1501,34 @@ function renderLayeredReading(text, language = "zh") {
   }).join("");
 }
 
-function renderReferenceGallery(hotspot) {
-  if (!hotspot?.gallery?.length) return "";
-  const thumbnails = hotspot.gallery.map((item, index) => `
+function renderReferenceGallery(source, headingZh = "同类海报视觉语言", headingEn = "Related poster language") {
+  if (!source?.gallery?.length) return "";
+  const thumbnails = source.gallery.map((item, index) => `
     <button class="reference-gallery-thumb" type="button" data-gallery-index="${index}" aria-label="放大查看：${escapeHTML(item.zh)}">
       <img src="${item.image}" alt="${escapeHTML(item.zh)}" loading="lazy">
       <span class="reference-gallery-thumb-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></span>
     </button>`).join("");
-  const circulationLinks = (hotspot.circulationLinks || []).map(item =>
-    `<li><a href="${item.href}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.label)}</a></li>`
-  ).join("");
   return `
     <section class="reference-gallery" aria-labelledby="reference-gallery-title">
-      <h3 id="reference-gallery-title">${renderContextChineseLabel("同类海报视觉语言")} <span>Related poster language</span></h3>
-      <p class="context-body-zh">${hotspot.galleryIntroZh}</p>
-      <p class="context-en context-body-en">${hotspot.galleryIntroEn}</p>
+      <h3 id="reference-gallery-title">${renderContextChineseLabel(headingZh)} <span>${headingEn}</span></h3>
+      ${source.galleryIntroZh ? `<p class="context-body-zh">${source.galleryIntroZh}</p>` : ""}
+      ${source.galleryIntroEn ? `<p class="context-en context-body-en">${source.galleryIntroEn}</p>` : ""}
       <div class="reference-gallery-grid">${thumbnails}</div>
-      ${circulationLinks ? `
-        <div class="circulation-records">
-          <h4>${renderContextChineseLabel("同图流通记录")} <span>Circulation records</span></h4>
-          <p class="context-body-zh">以下商店页面显示与画面所用海报相同的图像，只能证明图像或实物曾在收藏市场流通，不能确认其创作者、出版单位或创作年代。</p>
-          <p class="context-en context-body-en">These sales listings document circulation of the same image or object, not its creator, publisher, or date.</p>
-          <ul>${circulationLinks}</ul>
-        </div>` : ""}
     </section>`;
 }
 
 // 缩略图点了直接打开全站统一的居中大图弹窗（image-lightbox），跟其它参考图片同一套看图方式，
 // 不再是侧栏里单独一套"点了在原地展开一张大图"的机制。
-function bindReferenceGallery(hotspot) {
-  if (!hotspot?.gallery?.length) return;
+function bindReferenceGallery(source) {
+  if (!source?.gallery?.length) return;
   const buttons = [...contextContent.querySelectorAll(".reference-gallery-thumb")];
   buttons.forEach(button => button.addEventListener("click", () => {
     const index = Number(button.dataset.galleryIndex);
-    const item = hotspot.gallery[index];
+    const item = source.gallery[index];
     if (!item) return;
-    const caption = [item.zh, item.metaZh, item.credit].filter(Boolean).join(" · ");
-    openImageLightbox(item.image, item.zh, caption);
+    const captionZh = [item.zh, item.metaZh, item.credit].filter(Boolean).join(" · ");
+    const captionEn = [item.en, item.metaEn, item.credit].filter(Boolean).join(" · ");
+    openImageLightbox(item.image, item.zh, captionZh, captionEn);
   }));
 }
 
@@ -2956,7 +2981,7 @@ function buildTermAccordion(rootSelector) {
     const term = TERMS[id];
     return `<details class="context-term-item" data-term-id="${id}" open>
       <summary class="context-term-item-summary">
-        <span class="context-term-item-label">${renderContextChineseLabel(term.zh)}<span class="context-term-item-en">${term.en}</span></span>
+        <span class="context-term-item-label"><span class="context-term-item-number">[${term.number}]</span>${renderContextChineseLabel(term.zh)}<span class="context-term-item-en">${term.en}</span></span>
       </summary>
       <div class="context-term-item-body">
         <p class="context-body-zh">${term.bodyZh}</p>
@@ -3043,11 +3068,11 @@ function renderContext(target, hotspot = null) {
   // 不该直接把整章的场景背景（比如"父母的书房"这种属于后面画面阶段的信息）端出来——
   // 这时候侧栏该做的只是先导文本身的术语表：把这段文字里所有带上标数字的词汇列成清单，
   // 数字对应正文里的上标，点哪条效果等同于点正文里对应的上标数字。
-  if (!hotspot && phase === "text" && typeof target === "number") {
+  if (!hotspot && phase === "text" && typeof target === "number" && target !== CHAPTER_6_INDEX) {
     // "先导文"是开发内部对这个阶段的分类名，不该端给读者看；这里只给一个纯历史、纯年代的标题
     // （见每章 CONTEXTS 条目的 leadZh/leadEn），画面出现后才切到那章真正的场景标题。
     const leadNote = context?.leadNoteZh
-      ? `<p class="context-lead-note context-body-zh">${context.leadNoteZh}</p><p class="context-lead-note context-en context-body-en">${context?.leadNoteEn || ""}</p>`
+      ? `<p class="context-lead-note context-body-zh">${context.leadNoteZh.replace(/\n/g, "<br>")}</p><p class="context-lead-note context-en context-body-en">${(context?.leadNoteEn || "").replace(/\n/g, "<br>")}</p>`
       : "";
     contextContent.innerHTML = `
       <h2 class="context-title-zh">${renderContextChineseLabel(context?.leadZh || context?.title || "")}</h2><p class="context-title-en">${context?.leadEn || context?.titleEn || ""}</p>
@@ -3069,8 +3094,9 @@ function renderContext(target, hotspot = null) {
           ? `<small><a class="context-reference-credit" href="${reference.href}" target="_blank" rel="noopener noreferrer">${reference.source}</a></small>`
           : `<small>${reference.source}</small>`)
       : "";
-    const zoomCaption = escapeHTML([captionZh, reference.source].filter(Boolean).join(" · "));
-    const zoomButton = `<button class="context-reference-zoom" type="button" data-zoom-src="${reference.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption="${zoomCaption}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>`;
+    const zoomCaptionZh = escapeHTML([captionZh, reference.source].filter(Boolean).join(" · "));
+    const zoomCaptionEn = escapeHTML([captionEn, reference.source].filter(Boolean).join(" · "));
+    const zoomButton = `<button class="context-reference-zoom" type="button" data-zoom-src="${reference.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>`;
     return `<figure class="context-reference">${image}${zoomButton}<figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${sourceHtml}</figcaption></figure>`;
   }).join("");
   const contextSources = (context.sources || []).length ? `
@@ -3082,7 +3108,7 @@ function renderContext(target, hotspot = null) {
         ? `<small><a class="context-reference-credit" href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer">${hotspot.source}</a></small>`
         : `<small>${hotspot.source}</small>`)
     : "";
-  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspot.zh)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspot.zh)}" data-zoom-caption="${escapeHTML(hotspot.source || "")}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspotSourceHtml ? `<figcaption>${hotspotSourceHtml}</figcaption>` : ""}</figure>` : "";
+  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspot.zh)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspot.zh)}" data-zoom-caption-zh="${escapeHTML(hotspot.source || "")}" data-zoom-caption-en="${escapeHTML(hotspot.source || "")}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspotSourceHtml ? `<figcaption>${hotspotSourceHtml}</figcaption>` : ""}</figure>` : "";
   const hotspotSource = hotspot?.source && !hotspot?.image ? `<p class="hotspot-source">图片来源 · ${hotspot.sourceUrl ? `<a href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer">${hotspot.source}</a>` : hotspot.source}</p>` : "";
   const hotspotReading = hotspot?.learnMoreZh ? `
     <div class="hotspot-reading">
@@ -3090,6 +3116,7 @@ function renderContext(target, hotspot = null) {
       ${hotspot.learnMoreEn ? `<div class="context-en hotspot-reading-en context-body-en">${renderLayeredReading(hotspot.learnMoreEn, "en")}</div>` : ""}
     </div>` : "";
   const hotspotGallery = renderReferenceGallery(hotspot);
+  const contextGallery = !hotspot ? renderReferenceGallery(context, "同类场景视觉参考", "Related scene references") : "";
   const hotspotNoteEn = hotspot?.noteEn ? `<p class="context-en context-body-en">${hotspot.noteEn}</p>` : "";
   const hotspotAnchor = hotspot?.anchorZh && !hotspot?.learnMoreZh?.includes("与沈蕙兰的关系｜") ? `
     <blockquote class="context-anchor context-body-zh">${hotspot.anchorZh}</blockquote>
@@ -3101,20 +3128,23 @@ function renderContext(target, hotspot = null) {
   // 有图片内容（hotspotReferences / referenceItems）才叫"参考图片"；如果这一章只有文字脚注
   // （context.sources），标题要换成"参考资料"，不能挂着"参考图片"的名字却什么图都没有。
   // 两者都没有时，整个手风琴直接不渲染，不留一个空标题。
-  const hasImageReferences = Boolean(hotspot ? hotspotReferences : (hotspotReferences || referenceItems));
+  const hasImageReferences = Boolean(hotspot ? hotspotReferences : (hotspotReferences || referenceItems || contextGallery));
   const hasTextSources = Boolean(!hotspot && contextSources);
-  const hasReferences = hasImageReferences || hasTextSources;
-  const referencesLabel = hasImageReferences ? "参考图片" : "参考资料";
-  const referencesLabelEn = hasImageReferences ? "References" : "Sources";
+  const imagesAccordion = hasImageReferences ? `<details class="context-section" open>
+      <summary>${renderContextChineseLabel("参考图片")} <span>References</span></summary>
+      ${hotspot ? hotspotReferences : `${hotspotReferences}${referenceItems}${contextGallery}`}
+    </details>` : "";
+  const sourcesAccordion = hasTextSources ? `<details class="context-section">
+      <summary>${renderContextChineseLabel("参考资料")} <span>Sources</span></summary>
+      ${contextSources}
+    </details>` : "";
   const chapterContext = hotspot?.hideChapterContext ? "" : `
     ${hotspot ? "" : `<div class="context-primary">
       ${renderContextParagraphs(context.zh, "context-body-zh")}
       ${renderContextParagraphs(context.en, "context-en context-body-en")}
     </div>`}
-    ${hasReferences ? `<details class="context-section">
-      <summary>${renderContextChineseLabel(referencesLabel)} <span>${referencesLabelEn}</span></summary>
-      ${hotspot ? hotspotReferences : `${hotspotReferences}${referenceItems}${contextSources}`}
-    </details>` : ""}
+    ${imagesAccordion}
+    ${sourcesAccordion}
     <div class="context-novel-section">
       <button class="context-novel-toggle fullscreen-button" type="button" data-open-full-story>
         ${renderContextChineseLabel("小说原文阅读")} <span>Read the novel</span>
@@ -3128,6 +3158,7 @@ function renderContext(target, hotspot = null) {
   buildTraditionalContextBodies();
   updateContextChineseLabels();
   bindReferenceGallery(hotspot);
+  if (!hotspot) bindReferenceGallery(context);
 }
 
 // 全局唯一入口：不管是主屏按钮还是侧栏，语言切换都走这一个函数。
@@ -3146,6 +3177,7 @@ function setMainLanguage(language) {
 
   updateContextChineseLabels();
   updateContextLocaleChrome();
+  updateImageLightboxCaption();
 
   // 侧栏内容如果已经渲染过（比如面板正开着），跟着重新生成一次繁体镜像
   if (contextContent && contextContent.children.length) buildTraditionalContextBodies();

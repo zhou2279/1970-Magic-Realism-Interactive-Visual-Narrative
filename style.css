@@ -574,6 +574,8 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 .context-content h2 { font-size:calc(1.35rem * var(--content-font-scale)); line-height:1.35; font-weight:400; letter-spacing:.05em; margin-bottom:.35rem; }
 .context-content .context-title-en { font:calc(.92rem * var(--content-font-scale))/1.4 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.68); margin-bottom:1.6rem; }
 .context-content .context-lead-note { color:rgba(255,255,255,.66); margin-bottom:1.6rem; }
+.context-lead-note-source { color:rgba(255,255,255,.55); font-size:.85em; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.4); }
+.context-lead-note-source:hover,.context-lead-note-source:focus-visible { color:#fff; }
 .context-content p { font-size:var(--content-font-size-ui); line-height:1.8; color:rgba(255,255,255,.75); margin-bottom:1rem; }
 .context-content .context-en { font:normal calc(.96rem * var(--content-font-scale))/1.7 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.72); }
 .context-rule { width:2.5rem; border:0; border-top:1px solid rgba(255,255,255,.28); margin:1.5rem 0; }
@@ -596,6 +598,7 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 }
 .context-term-item:not([open]) .context-term-item-summary::after { content:"+"; }
 .context-term-item-label { display:block; font-size:var(--content-font-size-zh); line-height:1.5; color:rgba(255,255,255,.86); }
+.context-term-item-number { display:inline-block; margin-right:.5em; font:calc(.82rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.5); }
 .context-term-item-en { display:block; margin-top:.15rem; font:calc(.82rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.55); }
 .context-term-item-body { padding:0 .85rem .8rem; }
 .context-term-item-body p { margin:0; font-size:calc(.86rem * var(--content-font-scale)); line-height:1.7; }
@@ -724,8 +727,13 @@ body.is-full-story-open #timeline {
 /* "小说原文阅读"不再是本地展开一段侧栏摘录，而是直接跳到全文阅读——
    跟其它入口共用 .fullscreen-button 的圆角胶囊/描边/毛玻璃底，形状统一。
    固定在侧栏底部（position:sticky），滚动到任何一段历史背景都始终看得见、点得到。 */
+.context-content {
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+}
 .context-novel-section {
-  position:sticky; bottom:1rem; z-index:5; margin:1.6rem 0 0; padding:0;
+  position:sticky; bottom:1rem; z-index:5; margin:auto 0 0; padding:0;
   display:flex; justify-content:center;
 }
 .context-novel-toggle { width:auto; justify-content:center; text-align:center; }

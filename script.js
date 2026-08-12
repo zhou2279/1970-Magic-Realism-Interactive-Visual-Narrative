@@ -636,8 +636,8 @@ const CONTEXTS = [
   },
   {
     title: "门的另一边", titleEn: "The Other Side · Greenwich Village, 1970",
-    zh: "1970年前后的格林尼治村，是曼哈顿一个以住宅为主、同时分布着书店、咖啡馆和小型演出场所的街区。红砖公寓的底层常有临街商铺。到了晚上，居民、学生、店员、乐手和来看演出的人会出现在同一片街道上。[1]\n\n独立书店不仅卖书，也会张贴公告，供人碰面和交换信息。1967年开业的奥斯卡·王尔德纪念书店是其中一个重要例子。它出售正面讨论同性恋生活的书籍和期刊，也为社群提供活动信息和聚会空间。[2]\n\n咖啡馆和小型演出场所散布在住宅之间，民谣、蓝调、诗歌朗诵和实验戏剧因此进入街区的日常生活。Gerde's Folk City是当时重要的民谣演出场所，鲍勃·迪伦早期曾在这里演出。整个1960年代，这里的民谣场景与民权运动、和平运动的进程也一直交织在一起。[3][4][5]\n\n本章画面组合了这些同时期的街区元素，并非复原某一条具体街道。",
-    en: "Around 1970, Greenwich Village was a Manhattan neighbourhood made up mainly of residences, with bookshops, coffeehouses, and small performance venues among them. Street-level shops often occupied the ground floors of red-brick apartment buildings. At night, residents, students, shop workers, musicians, and people arriving for a show shared the same streets.[1]\n\nIndependent bookshops did more than sell books. They also posted notices and gave people places to meet and exchange information. The Oscar Wilde Memorial Bookshop, which opened in 1967, was an important example. It sold books and periodicals that discussed gay and lesbian life positively and provided activity information and meeting space for the community.[2]\n\nCoffeehouses and small performance venues stood among residential buildings, bringing folk music, blues, poetry readings, and experimental theatre into everyday neighbourhood life. Gerde's Folk City was an important folk venue where Bob Dylan played early engagements. Throughout the 1960s, this folk scene also remained closely intertwined with the course of the civil rights and peace movements.[3][4][5]\n\nThis chapter combines elements found in the neighbourhood around 1970 rather than reconstructing a specific street.",
+    zh: "1970年前后的格林尼治村，是曼哈顿一个以住宅为主、同时分布着书店、咖啡馆和小型演出场所的街区。红砖公寓的底层常有临街商铺。到了晚上，居民、学生、店员、乐手和来看演出的人会出现在同一片街道上。[1]\n\n独立书店不仅卖书，也会张贴公告，供人碰面和交换信息。1967年开业的奥斯卡·王尔德纪念书店是其中一个例子。它出售正面讨论同性恋生活的书籍和期刊，也为社群提供活动信息和聚会空间。[2]\n\n这里并不轻松。石墙事件之后，警方对同性恋社群的骚扰和突袭仍在继续；1970年8月，一场要求停止警方骚扰的抗议在格林尼治村演变为与警方的冲突。[3] 对一些人来说，书店、酒吧和街头既是相遇的地方，也是必须争取能够安全停留和发声的地方。\n\n咖啡馆和小型演出场所散布在住宅之间，民谣、蓝调、诗歌朗诵和实验戏剧因此进入街区的日常生活。Gerde's Folk City是当时重要的民谣演出场所，鲍勃·迪伦早期曾在这里演出。整个1960年代，这里的民谣场景与民权运动、和平运动也一直交织在一起。[4][5][6]\n\n本章画面组合了这些同时期的街区元素，并非复原某一条具体街道。",
+    en: "Around 1970, Greenwich Village was a Manhattan neighbourhood made up mainly of residences, with bookshops, coffeehouses, and small performance venues among them. Street-level shops often occupied the ground floors of red-brick apartment buildings. At night, residents, students, shop workers, musicians, and people arriving for a show shared the same streets.[1]\n\nIndependent bookshops did more than sell books. They also posted notices and gave people places to meet and exchange information. The Oscar Wilde Memorial Bookshop, which opened in 1967, was one example. It sold books and periodicals that discussed gay and lesbian life positively and provided activity information and meeting space for the community.[2]\n\nThe neighbourhood was not easy or safe for everyone. Police harassment and raids against LGBTQ people continued after Stonewall; in August 1970, a protest calling for an end to police harassment led to conflict with police in Greenwich Village.[3] For some people, bookshops, bars, and streets were places to meet, but also places where they had to fight to stay and speak freely.\n\nCoffeehouses and small performance venues stood among residential buildings, bringing folk music, blues, poetry readings, and experimental theatre into everyday neighbourhood life. Gerde's Folk City was an important folk venue where Bob Dylan played early engagements. Throughout the 1960s, this folk scene also remained intertwined with the civil rights and peace movements.[4][5][6]\n\nThis chapter combines elements found in the neighbourhood around 1970 rather than reconstructing a specific street.",
     material: "合成场景｜格林尼治村夜间街道、书店、咖啡馆与1970年代车辆",
     galleryIntroZh: "以下是本章画面所参考的同时期格林尼治村街区影像：书店、咖啡馆演出空间与1970年游行现场，用于确认场景元素，并非画面本身的直接出处。",
     galleryIntroEn: "These are period photographs of the Greenwich Village neighbourhood referenced for this chapter's scene — bookshops, coffeehouse performance spaces, and a 1970 march — shown to confirm scene elements, not as the direct source of the composited image.",
@@ -674,9 +674,10 @@ const CONTEXTS = [
     sources: [
       { zh:"[1] Village Preservation：Greenwich Village 的街区、画廊、剧场与社会运动史", en:"[1] Village Preservation: Greenwich Village neighbourhood, gallery, theatre, and social-movement history", href:"https://villagepreservation.org/resources/neighborhood-history/" },
       { zh:"[2] NYC LGBTQ Historic Sites Project：Oscar Wilde Memorial Bookshop 史料页", en:"[2] NYC LGBTQ Historic Sites Project: Oscar Wilde Memorial Bookshop", href:"https://www.nyclgbtsites.org/site/oscar-wilde-memorial-bookshop/" },
-      { zh:"[3] Village Preservation：1961-1970 年的 Greenwich Village 音乐与咖啡店文化", en:"[3] Village Preservation: Folk Music in Greenwich Village, 1961-1970", href:"https://villagepreservation.org/2015/01/06/folk-music-in-greenwich-village-1961-1970s/" },
-      { zh:"[4] Village Preservation：Gerde's Folk City及其演出者", en:"[4] Village Preservation: Gerde's Folk City and its performers", href:"https://villagepreservation.org/2018/03/28/gerdes-folk-city-the-end-of-a-greenwich-village-icon/" },
-      { zh:"[5] Village Preservation：格林尼治村民谣的历史与遗产", en:"[5] Village Preservation: Talkin' Greenwich Village — Folk Music's Legacy", href:"https://www.villagepreservation.org/2024/11/12/talkin-greenwich-village-folk-musics-legacy-in-the-village/" }
+      { zh:"[3] NYC LGBTQ Historic Sites Project：1970年反对警方骚扰的抗议", en:"[3] NYC LGBTQ Historic Sites Project: 1970 demonstration against police harassment", href:"https://www.nyclgbtsites.org/site/gay-activists-alliance-gay-liberation-front-and-radicalesbians-demonstration-against-police-harassment/" },
+      { zh:"[4] Village Preservation：1961-1970 年的 Greenwich Village 音乐与咖啡店文化", en:"[4] Village Preservation: Folk Music in Greenwich Village, 1961-1970", href:"https://villagepreservation.org/2015/01/06/folk-music-in-greenwich-village-1961-1970s/" },
+      { zh:"[5] Village Preservation：Gerde's Folk City及其演出者", en:"[5] Village Preservation: Gerde's Folk City and its performers", href:"https://villagepreservation.org/2018/03/28/gerdes-folk-city-the-end-of-a-greenwich-village-icon/" },
+      { zh:"[6] Village Preservation：格林尼治村民谣的历史与遗产", en:"[6] Village Preservation: Talkin' Greenwich Village — Folk Music's Legacy", href:"https://www.villagepreservation.org/2024/11/12/talkin-greenwich-village-folk-musics-legacy-in-the-village/" }
     ]
   }
 ];
@@ -690,9 +691,9 @@ const HOTSPOTS = [
     {
       id:"ch01-kangxi-name", xPx:649, yPx:556,
       zh:"《康熙字典》中的“沈蕙兰”", en:"“Shen Huilan” in the Kangxi Dictionary",
-      note:"三个姓名用字从字典页中浮现，连接她对文字、书房与家庭记忆的最初认识。",
-      noteEn:"The three characters of her name emerge from the dictionary page, linking literacy with her earliest memories of the study and family life.",
-      learnMoreZh:"《康熙字典》成书于清代康熙五十五年，是大型官修字书。它按部首和笔画组织汉字：先判断一个字归入哪个部首，再数部首外剩余笔画，到相应部首和笔画位置查字；正文会列出读音、字义和古籍引文。它不像20世纪面向现代读者的《新华字典》那样小型、白话、便携，而更像一部需要按索引慢慢翻检的古典字书。\n\n蕙兰小时候在父亲书房里用这套方法逐字查自己的名字：先查“沈”，再查“蕙”，再查“兰/蘭”。字典怎么用、名字怎么写、汉字从哪里来，都被她放进同一段家庭记忆里。\n\n下面三张图分别引出“沈蕙兰”三个字在《康熙字典》中的检字页。",
+      note:"《康熙字典》按部首和笔画检索汉字，是阅读旧书时常用的工具书。",
+      noteEn:"The Kangxi Dictionary indexes Chinese characters by radicals and stroke counts, making it a standard reference for reading older texts.",
+      learnMoreZh:"《康熙字典》成书于清代康熙五十五年，是大型官修字书。它按部首和笔画组织汉字：先判断一个字归入哪个部首，再数部首外剩余笔画，到相应位置查读音、字义和古籍引文。它不像20世纪面向现代读者的《新华字典》那样小型、白话、便携，而是一部需要顺着索引慢慢翻检的古典字书。\n\n蕙兰小时候在父亲书房里逐字查自己的名字：先查“沈”，再查“蕙”，再查“兰／蘭”。翻字典的办法、名字的写法和书房里的旧书，于是留在同一段童年记忆里。\n\n下面三张图分别引出“沈蕙兰”三个字在《康熙字典》中的检字页。",
       learnMoreEn:"Compiled in the fifty-fifth year of the Kangxi reign, the Kangxi Dictionary is a large Qing official character dictionary. It organizes characters by radicals and stroke counts: first identify a character’s radical, then count the remaining strokes, find the appropriate radical-and-stroke position, and turn to the entry for pronunciation, meanings, and classical citations. Unlike the compact twentieth-century Xinhua Dictionary for modern readers, it is a classical reference work that must be searched through indexes and fascicles.\n\nAs a child in Father’s study, Huilan uses this method to look up the characters of her own name: first Shen (沈), then Hui (蕙), then Lan (兰 / 蘭). How to use the dictionary, how her name is written, and where characters come from all belong to the same family memory.\n\nThe three images below lead to the dictionary pages for the characters in “Shen Huilan.”",
       source:"清康熙五十五年（1716年）内府刊本 · 哈佛大学图书馆 HOLLIS",
       sourceUrl:"https://hollis.harvard.edu/discovery/fulldisplay?context=L&vid=01HVD_INST:HVD2&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=Everything&docid=alma990032703120203941",
@@ -719,10 +720,10 @@ const HOTSPOTS = [
     {
       id:"ch01-china-soviet-friendship", xPx:514, yPx:228,
       zh:"中苏友好宣传画", en:"Chinese-Soviet Friendship Poster",
-      note:"红旗与并置的人物形象，把国家间的政治友好带进家庭日常观看的空间。",
-      noteEn:"Red flags and paired figures bring the political alliance between China and the Soviet Union into the visual life of the home.",
+      note:"1950年代的中苏友好宣传画常以红旗、并肩人物和建设场景表现两国结盟。",
+      noteEn:"Chinese-Soviet friendship posters of the 1950s often used red flags, paired figures, and construction scenes to present the alliance.",
       learnMoreZh:"20世纪50年代的中苏友好宣传常用并肩人物、红旗、工业建设和集体劳动表现两国结盟、苏联援助与社会主义现代化。\n\n海报挂在父亲书房里。对童年的沈蕙兰来说，政治宣传与书籍、备课和家庭生活同时存在。\n\n脚注｜这张宣传画为合成图像，参照同期海报风格绘制，非某件原作的复原。",
-      learnMoreEn:"History core｜Chinese-Soviet friendship posters of the 1950s often used paired figures, red flags, industrial construction, and collective labor to represent alliance, Soviet assistance, and socialist modernization.[1]\n\nShen Huilan｜The poster hangs in Father’s study, sharing the room with books, lesson materials, and family life.\n\nImage note｜This poster is a composite image styled after posters of the same period, not a reproduction of one specific original.[1]",
+      learnMoreEn:"Chinese-Soviet friendship posters of the 1950s often used paired figures, red flags, industrial construction, and collective labor to represent alliance, Soviet assistance, and socialist modernization.[1]\n\nThe poster hangs in Father’s study. For Huilan as a child, political propaganda exists in the same room as books, lesson preparation, and family life.\n\nImage note｜This poster is a composite image styled after posters of the same period, not a reproduction of one specific original.[1]",
       source:"[1] Chineseposters.net · 中苏友好主题海报系列（视觉参考）",
       sourceUrl:"https://chineseposters.net/themes/soviet-union",
       galleryIntroZh:"以下海报用于辨认1950年代中苏友好宣传常见的构图与主题，供比对参考，并非本画面所用海报的出处。",
@@ -760,10 +761,10 @@ const HOTSPOTS = [
     {
       id:"ch01-calendar-family", xPx:321, yPx:833,
       zh:"月份牌《合家欢》", en:"Yuefenpai Calendar Poster: A Happy Family",
-      note:"杭稺英，1930年代，奉天太阳烟公司广告。画中人物着西式服饰，背景为西式建筑。",
-      noteEn:"By Hang Zhiying, 1930s, an advertisement for the Mukden Sun Tobacco Company. The figure wears Western-style clothing against a Western-style architectural backdrop.",
+      note:"月份牌把商品广告、月历和理想化的家庭图像放在同一张画上，常被挂在家中。",
+      noteEn:"Yuefenpai combined product advertising, a calendar, and idealized domestic scenes in images people often hung at home.",
       learnMoreZh:"月份牌是诞生于清末上海的商业广告画，通常把商品广告、月份日历和理想化人物或家庭图像放在同一张画面里。它既是广告，也可以挂在家里当装饰，因此成为近代城市商业视觉文化的一部分，现已列入上海市非物质文化遗产。\n\n《合家欢》由杭稺英绘制于1930年代，是奉天太阳烟公司的广告月份牌。对本章来说，它说明沈家书房里的旧藏不只是书，也包括曾经进入家庭日常观看的商业图像。",
-      learnMoreEn:"History core｜Yuefenpai originated as advertising posters in late-Qing Shanghai, combining commercial advertising, calendars, and idealized figures or domestic scenes; the form is now listed as Shanghai intangible cultural heritage.[1] A Happy Family was painted by Hang Zhiying in the 1930s as an advertising calendar for the Mukden Sun Tobacco Company.[2]",
+      learnMoreEn:"Yuefenpai originated as advertising posters in late-Qing Shanghai, combining commercial advertising, calendars, and idealized figures or domestic scenes. They were advertisements, but they could also hang in homes as decoration, becoming part of modern urban commercial visual culture.\n\nA Happy Family was painted by Hang Zhiying in the 1930s as an advertising calendar for the Mukden Sun Tobacco Company. For this chapter, it shows that the Shen family study contains not only books, but also older commercial images once seen in everyday domestic life.",
       image:"assets/references/ch1-gallery/3.jpg",
       source:"[1][2] 中文维基百科“月份牌”词条 · Openmuseum 开放博物馆",
       sourceUrl:"https://plaza.openmuseum.tw/muse/exhibition/81fbcee965c82f35d00cd1e343feb449#front"
@@ -771,12 +772,10 @@ const HOTSPOTS = [
     {
       id:"ch01-young-companion", xPx:993, yPx:780,
       zh:"《良友》画报封面女郎", en:"Cover Girl of The Young Companion",
-      note:"画面参照《良友》1937年4月15日第127期封面。封面女郎的卷发、西式妆容与服装，展现了当时都市女性的摩登形象。",
-      noteEn:"The image references the cover of The Young Companion, issue 127, dated 15 April 1937. The cover woman’s curled hair, Western-style makeup, and clothing present the modern urban woman of the period.",
-      learnMoreZh:"历史核心｜《良友》1926年创刊、1945年停刊，是中国近代第一本大型综合性摄影图文画报，封面多用知名女性、影星或社会名流，内容涵盖战争、政治、文娱与风俗，深刻影响了当时的都市摩登美学。[1]\n\n与沈蕙兰的关系｜母亲生于1918年，逐月订阅的《良友》陪伴她的少女与青年时期成长；这本刊物在蕙兰出生（1944年）后一年停刊。旧画册留在家里，母亲会翻看，年幼的蕙兰也在一旁看。",
-      learnMoreEn:"History core｜The Young Companion was founded in 1926 and ceased publication in 1945, China’s first large-format illustrated photographic magazine. Its covers often featured well-known women, film stars, or society figures, and its content spanned war, politics, entertainment, and social life, shaping the modern urban aesthetics of its time.[1]\n\nShen Huilan｜Mother was born in 1918; the monthly issues of The Young Companion she subscribed to accompanied her through girlhood and young womanhood. The magazine ceased publication a year after Huilan was born, in 1944. The old bound volumes stayed in the house — Mother would page through them, and young Huilan looked along with her.",
-      anchorZh:"这是母亲年轻时订阅并留在家中的旧画报，年幼的蕙兰也曾在一旁翻看。",
-      anchorEn:"This is an older pictorial Mother subscribed to and kept at home. Young Huilan looked through it too.",
+      note:"《良友》是1926年至1945年出版的大型画报，封面女郎常用来呈现都市女性的摩登形象。",
+      noteEn:"The Young Companion was a major illustrated magazine published from 1926 to 1945; its cover women often presented a modern urban ideal.",
+      learnMoreZh:"《良友》1926年创刊、1945年停刊，是中国近代第一本大型综合性摄影图文画报。它的封面多用知名女性、影星或社会名流，内容涵盖战争、政治、文娱与风俗，深刻影响了当时的都市摩登美学。[1]\n\n这一画面参照的是《良友》1937年4月15日第127期封面。母亲生于1918年，逐月订阅的《良友》陪伴她的少女与青年时期成长；这本刊物在蕙兰出生（1944年）后一年停刊。旧画册留在家里，母亲会翻看，年幼的蕙兰也在一旁看。",
+      learnMoreEn:"The Young Companion was founded in 1926 and ceased publication in 1945. It was China’s first large-format illustrated photographic magazine. Its covers often featured well-known women, film stars, or society figures, and its content spanned war, politics, entertainment, and social life, shaping the modern urban aesthetics of its time.[1]\n\nThis image references the cover of issue 127, dated 15 April 1937. Mother was born in 1918; the monthly issues she subscribed to accompanied her through girlhood and young womanhood. The magazine ceased publication a year after Huilan was born, in 1944. The old bound volumes stayed in the house; Mother would page through them, and young Huilan looked along with her.",
       image:"assets/references/ch1-gallery/5.jpeg",
       source:"[1] 良友画报 1937.04.15 第127期 · archive.org",
       sourceUrl:"https://archive.org/details/liangyou-1937.04.15"
@@ -784,10 +783,10 @@ const HOTSPOTS = [
     {
       id:"ch01-gu-huichuntang", xPx:1176, yPx:539,
       zh:"月份牌《谷回春堂广告》", en:"Yuefenpai Advertisement for Gu Huichun Tang",
-      note:"谢之光，1931年。谷回春堂是以“健胃固肠丸”闻名的药商，此海报即为该产品所作的商业月份牌。",
-      noteEn:"Painted by Xie Zhiguang in 1931. Gu Huichun Tang was a pharmaceutical merchant known for its “stomach and intestine” tonic pills, and this poster is the yuefenpai advertisement made for that product.",
+      note:"药品广告也常采用月份牌形式，把商品、时装人物和洋派室内组合成理想的都市生活画面。",
+      noteEn:"Pharmaceutical advertisements also used the yuefenpai format, combining a product, fashionable figures, and Western-style interiors into an ideal urban scene.",
       learnMoreZh:"月份牌是诞生于清末上海的商业广告画，通常把商品广告、月份日历和理想化人物或家庭图像放在同一张画面里。它既是广告，也可以挂在家里当装饰，因此成为近代城市商业视觉文化的一部分，现已列入上海市非物质文化遗产。\n\n《谷回春堂广告》由谢之光绘制于1931年，是谷回春堂“健胃固肠丸”的广告月份牌。画面把时装女性、洋派室内和商品宣传组合成当时的现代生活图景；在“破四旧”氛围中，这种摩登女性形象和洋派陈设很容易被归入应予破除的“旧生活方式”。",
-      learnMoreEn:"History core｜Yuefenpai originated as advertising posters in late-Qing Shanghai, combining commercial advertising, calendars, and idealized figures or domestic scenes; the form is now listed as Shanghai intangible cultural heritage.[1] The Gu Huichun Tang Advertisement was painted by Xie Zhiguang in 1931 as a calendar advertisement for Gu Huichun Tang’s “stomach and intestine” tonic pills, combining a fashionable woman, a Western-style interior, and commercial promotion in a contemporary image of modern life.[1]\n\nAt this time, such yuefenpai could still remain in a household’s older collection. The fashionable woman and Western-style interior it depicted would later, amid the “Destroy the Four Olds” climate, risk being classified as an “old way of life” to be swept away.",
+      learnMoreEn:"Yuefenpai originated as advertising posters in late-Qing Shanghai, combining commercial advertising, calendars, and idealized figures or domestic scenes. They were advertisements, but they could also hang in homes as decoration, becoming part of modern urban commercial visual culture.\n\nThe Gu Huichun Tang Advertisement was painted by Xie Zhiguang in 1931 as a calendar advertisement for Gu Huichun Tang’s “stomach and intestine” tonic pills. The image combines a fashionable woman, a Western-style interior, and commercial promotion into a contemporary scene of modern life; amid the “Destroy the Four Olds” climate, this kind of modern female image and Western-style furnishing could easily be classed as an “old way of life” to be swept away.",
       image:"assets/references/ch1-gallery/4.jpg",
       source:"[1] Openmuseum 开放博物馆",
       sourceUrl:"https://plaza.openmuseum.tw/muse/exhibition/81fbcee965c82f35d00cd1e343feb449#front"
@@ -795,10 +794,10 @@ const HOTSPOTS = [
     {
       id:"ch01-dipper-scripture", xPx:819, yPx:173,
       zh:"《太上玄灵北斗本命延生真经》彩绘本", en:"Illustrated Scripture of the Northern Dipper",
-      note:"明嘉靖二十一年（1542）纸本泥金彩绘本，以金彩和人物图像表现道教星辰信仰。",
-      noteEn:"A 1542 illustrated manuscript on paper, using gold pigment and figures to represent Daoist astral belief.",
-      learnMoreZh:"历史核心｜此类明代泥金彩绘道教经卷，把道教文字、神仙谱系和仪式图像放在同一书页；现存实例包括这件1542年（明嘉靖二十一年）纸本泥金彩绘本，原件曾见于苏富比拍卖记录，画面所用扫描件由书格整理发布。[1]\n\n沈家所藏为同类样式的经卷。父亲读志怪故事时，蕙兰会看画里的仙人和云气；她先从书页上认识这些形象。",
-      learnMoreEn:"History core｜This kind of Ming-dynasty gold-pigment illustrated Daoist scripture brought Daoist writing, divine lineages, and ritual images together on a single page. A surviving example is this 1542 (Jiajing 21) manuscript on paper; the original appeared in a Sotheby’s auction record, and the scan used here was compiled and published by Shuge.[1]\n\nThe Shen family kept a scripture of the same kind and style. When Father reads tales of the strange, Huilan studies the immortals and clouds in the picture; she first comes to know these figures from a page.",
+      note:"泥金彩绘道教经卷把经文、神仙谱系和仪式图像放在同一书页，既供诵读，也供观看。",
+      noteEn:"Gold-pigment Daoist scriptures place text, divine lineages, and ritual images on one page, made to be read as well as viewed.",
+      learnMoreZh:"明代泥金彩绘道教经卷把道教文字、神仙谱系和仪式图像放在同一书页。它们不只是文字典籍，金彩、人物和云气也让读者从画面进入星辰信仰与神仙世界。\n\n这件《太上玄灵北斗本命延生真经》为1542年（明嘉靖二十一年）纸本泥金彩绘本，原件曾见于苏富比拍卖记录，画面所用扫描件由书格整理发布。[1] 沈家书房里也有同类的彩绘经卷。父亲读志怪故事时，蕙兰会在旁边翻看仙人和云气，先从这些图像里认识一个有别于日常生活的世界。",
+      learnMoreEn:"Ming-dynasty gold-pigment illustrated Daoist scriptures brought Daoist writing, divine lineages, and ritual images together on a single page. They were not only textual scriptures; readers also encountered astral belief and immortal worlds through gold pigment, figures, and clouds.\n\nThis Illustrated Scripture of the Northern Dipper is a 1542 (Jiajing 21) manuscript on paper. The original appeared in a Sotheby’s auction record, and the scan used here was compiled and published by Shuge.[1] The Shen family kept a scripture of the same kind and style. When Father reads tales of the strange, Huilan studies the immortals and clouds in the picture; she first comes to know these figures from a page.",
       image:"assets/references/ch1-gallery/2.jpeg",
       source:"[1] 书格（镜像）· 原件苏富比拍卖记录",
       sourceUrl:"https://shuge.hanjihebi.com/书格网站资源/明内府彩绘本系列/太上玄灵北斗本命延生真经.明嘉靖二十一年纸本泥金彩绘本.苏富比拍卖.pdf"
@@ -806,12 +805,10 @@ const HOTSPOTS = [
     {
       id:"ch01-dream-red-chamber", xPx:1555, yPx:344,
       zh:"《红楼梦赋图册》", en:"Illustrated Album of Rhapsodies on Dream of the Red Chamber",
-      note:"清代沈谦作赋、盛昱录，约绘于同治十二年，全套二十幅（此本缺一帧），现藏爱尔兰切斯特·比替图书馆（Chester Beatty Library）。",
-      noteEn:"Rhapsodies by Shen Qian, transcribed by Sheng Yu, painted around the twelfth year of the Tongzhi reign (c. 1873); twenty leaves in the complete set (this album is missing one), now held at the Chester Beatty Library, Ireland.",
-      learnMoreZh:"历史核心｜《红楼梦》是清代曹雪芹所著的长篇小说，通过绣像、人物册页与连环图画等形式在读者间流传，人物服饰和室内空间也因此成为阅读经验的一部分。[1]\n\n沈家所藏为这一类图文并茂的读本：清代沈谦作二十首题咏《红楼梦》的赋文，盛昱录写，配以精美插图，内容包括葬花赋、芦雪亭赏雪赋等篇目。[2]\n\n与沈蕙兰的关系｜沈蕙兰读这类图册时，会仔细看图中人物的服装与陈设。",
-      learnMoreEn:"History core｜Dream of the Red Chamber is a Qing-dynasty novel by Cao Xueqin that circulated among readers through portraits, album leaves, and sequential illustrations; clothing and interiors therefore formed part of the reading experience.[1]\n\nThe Shen family kept this kind of illustrated edition: twenty rhapsodies on the novel, composed by the Qing scholar Shen Qian and transcribed by Sheng Yu, paired with fine illustrations covering scenes such as burying the flowers and viewing snow at the Lu Xue Pavilion.[2]\n\nShen Huilan｜As she reads this kind of illustrated edition, Shen Huilan looks closely at the figures’ clothing and furnishings.",
-      anchorZh:"沈蕙兰读《红楼梦》时，常长时间盯着图中人物的服装细节看。",
-      anchorEn:"While reading Dream of the Red Chamber, Shen Huilan often lingers over the details of the figures’ clothing.",
+      note:"《红楼梦》除了小说文本，也常以人物册页和绣像流传，让读者从画面进入大观园的世界。",
+      noteEn:"Dream of the Red Chamber also circulated through portrait albums and illustrations, allowing readers to enter its world through images.",
+      learnMoreZh:"《红楼梦》是清代曹雪芹所著的长篇小说，也通过绣像、人物册页与连环图画等形式在读者间流传。人物服饰、室内陈设和园林空间，因此成为读者想象小说世界的一部分。[1]\n\n《红楼梦赋图册》属于这类图文并茂的读本：清代沈谦作二十首题咏《红楼梦》的赋文，盛昱录写，配以插图，内容包括葬花赋、芦雪亭赏雪赋等篇目。[2]\n\n对蕙兰而言，这样的图册让书房里的古典小说有了可以停下来细看的面貌，也让后来被称作“旧”的东西，曾经首先是家里寻常的读物。",
+      learnMoreEn:"Dream of the Red Chamber is a Qing-dynasty novel by Cao Xueqin, and it also circulated among readers through portraits, album leaves, and sequential illustrations. Clothing, interiors, and garden spaces therefore became part of how readers imagined the novel’s world.[1]\n\nThe Illustrated Album of Rhapsodies on Dream of the Red Chamber belongs to this illustrated reading culture: twenty rhapsodies on the novel, composed by the Qing scholar Shen Qian and transcribed by Sheng Yu, paired with fine illustrations covering scenes such as burying the flowers and viewing snow at the Lu Xue Pavilion.[2]\n\nAs she reads this kind of illustrated edition, Shen Huilan looks closely at the figures’ clothing and furnishings.",
       image:"assets/references/ch1-gallery/1.jpg",
       source:"[2] 书格：《红楼梦赋图册》",
       sourceUrl:"https://www.shuge.org/view/hong_lou_meng_fu_tu_ce/"
@@ -873,28 +870,28 @@ const HOTSPOTS = [
     },
     {
       id:"ch02-fractured-childhood-memory", xPx:389, yPx:265,
-      zh:"“不正确”的儿时记忆", en:"“Incorrect” Childhood Memories",
-      note:"儿时喜欢看的月份牌，和在父亲的《康熙字典》里查到的自己的名字。",
-      noteEn:"The yuefenpai calendar posters she loved as a child, and her own name found in Father’s Kangxi Dictionary.",
-      learnMoreZh:"1966年“破四旧”期间，旧书、月份牌等物品可能被查抄、停售、封存或毁损。红卫兵抄家在各地做法不同，也有很大的任意性，不能说所有《康熙字典》都被毁了。[1][2]\n\n沈家的月份牌被撕碎，《康熙字典》被泼墨焚烧。对蕙兰来说，一件连着她爱看的图画，一件连着她自己的名字；后来它们都被说成“不正确”。\n\n脚注｜[1] 中发〔67〕158号及新华书店记录反映查抄、封存与停售。[2] 1970年9月17日周恩来在辞书会议上谈到《新华字典》与《康熙字典》的继承关系。沈家字典的具体遭遇属于人物经历。",
+      zh:"破四旧", en:"Destroy the Four Olds",
+      note:"“破四旧”把旧思想、旧文化、旧风俗和旧习惯列为批判对象，旧书和家庭旧藏常因此受冲击。",
+      noteEn:"The “Destroy the Four Olds” campaign targeted old ideas, culture, customs, and habits, putting old books and family possessions at risk.",
+      learnMoreZh:"1966年“破四旧”开始后，旧书、月份牌和家庭旧藏可能被查抄、停售、封存或毁损。各地的抄家做法不同，也有很大的任意性，不能说所有《康熙字典》都被毁了。[1][2]\n\n沈家的月份牌被撕碎，《康熙字典》被泼墨焚烧。对蕙兰来说，一件连着她小时候爱看的图画，一件连着她自己的名字；运动的语言把它们一并归入应当清除的“旧”。\n\n脚注｜[1] 中发〔67〕158号及新华书店记录反映查抄、封存与停售。[2] 1970年9月17日周恩来在辞书会议上谈到《新华字典》与《康熙字典》的继承关系。沈家字典的具体遭遇属于人物设定。",
       learnMoreEn:"During the 1966 Pò Sìjiù (“Destroy the Four Olds”) campaign, old books and yuefenpai could be seized, withdrawn, sealed away, or destroyed. Red Guard raids varied by place and could be arbitrary. The evidence does not support the claim that every Kangxi Dictionary was destroyed.[1][2]\n\nThe Shen family’s yuefenpai is torn apart and its Kangxi Dictionary is splashed with ink and burned. One belongs to Huilan’s childhood pictures; the other to learning her own name. Later both are called “incorrect.”\n\nNotes｜[1] Central Document No. 158 and Xinhua Bookstore records document confiscation, sequestration, and withdrawal. [2] On 17 September 1970, Zhou Enlai discussed the lineage from Kangxi Dictionary to Xinhua Dictionary. The fate of the Shen family copy belongs to the character’s history.",
     }
   ],
   [
     {
       id:"ch03-commune-poster", x:50, y:32, zh:"上山下乡的宣传海报", en:"Up to the Mountains Propaganda Poster",
-      note:"公社宣传常以集体队列、丰收和昂扬姿态表现农业劳动。", noteEn:"Commune propaganda often represented agricultural labor through collective formations, abundant harvests, and energetic poses.", term:"commune",
+      note:"上山下乡宣传画把农村描绘成青年接受再教育、扎根成长并带去知识技术的理想去处。", noteEn:"Up to the Mountains posters pictured the countryside as an ideal place for young people to be re-educated, take root, and bring knowledge and skills.",
       learnMoreZh:"“上山下乡”宣传画常把农村画成明亮、洁净、充满希望的地方：知青背着行李和农具出发，在贫下中农的思想引导下劳动、学习，成长为“有文化的新型农民”，同时把城市知识、技术和政治热情带到乡村。这样的画面把离城下乡表现为主动投身广阔天地的青春选择。\n\n真实经验常与宣传图像相距很远。许多农村本来资源紧张，农民可能把知青看作劳动能力弱、却要分口粮和住房的外来负担；大量城市青年也难以适应艰苦环境，长期饥饿、疾病、孤立和高强度劳动都可能压垮他们，甚至有人在“再教育”过程中死亡。蕙兰看到这类海报时，画面里的昂扬姿态和她被审查、下放、在水田里挣扎的处境并不是一回事。",
       learnMoreEn:"Up to the Mountains propaganda posters often turned the countryside into a bright, clean, hopeful place: educated youth set out with luggage and farm tools, work and study under the ideological guidance of poor and lower-middle peasants, grow into “new-style cultured peasants,” and bring urban knowledge, technology, and political energy to rural villages. The image frames leaving the city as a willing youthful choice.\n\nActual experience could be far removed from that image. Many villages were already under severe resource pressure, and peasants sometimes saw urban youth as weak laborers who still needed grain and housing. Many city youths could not adapt to hunger, illness, isolation, and exhausting manual labor; some died during the process of “re-education.” When Huilan sees this kind of poster, its uplifted bodies have little to do with her own situation of being reviewed, sent down, and struggling in the paddies.",
-      galleryIntroZh:"以下为同类主题的上山下乡宣传画参考。",
+      galleryIntroZh:"以下为上山下乡运动主题宣传画参考。",
       galleryIntroEn:"A reference image of an Up to the Mountains and Down to the Villages poster from the same period.",
       gallery:[
         {
           image:"assets/references/ch3-gallery/上山下乡.jpg",
           zh:"上山下乡运动主题宣传画",
           en:"Up to the Mountains and Down to the Villages propaganda poster",
-          credit:"参考来源：百度百科“插队”与 Chineseposters.net 上山下乡主题说明",
-          href:"https://chineseposters.net/themes/up-to-the-mountains"
+          credit:"参考来源：百度百科“插队”；Chineseposters.net 上山下乡主题说明",
+          href:"https://baike.baidu.com/item/%E6%8F%92%E9%98%9F/2912986"
         }
       ]
     }
@@ -903,13 +900,13 @@ const HOTSPOTS = [
     { x:51, y:13, zh:"政治标语", en:"Political Slogans",
       note:"政治口号长期悬挂在会议室，使政策语言成为集体生活的固定环境。", noteEn:"Political slogans remained on meeting-room walls, making official language a permanent part of collective life.",
       id:"ch04-slogans",
-      learnMoreZh:"文革期间，机关、学校、商店和生产队等集体场所普遍悬挂政治标语和语录牌，内容随运动阶段更换，但版式与悬挂位置相对固定，长期占据视线所及之处。\n\n“早请示、晚汇报”是1966年至1971年间多地流行的日常政治仪式：开工、开会或出工前，集体面对毛主席像诵读语录、表示按“最高指示”行动；收工或会议结束时，再汇报一天的思想和工作。它把政治表态嵌入早晚作息，让会议室、生产队和单位空间持续提醒每个人怎样说话、怎样站队。\n\n蕙兰在这间会议室里参加过许多轮批判和检讨。墙上的标语很少换位置，换的是每一轮被点名的人。\n\n脚注｜“早请示、晚汇报”的流行时段及仪式内容可参见中文维基百科相应词条：https://zh.wikipedia.org/wiki/%E6%97%A9%E8%AF%B7%E7%A4%BA%E3%80%81%E6%99%9A%E6%B1%87%E6%8A%A5",
+      learnMoreZh:"文革期间，机关、学校、商店和生产队等集体场所普遍悬挂政治标语和语录牌，内容随运动阶段更换，但版式与悬挂位置相对固定，长期占据视线所及之处。\n\n“早请示、晚汇报”是1966年至1971年间多地流行的日常政治仪式：开工、开会或出工前，集体面对毛泽东画像诵读语录、表示按“最高指示”行动；收工或会议结束时，再汇报一天的思想和工作。它把政治表态嵌入早晚作息，让会议室、生产队和单位空间持续提醒每个人怎样说话、怎样站队。\n\n蕙兰在这间会议室里参加过许多轮批判和检讨。墙上的标语很少换位置，换的是每一轮被点名的人。\n\n脚注｜“早请示、晚汇报”的流行时段及仪式内容可参见<a class=\"context-lead-note-source\" href=\"https://zh.wikipedia.org/wiki/%E6%97%A9%E8%AF%B7%E7%A4%BA%E3%80%81%E6%99%9A%E6%B1%87%E6%8A%A5\" target=\"_blank\" rel=\"noopener noreferrer\">中文维基百科相应词条</a>。",
       learnMoreEn:"During the Cultural Revolution, political slogans and quotation boards were displayed throughout offices, schools, shops, and production teams. Wording changed with each phase of the movement, but the format and placement stayed largely fixed, occupying the same field of view for years. Between 1966 and 1971, many workplaces practiced “morning request, evening report” (zǎo qǐngshì, wǎn huìbào): before and after work or meetings, people gathered before a portrait of Mao to recite quotations and report on their thinking, folding political study into the daily schedule. The ritual declined after the September 13th Incident in 1971.[1]\n\nHuilan sat through many rounds of criticism and self-criticism in this room. The slogans on the wall rarely moved. What changed each round was who was singled out.\n\nNotes｜[1] Chinese Wikipedia, “Zǎo Qǐngshì Wǎn Huìbào” (“Morning Request, Evening Report”) entry."
     },
     { x:50, y:40, zh:"领袖像", en:"Portrait of Mao Zedong",
-      note:"在机关、学校和公社集体空间中，领袖像通常占据正面或中心位置。", noteEn:"In offices, schools, and commune meeting spaces, portraits of Mao Zedong commonly occupied the front wall or visual center.",
+      note:"毛泽东画像在机关、学校和公社会议室中通常占据正面或中心位置。", noteEn:"Portraits of Mao Zedong commonly occupied the front wall or visual center in offices, schools, and commune meeting spaces.",
       id:"ch04-mao-portrait",
-      learnMoreZh:"机关、学校和公社的会议室、办公室等集体空间普遍悬挂毛泽东画像，通常置于正面或视觉中心，与语录牌、标语共同构成会议室的固定陈设。\n\n“早请示、晚汇报”仪式就是面对这类画像进行：开工前“请示”，收工前“汇报”，集体诵读语录并报告思想，把领袖像从墙面陈设变成日常政治行为的对象。1966年至1971年间这一仪式在多地流行，1971年九一三事件后逐渐衰落。\n\n蕙兰在这间会议室里，抬头就能看到墙上的画像。画像不会说话，却始终“在场”，看着每一轮批判和检讨。\n\n脚注｜“早请示、晚汇报”的仪式内容和流行时段可参见中文维基百科相应词条：https://zh.wikipedia.org/wiki/%E6%97%A9%E8%AF%B7%E7%A4%BA%E3%80%81%E6%99%9A%E6%B1%87%E6%8A%A5",
+      learnMoreZh:"机关、学校和公社的会议室、办公室等集体空间普遍悬挂毛泽东画像，通常置于正面或视觉中心，与语录牌、标语共同构成会议室的固定陈设。\n\n“早请示、晚汇报”仪式就是面对这类画像进行：开工前“请示”，收工前“汇报”，集体诵读语录并报告思想，把画像从墙面陈设变成日常政治行为的对象。1966年至1971年间这一仪式在多地流行，1971年九一三事件后逐渐衰落。\n\n蕙兰在这间会议室里，抬头就能看到墙上的画像。画像不会说话，却始终留在视线里，伴着每一轮批判和检讨。\n\n脚注｜“早请示、晚汇报”的仪式内容和流行时段可参见<a class=\"context-lead-note-source\" href=\"https://zh.wikipedia.org/wiki/%E6%97%A9%E8%AF%B7%E7%A4%BA%E3%80%81%E6%99%9A%E6%B1%87%E6%8A%A5\" target=\"_blank\" rel=\"noopener noreferrer\">中文维基百科相应词条</a>。",
       learnMoreEn:"Portraits of Mao Zedong were commonly displayed in the meeting rooms and offices of government offices, schools, and communes, usually placed on the front wall or at the visual center, forming a fixed part of the room's furnishings alongside quotation boards and slogans. The “morning request, evening report” ritual was performed facing such a portrait: people “requested instructions” before work and “reported back” before leaving, reciting quotations and reporting their thinking. The practice spread widely between 1966 and 1971 before falling out of use.\n\nIn this meeting room, Huilan only had to look up to see the portrait on the wall. It said nothing, but it was always there, watching each round of criticism and self-criticism.\n\nNotes｜For the ritual and its period of popularity, see the Chinese Wikipedia entry on “morning request, evening report”: https://zh.wikipedia.org/wiki/%E6%97%A9%E8%AF%B7%E7%A4%BA%E3%80%81%E6%99%9A%E6%B1%87%E6%8A%A5"
     },
     {
@@ -918,7 +915,7 @@ const HOTSPOTS = [
       zh:"心里的念头", en:"Thoughts Kept Inside",
       note:"沈蕙兰在上山下乡生活中没有说出口的心里话。",
       noteEn:"The thoughts she does not say aloud.",
-      learnMoreZh:"原文｜爹的信上個月沒來。\n我的手指又泡白了。\n我記得，小時候——\n我聽說，有人家裡……\n我今年二十六歲。\n我讀過五年大學！！\n娘上封信說家裡都好，「都好」兩個字写得很重。\n我記得《詩經》裡有一句——\n惠國今年要高中畢業了，我們不知道他會被分到哪。\n不明白。\n我不知道這樣的年頭还有幾個。\n\n脚注｜繁简夹写：这段文字以繁体为主，其中“写”“还”两字保留简体写法，是有意为之，并非笔误。沈蕙兰生于1944年，识字与最初的书写习惯成形于1956年《汉字简化方案》公布之前；简化字自1956年2月起分批推行，1964年《简化字总表》完成修订。一个在这段变革之前学会写字、之后又长期在简化字环境中生活书写的人，笔下出现繁简混用，符合这代人的真实书写经验。\n\n脚注｜《诗经》在文革中的处境：《诗经》属于旧文学传统，与其他古典典籍一样，在“破四旧”氛围中容易被视为需要批判或搁置的对象；具体篇目和处境因地区、单位和个人而异。",
+      learnMoreZh:"原文｜爹的信上個月沒來。\n我的手指又泡白了。\n我記得，小時候——\n我聽說，有人家裡……\n我今年二十六歲。\n我讀過五年大學！！\n娘上封信說家裡都好，「都好」兩個字写得很重。\n我記得《詩經》裡有一句——\n惠國今年要高中畢業了，我們不知道他會被分到哪。\n不明白。\n我不知道這樣的年头还有幾個。\n\n脚注｜《诗经》在文革中的处境：《诗经》属于旧文学传统，与其他古典典籍一样，在“破四旧”氛围中容易被视为需要批判或搁置的对象；具体篇目和处境因地区、单位和个人而异。\n\n繁简夹写：这段文字以繁体为主，其中“写”“还”保留简体写法，是有意为之，并非笔误。沈蕙兰生于1944年，最初的识字和书写习惯形成于1956年《汉字简化方案》公布之前；简化字自1956年2月起分批推行，1964年《简化字总表》完成修订。一个在变革前学会写字、之后又长期在简化字环境中生活书写的人，笔下出现繁简混用，是这一代人可能有的书写经验。",
       learnMoreEn:"Original text (translated)｜Father’s letter didn’t come last month.\nMy fingers have gone soft and white again.\nI remember, when I was young——\nI heard, someone’s family……\nI am twenty-six this year.\nI studied five years at university!!\nMother’s last letter said everything at home was fine — the words “all fine” were written heavy on the page.\nI remember a line from the Book of Songs——\nHuiguo graduates high school this year; we don’t know where he’ll be assigned.\nI don’t understand.\nI don’t know how many more years like this there will be.\n\nNotes｜Mixed traditional and simplified characters: this text is written mostly in traditional characters, but two characters — “写” (write) and “还” (still) — appear in their simplified forms. This is intentional, not an error. Shen Huilan was born in 1944, and her literacy and early handwriting habits formed before the 1956 Chinese Character Simplification Scheme was issued. Simplified characters were introduced in stages starting February 1956, with the revised Complete List of Simplified Characters finalized in 1964. For someone who learned to write before that shift and then lived and wrote for years under simplified characters, a mix of both forms reflects the lived experience of her generation.\n\nNotes｜The Book of Songs during the Cultural Revolution: as part of the old literary tradition, the Book of Songs, like other classical texts, could be treated as something requiring criticism or setting aside amid the “Destroy the Four Olds” climate; specific circumstances varied by place, work unit, and individual.",
       hideChapterContext:true
     },
@@ -1557,15 +1554,25 @@ function renderRichText(text, refs = [], language) {
 }
 
 function renderLayeredReading(text, language = "zh") {
-  return text.split(/\n\n+/).map(section => {
+  const sections = text.split(/\n\n+/).reduce((merged, section) => {
     const divider = section.indexOf("｜");
-    if (divider === -1) return `<p>${section.replaceAll("\n", "<br>")}</p>`;
-    const label = section.slice(0, divider);
-    const rawBody = section.slice(divider + 1);
+    const label = divider === -1 ? "" : section.slice(0, divider);
+    const supporting = label === "脚注" || label === "Notes";
+    const previous = merged[merged.length - 1];
+    if (supporting && previous?.label === label) {
+      previous.body += `\n\n${section.slice(divider + 1)}`;
+    } else {
+      merged.push({ label, body: divider === -1 ? section : section.slice(divider + 1) });
+    }
+    return merged;
+  }, []);
+  return sections.map(({ label, body: rawBody }) => {
+    if (!label) return `<p>${rawBody.replaceAll("\n", "<br>")}</p>`;
     const supporting = label === "脚注" || label === "Notes";
     const historical = label === "历史核心" || label === "History core";
     const personal = label === "与沈蕙兰的关系" || label === "Shen Huilan";
-    const body = supporting ? rawBody : rawBody.replace(/\[(\d+)\]/g, '<sup class="context-citation">[$1]</sup>');
+    const linkedBody = rawBody.includes("<a") ? rawBody : rawBody.replace(/https:\/\/[^\s<]+/g, url => `<a class="context-lead-note-source" href="${url}" target="_blank" rel="noopener noreferrer">${language === "zh" ? "相关词条" : "Source entry"}</a>`);
+    const body = supporting ? linkedBody : linkedBody.replace(/\[(\d+)\]/g, '<sup class="context-citation">[$1]</sup>');
     const classes = ["context-reading-section", supporting ? "is-supporting" : "", personal ? "is-personal" : ""].filter(Boolean).join(" ");
     const visibleLabel = historical || personal ? "" : `<span class="context-reading-label">${label}</span>`;
     return `<p class="${classes}" lang="${language === "zh" ? "zh-CN" : "en"}">${visibleLabel}${body.replaceAll("\n", "<br>")}</p>`;
@@ -3202,10 +3209,6 @@ function renderContext(target, hotspot = null) {
   const hotspotGallery = hotspot?.gallery?.length ? renderGalleryFigures(hotspot.gallery) : "";
   const contextGalleryIntro = !hotspot ? renderGalleryIntro(context) : "";
   const contextGallery = !hotspot && context?.gallery?.length ? renderGalleryFigures(context.gallery) : "";
-  const hotspotNoteEn = hotspot?.noteEn ? `<p class="context-en context-body-en">${hotspot.noteEn}</p>` : "";
-  const hotspotAnchor = hotspot?.anchorZh && !hotspot?.learnMoreZh?.includes("与沈蕙兰的关系｜") ? `
-    <blockquote class="context-anchor context-body-zh">${hotspot.anchorZh}</blockquote>
-    ${hotspot.anchorEn ? `<blockquote class="context-anchor context-en context-body-en">${hotspot.anchorEn}</blockquote>` : ""}` : "";
   const hotspotReferences = `${hotspotImage}${hotspotGalleryIntro}${hotspotGallery}${hotspotSource}`;
   // 章节级的"参考图片"（context.references）和脚注列表（context.sources）只属于默认场景侧栏，
   // 不该跟着漏进某个具体 hotspot 的侧栏里——点开一个具体的点，就只该看到这个点自己的图片/来源，
@@ -3238,7 +3241,7 @@ function renderContext(target, hotspot = null) {
   contextContent.innerHTML = `
     <h2 class="context-title-zh">${renderContextChineseLabel(hotspot ? hotspot.zh : context.title)}</h2>
     <p class="context-title-en">${hotspot ? hotspot.en : context.titleEn}</p>
-    ${hotspot ? `<p class="context-body-zh">${hotspot.note}</p>${hotspotNoteEn}${hotspotReading}${hotspotAnchor}<hr class="context-rule">` : ""}
+    ${hotspot ? `${hotspotReading}<hr class="context-rule">` : ""}
     ${chapterContext}`;
   buildTraditionalContextBodies();
   updateContextChineseLabels();
@@ -5442,6 +5445,7 @@ function renderHotspots() {
     button.type = "button";
     button.className = "hotspot";
     if (hotspot.variant) button.classList.add(`hotspot--${hotspot.variant}`);
+    if (hotspot.id) button.classList.add(`hotspot--${hotspot.id}`);
     button.dataset.hotspotIndex = String(index);
     if (hotspot.id) button.dataset.hotspotId = hotspot.id;
     button.setAttribute("aria-label", `${hotspot.zh} — ${hotspot.en}`);

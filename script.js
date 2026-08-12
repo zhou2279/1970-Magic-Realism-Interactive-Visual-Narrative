@@ -612,9 +612,9 @@ const CONTEXTS = [
   {
     title: "下乡与人民公社", titleEn: "Sent-down Youth and the Commune · 1968-1969",
     leadZh: "1968－1969年·公社与工分", leadEn: "1968–1969 · The Commune and Work Points",
-    leadNoteZh: "1968年12月，《人民日报》发布毛泽东“知识青年到农村去，接受贫下中农的再教育”的指示，大规模上山下乡运动由此展开；数以百万计的城市青年被送往农村、农场与边疆，在生产队与生产大队的工分制度下重新安排自己的劳动与生活。\n\n来源｜<a class=\"context-lead-note-source\" href=\"https://cn.chinadaily.com.cn/a/202104/07/WS606d254aa3101e7ce9747dfb.html\" target=\"_blank\" rel=\"noopener noreferrer\">中国日报网：《百年宏图·上山下乡》</a>",
-    leadNoteEn: "In December 1968, the People\u2019s Daily published Mao Zedong\u2019s directive that \u201ceducated youth should go to the countryside to be re-educated by the poor and lower-middle peasants,\u201d launching the mass Down to the Countryside Movement; millions of urban youth were sent to villages, farms, and frontier regions, their labor and daily lives reorganized under the production team\u2019s work-point system.\n\nSource｜<a class=\"context-lead-note-source\" href=\"https://cn.chinadaily.com.cn/a/202104/07/WS606d254aa3101e7ce9747dfb.html\" target=\"_blank\" rel=\"noopener noreferrer\">China Daily: \u201cA Century in Focus \u00b7 Down to the Countryside\u201d</a>",
-    zh: "1968年12月以后，大批城市青年被送到农村、农场和边疆地区接受再教育。到达公社后，个人生活被纳入生产队和生产大队的安排：出工、记工分、分配口粮、政治学习，都由集体制度管理。\n\n宣传画常把农业劳动画成丰收、队列和昂扬姿态。水田里的实际日子更具体：长时间弯腰，脚和腿泡在水里，蚊虫驱不完，伤口反复感染。对一个刚离开学校不久的年轻教师来说，“劳动改造”不是抽象口号，而是每天从身体上重新学习服从。",
+    leadNoteZh: "上山下乡并非始于文革，1950年代中期已有限度实行；1968年12月22日《人民日报》传达毛泽东“知识青年到农村去，接受贫下中农的再教育”的指示后，运动急剧扩大。1956年至1966年约有120万城市青年下乡，1968年至1975年约1200万人被迁往农村、农场和边疆，1978年前后逐步停止；广义统计常说总人数约1600万至近2000万。官方目标是让城市青年在贫下中农的“再教育”中扎根农村、缩小城乡和脑力/体力劳动差别，也在学校停课、城市就业停滞后承担安置青年和控制红卫兵派性冲突的功能。\n\n来源｜<a class=\"context-lead-note-source\" href=\"https://cpc.people.com.cn/BIG5/64162/64165/74856/75006/5194420.html\" target=\"_blank\" rel=\"noopener noreferrer\">人民网资料：1968年12月22日毛泽东发号召</a>｜<a class=\"context-lead-note-source\" href=\"https://chineseposters.net/themes/up-to-the-mountains\" target=\"_blank\" rel=\"noopener noreferrer\">Chineseposters.net: Up to the mountains, down to the countryside</a>",
+    leadNoteEn: "The sent-down youth program did not begin with the Cultural Revolution; limited forms had existed from the mid-1950s. After the People’s Daily publicized Mao Zedong’s directive on 22 December 1968 that educated youth should go to the countryside for re-education by poor and lower-middle peasants, the movement expanded sharply. About 1.2 million urban youths were sent down between 1956 and 1966, and about 12 million between 1968 and 1975; broad estimates for the whole movement range from over 16 million to nearly 20 million. Officially, the aim was to have urban youth take root in the countryside, reduce gaps between city and village and between mental and manual labor, and receive peasant “re-education.” It also helped address closed schools, stalled urban employment, and Red Guard factional unrest.\n\nSource｜<a class=\"context-lead-note-source\" href=\"https://cpc.people.com.cn/BIG5/64162/64165/74856/75006/5194420.html\" target=\"_blank\" rel=\"noopener noreferrer\">People’s Daily Online archive: Mao’s 22 December 1968 call</a>｜<a class=\"context-lead-note-source\" href=\"https://chineseposters.net/themes/up-to-the-mountains\" target=\"_blank\" rel=\"noopener noreferrer\">Chineseposters.net: Up to the mountains, down to the countryside</a>",
+    zh: "1968年12月以后，大批城市青年被送到农村、农场和边疆地区接受再教育。到达公社后，个人生活被纳入生产队和生产大队的安排：天亮出工、按工分记劳动、凭集体分配口粮，夜里还要参加政治学习和会议。\n\n1960年代末至1970年代初的皖南农村，水田劳动尤其消耗身体。插秧、拔秧、补苗、薅草、挑担、排水灌水，都要长时间弯腰或赤脚站在泥水里；夏季湿热，蚊虫和蚂蟥不断，皮肤泡白后更容易破口感染。对一个刚离开学校不久的年轻教师来说，“劳动改造”不是抽象口号，而是每天从腰背、手指、腿脚和饥饿里重新学习服从。",
     en: "After December 1968, large numbers of urban young people were sent to farms, villages, and frontier regions for re-education. Once they arrived at a commune, private life was absorbed into the routines of the production team and brigade: work assignments, work points, grain distribution, and political study.\n\nPropaganda often showed farm labor as harvest, formation, and uplift. Work in a rice paddy was more bodily and exact: hours bent over, feet and legs in water, mosquitoes that would not disperse, wounds that became infected again and again. For a young teacher recently removed from school, “labor reform” was not an abstract slogan. It was obedience learned through the body.",
     material: "合成记忆图像｜宣传画、稻田倒影与公社劳动场景"
   },
@@ -692,8 +692,8 @@ const HOTSPOTS = [
       zh:"《康熙字典》中的“沈蕙兰”", en:"“Shen Huilan” in the Kangxi Dictionary",
       note:"三个姓名用字从字典页中浮现，连接她对文字、书房与家庭记忆的最初认识。",
       noteEn:"The three characters of her name emerge from the dictionary page, linking literacy with her earliest memories of the study and family life.",
-      learnMoreZh:"《康熙字典》成书于清代，按部首和笔画检字；《新华字典》是20世纪面向现代读者的小型工具书，两者的体例和用途不同。[1]\n\n蕙兰小时候在父亲书房里逐字查自己的名字。字页、姓名和识字这几件事留在同一段家庭记忆里。\n\n脚注｜[1] 《康熙字典》的检字法：先析出待查字的部首，数其笔画；按部首笔画数在《部首目录》中查得该部首所属的地支卷册——正文按子丑寅卯辰巳午未申酉戌亥十二地支分卷，每卷再分上中下三册，全书共三十六册；再扣除部首，按古法算画规则计算剩余笔画数；据此翻到对应卷册的《检字表》，在该部首下按剩余笔画数找到目标字及正文页码；最后翻至正文，以反切法标注读音，并核对所引古籍的释义。",
-      learnMoreEn:"Compiled in the Qing dynasty, the Kangxi Dictionary organizes characters by radicals and stroke counts. The Xinhua Dictionary is a compact twentieth-century reference work for modern readers; the two work differently.[1]\n\nAs a child, Huilan looks up the characters of her name in Father’s study. The dictionary page, her name, and learning to read belong to the same family memory.\n\nNotes｜[1] The Kangxi Dictionary's lookup method: first extract the character's radical and count its strokes; use that stroke count to find the radical in the Radical Index, which gives the volume under one of the twelve Earthly Branches — the main text is divided into twelve branch-volumes (zǐ, chǒu, yín, mǎo, chén, sì, wǔ, wèi, shēn, yǒu, xū, hài), each split into upper, middle, and lower fascicles, thirty-six fascicles in total; subtract the radical's strokes and count the character's remaining strokes by the traditional method; use that count to locate the character in that volume's Character-Finding Table under its radical, which gives the page number in the main text; finally, turn to that page, where the pronunciation is given by the fǎnqiè method alongside citations from classical sources.",
+      learnMoreZh:"《康熙字典》成书于清代康熙五十五年，是大型官修字书。它按部首和笔画组织汉字：先判断一个字归入哪个部首，再数部首外剩余笔画，到相应部首和笔画位置查字；正文会列出读音、字义和古籍引文。它不像20世纪面向现代读者的《新华字典》那样小型、白话、便携，而更像一部需要按索引慢慢翻检的古典字书。\n\n蕙兰小时候在父亲书房里用这套方法逐字查自己的名字：先查“沈”，再查“蕙”，再查“兰/蘭”。字典怎么用、名字怎么写、汉字从哪里来，都被她放进同一段家庭记忆里。\n\n下面三张图分别引出“沈蕙兰”三个字在《康熙字典》中的检字页。",
+      learnMoreEn:"Compiled in the fifty-fifth year of the Kangxi reign, the Kangxi Dictionary is a large Qing official character dictionary. It organizes characters by radicals and stroke counts: first identify a character’s radical, then count the remaining strokes, find the appropriate radical-and-stroke position, and turn to the entry for pronunciation, meanings, and classical citations. Unlike the compact twentieth-century Xinhua Dictionary for modern readers, it is a classical reference work that must be searched through indexes and fascicles.\n\nAs a child in Father’s study, Huilan uses this method to look up the characters of her own name: first Shen (沈), then Hui (蕙), then Lan (兰 / 蘭). How to use the dictionary, how her name is written, and where characters come from all belong to the same family memory.\n\nThe three images below lead to the dictionary pages for the characters in “Shen Huilan.”",
       source:"清康熙五十五年（1716年）内府刊本 · 哈佛大学图书馆 HOLLIS",
       sourceUrl:"https://hollis.harvard.edu/discovery/fulldisplay?context=L&vid=01HVD_INST:HVD2&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=Everything&docid=alma990032703120203941",
       galleryIntroZh:"以下三页对应“沈”“蕙”“兰”三字在《康熙字典》中各自所在的检字页。",
@@ -721,7 +721,7 @@ const HOTSPOTS = [
       zh:"中苏友好宣传画", en:"Chinese-Soviet Friendship Poster",
       note:"红旗与并置的人物形象，把国家间的政治友好带进家庭日常观看的空间。",
       noteEn:"Red flags and paired figures bring the political alliance between China and the Soviet Union into the visual life of the home.",
-      learnMoreZh:"历史核心｜20世纪50年代的中苏友好宣传常用并肩人物、红旗、工业建设和集体劳动表现两国结盟、苏联援助与社会主义现代化。[1]\n\n与沈蕙兰的关系｜海报挂在父亲书房里。对童年的沈蕙兰来说，政治宣传与书籍、备课和家庭生活同时存在。\n\n图像说明｜这张宣传画为合成图像，参照同期海报风格绘制，非某件原作的复原。[1]",
+      learnMoreZh:"20世纪50年代的中苏友好宣传常用并肩人物、红旗、工业建设和集体劳动表现两国结盟、苏联援助与社会主义现代化。\n\n海报挂在父亲书房里。对童年的沈蕙兰来说，政治宣传与书籍、备课和家庭生活同时存在。\n\n脚注｜这张宣传画为合成图像，参照同期海报风格绘制，非某件原作的复原。",
       learnMoreEn:"History core｜Chinese-Soviet friendship posters of the 1950s often used paired figures, red flags, industrial construction, and collective labor to represent alliance, Soviet assistance, and socialist modernization.[1]\n\nShen Huilan｜The poster hangs in Father’s study. In Shen Huilan’s childhood, political propaganda shares the room with books, lesson preparation, and family life.\n\nImage note｜This poster is a composite image styled after posters of the same period, not a reproduction of one specific original.[1]",
       source:"[1] Chineseposters.net · 中苏友好主题海报系列（视觉参考）",
       sourceUrl:"https://chineseposters.net/themes/soviet-union",
@@ -762,7 +762,7 @@ const HOTSPOTS = [
       zh:"月份牌《合家欢》", en:"Yuefenpai Calendar Poster: A Happy Family",
       note:"杭稺英，1930年代，奉天太阳烟公司广告。画中人物着西式服饰，背景为西式建筑。",
       noteEn:"By Hang Zhiying, 1930s, an advertisement for the Mukden Sun Tobacco Company. The figure wears Western-style clothing against a Western-style architectural backdrop.",
-      learnMoreZh:"历史核心｜月份牌是诞生于清末上海的广告宣传画，把商品广告、日历与理想化人物或家庭图像结合在一起，是近代城市商业视觉文化的一部分，现已列入上海市非物质文化遗产。[1]《合家欢》由杭稺英绘制于1930年代，是奉天太阳烟公司的广告月份牌。[2]",
+      learnMoreZh:"月份牌是诞生于清末上海的商业广告画，通常把商品广告、月份日历和理想化人物或家庭图像放在同一张画面里。它既是广告，也可以挂在家里当装饰，因此成为近代城市商业视觉文化的一部分，现已列入上海市非物质文化遗产。\n\n《合家欢》由杭稺英绘制于1930年代，是奉天太阳烟公司的广告月份牌。对本章来说，它说明沈家书房里的旧藏不只是书，也包括曾经进入家庭日常观看的商业图像。",
       learnMoreEn:"History core｜Yuefenpai originated as advertising posters in late-Qing Shanghai, combining commercial advertising, calendars, and idealized figures or domestic scenes; the form is now listed as Shanghai intangible cultural heritage.[1] A Happy Family was painted by Hang Zhiying in the 1930s as an advertising calendar for the Mukden Sun Tobacco Company.[2]",
       image:"assets/references/ch1-gallery/3.jpg",
       source:"[1][2] 中文维基百科“月份牌”词条 · Openmuseum 开放博物馆",
@@ -786,7 +786,7 @@ const HOTSPOTS = [
       zh:"月份牌《谷回春堂广告》", en:"Yuefenpai Advertisement for Gu Huichun Tang",
       note:"谢之光，1931年。谷回春堂是以“健胃固肠丸”闻名的药商，此海报即为该产品所作的商业月份牌。",
       noteEn:"Painted by Xie Zhiguang in 1931. Gu Huichun Tang was a pharmaceutical merchant known for its “stomach and intestine” tonic pills, and this poster is the yuefenpai advertisement made for that product.",
-      learnMoreZh:"历史核心｜月份牌是诞生于清末上海的广告宣传画，把商品广告、日历与理想化人物或家庭图像结合在一起，是近代城市商业视觉文化的一部分，现已列入上海市非物质文化遗产。[1]《谷回春堂广告》由谢之光绘制于1931年，是谷回春堂“健胃固肠丸”的广告月份牌，画面把时装女性、洋派室内和商品宣传组合成当时的现代生活图景。[1]\n\n在这个时期，这类月份牌尚可作为家中旧藏留存；画中的摩登女性形象与洋派陈设，此后在“破四旧”氛围中，容易被归入应予破除的“旧生活方式”。",
+      learnMoreZh:"月份牌是诞生于清末上海的商业广告画，通常把商品广告、月份日历和理想化人物或家庭图像放在同一张画面里。它既是广告，也可以挂在家里当装饰，因此成为近代城市商业视觉文化的一部分，现已列入上海市非物质文化遗产。\n\n《谷回春堂广告》由谢之光绘制于1931年，是谷回春堂“健胃固肠丸”的广告月份牌。画面把时装女性、洋派室内和商品宣传组合成当时的现代生活图景；在“破四旧”氛围中，这种摩登女性形象和洋派陈设很容易被归入应予破除的“旧生活方式”。",
       learnMoreEn:"History core｜Yuefenpai originated as advertising posters in late-Qing Shanghai, combining commercial advertising, calendars, and idealized figures or domestic scenes; the form is now listed as Shanghai intangible cultural heritage.[1] The Gu Huichun Tang Advertisement was painted by Xie Zhiguang in 1931 as a calendar advertisement for Gu Huichun Tang’s “stomach and intestine” tonic pills, combining a fashionable woman, a Western-style interior, and commercial promotion in a contemporary image of modern life.[1]\n\nAt this time, such yuefenpai could still remain in a household’s older collection. The fashionable woman and Western-style interior it depicted would later, amid the “Destroy the Four Olds” climate, risk being classified as an “old way of life” to be swept away.",
       image:"assets/references/ch1-gallery/4.jpg",
       source:"[1] Openmuseum 开放博物馆",
@@ -823,24 +823,27 @@ const HOTSPOTS = [
       zh:"大字报", en:"Dàzìbào (“Big-character Poster”)",
       note:"大字报内容：父亲沈鸿礼的名字被叉掉。左侧罪名写着“宣扬封建糟粕，毒害革命青年”；右侧口号为：“坚决批判资产阶级反动路线！打倒一切牛鬼蛇神！革命师生联合起来！把无产阶级文化大革命进行到底！”",
       noteEn:"The poster crosses out Father Shen Hongli’s name. The accusation on the left reads, “Promoting feudal dross and poisoning revolutionary youth.” The slogans on the right read: “Resolutely criticize the bourgeois reactionary line! Down with all cow demons and snake spirits! Revolutionary teachers and students, unite! Carry the Great Proletarian Cultural Revolution through to the end!”",
-      learnMoreZh:"大字报把政治指控写成公开张贴、围观和传播的文字。“牛鬼蛇神”是边界很宽的政治标签；“宣扬封建糟粕，毒害革命青年”是运动中的政治定性，不是司法罪名。[1]\n\n这张大字报写着父亲沈鸿礼的姓名、他教古代文学的事和相关罪名。蕙兰站在楼道里看见它，没有发言。\n\n脚注｜[1] 政治术语已有资料依据；姓名、罪名和口号需按最终画面逐字复核。",
-      learnMoreEn:"Dàzìbào made political accusations public, open to posting, watching, and circulation. Niúguǐ Shéshén (“Cow Demons and Snake Spirits”) was a political label with broad and shifting boundaries. “Promoting feudal dross and poisoning revolutionary youth” was a political designation, not a judicial charge.[1]\n\nThis poster carries Father Shen Hongli’s name, his teaching of classical literature, and the accusation against him. Huilan sees it in the corridor and says nothing.\n\nNotes｜[1] The political terms are documented; the name, accusation, and slogans must be checked against the final image.",
+      learnMoreZh:"大字报把政治指控写成公开张贴、围观和传播的文字。左侧“宣扬封建糟粕，毒害革命青年”不是司法罪名，而是文革语境中的政治定性：把古代文学、旧书、旧学问说成会把学生带向“封建”“资产阶级”立场的有害思想。一个教师如果讲授古典作品、保护旧书，或被认为同情传统文化、影响青年思想，就可能被这样指控。\n\n右侧口号把个人批判接到更大的运动语言里。“资产阶级反动路线”指被认定背离毛泽东路线、压制群众运动的政治路线；“牛鬼蛇神”原本是妖魔化称呼，文革中被广泛用来指所谓反动学术权威、地富反坏右、走资派和其他被打击对象。放到沈鸿礼身上，这些词把他从“教古代文学的父亲和教师”改写成需要公开批判的政治对象。\n\n这张大字报写着父亲沈鸿礼的姓名、他教古代文学的事和相关罪名。蕙兰站在楼道里看见它，没有发言。",
+      learnMoreEn:"Dàzìbào turned political accusations into public text to be posted, watched, and circulated. The accusation on the left, “promoting feudal dross and poisoning revolutionary youth,” was not a legal charge but a Cultural Revolution political designation: it framed classical literature, old books, and older scholarship as harmful thought that could lead students toward “feudal” or “bourgeois” positions. A teacher could be accused this way for teaching classical works, protecting old books, sympathizing with traditional culture, or being seen as influencing young people’s thinking.\n\nThe slogans on the right connect a personal denunciation to the movement’s broader language. “Bourgeois reactionary line” named a political line judged to oppose Mao’s line and suppress mass mobilization; “cow demons and snake spirits” was a demonizing label applied broadly to so-called reactionary academic authorities, class enemies, capitalist-roaders, and other targets. Applied to Shen Hongli, these terms rewrite him from a father and teacher of classical literature into a political object for public attack.\n\nThe poster carries Father Shen Hongli’s name, his teaching of classical literature, and the accusation against him. Huilan sees it in the corridor and says nothing.",
+      image:"https://upload.wikimedia.org/wikipedia/commons/1/17/1967-04_1967%E5%B9%B4%E5%A4%A7%E5%AD%97%E6%8A%A5.jpg",
+      source:"《人民画报》1967年 · Public domain, via Wikimedia Commons",
+      sourceUrl:"https://commons.wikimedia.org/wiki/File:1967-04_1967%E5%B9%B4%E5%A4%A7%E5%AD%97%E6%8A%A5.jpg",
     },
     {
       id:"ch02-red-guard-poster", xPx:1027, yPx:596,
-      zh:"《早已森严壁垒 更加众志成城》", en:"Zǎoyǐ Sēnyán Bìlěi, Gèngjiā Zhòngzhì Chéngchéng (“Already Heavily Fortified, Our Wills Unite Like a Fortress”)",
+      zh:"红卫兵", en:"Red Guards",
       note:"五名民兵举枪、望远镜与《毛泽东选集》，背景是围观的人群与标语。约1969年，晋南地区革命委员会政工组编，晋南地区工艺美术厂制。",
       noteEn:"Five militia figures hold rifles, binoculars, and Selected Works of Mao Zedong, with crowds and slogans in the background. Circa 1969, compiled by the Political Work Group of the Jinnan Regional Revolutionary Committee and printed by the Jinnan Regional Arts and Crafts Factory.",
-      learnMoreZh:"历史核心｜题名、编者与出版单位已由海报原件的边注文字确认：《早已森严壁垒 更加众志成城》（宣传画），晋南地区革命委员会政工组 编，晋南地区工艺美术厂制，约1969年，统一书号/编号：临地革国统字第70001号。[1]\n\n红、黑、白的高对比便于快速印刷和远距离识读，也把人物、口号与政治立场组织成明确的视觉秩序。举枪、持镜、举书与共同前进，是文革群众宣传画反复使用的动作组合，用领袖著作赋予群众行动以政治权威。\n\n脚注｜[1] 题名与出版信息据海报实物边注确认。",
-      learnMoreEn:"History core｜The title, compiler, and publisher are confirmed from the marginal text printed on the poster itself: Zǎoyǐ Sēnyán Bìlěi, Gèngjiā Zhòngzhì Chéngchéng [Already Heavily Fortified, Our Wills Unite Like a Fortress] (propaganda poster), compiled by the Political Work Group of the Jinnan Regional Revolutionary Committee, printed by the Jinnan Regional Arts and Crafts Factory, circa 1969, Serial No. 70001.[1]\n\nHigh-contrast red, black, and white supported rapid printing and distant legibility while organizing figures, slogans, and political positions into a clear visual order. Raised rifles, binoculars, raised books, and collective forward movement recur throughout Cultural Revolution mass propaganda, using the leader's writings to authorize mass action.\n\nNotes｜[1] Title and publication details are confirmed from the marginal text on the poster itself.",
-      image:"assets/references/red-guard-gallery/1.jpg",
+      learnMoreZh:"红卫兵是文革初期由学生和青年组成的群众组织，1966年迅速扩张。他们以“破四旧”、批判所谓资产阶级和旧文化为名，参加抄家、游行、贴大字报、批斗教师和干部等行动；运动很快发展出派性冲突和暴力，后来由军队和各级革委会逐步接管秩序。\n\n这张《早已森严壁垒 更加众志成城》约制于1969年。红、黑、白的高对比便于快速印刷和远距离识读；举枪、持望远镜、举《毛泽东选集》和集体前进的姿态，把青年群众塑造成高度警惕、服从领袖著作、准备斗争的政治形象。",
+      learnMoreEn:"The Red Guards were mass organizations made up largely of students and young people in the early Cultural Revolution, expanding rapidly in 1966. In the name of destroying the Four Olds and criticizing bourgeois or old culture, they took part in house searches, marches, big-character posters, and struggle sessions against teachers and officials. The movement soon developed factional conflict and violence, and order was gradually taken over by the army and revolutionary committees.\n\nThis poster, Already Heavily Fortified, Our Wills Unite Like a Fortress, dates to around 1969. The red-black-white contrast supports quick printing and legibility at a distance; rifles, binoculars, a raised Selected Works of Mao Zedong, and forward collective movement present young masses as vigilant, loyal to the leader’s writings, and ready for struggle.",
+      image:"assets/references/ch2-gallery/1.jpg",
       source:"《早已森严壁垒 更加众志成城》宣传画复制品·C004186 · The Collector's Guild",
       sourceUrl:"https://www.germanmilitaria.com/OtherNations/photos/C004186.html",
       galleryIntroZh:"以下海报用于辨认同时期常见的红、黑、白构图、集体人物、举书动作与政治口号，供比对参考，并非本画面所用海报的出处。",
       galleryIntroEn:"These posters are visual references for the period's red-black-white palette, collective figures, raised books, and political slogans, shown for comparison only and not the source of the poster used in this scene.",
       gallery:[
         {
-          image:"assets/references/red-guard-gallery/e15-569.jpg",
+          image:"assets/references/ch2-gallery/e15-569.jpg",
           zh:"坚决打倒党内头号走资本主义道路的当权派！彻底粉碎资本主义复辟的反革命逆流！",
           en:"Resolutely smash the number one power holders in the Party that follow the capitalist road! Thoroughly crush the counterrevolutionary adverse current of capitalist restoration!",
           metaZh:"1966年｜太原区大专中院校革命红卫兵代表政治工作会议筹备处｜右下角人物包括被作为“走资派”表现的刘少奇和邓小平",
@@ -849,7 +852,7 @@ const HOTSPOTS = [
           href:"https://chineseposters.net/posters/e15-569"
         },
         {
-          image:"assets/references/red-guard-gallery/e39-557.jpg",
+          image:"assets/references/ch2-gallery/e39-557.jpg",
           zh:"毛主席万岁，红卫兵万岁",
           en:"Long live Chairman Mao, long live the Red Guards",
           metaZh:"1967年｜上海多个红卫兵组织｜画面文字“我支持你们！”",
@@ -858,7 +861,7 @@ const HOTSPOTS = [
           href:"https://chineseposters.net/posters/e39-557"
         },
         {
-          image:"assets/references/red-guard-gallery/pc-1968-009.jpg",
+          image:"assets/references/ch2-gallery/pc-1968-009.jpg",
           zh:"红卫兵杀向美帝苏修——世界打倒美帝苏修",
           en:"Red Guard kill American imperialism and Soviet revisionism — The world strikes down American imperialism and Soviet revisionism",
           metaZh:"1968年｜“红卫兵万岁”大会筹备处设计｜出版单位不详",
@@ -879,53 +882,54 @@ const HOTSPOTS = [
   ],
   [
     {
-      id:"ch03-commune-poster", x:50, y:32, zh:"公社宣传画", en:"Commune Propaganda Image",
+      id:"ch03-commune-poster", x:50, y:32, zh:"上山下乡的宣传海报", en:"Up to the Mountains Propaganda Poster",
       note:"公社宣传常以集体队列、丰收和昂扬姿态表现农业劳动。", noteEn:"Commune propaganda often represented agricultural labor through collective formations, abundant harvests, and energetic poses.", term:"commune",
-      learnMoreZh:"1968年12月，毛泽东发出“知识青年到农村去，接受贫下中农的再教育，很有必要”的指示，上山下乡运动由此大规模展开。此后的宣传画常描绘青年背起行装、扛着农具奔赴农村，或与农民并肩劳动的画面，配合“广阔天地，大有作为”一类口号，把下乡表现为青年建功立业的正面选择。[1]\n\n蕙兰下放时经过的公社，墙上贴的正是同一类宣传画。画面里的昂扬姿态，和她自己被审查、下放改造的处境并不是一回事。\n\n脚注｜[1] 上山下乡宣传画的主题与相关口号参见人民网《上山下乡运动中的知青图像》。",
-      learnMoreEn:"In December 1968, Mao Zedong issued the directive that “it is highly necessary for educated youth to go to the countryside to be re-educated by the poor and lower-middle peasants,” launching the mass Up to the Mountains and Down to the Villages movement. Propaganda posters that followed often showed young people setting off for the countryside with bedrolls and farm tools, or working alongside peasants, paired with slogans like “A vast world, where much can be accomplished” — framing resettlement as a positive path to achievement for the young.[1]\n\nThe commune Huilan passed through after being sent down displayed this same kind of poster. Its upbeat postures had little to do with her own situation of being reviewed and sent for reform through labor.\n\nNotes｜[1] Themes and slogans of Up to the Mountains and Down to the Villages posters follow People's Daily Online, “Images of Educated Youth in the Up to the Mountains and Down to the Villages Movement.”",
+      learnMoreZh:"“上山下乡”宣传画常把农村画成明亮、洁净、充满希望的地方：知青背着行李和农具出发，在贫下中农的思想引导下劳动、学习，成长为“有文化的新型农民”，同时把城市知识、技术和政治热情带到乡村。这样的画面把离城下乡表现为主动投身广阔天地的青春选择。\n\n真实经验常与宣传图像相距很远。许多农村本来资源紧张，农民可能把知青看作劳动能力弱、却要分口粮和住房的外来负担；大量城市青年也难以适应艰苦环境，长期饥饿、疾病、孤立和高强度劳动都可能压垮他们，甚至有人在“再教育”过程中死亡。蕙兰看到这类海报时，画面里的昂扬姿态和她被审查、下放、在水田里挣扎的处境并不是一回事。",
+      learnMoreEn:"Up to the Mountains propaganda posters often turned the countryside into a bright, clean, hopeful place: educated youth set out with luggage and farm tools, work and study under the ideological guidance of poor and lower-middle peasants, grow into “new-style cultured peasants,” and bring urban knowledge, technology, and political energy to rural villages. The image frames leaving the city as a willing youthful choice.\n\nActual experience could be far removed from that image. Many villages were already under severe resource pressure, and peasants sometimes saw urban youth as weak laborers who still needed grain and housing. Many city youths could not adapt to hunger, illness, isolation, and exhausting manual labor; some died during the process of “re-education.” When Huilan sees this kind of poster, its uplifted bodies have little to do with her own situation of being reviewed, sent down, and struggling in the paddies.",
       galleryIntroZh:"以下为同类主题的上山下乡宣传画参考。",
       galleryIntroEn:"A reference image of an Up to the Mountains and Down to the Villages poster from the same period.",
       gallery:[
         {
           image:"assets/references/ch3-gallery/上山下乡.jpg",
           zh:"上山下乡运动主题宣传画",
-          en:"Up to the Mountains and Down to the Villages propaganda poster"
+          en:"Up to the Mountains and Down to the Villages propaganda poster",
+          credit:"参考来源：百度百科“插队”与 Chineseposters.net 上山下乡主题说明",
+          href:"https://chineseposters.net/themes/up-to-the-mountains"
         }
       ]
-    },
-    { x:55, y:77, zh:"水稻田", en:"Rice Paddy", note:"长期浸水和弯腰劳动使水田成为皮疹、伤口感染和腰背损伤的来源。", noteEn:"Prolonged immersion and bent-over labor made rice paddies a source of rashes, wound infections, and back injuries." }
+    }
   ],
   [
     { x:51, y:13, zh:"政治标语", en:"Political Slogans",
       note:"政治口号长期悬挂在会议室，使政策语言成为集体生活的固定环境。", noteEn:"Political slogans remained on meeting-room walls, making official language a permanent part of collective life.",
       id:"ch04-slogans",
-      learnMoreZh:"文革期间，机关、学校、商店和生产队等集体场所普遍悬挂政治标语和语录牌，内容随运动阶段更换，但版式与悬挂位置相对固定，长期占据视线所及之处。1966年至1971年间，多地一度流行“早请示、晚汇报”：开工或开会前后，集体面对毛主席像诵读语录、汇报当日思想，将政治学习嵌入日常作息，1971年九一三事件后这一仪式逐渐衰落。[1]\n\n蕙兰在这间会议室里参加过许多轮批判和检讨。墙上的标语很少换位置，换的是每一轮被点名的人。\n\n脚注｜[1] “早请示、晚汇报”的流行时段及仪式内容参见中文维基百科相应词条。",
+      learnMoreZh:"文革期间，机关、学校、商店和生产队等集体场所普遍悬挂政治标语和语录牌，内容随运动阶段更换，但版式与悬挂位置相对固定，长期占据视线所及之处。\n\n“早请示、晚汇报”是1966年至1971年间多地流行的日常政治仪式：开工、开会或出工前，集体面对毛主席像诵读语录、表示按“最高指示”行动；收工或会议结束时，再汇报一天的思想和工作。它把政治表态嵌入早晚作息，让会议室、生产队和单位空间持续提醒每个人怎样说话、怎样站队。\n\n蕙兰在这间会议室里参加过许多轮批判和检讨。墙上的标语很少换位置，换的是每一轮被点名的人。\n\n脚注｜“早请示、晚汇报”的流行时段及仪式内容可参见中文维基百科相应词条：https://zh.wikipedia.org/wiki/%E6%97%A9%E8%AF%B7%E7%A4%BA%E3%80%81%E6%99%9A%E6%B1%87%E6%8A%A5",
       learnMoreEn:"During the Cultural Revolution, political slogans and quotation boards were displayed throughout offices, schools, shops, and production teams. Wording changed with each phase of the movement, but the format and placement stayed largely fixed, occupying the same field of view for years. Between 1966 and 1971, many workplaces practiced “morning request, evening report” (zǎo qǐngshì, wǎn huìbào): before and after work or meetings, people gathered before a portrait of Mao to recite quotations and report on their thinking, folding political study into the daily schedule. The ritual declined after the September 13th Incident in 1971.[1]\n\nHuilan sat through many rounds of criticism and self-criticism in this room. The slogans on the wall rarely moved. What changed each round was who was singled out.\n\nNotes｜[1] Chinese Wikipedia, “Zǎo Qǐngshì Wǎn Huìbào” (“Morning Request, Evening Report”) entry."
     },
     { x:50, y:40, zh:"领袖像", en:"Portrait of Mao Zedong",
       note:"在机关、学校和公社集体空间中，领袖像通常占据正面或中心位置。", noteEn:"In offices, schools, and commune meeting spaces, portraits of Mao Zedong commonly occupied the front wall or visual center.",
       id:"ch04-mao-portrait",
-      learnMoreZh:"机关、学校和公社的会议室、办公室等集体空间普遍悬挂毛泽东画像，通常置于正面或视觉中心，与语录牌、标语共同构成会议室的固定陈设。“早请示、晚汇报”仪式即面对这类画像进行：开工前“请示”，收工前“汇报”，1966年至1971年间在多地流行，此后逐渐废止。[1]\n\n蕙兰在这间会议室里，抬头就能看到墙上的画像。画像不会说话，却始终“在场”，看着每一轮批判和检讨。\n\n脚注｜[1] 同上。",
-      learnMoreEn:"Portraits of Mao Zedong were commonly displayed in the meeting rooms and offices of government offices, schools, and communes, usually placed on the front wall or at the visual center, forming a fixed part of the room's furnishings alongside quotation boards and slogans. The “morning request, evening report” ritual was performed facing such a portrait — “requesting instructions” before work, “reporting” before leaving — a practice that spread widely between 1966 and 1971 before falling out of use.[1]\n\nIn this meeting room, Huilan only had to look up to see the portrait on the wall. It said nothing, but it was always there, watching each round of criticism and self-criticism.\n\nNotes｜[1] See note above."
+      learnMoreZh:"机关、学校和公社的会议室、办公室等集体空间普遍悬挂毛泽东画像，通常置于正面或视觉中心，与语录牌、标语共同构成会议室的固定陈设。\n\n“早请示、晚汇报”仪式就是面对这类画像进行：开工前“请示”，收工前“汇报”，集体诵读语录并报告思想，把领袖像从墙面陈设变成日常政治行为的对象。1966年至1971年间这一仪式在多地流行，1971年九一三事件后逐渐衰落。\n\n蕙兰在这间会议室里，抬头就能看到墙上的画像。画像不会说话，却始终“在场”，看着每一轮批判和检讨。\n\n脚注｜“早请示、晚汇报”的仪式内容和流行时段可参见中文维基百科相应词条：https://zh.wikipedia.org/wiki/%E6%97%A9%E8%AF%B7%E7%A4%BA%E3%80%81%E6%99%9A%E6%B1%87%E6%8A%A5",
+      learnMoreEn:"Portraits of Mao Zedong were commonly displayed in the meeting rooms and offices of government offices, schools, and communes, usually placed on the front wall or at the visual center, forming a fixed part of the room's furnishings alongside quotation boards and slogans. The “morning request, evening report” ritual was performed facing such a portrait: people “requested instructions” before work and “reported back” before leaving, reciting quotations and reporting their thinking. The practice spread widely between 1966 and 1971 before falling out of use.\n\nIn this meeting room, Huilan only had to look up to see the portrait on the wall. It said nothing, but it was always there, watching each round of criticism and self-criticism.\n\nNotes｜For the ritual and its period of popularity, see the Chinese Wikipedia entry on “morning request, evening report”: https://zh.wikipedia.org/wiki/%E6%97%A9%E8%AF%B7%E7%A4%BA%E3%80%81%E6%99%9A%E6%B1%87%E6%8A%A5"
     },
     {
       id:"ch04-inner-thoughts", xPx:420, yPx:640,
       variant:"text-group",
       zh:"心里的念头", en:"Thoughts Kept Inside",
-      note:"她没有说出口的心里话。",
+      note:"沈蕙兰在上山下乡生活中没有说出口的心里话。",
       noteEn:"The thoughts she does not say aloud.",
-      learnMoreZh:"原文｜爹的信上個月沒來。\n我的手指又泡白了。\n我記得，小時候——\n我聽說，有人家裡……\n我今年二十六歲。\n我讀過五年大學！！\n娘上封信說家裡都好，「都好」兩個字写得很重。\n我記得《詩經》裡有一句——\n惠國今年要高中畢業了，我們不知道他會被分到哪。\n不明白。\n我不知道這樣的年頭还有幾個。\n\n繁简夹写｜这段文字以繁体为主，其中“写”“还”两字保留简体写法，是有意为之，并非笔误：沈蕙兰生于1944年，识字与最初的书写习惯成形于1956年《汉字简化方案》公布之前；简化字自1956年2月起分批推行，1964年《简化字总表》完成修订，整个过程持续近十年。一个在这段变革之前学会写字、之后又长期在简化字环境中生活书写的人，笔下出现繁简混用，符合这代人的真实书写经验。\n\n《诗经》在文革中的处境｜《诗经》属于旧文学传统，与其他古典典籍一样，在“破四旧”氛围中容易被视为需要批判或搁置的对象；具体篇目和处境因地区、单位和个人而异。",
-      learnMoreEn:"Original text (translated)｜Father’s letter didn’t come last month.\nMy fingers have gone soft and white again.\nI remember, when I was young——\nI heard, someone’s family……\nI am twenty-six this year.\nI studied five years at university!!\nMother’s last letter said everything at home was fine — the words “all fine” were written heavy on the page.\nI remember a line from the Book of Songs——\nHuiguo graduates high school this year; we don’t know where he’ll be assigned.\nI don’t understand.\nI don’t know how many more years like this there will be.\n\nMixed traditional and simplified characters｜This text is written mostly in traditional characters, but two characters — “写” (write) and “还” (still) — appear in their simplified forms. This is intentional, not an error. Shen Huilan was born in 1944, and her literacy and early handwriting habits formed before the 1956 Chinese Character Simplification Scheme was issued. Simplified characters were introduced in stages starting February 1956, with the revised Complete List of Simplified Characters finalized in 1964 — a transition that unfolded over nearly a decade. For someone who learned to write before that shift and then lived and wrote for years under simplified characters, a mix of both forms reflects the lived experience of her generation.\n\nThe Book of Songs during the Cultural Revolution｜As part of the old literary tradition, the Book of Songs, like other classical texts, could be treated as something requiring criticism or setting aside amid the “Destroy the Four Olds” climate; specific circumstances varied by place, work unit, and individual.",
+      learnMoreZh:"原文｜爹的信上個月沒來。\n我的手指又泡白了。\n我記得，小時候——\n我聽說，有人家裡……\n我今年二十六歲。\n我讀過五年大學！！\n娘上封信說家裡都好，「都好」兩個字写得很重。\n我記得《詩經》裡有一句——\n惠國今年要高中畢業了，我們不知道他會被分到哪。\n不明白。\n我不知道這樣的年頭还有幾個。\n\n脚注｜繁简夹写：这段文字以繁体为主，其中“写”“还”两字保留简体写法，是有意为之，并非笔误。沈蕙兰生于1944年，识字与最初的书写习惯成形于1956年《汉字简化方案》公布之前；简化字自1956年2月起分批推行，1964年《简化字总表》完成修订。一个在这段变革之前学会写字、之后又长期在简化字环境中生活书写的人，笔下出现繁简混用，符合这代人的真实书写经验。\n\n脚注｜《诗经》在文革中的处境：《诗经》属于旧文学传统，与其他古典典籍一样，在“破四旧”氛围中容易被视为需要批判或搁置的对象；具体篇目和处境因地区、单位和个人而异。",
+      learnMoreEn:"Original text (translated)｜Father’s letter didn’t come last month.\nMy fingers have gone soft and white again.\nI remember, when I was young——\nI heard, someone’s family……\nI am twenty-six this year.\nI studied five years at university!!\nMother’s last letter said everything at home was fine — the words “all fine” were written heavy on the page.\nI remember a line from the Book of Songs——\nHuiguo graduates high school this year; we don’t know where he’ll be assigned.\nI don’t understand.\nI don’t know how many more years like this there will be.\n\nNotes｜Mixed traditional and simplified characters: this text is written mostly in traditional characters, but two characters — “写” (write) and “还” (still) — appear in their simplified forms. This is intentional, not an error. Shen Huilan was born in 1944, and her literacy and early handwriting habits formed before the 1956 Chinese Character Simplification Scheme was issued. Simplified characters were introduced in stages starting February 1956, with the revised Complete List of Simplified Characters finalized in 1964. For someone who learned to write before that shift and then lived and wrote for years under simplified characters, a mix of both forms reflects the lived experience of her generation.\n\nNotes｜The Book of Songs during the Cultural Revolution: as part of the old literary tradition, the Book of Songs, like other classical texts, could be treated as something requiring criticism or setting aside amid the “Destroy the Four Olds” climate; specific circumstances varied by place, work unit, and individual.",
       hideChapterContext:true
     },
     {
       id:"ch04-struggle-session-speech", xPx:1280, yPx:640,
       variant:"text-group",
       zh:"批判会发言", en:"Speech at the Struggle Session",
-      note:"她在批判会上实际说出口的发言。",
+      note:"沈蕙兰在上山下乡的公社里，例行批判会自我批判时候的发言。",
       noteEn:"What she actually says aloud at the struggle session.",
-      learnMoreZh:"原文｜思想改造是长期的任务。\n灵魂深处爆发革命，狠斗“私”字一闪念。\n知识分子必须与工农相结合。\n个人服从组织，局部服从整体。\n广阔天地，大有作为。\n接受贫下中再教育是光荣的。\n\n用语来源｜这些说法都是文革及上山下乡时期的常见政治用语，不指向某一次具体讲话。“贫下中”是当时口语和文书中常见的简写，指“贫下中农”，此处保留原有简写。",
-      learnMoreEn:"Original text (translated)｜Ideological remolding is a long-term task.\nRevolution must erupt in the depths of the soul — fight fiercely against every flicker of the word “self.”\nIntellectuals must integrate with workers and peasants.\nThe individual obeys the organization; the part obeys the whole.\nA vast world offers great opportunity.\nAccepting re-education from the poor and lower-middle peasants is an honor.\n\nSource of the language｜These phrases were common political language during the Cultural Revolution and the Up to the Mountains movement, not quotations from one specific speech. In the Chinese text, “贫下中” is a period-typical shorthand for “贫下中农” (poor and lower-middle peasants), preserved here as originally abbreviated; the English gives the full term.",
+      learnMoreZh:"原文｜思想改造是长期的任务。\n灵魂深处爆发革命，狠斗“私”字一闪念。\n知识分子必须与工农相结合。\n个人服从组织，局部服从整体。\n广阔天地，大有作为。\n接受贫下中农再教育是光荣的。\n\n脚注｜用语来源：这些说法都是文革及上山下乡时期的常见政治用语，不指向某一次具体讲话。",
+      learnMoreEn:"Original text (translated)｜Ideological remolding is a long-term task.\nRevolution must erupt in the depths of the soul — fight fiercely against every flicker of the word “self.”\nIntellectuals must integrate with workers and peasants.\nThe individual obeys the organization; the part obeys the whole.\nA vast world offers great opportunity.\nAccepting re-education from the poor and lower-middle peasants is an honor.\n\nNotes｜Source of the language: these phrases were common political language during the Cultural Revolution and the Up to the Mountains movement, not quotations from one specific speech.",
       hideChapterContext:true
     }
   ],
@@ -2826,6 +2830,7 @@ function setTimeline(scene) {
 
 function hasChapterSidebar(target) {
   if (target === "start" || target === "epilogue" || typeof target === "string") return true;
+  if (target === CHAPTER_6_INDEX && phase === "text") return false;
   return CONTEXTS[target]?.sidebar !== false;
 }
 

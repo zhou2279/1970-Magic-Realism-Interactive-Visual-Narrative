@@ -554,7 +554,7 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 .timeline-arrow:disabled { opacity:.2; cursor:default; }
 
 .context-toggle {
-  position:absolute; z-index:125; right:calc((100% - 100vw) / 2 - 2.03rem); top:50%; transform:translateY(-50%) rotate(-90deg);
+  position:absolute; z-index:125; right:calc((100% - 100vw) / 2 - 3.125rem); top:50%; transform:translateY(-50%) rotate(-90deg);
   min-width:8.2rem; padding:.55rem .9rem; border:1px solid rgba(255,255,255,.3); border-radius:999px 999px 0 0;
   background:rgba(22,22,22,.58); color:rgba(255,255,255,.78); cursor:pointer;
   backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);

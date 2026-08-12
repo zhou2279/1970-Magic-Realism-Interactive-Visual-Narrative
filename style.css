@@ -551,7 +551,7 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 .context-toggle:hover,.context-toggle:focus-visible { color:#fff; border-color:rgba(255,255,255,.7); outline:none; }
 .context-toggle.is-unavailable { opacity:0; visibility:hidden; pointer-events:none; }
 .context-panel {
-  position:absolute; z-index:130; top:0; right:0; max-height:100%; width:min(36vw,29rem); padding:2.4rem 2rem 2rem;
+  position:absolute; z-index:130; top:0; right:0; bottom:0; height:100%; width:min(36vw,29rem); padding:2.4rem 2rem 2rem;
   background:rgba(18,18,18,.57); border-left:1px solid rgba(255,255,255,.2);
   backdrop-filter:blur(24px) saturate(.72); -webkit-backdrop-filter:blur(24px) saturate(.72);
   transform:translateX(102%); opacity:0; visibility:hidden;
@@ -1223,7 +1223,7 @@ html.is-small-device .rotate-overlay.is-visible { display:flex; pointer-events:a
   .timeline-year { top:.02rem; font-size:.5rem; }
   .timeline-title { top:1.82rem; }
   .timeline-arrow { margin-top:.3rem; }
-  .context-panel { max-height:100%; width:min(68vw,25rem); padding:1.7rem 1.5rem; }
+  .context-panel { bottom:0; height:100%; width:min(68vw,25rem); padding:1.7rem 1.5rem; }
   .context-collapse { right:min(68vw,25rem); }
   .start-text { width:min(72vw,44rem); padding-bottom:3.3rem; }
   .start-paragraph { margin-bottom:.58rem; }

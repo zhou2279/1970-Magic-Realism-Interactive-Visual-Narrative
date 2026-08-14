@@ -669,7 +669,7 @@ html:not(.is-kiosk-mode) body.is-fullscreen .context-toggle {
 .context-content .context-title-en { font:calc(.92rem * var(--content-font-scale))/1.4 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.68); margin-bottom:1rem; }
 .context-panel[data-language="en"] .context-content .context-title-en {
   font:500 calc(1.35rem * var(--content-font-scale))/1.35 "Work Sans","Helvetica Neue",Arial,sans-serif;
-  letter-spacing:.015em; color:rgba(255,255,255,.92);
+  letter-spacing:.015em; color:rgba(255,255,255,.92); margin-bottom:.35rem;
 }
 .context-content .context-lead-note { color:rgba(255,255,255,.66); margin-bottom:1rem; }
 .context-lead-note-source { color:rgba(255,255,255,.55); font-size:.85em; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.4); }
@@ -744,6 +744,9 @@ html[data-main-language="en"] .context-section summary > [data-context-chinese] 
 .context-gallery-intro.is-ubiquity strong { display:block; margin-bottom:.22rem; color:rgba(255,255,255,.96); font-weight:600; letter-spacing:.035em; }
 .context-reference { margin:1rem 0; }
 .context-reference-media { position:relative; }
+.context-reference-media.is-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.45rem; }
+.context-reference-media-item { position:relative; min-width:0; }
+.context-reference-media.is-pair img { height:15rem; object-fit:cover; object-position:top center; }
 .context-reference img { display:block; width:100%; max-height:16rem; object-fit:cover; border-radius:.55rem; border:1px solid rgba(255,255,255,.16); }
 .context-reference.is-contain img { height:16rem; object-fit:contain; background:rgba(255,255,255,.035); }
 .context-reference figcaption { margin-top:.5rem; font-size:var(--content-font-size-caption); line-height:1.5; color:rgba(255,255,255,.68); }
@@ -1109,16 +1112,6 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
 }
 .hotspot::after { content:""; position:absolute; inset:-.42rem; border-radius:50%; }
 .hotspot:hover,.hotspot:focus-visible { background:#fff; outline:none; animation-play-state:paused; }
-.hotspot--ch01-china-soviet-friendship {
-  width:1.55rem; height:1.55rem; border-color:transparent; background:transparent; box-shadow:none; animation:none;
-}
-.hotspot--ch01-china-soviet-friendship::before {
-  content:""; position:absolute; inset:.365rem; border:1px solid rgba(255,255,255,.9); border-radius:50%;
-  background:rgba(255,255,255,.5); box-shadow:0 0 0 0 rgba(255,255,255,.45); animation:hotspot-breathe 2.4s ease-out infinite;
-}
-.hotspot--ch01-china-soviet-friendship::after { inset:-.58rem; }
-.hotspot--ch01-china-soviet-friendship:hover,.hotspot--ch01-china-soviet-friendship:focus-visible { background:transparent; }
-.hotspot--ch01-china-soviet-friendship:hover::before,.hotspot--ch01-china-soviet-friendship:focus-visible::before { background:#fff; animation-play-state:paused; }
 .hotspot--text-group {
   border:1.5px solid rgba(255,255,255,1);
   background:rgba(255,255,255,.5);
@@ -1426,8 +1419,7 @@ html[data-motion="reduced"] *::after {
 }
 
 /* Hotspots remain discoverable in Reduced mode; only their small opacity/ring cue loops. */
-html[data-motion="reduced"] .hotspot,
-html[data-motion="reduced"] .hotspot--ch01-china-soviet-friendship::before {
+html[data-motion="reduced"] .hotspot {
   animation-duration:2.4s !important;
   animation-iteration-count:infinite !important;
 }

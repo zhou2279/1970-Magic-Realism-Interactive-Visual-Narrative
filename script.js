@@ -129,19 +129,20 @@ const MOTION_SETTINGS = {
   narrativeText: {
     scrollDuration:1050,
     easing:"easeInOutCubic",
-    neighborOpacity:.22,
-    unfocusedScale:.88,
+    neighborOpacity:.38,
+    unfocusedScale:.91,
     focusedScale:1,
-    blurPerStepRem:.08,
+    blurPerStepRem:.04,
     maxBlurRem:.3,
-    zhBaseOpacity:.48,
-    zhFocusGain:.52,
-    enBaseOpacity:.3,
-    enFocusGain:.5,
+    zhBaseOpacity:.68,
+    zhFocusGain:.32,
+    enBaseOpacity:.5,
+    enFocusGain:.3,
     activeThreshold:.02,
     neighborRange:1.02,
     wheelThreshold:12,
-    wheelThrottle:800
+    wheelThrottle:800,
+    idleHintDelay:4000
   },
 
   // 先导文后段：底图从黑暗中逐步显露的程度
@@ -2536,7 +2537,12 @@ function renderChapterText() {
     <div class="poem-step" data-step="${index}">
       <div class="step-zh">${convertZh(renderRichText(step.zh, step.refs, "zh"))}</div>
       <div class="step-en">${renderRichText(step.en, step.refs, "en")}</div>
-    </div>`).join("")}</div>`;
+    </div>`).join("")}</div>
+    <div class="narrative-gesture-hint" aria-hidden="true">
+      <span class="narrative-hint-zh">滚动或上滑继续</span>
+      <span class="narrative-hint-hant">滾動或上滑繼續</span>
+      <span class="narrative-hint-en">Scroll or swipe up to continue</span>
+    </div>`;
   visualStep = stepIndex;
   measureLineLayout();
   updateTextState();
@@ -2549,6 +2555,26 @@ function renderChapterText() {
       }
     });
   }
+}
+
+let narrativeHintTimer = 0;
+
+function dismissNarrativeGestureHint() {
+  clearTimeout(narrativeHintTimer);
+  narrativeHintTimer = 0;
+  const hint = narrative.querySelector(".narrative-gesture-hint");
+  hint?.classList.remove("is-visible");
+  hint?.setAttribute("aria-hidden", "true");
+}
+
+function scheduleNarrativeGestureHint() {
+  dismissNarrativeGestureHint();
+  narrativeHintTimer = window.setTimeout(() => {
+    if (startActive || epilogueActive || busy || phase !== "text") return;
+    const hint = narrative.querySelector(".narrative-gesture-hint");
+    hint?.classList.add("is-visible");
+    hint?.setAttribute("aria-hidden", "false");
+  }, MOTION_SETTINGS.narrativeText.idleHintDelay);
 }
 
 function updateTextState() {
@@ -2983,9 +3009,11 @@ async function enterChapter(index, initialStep = 0) {
   updateNav();
   await delay(MOTION_SETTINGS.chapterReveal.chapterEntryDelay);
   busy = false;
+  scheduleNarrativeGestureHint();
 }
 
 async function showImage() {
+  dismissNarrativeGestureHint();
   busy = true;
   phase = "image";
   const chapter = CHAPTERS[chapterIndex];
@@ -3092,10 +3120,12 @@ async function showTextFromImage() {
   updateNav();
   await delay(MOTION_SETTINGS.chapterReveal.imageToTextDelay);
   busy = false;
+  scheduleNarrativeGestureHint();
 }
 
 function goForward() {
   if (busy) return;
+  dismissNarrativeGestureHint();
   const chapter = CHAPTERS[chapterIndex];
   if (phase === "text") {
     if (stepIndex < chapter.steps.length - 1) stepIndex += 1;
@@ -3108,6 +3138,7 @@ function goForward() {
 
 function goBackward() {
   if (busy) return;
+  dismissNarrativeGestureHint();
   if (phase === "image") showTextFromImage();
   else if (stepIndex > 0) {
     stepIndex -= 1;
@@ -3119,6 +3150,7 @@ function goBackward() {
 
 function goForwardDirect() {
   if (busy) return;
+  dismissNarrativeGestureHint();
   if (epilogueActive) return;
   const chapter = CHAPTERS[chapterIndex];
   if (phase === "text") showImage();
@@ -3129,6 +3161,7 @@ function goForwardDirect() {
 
 function goBackwardDirect() {
   if (busy) return;
+  dismissNarrativeGestureHint();
   if (epilogueActive) {
     const finalChapter = CHAPTERS.length - 1;
     hideEpilogue();
@@ -6340,6 +6373,9 @@ narrative.addEventListener("pointerup", handleNarrativePointerUp);
 narrative.addEventListener("pointercancel", cancelNarrativePointer);
 startScreen.addEventListener("pointermove", scatterIntroParticles);
 startScreen.addEventListener("pointerleave", () => { introParticlePointer.active = false; });
+startScreen.addEventListener("click", event => {
+  if (!event.target.closest("button, .term-ref") && startActive) advanceStart();
+});
 epilogueScreen.addEventListener("pointermove", scatterIntroParticles);
 epilogueScreen.addEventListener("pointerleave", () => { introParticlePointer.active = false; });
 if (window.ResizeObserver) {

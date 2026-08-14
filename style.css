@@ -252,6 +252,10 @@ html[data-content-font-size="large"] .epilogue-screen.is-safety-condensed .epilo
 }
 .fullscreen-invitation-zh,.fullscreen-invitation-hant { font-size:.61rem; line-height:1.35; letter-spacing:.09em; }
 .fullscreen-invitation-en { font:500 .61rem/1.35 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.035em; }
+.start-continue-hint {
+  display:flex; align-items:baseline; justify-content:center; gap:.65rem;
+  margin-top:.38rem; color:rgba(255,255,255,.72); white-space:nowrap;
+}
 
 .desktop-invitation {
   display:none; position:absolute; z-index:4; left:50%; bottom:8.5rem; width:min(88%,32rem);
@@ -506,6 +510,25 @@ html[data-sound="on"] #sound-toggle .motion-switch::after { transform:translateX
   position:absolute; inset:0; z-index:12; display:flex; align-items:center; justify-content:center;
   padding:7vh 10vw 8rem; opacity:0; transition:opacity 1.25s ease; pointer-events:none;
 }
+.narrative-gesture-hint {
+  position:absolute; left:50%; bottom:6.35rem; z-index:2;
+  display:flex; align-items:center; gap:.45rem;
+  color:rgba(255,255,255,.72); opacity:0;
+  transform:translate(-50%,.35rem); transition:opacity .45s ease,transform .45s ease;
+  pointer-events:none; white-space:nowrap;
+  font:500 .66rem/1.4 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif;
+}
+.narrative-gesture-hint::before { content:"↑"; font-size:.9rem; }
+.narrative-gesture-hint.is-visible { opacity:1; transform:translate(-50%,0); }
+.narrative-hint-zh,.narrative-hint-hant { letter-spacing:.08em; }
+.narrative-hint-en { letter-spacing:.035em; }
+html[data-main-language="zh-hans"] .narrative-hint-hant,
+html[data-main-language="zh-hans"] .narrative-hint-en,
+html[data-main-language="zh-hant"] .narrative-hint-zh,
+html[data-main-language="zh-hant"] .narrative-hint-en,
+html[data-main-language="en"] .narrative-hint-zh,
+html[data-main-language="en"] .narrative-hint-hant { display:none; }
+body.is-light-narrative .narrative-gesture-hint { color:rgba(0,0,0,.66); }
 .narrative.is-visible { opacity:1; }
 .app.is-text-mode .narrative.is-visible { pointer-events:auto; touch-action:none; user-select:none; -webkit-user-select:none; }
 .app.is-image-mode .narrative { opacity:0; }
@@ -518,12 +541,12 @@ html[data-sound="on"] #sound-toggle .motion-switch::after { transform:translateX
   transform:translateY(calc(-50% + var(--step-offset))) scale(.88);
   transition:none; will-change:transform,opacity,filter;
 }
-.poem .poem-step.is-neighbor { opacity:.24; filter:blur(.08rem); }
+.poem .poem-step.is-neighbor { opacity:.38; filter:blur(.04rem); }
 .poem .poem-step.is-active { opacity:1; filter:blur(0); transform:translateY(-50%) scale(1); }
 .step-zh { font-size:calc(1.25rem * var(--content-font-scale)); line-height:1.55; letter-spacing:.07em; font-weight:400; color:#fff; }
 .step-en { margin-top:.32rem; font:var(--content-font-size-en)/1.46 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.76); letter-spacing:.01em; }
-.poem .is-neighbor .step-zh { color:rgba(255,255,255,.58); }
-.poem .is-neighbor .step-en { color:rgba(255,255,255,.36); }
+.poem .is-neighbor .step-zh { color:rgba(255,255,255,.68); }
+.poem .is-neighbor .step-en { color:rgba(255,255,255,.5); }
 .step-zh,.step-en { transition:none; }
 .term-ref {
   display:inline; margin-left:.12em; padding:0; border:0; background:none; color:inherit; cursor:pointer;

@@ -900,6 +900,18 @@ const HOTSPOTS = [
           metaEn:"1968 · designed by the Preparatory Committee for the “Long Live the Red Guards” meeting · publisher unknown",
           credit:"PC-1968-009 · Chineseposters.net · Private collection",
           href:"https://chineseposters.net/posters/pc-1968-009"
+        },
+        {
+          image:"assets/references/ch2-gallery/beat-the-whites-red-wedge.png",
+          zh:"《用红楔子击打白军！》（Klinom krasnym bey belykh!）",
+          en:"Beat the Whites with the Red Wedge (Klinom krasnym bey belykh!)",
+          metaZh:"1919-1920年｜埃尔·利西茨基（El Lissitzky）｜跨时空视觉致意，并非红卫兵宣传画",
+          metaEn:"1919-1920 · El Lissitzky · a transhistorical visual homage, not a Red Guard poster",
+          descriptionZh:"这幅俄国内战时期的布尔什维克宣传画以至上主义的抽象语言传达政治冲突：红色楔形代表红军，刺入象征反布尔什维克白军的白色圆形；斜向文字、尖锐几何形与红、白、黑三色把阅读方向变成一次进攻动作。第二章画面借鉴的是这种以极少形状制造冲击、对立和革命动势的构图方法，而不是它的具体历史事件。它与上方1960年代中国红卫兵宣传画并非同一时期、同一运动或同一类型的历史材料。",
+          descriptionEn:"This Russian Civil War Bolshevik poster turns Suprematist abstraction into political narrative: a red wedge representing the Red Army pierces a white circle associated with the anti-Bolshevik White forces. Diagonal lettering, sharp geometry, and a red-white-black palette make reading itself follow the direction of attack. Chapter 2 pays homage to this economy of form and its sense of collision and revolutionary momentum, not to the poster's specific historical event. It is not from the same period, movement, or category as the 1960s Chinese Red Guard posters above.",
+          credit:"来源：Wikimedia Commons · El Lissitzky, 1919 · Public domain",
+          href:"https://commons.wikimedia.org/wiki/File:Beat_the_Whites_with_the_Red_Wedge.png",
+          kind:"homage"
         }
       ],
     },
@@ -1635,10 +1647,10 @@ function renderLayeredReading(text, language = "zh") {
   }).join("");
 }
 
-// 所有"参考图片"手风琴里的图，不管是章节级的 gallery（比如第六章）还是某个 hotspot 自己的
+// 所有"视觉参考"手风琴里的图，不管是章节级的 gallery（比如第六章）还是某个 hotspot 自己的
 // gallery（比如第一章"沈蕙兰"三字的检字页、第二章红卫兵海报），都用同一种卡片渲染——跟单张
 // referenceItems/hotspotImage 视觉上完全一致，不再各自起一个"同类海报视觉语言"之类的小标题，
-// 全部平铺在"参考图片"这一个标题下面。
+// 全部平铺在"视觉参考"这一个标题下面。
 function renderGalleryFigures(items = []) {
   return items.map(item => {
     const captionZh = [item.zh, item.metaZh].filter(Boolean).join(" · ");
@@ -1649,9 +1661,16 @@ function renderGalleryFigures(items = []) {
           ? `<small><a class="context-reference-credit" href="${item.href}" target="_blank" rel="noopener noreferrer">${item.credit}</a></small>`
           : `<small>${item.credit}</small>`)
       : "";
+    const descriptionHtml = item.descriptionZh || item.descriptionEn
+      ? `<p class="context-reference-description context-body-zh">${item.descriptionZh || ""}</p><p class="context-reference-description context-en context-body-en">${item.descriptionEn || ""}</p>`
+      : "";
+    const figureClass = item.kind === "homage" ? "context-reference is-homage" : "context-reference";
+    const homageLabel = item.kind === "homage"
+      ? `<p class="context-reference-kind"><span class="context-body-zh">跨时空视觉致意</span><span class="context-en context-body-en">Transhistorical homage</span></p>`
+      : "";
     const zoomCaptionZh = escapeHTML([captionZh, item.credit].filter(Boolean).join(" · "));
     const zoomCaptionEn = escapeHTML([captionEn, item.credit].filter(Boolean).join(" · "));
-    return `<figure class="context-reference"><img src="${item.image}" alt="${escapeHTML(altText)}" loading="lazy"><button class="context-reference-zoom" type="button" data-zoom-src="${item.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button><figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${sourceHtml}</figcaption></figure>`;
+    return `<figure class="${figureClass}">${homageLabel}<img src="${item.image}" alt="${escapeHTML(altText)}" loading="lazy"><button class="context-reference-zoom" type="button" data-zoom-src="${item.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button><figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${descriptionHtml}${sourceHtml}</figcaption></figure>`;
   }).join("");
 }
 
@@ -3330,7 +3349,7 @@ function renderContext(target, hotspot = null) {
       ${hotspot.learnMoreEn ? `<div class="context-en hotspot-reading-en context-body-en">${renderLayeredReading(hotspot.learnMoreEn, "en")}</div>` : ""}
     </div>` : "";
   // 所有 gallery（章节级的，比如第六章；或某个 hotspot 自己的，比如第一章检字页、第二章
-  // 红卫兵海报）统一摊平成跟单张参考图一样的卡片，不再各起一个子标题，全部并入"参考图片"。
+  // 红卫兵海报）统一摊平成跟单张参考图一样的卡片，不再各起一个子标题，全部并入"视觉参考"。
   const hotspotGalleryIntro = hotspot ? renderGalleryIntro(hotspot) : "";
   const hotspotGallery = hotspot?.gallery?.length ? renderGalleryFigures(hotspot.gallery) : "";
   const contextGalleryIntro = !hotspot ? renderGalleryIntro(context) : "";
@@ -3339,13 +3358,13 @@ function renderContext(target, hotspot = null) {
   // 章节级的"参考图片"（context.references）和脚注列表（context.sources）只属于默认场景侧栏，
   // 不该跟着漏进某个具体 hotspot 的侧栏里——点开一个具体的点，就只该看到这个点自己的图片/来源，
   // 不该把整章的背景音乐脚注、整章的参考图片一起搭进来。
-  // 有图片内容（hotspotReferences / referenceItems）才叫"参考图片"；如果这一章只有文字脚注
+  // 有图片内容（hotspotReferences / referenceItems）才叫"视觉参考"；如果这一章只有文字脚注
   // （context.sources），标题要换成"参考资料"，不能挂着"参考图片"的名字却什么图都没有。
   // 两者都没有时，整个手风琴直接不渲染，不留一个空标题。
   const hasImageReferences = Boolean(hotspot ? hotspotReferences : (hotspotReferences || referenceItems || contextGallery));
   const hasTextSources = Boolean(!hotspot && contextSources);
   const imagesAccordion = hasImageReferences ? `<details class="context-section" open>
-      <summary>${renderContextChineseLabel("参考图片")} <span class="context-en-label">References</span></summary>
+      <summary>${renderContextChineseLabel("视觉参考")} <span class="context-en-label">Visual Reference</span></summary>
       ${hotspot ? hotspotReferences : `${hotspotReferences}${referenceItems}${contextGalleryIntro}${contextGallery}`}
     </details>` : "";
   const sourcesAccordion = hasTextSources ? `<details class="context-section">

@@ -625,6 +625,10 @@ html:not(.is-kiosk-mode) body:not(.is-fullscreen) .context-toggle {
   right:0;
   transform:translateY(-50%) translateX(50%) rotate(-90deg) translateY(-50%);
 }
+html:not(.is-kiosk-mode) body.is-fullscreen .context-toggle {
+  right:0;
+  transform:translateY(-50%) translateX(50%) rotate(-90deg) translateY(-50%);
+}
 .context-toggle span + span { margin-left:.45rem; opacity:.62; }
 .context-toggle:hover,.context-toggle:focus-visible { color:#fff; border-color:rgba(255,255,255,.7); outline:none; }
 .context-toggle.is-unavailable { opacity:0; visibility:hidden; pointer-events:none; }
@@ -656,12 +660,17 @@ html:not(.is-kiosk-mode) body:not(.is-fullscreen) .context-toggle {
 .context-panel[data-language="zh-hans"] .context-body-en,.context-panel[data-language="zh-hans"] .context-body-hant,
 .context-panel[data-language="zh-hant"] .context-body-en,.context-panel[data-language="zh-hant"] .context-body-zh,
 .context-panel[data-language="en"] .context-body-zh,.context-panel[data-language="en"] .context-body-hant { display:none !important; }
+.context-panel[data-language="en"] [data-context-chinese] { display:none !important; }
 .context-panel[data-language="zh-hant"] .context-body-hant { display:block; }
 .context-panel[data-language="en"] .context-title-zh,
 .context-panel[data-language="zh-hans"] .context-title-en,
 .context-panel[data-language="zh-hant"] .context-title-en { display:none !important; }
 .context-content h2 { font-size:calc(1.35rem * var(--content-font-scale)); line-height:1.35; font-weight:400; letter-spacing:.05em; margin-bottom:.35rem; }
 .context-content .context-title-en { font:calc(.92rem * var(--content-font-scale))/1.4 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.68); margin-bottom:1rem; }
+.context-panel[data-language="en"] .context-content .context-title-en {
+  font:500 calc(1.35rem * var(--content-font-scale))/1.35 "Work Sans","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.015em; color:rgba(255,255,255,.92);
+}
 .context-content .context-lead-note { color:rgba(255,255,255,.66); margin-bottom:1rem; }
 .context-lead-note-source { color:rgba(255,255,255,.55); font-size:.85em; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.4); }
 .context-lead-note-source:hover,.context-lead-note-source:focus-visible { color:#fff; }
@@ -690,6 +699,10 @@ html:not(.is-kiosk-mode) body:not(.is-fullscreen) .context-toggle {
 .context-term-item-label { display:block; font-size:var(--content-font-size-zh); line-height:1.5; color:rgba(255,255,255,.86); }
 .context-term-item-number { display:inline-block; margin-right:.5em; font:calc(.82rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.5); }
 .context-term-item-en { display:block; margin-top:.15rem; font:calc(.82rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.55); }
+.context-panel[data-language="en"] .context-term-item-en {
+  margin-top:0; font:500 var(--content-font-size-ui)/1.45 "Work Sans","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.02em; color:rgba(255,255,255,.88);
+}
 .context-term-item-body { padding:0 .85rem .8rem; }
 .context-term-item-body p { margin:0; font-size:calc(.86rem * var(--content-font-scale)); line-height:1.7; }
 .context-term-item-body .context-body-zh { color:rgba(255,255,255,.8); }
@@ -702,6 +715,10 @@ html:not(.is-kiosk-mode) body:not(.is-fullscreen) .context-toggle {
 .epilogue-context-section:first-child { padding-top:0; border-top:0; }
 .epilogue-context-section h3 { margin:0 0 .7rem; font-size:var(--content-font-size-ui); line-height:1.4; font-weight:500; letter-spacing:.045em; color:rgba(255,255,255,.9); }
 .epilogue-context-section h3 small { display:block; margin-top:.16rem; font:italic calc(.68rem * var(--content-font-scale))/1.35 "Newsreader","Times New Roman",Georgia,serif; letter-spacing:0; color:rgba(255,255,255,.48); }
+.context-panel[data-language="en"] .epilogue-context-section h3 small {
+  margin-top:0; font:500 var(--content-font-size-ui)/1.4 "Work Sans","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.02em; color:rgba(255,255,255,.9);
+}
 .epilogue-context-sources { margin:.9rem 0 0; padding-left:1.1rem; }
 .epilogue-context-sources li { margin:.55rem 0; font-size:calc(.68rem * var(--content-font-scale)); line-height:1.5; color:rgba(255,255,255,.52); }
 .epilogue-context-sources a { color:rgba(255,255,255,.7); text-underline-offset:.18em; }
@@ -714,6 +731,10 @@ html:not(.is-kiosk-mode) body:not(.is-fullscreen) .context-toggle {
 .context-section summary span { display:block; margin-top:.18rem; font:calc(.68rem * var(--content-font-scale))/1.3 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.45); }
 .context-section summary > [data-context-chinese] { display:inline; margin:0; font:inherit; color:inherit; }
 html[data-main-language="en"] .context-section summary > [data-context-chinese] { display:none; }
+.context-panel[data-language="en"] .context-section summary .context-en-label {
+  display:inline; margin:0; font:500 var(--content-font-size-ui-sm)/1.4 "Work Sans","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.035em; color:rgba(255,255,255,.9);
+}
 .context-section > p:first-of-type,.context-section > figure:first-of-type,.context-section > blockquote:first-of-type { margin-top:.55rem; }
 .context-gallery-intro { margin:0 0 .55rem; font-size:calc(.76rem * var(--content-font-scale)); line-height:1.7; color:rgba(255,255,255,.68); }
 .context-reference { margin:1rem 0; }
@@ -853,6 +874,11 @@ body.is-full-story-open #timeline {
 .reference-gallery { margin:1.4rem 0 1.65rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,.16); }
 .reference-gallery h3,.circulation-records h4 { margin:0 0 .75rem; font-size:var(--content-font-size-ui-sm); font-weight:500; line-height:1.4; letter-spacing:.05em; color:rgba(255,255,255,.92); }
 .reference-gallery h3 span,.circulation-records h4 span { display:block; margin-top:.18rem; font:italic calc(.68rem * var(--content-font-scale))/1.35 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.5); }
+.context-panel[data-language="en"] .reference-gallery h3 span,
+.context-panel[data-language="en"] .circulation-records h4 span {
+  margin-top:0; font:500 var(--content-font-size-ui-sm)/1.4 "Work Sans","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.025em; color:rgba(255,255,255,.9);
+}
 .reference-gallery h3 > [data-context-chinese],.circulation-records h4 > [data-context-chinese] { display:inline; margin:0; font:inherit; color:inherit; }
 .reference-gallery > p { margin-bottom:.55rem; font-size:calc(.76rem * var(--content-font-scale)); line-height:1.7; }
 .reference-gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.55rem; margin:1rem 0; }
@@ -1149,9 +1175,15 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
 }
 .hotspot-tooltip.is-visible { opacity:1; }
 .hotspot-tooltip strong { display:block; font-size:calc(.87rem * var(--content-font-scale)); font-weight:500; margin-bottom:.18rem; }
-.hotspot-tooltip .tooltip-translation { font:calc(.74rem * var(--content-font-scale))/1.4 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.68); }
+.hotspot-tooltip .tooltip-translation {
+  font:500 calc(.86rem * var(--content-font-scale))/1.4 "Work Sans","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.015em; color:rgba(255,255,255,.92);
+}
 .hotspot-tooltip p { margin-top:.48rem; font-size:var(--content-font-size-caption); line-height:1.55; color:rgba(255,255,255,.7); }
-.hotspot-tooltip .tooltip-note-en { margin-top:.26rem; font:italic calc(.65rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.5); }
+.hotspot-tooltip .tooltip-note-en {
+  margin-top:.38rem; font:normal calc(.74rem * var(--content-font-scale))/1.55 "Newsreader","Times New Roman",Georgia,serif;
+  color:rgba(255,255,255,.78);
+}
 .hotspot-tooltip .tooltip-more { color:#fff; font:600 .58rem/1.4 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 .hotspot-tooltip button.tooltip-more {
   display:block; width:100%; margin-top:.7rem; padding:.72rem .25rem .08rem; border:0;

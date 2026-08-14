@@ -3,8 +3,8 @@
 // 时间单位为 ms；比例通常使用 0–1；位置与遮罩使用百分比数值。
 // ============================================================
 const MOTION_SETTINGS = {
-  // 默认尊重系统「减少动态效果」；章节视频仍保留，因为它们承载叙事内容。
-  // 若展览设备必须统一播放完整动效，可将 forceFullMotion 改为 true。
+  // 首次观看默认开启完整动效；访客仍可用页面控制切换为 Reduced。
+  // 保留 system 状态兼容旧偏好，展览设备也可用 forceFullMotion 强制完整动效。
   motionPolicy: {
     forceFullMotion:false
   },

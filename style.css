@@ -6,6 +6,20 @@
   --content-font-size-ui:calc(.86rem * var(--content-font-scale));
   --content-font-size-ui-sm:calc(.82rem * var(--content-font-scale));
   --content-font-size-caption:calc(.7rem * var(--content-font-scale));
+  /* Optical pairs: CJK glyphs fill more of the em square than Newsreader's lowercase.
+     Keep one shared preference scale, but balance each reading surface by eye. */
+  --narrative-font-size-zh:calc(1.08rem * var(--content-font-scale));
+  --narrative-font-size-en:calc(1rem * var(--content-font-scale));
+  --memory-font-size-zh:calc(1.05rem * var(--content-font-scale));
+  --memory-font-size-en:calc(1rem * var(--content-font-scale));
+  --context-font-size-zh:calc(.88rem * var(--content-font-scale));
+  --context-font-size-en:calc(.88rem * var(--content-font-scale));
+  --context-caption-size-zh:calc(.76rem * var(--content-font-scale));
+  --context-caption-size-en:calc(.78rem * var(--content-font-scale));
+  --context-credit-size-zh:calc(.64rem * var(--content-font-scale));
+  --context-credit-size-en:calc(.66rem * var(--content-font-scale));
+  --context-title-size-zh:calc(1.3rem * var(--content-font-scale));
+  --context-title-size-en:calc(1.22rem * var(--content-font-scale));
 }
 html, body { width:100%; height:100%; overflow:hidden; }
 html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
@@ -555,8 +569,8 @@ body.is-light-narrative .narrative-gesture-hint { color:rgba(0,0,0,.66); }
 }
 .poem .poem-step.is-neighbor { opacity:.38; filter:blur(.04rem); }
 .poem .poem-step.is-active { opacity:1; filter:blur(0); transform:translateY(-50%) scale(1); }
-.step-zh { font-size:calc(1.25rem * var(--content-font-scale)); line-height:1.55; letter-spacing:.07em; font-weight:400; color:#fff; }
-.step-en { margin-top:.32rem; font:var(--content-font-size-en)/1.46 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.76); letter-spacing:.01em; }
+.step-zh { font-size:var(--narrative-font-size-zh); line-height:1.58; letter-spacing:.065em; font-weight:400; color:#fff; }
+.step-en { margin-top:.32rem; font:var(--narrative-font-size-en)/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.76); letter-spacing:.01em; }
 .poem .is-neighbor .step-zh { color:rgba(255,255,255,.68); }
 .poem .is-neighbor .step-en { color:rgba(255,255,255,.5); }
 .step-zh,.step-en { transition:none; }
@@ -665,18 +679,18 @@ html:not(.is-kiosk-mode) body.is-fullscreen .context-toggle {
 .context-panel[data-language="en"] .context-title-zh,
 .context-panel[data-language="zh-hans"] .context-title-en,
 .context-panel[data-language="zh-hant"] .context-title-en { display:none !important; }
-.context-content h2 { font-size:calc(1.35rem * var(--content-font-scale)); line-height:1.35; font-weight:400; letter-spacing:.05em; margin-bottom:.35rem; }
+.context-content h2 { font-size:var(--context-title-size-zh); line-height:1.38; font-weight:400; letter-spacing:.05em; margin-bottom:.35rem; }
 .context-content .context-title-en { font:calc(.92rem * var(--content-font-scale))/1.4 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.68); margin-bottom:1rem; }
 .context-panel[data-language="en"] .context-content .context-title-en {
-  font:500 calc(1.35rem * var(--content-font-scale))/1.35 "Work Sans","Helvetica Neue",Arial,sans-serif;
+  font:500 var(--context-title-size-en)/1.4 "Work Sans","Helvetica Neue",Arial,sans-serif;
   letter-spacing:.015em; color:rgba(255,255,255,.92); margin-bottom:.35rem;
 }
 .context-content .context-lead-note { color:rgba(255,255,255,.66); margin-bottom:1rem; }
 .context-lead-note-source { color:rgba(255,255,255,.55); font-size:.85em; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.4); }
 .context-lead-note-source:hover,.context-lead-note-source:focus-visible { color:#fff; }
-.context-content p { font-size:var(--content-font-size-ui); line-height:1.8; color:rgba(255,255,255,.75); margin-bottom:1rem; }
+.context-content p { font-size:var(--context-font-size-zh); line-height:1.82; color:rgba(255,255,255,.75); margin-bottom:1rem; }
 .context-content a { overflow-wrap:anywhere; word-break:break-word; }
-.context-content .context-en { font:normal calc(.96rem * var(--content-font-scale))/1.7 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.72); }
+.context-content .context-en { font:normal var(--context-font-size-en)/1.76 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.72); }
 .context-rule { width:2.5rem; border:0; border-top:1px solid rgba(255,255,255,.28); margin:1.5rem 0; }
 .context-material { font:600 .58rem/1 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif !important; letter-spacing:.15em; color:rgba(255,255,255,.42) !important; }
 /* 序言/先导文阶段的术语手风琴：默认全部展开（<details open>），点标题收起——留在同一页，
@@ -749,8 +763,22 @@ html[data-main-language="en"] .context-section summary > [data-context-chinese] 
 .context-reference-media.is-pair img { height:15rem; object-fit:cover; object-position:top center; }
 .context-reference img { display:block; width:100%; max-height:16rem; object-fit:cover; border-radius:.55rem; border:1px solid rgba(255,255,255,.16); }
 .context-reference.is-contain img { height:16rem; object-fit:contain; background:rgba(255,255,255,.035); }
-.context-reference figcaption { margin-top:.5rem; font-size:var(--content-font-size-caption); line-height:1.5; color:rgba(255,255,255,.68); }
-.context-reference figcaption small { display:block; margin-top:.25rem; color:rgba(255,255,255,.42); }
+.context-reference figcaption { margin-top:.5rem; line-height:1.55; color:rgba(255,255,255,.72); }
+.context-reference figcaption > .context-body-zh,
+.context-reference figcaption > .context-body-hant {
+  font-size:var(--context-caption-size-zh); line-height:1.55;
+}
+.context-reference figcaption > .context-body-en {
+  font:normal var(--context-caption-size-en)/1.55 "Newsreader","Times New Roman",Georgia,serif;
+}
+.context-reference figcaption small { display:block; margin-top:.32rem; color:rgba(255,255,255,.46); }
+.context-reference figcaption small .context-body-zh,
+.context-reference figcaption small .context-body-hant {
+  font-size:var(--context-credit-size-zh); line-height:1.5;
+}
+.context-reference figcaption small .context-body-en {
+  font:normal var(--context-credit-size-en)/1.5 "Newsreader","Times New Roman",Georgia,serif;
+}
 .context-reference-description { margin:.62rem 0 0; line-height:1.68; color:rgba(255,255,255,.68); }
 .context-reference.is-homage { margin-top:1.75rem; padding-top:1.1rem; border-top:1px solid rgba(255,255,255,.28); }
 .context-reference-kind { margin:0 0 .55rem; font-size:calc(.64rem * var(--content-font-scale)); letter-spacing:.08em; color:rgba(255,255,255,.5); }
@@ -772,9 +800,11 @@ html[data-main-language="en"] .context-section summary > [data-context-chinese] 
 
 .image-lightbox {
   position:fixed; inset:0; z-index:400; display:flex; align-items:center; justify-content:center;
-  padding:4vh 4vw; opacity:0; visibility:hidden; transition:opacity .25s ease;
+  padding:4vh 4vw; opacity:0; visibility:hidden; cursor:zoom-out; transition:opacity .25s ease;
 }
 .image-lightbox.is-open { opacity:1; visibility:visible; }
+body.is-image-lightbox-open,
+body.is-image-lightbox-open * { cursor:zoom-out !important; }
 .image-lightbox-backdrop {
   position:absolute; inset:0; border:0; margin:0; padding:0; cursor:zoom-out;
   background:rgba(0,0,0,.75); /* 周围背景 75% 黑色遮罩，点它关闭大图 */
@@ -872,6 +902,9 @@ body.is-full-story-open #timeline {
 .context-reading-section.is-personal { margin-top:1.15rem; padding-top:.9rem; border-top:1px dotted rgba(255,255,255,.28); font-style:italic; color:rgba(255,255,255,.57); }
 .context-reading-label { display:block; margin-bottom:.34rem; font:600 .58rem/1.25 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.88); }
 .hotspot-reading-en { margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.13); }
+/* The English body is the only visible body in English mode, so it starts where
+   the Chinese body starts instead of retaining the bilingual separator. */
+.context-panel[data-language="en"] .hotspot-reading-en { margin-top:0; padding-top:0; border-top:0; }
 .context-en .context-reading-section { font:normal calc(.9rem * var(--content-font-scale))/1.7 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.55); }
 .context-en .context-reading-section.is-personal { font-style:italic; color:rgba(255,255,255,.57); }
 .context-en .context-reading-label { font:600 .55rem/1.25 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; font-style:normal; color:rgba(255,255,255,.58); }
@@ -1070,12 +1103,12 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
   width:100%; max-width:none; margin:0; color:#fff; text-align:center; text-wrap:balance;
 }
 .memory-thought-zh {
-  font:400 calc(1.3rem * var(--content-font-scale))/1.7 "Noto Serif SC","Songti SC",serif;
+  font:400 var(--memory-font-size-zh)/1.68 "Noto Serif SC","Songti SC",serif;
   letter-spacing:.025em;
 }
 .memory-thought-en {
-  margin-top:.55rem;
-  font:calc(.88rem * var(--content-font-scale))/1.58 "Newsreader","Times New Roman",Georgia,serif;
+  margin-top:0;
+  font:var(--memory-font-size-en)/1.58 "Newsreader","Times New Roman",Georgia,serif;
   color:rgba(255,255,255,.76);
   letter-spacing:.01em;
 }
@@ -1374,8 +1407,8 @@ html.is-small-device .rotate-overlay.is-visible { display:flex; pointer-events:a
   .narrative { padding:2.4rem 7vw 4.2rem; }
   .poem { height:64vh; }
   .poem { --line-gap:1rem; }
-  .step-zh { font-size:calc(1.02rem * var(--content-font-scale)); }
-  .step-en { font-size:calc(.72rem * var(--content-font-scale)); }
+  .step-zh { font-size:calc(.94rem * var(--content-font-scale)); }
+  .step-en { font-size:calc(.84rem * var(--content-font-scale)); }
   .timeline { bottom:0; height:3.5rem; }
   .timeline-track,.timeline-track-inner,.timeline-stop { height:3.5rem; }
   .timeline-line { top:1.25rem; }

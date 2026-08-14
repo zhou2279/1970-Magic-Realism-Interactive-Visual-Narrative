@@ -877,11 +877,11 @@ const HOTSPOTS = [
       learnMoreZh:"红卫兵是文革初期由学生和青年组成的群众组织，1966年迅速扩张。他们以“破四旧”、批判所谓资产阶级和旧文化为名，参加抄家、游行、贴大字报、批斗教师和干部等行动；运动很快发展出派性冲突和暴力，后来由军队和各级革委会逐步接管秩序。\n\n这张《早已森严壁垒 更加众志成城》约制于1969年。红、黑、白的高对比便于快速印刷和远距离识读；举枪、持望远镜、举《毛泽东选集》和集体前进的姿态，把青年群众塑造成高度警惕、服从领袖著作、准备斗争的政治形象。",
       learnMoreEn:"The Red Guards were mass organizations made up largely of students and young people in the early Cultural Revolution, expanding rapidly in 1966. In the name of destroying the Four Olds and criticizing bourgeois or old culture, they took part in house searches, marches, big-character posters, and struggle sessions against teachers and officials. The movement soon developed factional conflict and violence, and order was gradually taken over by the army and revolutionary committees.\n\nThis poster, Already Heavily Fortified, Our Wills Unite Like a Fortress, dates to around 1969. The red-black-white contrast supports quick printing and legibility at a distance; rifles, binoculars, a raised Selected Works of Mao Zedong, and forward collective movement present young masses as vigilant, loyal to the leader’s writings, and ready for struggle.",
       image:"assets/references/ch2-gallery/1.jpg",
+      captionZh:"早已森严壁垒，更加众志成城",
+      captionEn:"Already Heavily Fortified, Our Wills Unite Like a Fortress",
       sourceZh:"《早已森严壁垒 更加众志成城》宣传画复制品 · C004186 · The Collector's Guild",
       sourceEn:"Reproduction of Already Heavily Fortified, Our Wills Unite Like a Fortress · C004186 · The Collector's Guild",
       sourceUrl:"https://www.germanmilitaria.com/OtherNations/photos/C004186.html",
-      galleryIntroZh:"以下海报用于辨认同时期常见的红、黑、白构图、集体人物、举书动作与政治口号，供比对参考，并非本画面所用海报的出处。",
-      galleryIntroEn:"These posters are visual references for the period's red-black-white palette, collective figures, raised books, and political slogans, shown for comparison only and not the source of the poster used in this scene.",
       gallery:[
         {
           image:"assets/references/ch2-gallery/e15-569.jpg",
@@ -1406,11 +1406,13 @@ function openImageLightbox(src, alt, captionZh, captionEn) {
   lightboxCaptionZh = captionZh || "";
   lightboxCaptionEn = captionEn || captionZh || "";
   updateImageLightboxCaption();
+  document.body.classList.add("is-image-lightbox-open");
   imageLightbox.classList.add("is-open");
   imageLightbox.setAttribute("aria-hidden", "false");
 }
 function closeImageLightbox() {
   if (!imageLightbox) return;
+  document.body.classList.remove("is-image-lightbox-open");
   imageLightbox.classList.remove("is-open");
   imageLightbox.setAttribute("aria-hidden", "true");
   if (imageLightboxImg) imageLightboxImg.src = "";
@@ -3337,7 +3339,7 @@ function renderContext(target, hotspot = null) {
     contextContent.innerHTML = `
       <h2 class="context-title-zh">${renderContextChineseLabel(term.zh)}</h2><p class="context-title-en">${term.en}</p>
       <p class="context-body-zh">${term.bodyZh}</p><p class="context-en context-body-en">${term.bodyEn}</p>
-      <hr class="context-rule"><p class="context-material">${renderContextChineseLabel("术语说明")}<span class="context-en-label">TERM NOTE</span> ${term.number}</p>`;
+      <p class="context-material">${renderContextChineseLabel("术语说明")}<span class="context-en-label">TERM NOTE</span> ${term.number}</p>`;
     buildTraditionalContextBodies();
     updateContextChineseLabels();
     return;
@@ -3435,13 +3437,23 @@ function renderContext(target, hotspot = null) {
     </ul>` : "";
   const hotspotSourceZh = hotspot?.sourceZh || hotspot?.source || "";
   const hotspotSourceEn = hotspot?.sourceEn || hotspot?.source || hotspotSourceZh;
+  const hotspotCaptionZh = hotspot?.captionZh || "";
+  const hotspotCaptionEn = hotspot?.captionEn || hotspotCaptionZh;
   const hotspotSourceHtml = hotspotSourceZh || hotspotSourceEn
     ? (hotspot.sourceUrl
         ? `<small><a class="context-reference-credit" href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer"><span class="context-body-zh">${hotspotSourceZh}</span><span class="context-en context-body-en">${hotspotSourceEn}</span></a></small>`
         : `<small><span class="context-body-zh">${hotspotSourceZh}</span><span class="context-en context-body-en">${hotspotSourceEn}</span></small>`)
     : "";
   const hotspotAlt = mainLanguage === "en" ? (hotspot?.en || hotspot?.zh || "Reference image") : (hotspot?.zh || hotspot?.en || "参考图片");
-  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspotAlt)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspotAlt)}" data-zoom-caption-zh="${escapeHTML(hotspotSourceZh)}" data-zoom-caption-en="${escapeHTML(hotspotSourceEn)}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspotSourceHtml ? `<figcaption>${hotspotSourceHtml}</figcaption>` : ""}</figure>` : "";
+  const hotspotCaptionHtml = hotspotCaptionZh || hotspotCaptionEn
+    ? `<span class="context-body-zh">${hotspotCaptionZh}</span><span class="context-en context-body-en">${hotspotCaptionEn}</span>`
+    : "";
+  const hotspotImageCaption = hotspotCaptionHtml || hotspotSourceHtml
+    ? `<figcaption>${hotspotCaptionHtml}${hotspotSourceHtml}</figcaption>`
+    : "";
+  const hotspotZoomCaptionZh = escapeHTML([hotspotCaptionZh, hotspotSourceZh].filter(Boolean).join(" · "));
+  const hotspotZoomCaptionEn = escapeHTML([hotspotCaptionEn, hotspotSourceEn].filter(Boolean).join(" · "));
+  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspotAlt)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspotAlt)}" data-zoom-caption-zh="${hotspotZoomCaptionZh}" data-zoom-caption-en="${hotspotZoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspotImageCaption}</figure>` : "";
   const hotspotSourceLabel = `${renderContextChineseLabel("图片来源")}<span class="context-en-label">Image source</span>`;
   const hotspotSource = (hotspotSourceZh || hotspotSourceEn) && !hotspot?.image ? `<p class="hotspot-source">${hotspotSourceLabel}: ${hotspot.sourceUrl ? `<a href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer"><span class="context-body-zh">${hotspotSourceZh}</span><span class="context-en context-body-en">${hotspotSourceEn}</span></a>` : `<span class="context-body-zh">${hotspotSourceZh}</span><span class="context-en context-body-en">${hotspotSourceEn}</span>`}</p>` : "";
   const hotspotReading = hotspot?.learnMoreZh ? `
@@ -3487,7 +3499,7 @@ function renderContext(target, hotspot = null) {
   contextContent.innerHTML = `
     <h2 class="context-title-zh">${renderContextChineseLabel(hotspot ? hotspot.zh : context.title)}</h2>
     <p class="context-title-en">${hotspot ? hotspot.en : context.titleEn}</p>
-    ${hotspot ? `${hotspotReading}<hr class="context-rule">` : ""}
+    ${hotspot ? hotspotReading : ""}
     ${chapterContext}`;
   buildTraditionalContextBodies();
   updateContextChineseLabels();
@@ -6527,6 +6539,12 @@ reducedMotionQuery?.addEventListener?.("change", () => {
 document.addEventListener("fullscreenchange", updateFullscreenState);
 document.addEventListener("webkitfullscreenchange", updateFullscreenState);
 document.addEventListener("click", event => {
+  // 放大状态把整个屏幕视为同一个“缩小”操作面：点图片、说明、遮罩或画框外都只退回侧栏。
+  // 放大镜本身是打开这层的点击，必须排除，否则同一次冒泡会立即把刚打开的大图关掉。
+  if (imageLightbox?.classList.contains("is-open") && !event.target.closest(".context-reference-zoom")) {
+    closeImageLightbox();
+    return;
+  }
   if (isTouchDevice && tooltip.classList.contains("is-visible") &&
       !event.target.closest(".hotspot-tooltip") && !event.target.closest(".hotspot")) {
     hideTooltip();

@@ -1670,7 +1670,7 @@ function renderGalleryFigures(items = []) {
       : "";
     const zoomCaptionZh = escapeHTML([captionZh, item.credit].filter(Boolean).join(" · "));
     const zoomCaptionEn = escapeHTML([captionEn, item.credit].filter(Boolean).join(" · "));
-    return `<figure class="${figureClass}">${homageLabel}<img src="${item.image}" alt="${escapeHTML(altText)}" loading="lazy"><button class="context-reference-zoom" type="button" data-zoom-src="${item.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button><figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${descriptionHtml}${sourceHtml}</figcaption></figure>`;
+    return `<figure class="${figureClass}">${homageLabel}<div class="context-reference-media"><img src="${item.image}" alt="${escapeHTML(altText)}" loading="lazy"><button class="context-reference-zoom" type="button" data-zoom-src="${item.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button></div><figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${descriptionHtml}${sourceHtml}</figcaption></figure>`;
   }).join("");
 }
 
@@ -5486,10 +5486,10 @@ function positionChapter6MemoryCues() {
   const containerWidth = memoryCuesEl.clientWidth;
   const containerHeight = memoryCuesEl.clientHeight;
   if (!containerWidth || !containerHeight) return;
-  const scale = Math.max(
-    containerWidth / image.naturalWidth,
-    containerHeight / image.naturalHeight
-  );
+  const fit = getComputedStyle(image).objectFit;
+  const scale = fit === "contain"
+    ? Math.min(containerWidth / image.naturalWidth, containerHeight / image.naturalHeight)
+    : Math.max(containerWidth / image.naturalWidth, containerHeight / image.naturalHeight);
   const renderedWidth = image.naturalWidth * scale;
   const renderedHeight = image.naturalHeight * scale;
   const cropOffsetX = (containerWidth - renderedWidth) / 2;

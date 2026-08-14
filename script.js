@@ -446,9 +446,7 @@ const CHAPTER_5_LOOP_SOUND = {
 };
 
 const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
-const isIPadDevice = /iPad/i.test(navigator.userAgent || "")
-  || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-let motionPreference = isIPadDevice ? "reduced" : "full";
+let motionPreference = "full";
 try {
   motionPreference = localStorage.getItem("1970-motion-preference") || motionPreference;
 } catch (_) {}
@@ -1393,7 +1391,7 @@ let chapter6SpotlightState = null;
 let chapter6CueDismissedAt = Number.NEGATIVE_INFINITY;
 const chapter6SequenceWaits = new Map();
 let chapter6ActiveCueId = null;
-let soundEnabled = true;
+let soundEnabled = true; // 首次访问默认开启；浏览器会在第一次用户手势后解锁播放。
 let soundUnlocked = false;
 const chapter6Visited = new Set();
 let chapter6AudioContext = null;
@@ -3984,7 +3982,7 @@ function fadeChapter4Ambient(targetVolume, duration) {
     stopChapter4AmbientSource();
     return;
   }
-  if (duration <= 0 || prefersReducedMotion()) {
+  if (duration <= 0) {
     setChapter4AmbientGain(clampedTarget);
     return;
   }
@@ -4022,7 +4020,7 @@ function revealChapter4Ambient() {
 function stopChapter4Ambient() {
   if (!chapter4AmbientGainNode) return;
   chapter4AmbientRevealed = false;
-  if (!soundEnabled || prefersReducedMotion()) {
+  if (!soundEnabled) {
     cancelChapter4AmbientFade();
     setChapter4AmbientGain(0);
     stopChapter4AmbientSource();
@@ -4204,7 +4202,7 @@ function fadeChapter1Ambient(targetVolume, duration) {
     stopChapter1AmbientSource();
     return;
   }
-  if (duration <= 0 || prefersReducedMotion()) {
+  if (duration <= 0) {
     setChapter1AmbientGain(clampedTarget);
     return;
   }
@@ -4242,7 +4240,7 @@ function revealChapter1Ambient() {
 function stopChapter1Ambient() {
   if (!chapter1AmbientGainNode) return;
   chapter1AmbientRevealed = false;
-  if (!soundEnabled || prefersReducedMotion()) {
+  if (!soundEnabled) {
     cancelChapter1AmbientFade();
     setChapter1AmbientGain(0);
     stopChapter1AmbientSource();
@@ -4426,7 +4424,7 @@ function fadeChapter2Loop(targetVolume, duration) {
     stopChapter2LoopSourceOnly();
     return;
   }
-  if (duration <= 0 || prefersReducedMotion()) {
+  if (duration <= 0) {
     setChapter2LoopGain(clampedTarget);
     return;
   }
@@ -4464,7 +4462,7 @@ function revealChapter2Loop() {
 function stopChapter2Loop() {
   if (!chapter2LoopGainNode) return;
   chapter2LoopRevealed = false;
-  if (!soundEnabled || prefersReducedMotion()) {
+  if (!soundEnabled) {
     cancelChapter2LoopFade();
     setChapter2LoopGain(0);
     stopChapter2LoopSourceOnly();
@@ -4768,7 +4766,7 @@ function fadeChapter3Loop(targetVolume, duration) {
     stopChapter3LoopSourceOnly();
     return;
   }
-  if (duration <= 0 || prefersReducedMotion()) {
+  if (duration <= 0) {
     setChapter3LoopGain(clampedTarget);
     return;
   }
@@ -4805,7 +4803,7 @@ function revealChapter3Loop() {
 function stopChapter3Loop() {
   if (!chapter3LoopGainNode) return;
   chapter3LoopRevealed = false;
-  if (!soundEnabled || prefersReducedMotion()) {
+  if (!soundEnabled) {
     cancelChapter3LoopFade();
     setChapter3LoopGain(0);
     stopChapter3LoopSourceOnly();
@@ -4994,7 +4992,7 @@ function fadeChapter5Loop(targetVolume, duration) {
     stopChapter5LoopSourceOnly();
     return;
   }
-  if (duration <= 0 || prefersReducedMotion()) {
+  if (duration <= 0) {
     setChapter5LoopGain(clampedTarget);
     return;
   }
@@ -5034,7 +5032,7 @@ function stopChapter5Loop() {
   if (!chapter5LoopGainNode) return;
   chapter5LoopRevealed = false;
   chapter5LoopDucked = false;
-  if (!soundEnabled || prefersReducedMotion()) {
+  if (!soundEnabled) {
     cancelChapter5LoopFade();
     setChapter5LoopGain(0);
     stopChapter5LoopSourceOnly();
@@ -5235,7 +5233,7 @@ function fadeChapter6Ambient(targetVolume, duration) {
     stopChapter6AmbientSource();
     return;
   }
-  if (duration <= 0 || prefersReducedMotion()) {
+  if (duration <= 0) {
     setChapter6AmbientGain(clampedTarget);
     return;
   }
@@ -5285,7 +5283,7 @@ function stopChapter6Ambient() {
   if (!chapter6AmbientGainNode) return;
   chapter6AmbientRevealed = false;
   chapter6AmbientTargetVolume = 0;
-  if (!soundEnabled || prefersReducedMotion()) {
+  if (!soundEnabled) {
     cancelChapter6AmbientFade();
     setChapter6AmbientGain(0);
     stopChapter6AmbientSource();

@@ -46,7 +46,7 @@ html.is-kiosk-mode .fullscreen-button-corner,
 html.is-kiosk-mode #font-size-toggle,
 html.is-kiosk-mode #motion-toggle,
 html.is-kiosk-mode #controls-collapse-toggle { display:none !important; }
-html.is-kiosk-mode .context-toggle { right:-.75rem; }
+html.is-kiosk-mode .context-toggle { right:1rem; }
 .app { position:relative; width:100%; height:100%; background:#000; }
 .backgrounds { position:absolute; inset:0; }
 .portal-neon {
@@ -577,11 +577,11 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
 .timeline-arrow:disabled { opacity:.2; cursor:default; }
 
 .context-toggle {
-  position:absolute; z-index:125; right:-3.125rem; top:50%; transform:translateY(-50%) rotate(-90deg);
+  position:absolute; z-index:125; right:1rem; top:50%; transform:translateY(-50%) rotate(-90deg);
   min-width:8.2rem; padding:.55rem .9rem; border:1px solid rgba(255,255,255,.3); border-radius:999px 999px 0 0;
   background:rgba(22,22,22,.58); color:rgba(255,255,255,.78); cursor:pointer;
   backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-  font:500 .62rem/1.15 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.08em;
+  font:500 .62rem/1.15 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.08em; white-space:nowrap;
 }
 .context-toggle span + span { margin-left:.45rem; opacity:.62; }
 .context-toggle:hover,.context-toggle:focus-visible { color:#fff; border-color:rgba(255,255,255,.7); outline:none; }
@@ -1149,7 +1149,7 @@ html.is-touch-device .door-trigger { min-width:52px; min-height:52px; }
 @media (max-width:900px) {
   /* iPad 分屏和较窄平板直接使用完整可见区域，不制造横向画布。 */
   .experience { width:100vw; height:100dvh; border:none; }
-  .context-toggle { right:-.75rem; }
+  .context-toggle { right:1rem; }
   .context-panel { width:min(78vw,27rem); }
   .context-collapse { right:min(78vw,27rem); }
   .memory-thought { left:50%; right:auto; top:26%; bottom:auto; width:min(90vw,40rem); max-width:none; }
@@ -1338,6 +1338,13 @@ html[data-motion="reduced"] *::after {
   animation-duration:.01ms !important;
   animation-iteration-count:1 !important;
   transition-duration:.01ms !important;
+}
+
+/* Hotspots remain discoverable in Reduced mode; only their small opacity/ring cue loops. */
+html[data-motion="reduced"] .hotspot,
+html[data-motion="reduced"] .hotspot--ch01-china-soviet-friendship::before {
+  animation-duration:2.4s !important;
+  animation-iteration-count:infinite !important;
 }
 
 /* 第五章的门是必要叙事动作，在 Reduced 模式中保持原来的提示节奏。 */

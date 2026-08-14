@@ -446,14 +446,50 @@ const CHAPTER_5_LOOP_SOUND = {
 };
 
 const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
-let motionPreference = "full";
+const isIPadDevice = /iPad/i.test(navigator.userAgent || "")
+  || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+let motionPreference = isIPadDevice ? "reduced" : "full";
 try {
-  motionPreference = localStorage.getItem("1970-motion-preference") || "full";
+  motionPreference = localStorage.getItem("1970-motion-preference") || motionPreference;
 } catch (_) {}
 
+const UI_TEXT = {
+  "zh-hans": {
+    standard:"标准", large:"较大", increaseFont:"调大内容字体", resetFont:"恢复标准内容字体",
+    enableMotion:"开启动效", reduceMotion:"精简动效", enableSound:"打开声音", disableSound:"关闭声音",
+    context:"历史背景", closeContext:"收起历史背景", closeSidebar:"收起侧栏", language:"全站语言",
+    viewingControls:"观看控制", enterFullscreen:"进入全屏观看", exitFullscreen:"退出全屏",
+    imageNotes:"图像注释", memoryCues:"蕙兰的回忆线索", closeImage:"关闭大图", zoomImage:"放大查看",
+    timeline:"故事时间线", previousScene:"上一幕", nextScene:"下一幕", prologue:"返回序言", epilogue:"前往跋", imageSource:"图片来源",
+    expandControls:"展开控制栏", collapseControls:"收起控制栏"
+  },
+  "zh-hant": {
+    standard:"標準", large:"較大", increaseFont:"放大內文字級", resetFont:"恢復標準內文字級",
+    enableMotion:"開啟動態效果", reduceMotion:"精簡動態效果", enableSound:"開啟聲音", disableSound:"關閉聲音",
+    context:"歷史脈絡", closeContext:"收起歷史脈絡", closeSidebar:"收起側欄", language:"全站語言",
+    viewingControls:"觀看控制", enterFullscreen:"進入全螢幕觀看", exitFullscreen:"退出全螢幕",
+    imageNotes:"圖像註解", memoryCues:"蕙蘭的回憶線索", closeImage:"關閉大圖", zoomImage:"放大查看",
+    timeline:"故事時間線", previousScene:"上一幕", nextScene:"下一幕", prologue:"返回序言", epilogue:"前往跋", imageSource:"圖片來源",
+    expandControls:"展開控制列", collapseControls:"收起控制列"
+  },
+  en: {
+    standard:"Standard", large:"Large", increaseFont:"Increase text size", resetFont:"Reset text size",
+    enableMotion:"Enable motion", reduceMotion:"Reduce motion", enableSound:"Enable sound", disableSound:"Disable sound",
+    context:"Historical context", closeContext:"Close historical context", closeSidebar:"Close sidebar", language:"Site language",
+    viewingControls:"Viewing controls", enterFullscreen:"Enter fullscreen", exitFullscreen:"Exit fullscreen",
+    imageNotes:"Image annotations", memoryCues:"Huilan's memory cues", closeImage:"Close image", zoomImage:"Enlarge image",
+    timeline:"Story timeline", previousScene:"Previous scene", nextScene:"Next scene", prologue:"Return to prologue", epilogue:"Go to epilogue", imageSource:"Image source",
+    expandControls:"Expand controls", collapseControls:"Collapse controls"
+  }
+};
+
+function getUIText(key) {
+  return (UI_TEXT[mainLanguage] || UI_TEXT["zh-hans"])[key];
+}
+
 const FONT_SIZE_PRESETS = [
-  { id:"standard", label:"标准", nextLabel:"调大内容字体", scale:1 },
-  { id:"large", label:"较大", nextLabel:"恢复标准内容字体", scale:1.18 }
+  { id:"standard", labelKey:"standard", nextLabelKey:"increaseFont", scale:1 },
+  { id:"large", labelKey:"large", nextLabelKey:"resetFont", scale:1.18 }
 ];
 
 const TRADITIONAL_CHINESE_LOCALIZATIONS = [
@@ -1187,6 +1223,7 @@ const soundToggle = document.getElementById("sound-toggle");
 const soundModeLabel = soundToggle?.querySelector(".sound-mode-label");
 const screenControls = document.querySelector(".screen-controls");
 const controlsCollapseToggle = document.getElementById("controls-collapse-toggle");
+const isTouchDevice = document.documentElement.classList.contains("is-touch-device");
 const navButtonPrev = document.querySelector(".timeline-arrow-prev");
 const navButtonNext = document.querySelector(".timeline-arrow-next");
 const timelineStops = [...document.querySelectorAll(".timeline-stop")];
@@ -1327,6 +1364,7 @@ let startActive = true;
 let epilogueActive = false;
 let startComplete = false;
 let busy = false;
+let activeTooltipHotspot = null;
 let lastWheelAt = 0;
 let visualStep = 0;
 let lineAnimationFrame = null;
@@ -1534,12 +1572,31 @@ function updateContextChineseLabels() {
 }
 
 function updateContextLocaleChrome() {
-  const traditional = mainLanguage === "zh-hant";
-  contextPanel.setAttribute("aria-label", traditional ? "歷史脈絡" : "历史背景");
-  contextCollapse?.setAttribute("aria-label", traditional ? "收起歷史脈絡" : "收起历史背景");
-  contextCollapse?.setAttribute("title", traditional ? "收起側欄" : "收起侧栏");
-  const languageGroupLabel = traditional ? "全站語言" : "全站语言";
-  document.querySelector(".main-language-toggle")?.setAttribute("aria-label", languageGroupLabel);
+  contextPanel.setAttribute("aria-label", getUIText("context"));
+  contextToggle?.setAttribute("aria-label", getUIText("context"));
+  contextCollapse?.setAttribute("aria-label", getUIText("closeContext"));
+  contextCollapse?.setAttribute("title", getUIText("closeSidebar"));
+  document.querySelector(".main-language-toggle")?.setAttribute("aria-label", getUIText("language"));
+  screenControls?.setAttribute("aria-label", getUIText("viewingControls"));
+  document.getElementById("hotspots")?.setAttribute("aria-label", getUIText("imageNotes"));
+  memoryCuesEl?.setAttribute("aria-label", getUIText("memoryCues"));
+  imageLightboxBackdrop?.setAttribute("aria-label", getUIText("closeImage"));
+  contextContent?.querySelectorAll(".context-reference-zoom").forEach(button => {
+    button.setAttribute("aria-label", getUIText("zoomImage"));
+  });
+  document.getElementById("timeline")?.setAttribute("aria-label", getUIText("timeline"));
+  navButtonPrev?.setAttribute("aria-label", getUIText("previousScene"));
+  navButtonNext?.setAttribute("aria-label", getUIText("nextScene"));
+  timelineStops.find(stop => stop.dataset.scene === "start")?.setAttribute("aria-label", getUIText("prologue"));
+  timelineStops.find(stop => stop.dataset.scene === "epilogue")?.setAttribute("aria-label", getUIText("epilogue"));
+  const expanded = controlsCollapseToggle?.getAttribute("aria-expanded") === "true";
+  controlsCollapseToggle?.setAttribute("aria-label", getUIText(expanded ? "collapseControls" : "expandControls"));
+  updateFullscreenState();
+  applyFontSizePreference();
+  const reduced = prefersReducedMotion();
+  motionToggle?.setAttribute("aria-label", getUIText(reduced ? "enableMotion" : "reduceMotion"));
+  if (motionModeLabel) motionModeLabel.textContent = reduced ? "REDUCED" : "ON";
+  updateSoundToggle();
 }
 
 function renderRichText(text, refs = [], language) {
@@ -1595,7 +1652,7 @@ function renderGalleryFigures(items = []) {
       : "";
     const zoomCaptionZh = escapeHTML([captionZh, item.credit].filter(Boolean).join(" · "));
     const zoomCaptionEn = escapeHTML([captionEn, item.credit].filter(Boolean).join(" · "));
-    return `<figure class="context-reference"><img src="${item.image}" alt="${escapeHTML(altText)}" loading="lazy"><button class="context-reference-zoom" type="button" data-zoom-src="${item.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button><figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${sourceHtml}</figcaption></figure>`;
+    return `<figure class="context-reference"><img src="${item.image}" alt="${escapeHTML(altText)}" loading="lazy"><button class="context-reference-zoom" type="button" data-zoom-src="${item.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button><figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${sourceHtml}</figcaption></figure>`;
   }).join("");
 }
 
@@ -1632,6 +1689,7 @@ function initBackgrounds() {
       const useHevc = overlay.hevc && (shouldUseAppleAlphaVideo() || (overlay.hevcOnDesktop && isDesktopSafari()));
       const motionSource = useHevc ? overlay.hevc : overlay.webm;
       const loopAttribute = overlay.loop && overlay.loopStart == null ? "loop" : "";
+      const criticalLoop = overlay.loop ? "true" : "false";
       const hasFrame = Boolean(overlay.frame);
       const frameClass = hasFrame ? " is-frame" : "";
       const patchClass = hasFrame && overlay.featheredPatch !== false ? " is-patch" : "";
@@ -1649,6 +1707,7 @@ function initBackgrounds() {
         data-stop="${overlay.stop || "chapter-exit"}"
         data-start-delay="${overlay.startDelay ?? MOTION_SETTINGS.chapterMotion.startDelay}"
         data-loop-start="${overlay.loopStart ?? ""}"
+        data-critical-loop="${criticalLoop}"
         data-initial-time="${overlay.initialTime ?? ""}"
         data-hide-on-end="${overlay.hideOnEnd ? "true" : "false"}"
         data-fade-in-before-play="${overlay.fadeInBeforePlay || 0}"
@@ -1687,7 +1746,9 @@ function isDesktopSafari() {
 }
 
 function configureMotionMedia(media) {
-  media.src = media.dataset.source;
+  if (media.dataset.criticalLoop !== "true" || !prefersReducedMotion()) {
+    media.src = media.dataset.source;
+  }
   positionChapterMotionPatch(media);
   media.addEventListener("error", () => {
     media.classList.remove("is-playing");
@@ -1770,7 +1831,39 @@ function stopChapterMotion(visual, trigger = null) {
   });
 }
 
+function syncCriticalLoopMotion(reduced) {
+  document.querySelectorAll('.chapter-motion-layer[data-critical-loop="true"]').forEach(media => {
+    const visual = media.closest(".chapter-visual");
+    clearTimeout(chapterMotionTimers.get(media));
+    chapterMotionTimers.delete(media);
+
+    if (reduced) {
+      media.pause();
+      media.classList.remove("is-playing");
+      media.removeAttribute("src");
+      media.load();
+      return;
+    }
+
+    if (!media.getAttribute("src") && media.dataset.source) {
+      media.removeAttribute("data-motion-unavailable");
+      media.src = media.dataset.source;
+      media.load();
+    }
+    const previousMotionId = media.dataset.afterMotion;
+    const previousMedia = previousMotionId
+      ? visual?.querySelector(`.chapter-motion-layer[data-motion-id="${previousMotionId}"]`)
+      : null;
+    const predecessorComplete = !previousMedia || previousMedia.ended;
+    if (visual?.classList.contains("is-active") && phase === "image" && predecessorComplete) {
+      playChapterMotion(media);
+    }
+  });
+}
+
 function playChapterMotion(media) {
+  if (media.dataset.criticalLoop === "true" && prefersReducedMotion()) return;
+  if (!media.getAttribute("src") && media.dataset.source) media.src = media.dataset.source;
   const begin = () => {
     media.playbackRate = Number(media.dataset.playbackRate) || MOTION_SETTINGS.chapterMotion.playbackRate;
     const configuredStart = Number(media.dataset.initialTime);
@@ -1803,7 +1896,8 @@ function startChapterMotion(visual, trigger) {
 
 function startChapter6MemoryMotion(visual) {
   const media = visual?.querySelector('.chapter-motion-layer[data-motion-id="ch6-ambient-loop"]');
-  if (!media || media.dataset.motionUnavailable) return Promise.resolve();
+  if (!media || media.dataset.motionUnavailable || prefersReducedMotion()) return Promise.resolve();
+  if (!media.getAttribute("src") && media.dataset.source) media.src = media.dataset.source;
 
   clearTimeout(chapterMotionTimers.get(media));
   chapterMotionTimers.delete(media);
@@ -3097,7 +3191,7 @@ function renderContext(target, hotspot = null) {
     contextContent.innerHTML = `
       <h2 class="context-title-zh">${renderContextChineseLabel(term.zh)}</h2><p class="context-title-en">${term.en}</p>
       <p class="context-body-zh">${term.bodyZh}</p><p class="context-en context-body-en">${term.bodyEn}</p>
-      <hr class="context-rule"><p class="context-material">${renderContextChineseLabel("术语说明")} · TERM NOTE ${term.number}</p>`;
+      <hr class="context-rule"><p class="context-material">${renderContextChineseLabel("术语说明")}<span class="context-en-label">TERM NOTE</span> ${term.number}</p>`;
     buildTraditionalContextBodies();
     updateContextChineseLabels();
     return;
@@ -3121,17 +3215,17 @@ function renderContext(target, hotspot = null) {
       <h2 class="context-title-zh">${renderContextChineseLabel("跋")}</h2><p class="context-title-en">Epilogue</p>
       <div class="context-primary">
         <section class="epilogue-context-section">
-          <h3>${renderContextChineseLabel("七十年代末：平反与返城")}<small>Late 1970s: Rehabilitation and Return</small></h3>
+          <h3>${renderContextChineseLabel("七十年代末：平反与返城")}<small class="context-en-label">Late 1970s: Rehabilitation and Return</small></h3>
           <p class="context-body-zh">1976年以后，教育秩序、知识分子政策和此前的政治结论陆续调整。平反、恢复工作与知青返城并非在同一天完成，各地、各单位和每个人的进程也不相同。1978至1979年，知青返城形成大规模潮流；安徽的下乡知青也通过招工、招生、征兵、病困退等途径分批离开农村。沈蕙兰下放前已经大学毕业并任教，不属于典型的城市中学毕业知青；她重返学校更接近受冲击教师与知识分子恢复工作。两条变化发生在相近的历史转折中，但制度路径不同。具体返校年份属于人物设定。[1][2]</p>
           <p class="context-en context-body-en">After 1976, earlier political judgments were reviewed and schools began to rebuild. Rehabilitation and the return of sent-down youth happened unevenly. The return gathered pace in 1978 and 1979; in Anhui, people left the countryside through job placements, education, military service, and hardship provisions. Shen Huilan had already graduated from university and taught before she was sent down, so she is not a typical urban school leaver. Her return belongs more closely to the reinstatement of teachers and intellectuals. The two shifts overlapped but followed different paths. Her exact return date is fictional.[1][2]</p>
         </section>
         <section class="epilogue-context-section">
-          <h3>${renderContextChineseLabel("古典文学重新回到课堂")}<small>Classical Literature Returns to the Classroom</small></h3>
+          <h3>${renderContextChineseLabel("古典文学重新回到课堂")}<small class="context-en-label">Classical Literature Returns to the Classroom</small></h3>
           <p class="context-body-zh">文革期间，学校教育中断，语文课高度政治化，古典文学教学受到严重压缩。不同地区和年份的教材并不完全一致，不能笼统说所有古文都被统一禁止。1978年以后，全国教材体系重建；1979年的中学语文教材已经增加中国古典诗文。《孔雀东南飞》和屈原作品后来成为中学语文常见篇目。蕙兰后来每年讲这些作品。这写的是她回到课堂后的日常，不指向某一册真实教材。[3][4]</p>
           <p class="context-en context-body-en">During the Cultural Revolution, schooling was disrupted, Chinese classes became heavily politicized, and classical literature was sharply reduced. Textbooks still varied by place and year, so it would be inaccurate to say every classical text was uniformly banned. A national curriculum was rebuilt after 1978, and the 1979 Chinese textbooks included more classical poetry and prose. <i>The Peacock Flies Southeast</i> and works by Qu Yuan later became familiar school texts. Huilan teaches them each year after returning to the classroom. This describes her daily work, not one documented textbook edition.[3][4]</p>
         </section>
         <section class="epilogue-context-section">
-          <h3>${renderContextChineseLabel("君子兰与她的名字")}<small>Clivia and Her Name</small></h3>
+          <h3>${renderContextChineseLabel("君子兰与她的名字")}<small class="context-en-label">Clivia and Her Name</small></h3>
           <p class="context-body-zh">君子兰原产非洲南部，植物学上不属于兰科。它的中文名取“君子”之意，常让人联想到端正、克制与高洁；传统兰花在中国文化中也长期与君子品格相连。对沈蕙兰而言，这份退休礼物还有一层私人联系：“兰”是她名字的最后一个字。[5][6]</p>
           <p class="context-en context-body-en">Clivia comes from southern Africa and is not a true orchid. Its Chinese name invokes the <i>junzi</i>, a person of cultivated character, while orchids have long carried similar associations in Chinese culture. The retirement gift is also personal: <i>lan</i>, meaning orchid, is the final character of Shen Huilan's name.[5][6]</p>
         </section>
@@ -3184,7 +3278,7 @@ function renderContext(target, hotspot = null) {
       : "";
     const zoomCaptionZh = escapeHTML([captionZh, reference.source].filter(Boolean).join(" · "));
     const zoomCaptionEn = escapeHTML([captionEn, reference.source].filter(Boolean).join(" · "));
-    const zoomButton = `<button class="context-reference-zoom" type="button" data-zoom-src="${reference.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>`;
+    const zoomButton = `<button class="context-reference-zoom" type="button" data-zoom-src="${reference.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>`;
     return `<figure class="context-reference">${image}${zoomButton}<figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${sourceHtml}</figcaption></figure>`;
   }).join("");
   const contextSources = (context.sources || []).length ? `
@@ -3196,8 +3290,9 @@ function renderContext(target, hotspot = null) {
         ? `<small><a class="context-reference-credit" href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer">${hotspot.source}</a></small>`
         : `<small>${hotspot.source}</small>`)
     : "";
-  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspot.zh)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspot.zh)}" data-zoom-caption-zh="${escapeHTML(hotspot.source || "")}" data-zoom-caption-en="${escapeHTML(hotspot.source || "")}" aria-label="放大查看"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspotSourceHtml ? `<figcaption>${hotspotSourceHtml}</figcaption>` : ""}</figure>` : "";
-  const hotspotSource = hotspot?.source && !hotspot?.image ? `<p class="hotspot-source">图片来源 · ${hotspot.sourceUrl ? `<a href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer">${hotspot.source}</a>` : hotspot.source}</p>` : "";
+  const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspot.zh)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspot.zh)}" data-zoom-caption-zh="${escapeHTML(hotspot.source || "")}" data-zoom-caption-en="${escapeHTML(hotspot.source || "")}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspotSourceHtml ? `<figcaption>${hotspotSourceHtml}</figcaption>` : ""}</figure>` : "";
+  const hotspotSourceLabel = `${renderContextChineseLabel("图片来源")}<span class="context-en-label">Image source</span>`;
+  const hotspotSource = hotspot?.source && !hotspot?.image ? `<p class="hotspot-source">${hotspotSourceLabel} · ${hotspot.sourceUrl ? `<a href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer">${hotspot.source}</a>` : hotspot.source}</p>` : "";
   const hotspotReading = hotspot?.learnMoreZh ? `
     <div class="hotspot-reading">
       <div class="hotspot-reading-zh context-body-zh">${renderLayeredReading(hotspot.learnMoreZh, "zh")}</div>
@@ -3277,7 +3372,7 @@ function setMainLanguage(language) {
 
   // hotspot 提示框是鼠标悬停才出现的短生命周期元素，切换语言这一刻它多半没在显示；
   // 就不额外加状态去刷新它了，下次悬停触发时会自动用最新的 mainLanguage 生成文字。
-  if (tooltip) tooltip.classList.remove("is-visible");
+  if (tooltip) hideTooltip();
 }
 
 function openContext(target = chapterIndex, hotspot = null) {
@@ -5233,7 +5328,7 @@ function unmuteChapter6AmbientIfActive() {
 function updateSoundToggle() {
   document.documentElement.dataset.sound = soundEnabled ? "on" : "off";
   soundToggle?.setAttribute("aria-checked", String(soundEnabled));
-  soundToggle?.setAttribute("aria-label", soundEnabled ? "关闭声音" : "打开声音");
+  soundToggle?.setAttribute("aria-label", getUIText(soundEnabled ? "disableSound" : "enableSound"));
   if (soundModeLabel) soundModeLabel.textContent = soundEnabled ? SOUND_UI.buttonLabelOn : SOUND_UI.buttonLabelOff;
 }
 
@@ -5449,11 +5544,18 @@ function renderHotspots() {
     button.dataset.hotspotIndex = String(index);
     if (hotspot.id) button.dataset.hotspotId = hotspot.id;
     button.setAttribute("aria-label", `${hotspot.zh} — ${hotspot.en}`);
-    button.addEventListener("mouseenter", () => showTooltip(button, hotspot));
-    button.addEventListener("mouseleave", hideTooltip);
-    button.addEventListener("focus", () => showTooltip(button, hotspot));
-    button.addEventListener("blur", hideTooltip);
-    button.addEventListener("click", () => {
+    if (!isTouchDevice) {
+      button.addEventListener("mouseenter", () => showTooltip(button, hotspot));
+      button.addEventListener("mouseleave", hideTooltip);
+      button.addEventListener("focus", () => showTooltip(button, hotspot));
+      button.addEventListener("blur", hideTooltip);
+    }
+    button.addEventListener("click", event => {
+      if (isTouchDevice) {
+        event.stopPropagation();
+        showTooltip(button, hotspot);
+        return;
+      }
       hideTooltip();
       openContext(hotspot.term || chapterIndex, hotspot.term ? null : hotspot);
     });
@@ -6051,7 +6153,7 @@ async function openDoorTransition(event) {
   await enterChapter(settings.targetChapterIndex, 0);
   busy = true;
   doorWash.classList.add("is-releasing");
-  await delay(prefersReducedMotion() ? 0 : 1350);
+  await delay(1350);
   doorWash.classList.remove("is-active", "is-releasing", "is-solid");
   doorWashCanvas.width = 1;
   doorWashCanvas.height = 1;
@@ -6059,15 +6161,17 @@ async function openDoorTransition(event) {
 }
 
 function showTooltip(button, hotspot) {
-  tooltip.innerHTML = `<strong class="tooltip-zh">${convertZh(hotspot.zh)}</strong><span class="tooltip-translation">${hotspot.en}</span><p class="tooltip-zh">${convertZh(hotspot.note)}</p>${hotspot.noteEn ? `<p class="tooltip-note-en">${hotspot.noteEn}</p>` : ""}<p class="tooltip-more">${convertZh("查看背景")} / Learn more →</p>`;
+  activeTooltipHotspot = hotspot;
+  const moreLabel = mainLanguage === "en" ? "Learn more" : convertZh("查看背景");
+  tooltip.innerHTML = `<strong class="tooltip-zh">${convertZh(hotspot.zh)}</strong><span class="tooltip-translation">${hotspot.en}</span><p class="tooltip-zh">${convertZh(hotspot.note)}</p>${hotspot.noteEn ? `<p class="tooltip-note-en">${hotspot.noteEn}</p>` : ""}${isTouchDevice ? `<button class="tooltip-more" type="button">${moreLabel} →</button>` : `<p class="tooltip-more">${moreLabel} →</p>`}`;
   const experienceRect = experience.getBoundingClientRect();
   const buttonRect = button.getBoundingClientRect();
-  const x = buttonRect.left - experienceRect.left + buttonRect.width / 2;
-  const y = buttonRect.top - experienceRect.top + buttonRect.height / 2;
+  const x = buttonRect.left + buttonRect.width / 2;
+  const y = buttonRect.top + buttonRect.height / 2;
   const tooltipWidth = Math.min(272, experienceRect.width * .72);
-  tooltip.style.left = `${Math.max(12, Math.min(x + 18, experienceRect.width - tooltipWidth - 12))}px`;
+  tooltip.style.left = `${Math.max(12, Math.min(x + 18, window.innerWidth - tooltipWidth - 12))}px`;
   const tooltipHeight = tooltip.offsetHeight;
-  const safeCenterY = Math.max(tooltipHeight / 2 + 12, Math.min(y, experienceRect.height - tooltipHeight / 2 - 12));
+  const safeCenterY = Math.max(tooltipHeight / 2 + 12, Math.min(y, window.innerHeight - tooltipHeight / 2 - 12));
   tooltip.style.top = `${safeCenterY}px`;
   tooltip.classList.add("is-visible");
   tooltip.setAttribute("aria-hidden", "false");
@@ -6076,7 +6180,18 @@ function showTooltip(button, hotspot) {
 function hideTooltip() {
   tooltip.classList.remove("is-visible");
   tooltip.setAttribute("aria-hidden", "true");
+  activeTooltipHotspot = null;
 }
+
+tooltip.addEventListener("click", event => {
+  const moreButton = event.target.closest("button.tooltip-more");
+  if (!moreButton || !activeTooltipHotspot) return;
+  event.preventDefault();
+  event.stopPropagation();
+  const hotspot = activeTooltipHotspot;
+  hideTooltip();
+  openContext(hotspot.term || chapterIndex, hotspot.term ? null : hotspot);
+});
 
 function handleKey(event) {
   if (event.key === "Escape" && chapter6ActiveCueId) {
@@ -6137,7 +6252,7 @@ function updateFullscreenState() {
   const active = !!isFullscreen();
   document.body.classList.toggle("is-fullscreen", active);
   fullscreenButtons.forEach(button => {
-    button.setAttribute("aria-label", active ? "退出全屏" : "进入全屏观看");
+    button.setAttribute("aria-label", getUIText(active ? "exitFullscreen" : "enterFullscreen"));
     button.setAttribute("aria-pressed", String(active));
   });
   requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -6171,9 +6286,9 @@ function applyFontSizePreference() {
   const preset = getFontSizePreset();
   document.documentElement.style.setProperty("--content-font-scale", String(preset.scale));
   document.documentElement.dataset.contentFontSize = preset.id;
-  fontSizeToggle?.setAttribute("aria-label", preset.nextLabel);
+  fontSizeToggle?.setAttribute("aria-label", getUIText(preset.nextLabelKey));
   fontSizeToggle?.setAttribute("aria-checked", String(preset.id !== "standard"));
-  if (fontSizeModeLabel) fontSizeModeLabel.textContent = preset.label;
+  if (fontSizeModeLabel) fontSizeModeLabel.textContent = getUIText(preset.labelKey);
   requestEpilogueSafetyLayout();
 }
 
@@ -6190,8 +6305,9 @@ function updateMotionState() {
   const full = !reduced;
   document.documentElement.dataset.motion = reduced ? "reduced" : "full";
   motionToggle?.setAttribute("aria-checked", String(full));
-  motionToggle?.setAttribute("aria-label", reduced ? "开启动效" : "关闭动效");
-  if (motionModeLabel) motionModeLabel.textContent = full ? "ON" : "OFF";
+  motionToggle?.setAttribute("aria-label", getUIText(reduced ? "enableMotion" : "reduceMotion"));
+  if (motionModeLabel) motionModeLabel.textContent = full ? "ON" : "REDUCED";
+  syncCriticalLoopMotion(reduced);
   if (reduced) stopIntroParticles();
   else if (startActive || epilogueActive) startIntroParticles();
   if (epilogueActive && reduced) fastForwardEpilogue();
@@ -6257,6 +6373,10 @@ reducedMotionQuery?.addEventListener?.("change", () => {
 document.addEventListener("fullscreenchange", updateFullscreenState);
 document.addEventListener("webkitfullscreenchange", updateFullscreenState);
 document.addEventListener("click", event => {
+  if (isTouchDevice && tooltip.classList.contains("is-visible") &&
+      !event.target.closest(".hotspot-tooltip") && !event.target.closest(".hotspot")) {
+    hideTooltip();
+  }
   // 侧栏打开时，点击面板外、且不是 hotspot／开关按钮本身，收回侧栏。
   if (
     contextPanel.classList.contains("is-open") &&
@@ -6358,5 +6478,6 @@ if (controlsCollapseToggle && screenControls) {
   controlsCollapseToggle.addEventListener("click", () => {
     const expanded = screenControls.classList.toggle("is-expanded");
     controlsCollapseToggle.setAttribute("aria-expanded", String(expanded));
+    controlsCollapseToggle.setAttribute("aria-label", getUIText(expanded ? "collapseControls" : "expandControls"));
   });
 }

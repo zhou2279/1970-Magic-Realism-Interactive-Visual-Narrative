@@ -18,12 +18,35 @@ body {
 }
 button { font:inherit; }
 
+.mobile-gate { display:none; }
+html.is-mobile-device body { padding:0; }
+html.is-mobile-device .experience { display:none; }
+html.is-mobile-device .mobile-gate {
+  position:fixed; inset:0; display:grid; place-items:center; overflow:hidden; isolation:isolate;
+  min-height:100dvh; padding:2rem; background:#080808; color:rgba(255,255,255,.92);
+}
+.mobile-gate-image { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; object-position:center; opacity:.5; }
+.mobile-gate-shade { position:absolute; inset:0; z-index:-1; background:linear-gradient(to bottom,rgba(4,4,4,.52),rgba(4,4,4,.84)); }
+.mobile-gate-content { width:min(100%,28rem); text-align:center; }
+.mobile-gate-year { margin-bottom:1.25rem; font:500 .72rem/1 "Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.16em; color:rgba(255,255,255,.62); }
+.mobile-gate h1 { font-size:clamp(2rem,10vw,3rem); font-weight:500; line-height:1.15; letter-spacing:.08em; }
+.mobile-gate h1 span { display:block; margin-top:.45rem; font:italic 1.15rem/1.4 "Newsreader","Times New Roman",Georgia,serif; letter-spacing:.03em; color:rgba(255,255,255,.72); }
+.mobile-gate-zh { margin-top:2.4rem; font-size:1rem; line-height:1.75; letter-spacing:.05em; }
+.mobile-gate-en { margin:1rem auto 0; max-width:25rem; font:normal .9rem/1.6 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.68); }
+
 .experience {
   position:absolute; left:50%; top:50%; width:92vw; height:88dvh; overflow:visible;
   transform:translate(-50%,-50%); background:#000; border:1px solid rgba(255,255,255,.18);
   box-shadow:0 1.2rem 4rem rgba(0,0,0,.9); transition:width .45s ease,height .45s ease,border-color .45s ease;
 }
 body.is-fullscreen .experience { width:100vw; height:100dvh; border-color:transparent; box-shadow:none; }
+html.is-kiosk-mode .experience { width:100vw; height:100dvh; border-color:transparent; box-shadow:none; }
+html.is-kiosk-mode .fullscreen-invitation,
+html.is-kiosk-mode .fullscreen-button-corner,
+html.is-kiosk-mode #font-size-toggle,
+html.is-kiosk-mode #motion-toggle,
+html.is-kiosk-mode #controls-collapse-toggle { display:none !important; }
+html.is-kiosk-mode .context-toggle { right:-.75rem; }
 .app { position:relative; width:100%; height:100%; background:#000; }
 .backgrounds { position:absolute; inset:0; }
 .portal-neon {
@@ -567,11 +590,11 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
   position:absolute; z-index:130; top:0; right:0; bottom:0; height:100%; width:min(36vw,29rem); padding:2.4rem 2rem 2rem;
   background:rgba(18,18,18,.57); border-left:1px solid rgba(255,255,255,.2);
   backdrop-filter:blur(24px) saturate(.72); -webkit-backdrop-filter:blur(24px) saturate(.72);
-  transform:translateX(102%); opacity:0; visibility:hidden;
-  transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .4s ease,visibility 0s linear .55s;
+  transform:translateX(0); clip-path:inset(0 0 0 100%); opacity:0; visibility:hidden;
+  transition:clip-path .55s cubic-bezier(.22,.61,.36,1),opacity .4s ease,visibility 0s linear .55s;
   display:flex; flex-direction:column; overflow:auto; box-shadow:-1rem 0 3rem rgba(0,0,0,.24);
 }
-.context-panel.is-open { transform:translateX(0); opacity:1; visibility:visible; transition-delay:0s; }
+.context-panel.is-open { clip-path:inset(0); opacity:1; visibility:visible; transition-delay:0s; }
 .context-collapse {
   position:absolute; z-index:136; top:50%; right:min(36vw,29rem); width:1.7rem; height:3rem;
   transform:translate(50%,-50%); border:1px solid rgba(255,255,255,.28); border-radius:999px;
@@ -579,6 +602,7 @@ body.is-light-narrative .term-ref:hover,body.is-light-narrative .term-ref:focus-
   opacity:0; visibility:hidden; pointer-events:none; transition:opacity .25s ease;
   font:500 .58rem/1 Arial,sans-serif;
 }
+.context-collapse svg { width:1rem; height:1rem; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 .context-panel.is-open + .context-collapse { opacity:1; visibility:visible; pointer-events:auto; }
 .context-collapse:hover,.context-collapse:focus-visible { color:#fff; border-color:rgba(255,255,255,.7); outline:none; }
 .context-kicker { font:600 .61rem/1 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.2em; color:rgba(255,255,255,.45); margin-bottom:1.4rem; }
@@ -1071,9 +1095,9 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
   100% { box-shadow:0 0 .38rem .1rem rgba(255,255,255,.42),0 0 0 0 rgba(255,255,255,0); }
 }
 .hotspot-tooltip {
-  position:absolute; z-index:140; width:min(17rem,72vw); padding:.85rem 1rem; border:1px solid rgba(255,255,255,.24);
+  position:absolute; z-index:140; left:0; top:50%; width:min(17rem,72vw); padding:.85rem 1rem; border:1px solid rgba(255,255,255,.24);
   border-radius:.8rem; background:rgba(28,28,28,.70); color:#fff; opacity:0; pointer-events:none;
-  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); transform:translate(.8rem,-50%);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); transform:translateY(-50%);
   transition:opacity .22s ease; box-shadow:0 .8rem 2.4rem rgba(0,0,0,.35);
 }
 .hotspot-tooltip.is-visible { opacity:1; }
@@ -1082,13 +1106,50 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
 .hotspot-tooltip p { margin-top:.48rem; font-size:var(--content-font-size-caption); line-height:1.55; color:rgba(255,255,255,.7); }
 .hotspot-tooltip .tooltip-note-en { margin-top:.26rem; font:italic calc(.65rem * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.5); }
 .hotspot-tooltip .tooltip-more { color:#fff; font:600 .58rem/1.4 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+.hotspot-tooltip button.tooltip-more {
+  display:block; width:100%; margin-top:.7rem; padding:.72rem .25rem .08rem; border:0;
+  border-top:1px solid rgba(255,255,255,.2); background:transparent; color:#fff;
+  cursor:pointer; text-align:left;
+}
+.hotspot-tooltip button.tooltip-more:focus-visible { outline:1px solid rgba(255,255,255,.8); outline-offset:.3rem; }
+
+/* 平板和 kiosk 触屏:使用真实 viewport，并保留 48px 点击区域。 */
+html.is-touch-device .screen-controls { top:1.25rem; right:1.25rem; }
+html.is-touch-device .screen-controls button,
+html.is-touch-device .main-language-toggle,
+html.is-touch-device .main-language-toggle button {
+  min-height:48px;
+}
+html.is-touch-device .main-language-toggle button { min-width:48px; }
+html.is-touch-device .fullscreen-button-corner,
+html.is-touch-device .motion-button { padding-left:14px; padding-right:14px; }
+html.is-touch-device .fullscreen-button-corner,
+html.is-touch-device .motion-button { gap:.55rem; }
+html.is-touch-device .fullscreen-button-corner,
+html.is-touch-device .motion-button,
+html.is-touch-device .main-language-toggle button { font-size:.7rem; }
+html.is-touch-device .font-size-badge { width:1.55rem; height:1.55rem; margin:0 .08rem; }
+html.is-touch-device .fullscreen-invitation .fullscreen-button,
+html.is-touch-device .context-novel-toggle,
+html.is-touch-device .story-back { min-height:48px; touch-action:manipulation; }
+html.is-touch-device .control-button,
+html.is-touch-device .timeline-arrow,
+html.is-touch-device .timeline-stop,
+html.is-touch-device .context-toggle,
+html.is-touch-device .context-collapse {
+  min-width:48px;
+  min-height:48px;
+  touch-action:manipulation;
+}
+html.is-touch-device .context-toggle { padding:.8rem 16px; }
+html.is-touch-device .hotspot::after { inset:-17px; }
+html.is-touch-device .hotspot-tooltip.is-visible { pointer-events:auto; }
+html.is-touch-device .door-trigger { min-width:52px; min-height:52px; }
 
 @media (max-width:900px) {
-  /* 注意:这个断点现在基本不会再被触发了。
-     因为 index.html 里新加的缩放脚本,只要屏幕比 1280px 窄,
-     就会把版面强制按 1280px 宽渲染再整体缩小,所以布局宽度不会再小于 900px。
-     这里面原来的规则先保留、不删,万一以后要改回"真正重新排版"的做法还能用得上。 */
+  /* iPad 分屏和较窄平板直接使用完整可见区域，不制造横向画布。 */
   .experience { width:100vw; height:100dvh; border:none; }
+  .context-toggle { right:-.75rem; }
   .context-panel { width:min(78vw,27rem); }
   .context-collapse { right:min(78vw,27rem); }
   .memory-thought { left:50%; right:auto; top:26%; bottom:auto; width:min(90vw,40rem); max-width:none; }
@@ -1278,3 +1339,21 @@ html[data-motion="reduced"] *::after {
   animation-iteration-count:1 !important;
   transition-duration:.01ms !important;
 }
+
+/* 第五章的门是必要叙事动作，在 Reduced 模式中保持原来的提示节奏。 */
+html[data-motion="reduced"] .door-trigger-assistive {
+  animation-duration:2.55s !important;
+  animation-iteration-count:infinite !important;
+}
+html[data-motion="reduced"] .door-trigger-core {
+  animation-duration:2.25s !important;
+  animation-iteration-count:infinite !important;
+}
+html[data-motion="reduced"] .door-trigger-pulse {
+  animation-duration:2.55s !important;
+  animation-iteration-count:infinite !important;
+}
+html[data-motion="reduced"] .chapter-visual[data-index="4"] .chapter-motion-layer {
+  transition-duration:var(--motion-fade-in,0ms) !important;
+}
+html[data-motion="reduced"] .door-wash { transition-duration:1.35s !important; }

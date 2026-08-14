@@ -4,42 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <script>
-    // 小屏幕等比例缩放(不重新排版,直接把电脑版面整体缩小显示)。
-    // 参考宽度设为 1280px:任何比这窄的屏幕(手机、平板、缩小的浏览器窗口),
-    // 都会强制按电脑版面(1280px 宽)渲染,再用浏览器原生的 viewport 缩放整体缩小,
-    // 版面、间距、比例跟电脑上完全一致,不会有任何元素被裁掉或重新排版——只是变小了。
-    // 必须放在 <head> 最前面、样式表加载之前执行,否则会先看到一下没缩放的版面再跳变。
+    // 手机只显示提示页。平板使用真实 viewport，由响应式 CSS 安排完整构图。
+    // kiosk 可用 ?mode=kiosk 或 #kiosk 开启。
     (function () {
-      var REFERENCE_WIDTH = 1280;
-      var meta = document.querySelector('meta[name="viewport"]');
-      function applyScale() {
-        if (!meta) return;
-        var w = window.innerWidth;
-        if (w < REFERENCE_WIDTH) {
-          var scale = (w / REFERENCE_WIDTH).toFixed(5);
-          meta.setAttribute('content',
-            'width=' + REFERENCE_WIDTH + ', initial-scale=' + scale +
-            ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', viewport-fit=cover');
-          // 版面按 1280px 渲染后又被整体缩小 scale 倍,所以写在 CSS 里的 1rem
-          // 到了真机屏幕上,实际物理尺寸也会缩小 scale 倍。
-          // 把这个缩小倍数存成一个 CSS 变量,方便控件用 calc(目标物理像素 / var(--viewport-scale))
-          // 反向放大,保证按钮在手机上摸起来仍然有足够大的点击区域。
-          document.documentElement.style.setProperty('--viewport-scale', scale);
-        } else {
-          meta.setAttribute('content', 'width=device-width, initial-scale=1.0, viewport-fit=cover');
-          document.documentElement.style.setProperty('--viewport-scale', '1');
-        }
-      }
-      applyScale();
-      window.addEventListener('resize', applyScale);
-      window.addEventListener('orientationchange', function () { setTimeout(applyScale, 60); });
+      var coarsePointer = window.matchMedia('(hover:none), (pointer:coarse)').matches || navigator.maxTouchPoints > 0;
+      var screenWidth = window.screen.width || window.innerWidth;
+      var screenHeight = window.screen.height || window.innerHeight;
+      var shortestSide = Math.min(screenWidth, screenHeight);
+      var params = new URLSearchParams(window.location.search);
+      var isMobile = shortestSide < 700 || window.innerWidth < 700;
+      var isTouch = coarsePointer || params.get('input') === 'touch';
+      var isKiosk = params.get('mode') === 'kiosk' || window.location.hash.toLowerCase() === '#kiosk';
 
-      // screen.width 是物理屏幕宽度,不受上面缩放的影响,用它来打一个"小屏幕"标记,
-      // 给需要在小屏幕上换一套文案/样式的地方用(比如"电脑访问,体验更佳"提示),
-      // 不能再用 @media(max-width) 判断了,因为布局宽度已经被强制伪装成 1280px。
-      if (Math.min(window.screen.width, window.screen.height) < 900) {
-        document.documentElement.classList.add('is-small-device');
-      }
+      document.documentElement.classList.toggle('is-mobile-device', isMobile);
+      document.documentElement.classList.toggle('is-touch-device', isTouch && !isMobile);
+      document.documentElement.classList.toggle('is-kiosk-mode', isKiosk);
     })();
   </script>
   <title>1970 · The Door | 门</title>
@@ -49,6 +28,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <section class="mobile-gate" aria-labelledby="mobile-gate-title">
+    <img class="mobile-gate-image" src="assets/chapters/motion/ch5-first-frame.jpg" alt="" aria-hidden="true">
+    <div class="mobile-gate-shade" aria-hidden="true"></div>
+    <div class="mobile-gate-content">
+      <p class="mobile-gate-year">1970</p>
+      <h1 id="mobile-gate-title">门 <span>The Door</span></h1>
+      <p class="mobile-gate-zh">请在电脑、平板或展览屏幕上体验。</p>
+      <p class="mobile-gate-en">Please open this experience on a desktop, tablet, or kiosk screen.</p>
+    </div>
+  </section>
+
   <main id="experience" class="experience">
   <div id="start-screen" class="start-screen" aria-hidden="false">
     <canvas id="intro-particles" class="intro-particles" aria-hidden="true"></canvas>
@@ -214,7 +204,9 @@
     <p class="context-kicker"><span data-context-chinese data-hans="历史背景">历史背景</span><span class="context-en-label">HISTORICAL CONTEXT</span></p>
     <div id="context-content" class="context-content" aria-live="polite"></div>
   </aside>
-  <button id="context-collapse" class="context-collapse" type="button" aria-label="收起历史背景" title="收起侧栏">▶</button>
+  <button id="context-collapse" class="context-collapse" type="button" aria-label="收起历史背景" title="收起侧栏">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
 
   <div id="hotspot-tooltip" class="hotspot-tooltip" role="tooltip" aria-hidden="true"></div>
 
@@ -230,8 +222,8 @@
     <div class="story-page">
       <button class="story-back" type="button" data-full-story-close>&larr; <span class="story-back-zh">返回</span><span class="story-back-en">Back</span></button>
       <header class="story-header">
-        <h1 class="story-title">门</h1>
-        <span class="story-subtitle">The Door — Full Story</span>
+        <h1 class="story-title"><span data-context-chinese data-hans="门">门</span><span class="context-en-label">The Door</span></h1>
+        <span class="story-subtitle"><span data-context-chinese data-hans="完整故事">完整故事</span><span class="context-en-label">Full Story</span></span>
       </header>
       <article class="story-body">
 <p class="story-p"><span class="story-zh">一九六九年，安徽省芜湖县红星人民公社。沈蕙兰下乡还不到一年。</span><span class="story-en">1969. Red Star People's Commune, Wuhu County, Anhui Province. Shen Huilan had been sent down to the countryside for less than a year.</span></p>
@@ -324,7 +316,18 @@
   </nav>
   </main>
 
-  <script src="vendor/opencc-js-full.js"></script>
-  <script src="script.js"></script>
+  <script>
+    // 手机提示页不加载完整叙事脚本和动态素材。
+    if (!document.documentElement.classList.contains('is-mobile-device')) {
+      var openccScript = document.createElement('script');
+      var experienceScript = document.createElement('script');
+      openccScript.src = 'vendor/opencc-js-full.js';
+      experienceScript.src = 'script.js';
+      openccScript.async = false;
+      experienceScript.async = false;
+      document.body.appendChild(openccScript);
+      document.body.appendChild(experienceScript);
+    }
+  </script>
 </body>
 </html>

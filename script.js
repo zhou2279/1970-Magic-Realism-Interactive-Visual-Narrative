@@ -964,8 +964,75 @@ const HOTSPOTS = [
     { x:50, y:40, zh:"领袖像", en:"Portrait of Mao Zedong",
       note:"毛泽东画像在机关、学校和公社会议室中通常占据正面或中心位置。", noteEn:"Portraits of Mao Zedong commonly occupied the front wall or visual center in offices, schools, and commune meeting spaces.",
       id:"ch04-mao-portrait",
-      learnMoreZh:"机关、学校和公社的会议室、办公室等集体空间普遍悬挂毛泽东画像，通常置于正面或视觉中心，与语录牌和政治标语共同构成固定陈设。\n\n“早请示、晚汇报”仪式面对这类画像进行：开工前集体诵读语录并“请示”，收工前报告思想和工作。画像因此不仅是墙面陈设，也是日常政治仪式的对象。这一仪式在1966年至1971年间于多地流行，九一三事件后逐渐减少。\n\n在本章场景中，画像始终位于会议室的视线中心，批判与检讨在其前进行。\n\n注释：“早请示、晚汇报”的仪式内容和流行时段可参见<a class=\"context-lead-note-source\" href=\"https://zh.wikipedia.org/wiki/%E6%97%A9%E8%AF%B7%E7%A4%BA%E3%80%81%E6%99%9A%E6%B1%87%E6%8A%A5\" target=\"_blank\" rel=\"noopener noreferrer\">中文维基百科相应词条</a>。",
-      learnMoreEn:"Portraits of Mao Zedong were widely displayed in meeting rooms and offices in government institutions, schools, and communes. They were usually placed on the front wall or at the visual center, alongside quotation boards and political slogans.\n\nThe “morning request, evening report” ritual was performed before such portraits. Groups recited quotations and “requested instructions” before work, then reported on their thoughts and labor at the end of the day. The portrait was therefore not only part of the room's display but also an object of daily political ritual. The practice was widespread in many places from 1966 to 1971 and declined after the September 13 Incident.\n\nIn this chapter's scene, the portrait remains at the visual center of the meeting room, with criticism and self-criticism conducted before it.\n\nNote: For the content and period of this ritual, see the Chinese Wikipedia entry “Zǎo Qǐngshì Wǎn Huìbào” (“Morning Request, Evening Report”)."
+      learnMoreZh:"毛泽东的形象并不只悬挂在会议室。文革时期，它进入机关、学校、工厂、公社、商店、街道和家庭，也被印在宣传画、书刊和日用品上，并缩小成佩戴在胸前的像章。大幅画像通常占据正面墙或视觉中心；在身体和物件上，同一张脸又以更小、更频繁的尺度反复出现。\n\n头像之外，还有一整套彼此呼应的视觉和文字物件：《毛主席语录》、毛泽东选集、语录牌、政治标语、像章、塑像，以及印有语录或革命歌曲的日记本和文具。报刊、学习笔记、日记等书写也常以毛语录或“最高指示”开头。私人书写因此可能先表明政治立场，才进入当天的内容。\n\n“早请示、晚汇报”把这些物件组织成日常仪式。开工、开会或出工前，人们面对画像诵读语录并“请示”；收工后再汇报思想和工作。画像不只是墙面装饰，也成为每日政治表态的对象。这类仪式在1966年至1971年间于多地流行，九一三事件后逐渐减少。\n\n在本章场景中，画像占据会议室的视线中心，语录和标语围绕它展开，批判与检讨在其前进行。下列图像把这种“无处不在”拆成五个尺度：家庭墙面、学校与工厂的宣传环境、生产现场的语录牌、胸前像章和日记内页。",
+      learnMoreEn:"Mao's image was not confined to meeting rooms. During the Cultural Revolution it entered government offices, schools, factories, communes, shops, streets, and homes. It was printed on posters, publications, and everyday objects, and miniaturized as badges worn on the chest. Large portraits usually occupied a front wall or visual center; on bodies and objects, the same face reappeared at a smaller and more frequent scale.\n\nThe portrait belonged to a wider system of images and texts: Quotations from Chairman Mao, the Selected Works, quotation boards, political slogans, badges, statues, and notebooks or stationery printed with quotations and revolutionary songs. Newspapers, study notes, and diaries also often opened with a Mao quotation or a “latest instruction.” Private writing could therefore begin by declaring a political position before recording the day.\n\nThe “morning request, evening report” ritual organized these objects into a daily practice. Before work, meetings, or field labor, groups faced a portrait, recited quotations, and “requested instructions.” After work they reported on their thoughts and labor. The portrait was not merely wall decoration; it became an object of daily political declaration. The practice was widespread in many places from 1966 to 1971 and declined after the September 13 Incident.\n\nIn this chapter, the portrait occupies the meeting room's visual center. Quotations and slogans surround it, and criticism and self-criticism take place before it. The images below break this ubiquity into five scales: the domestic wall, propaganda for schools and factories, the quotation board at a production site, the badge on the body, and the opening pages of a diary.",
+      galleryIntroZh:"<strong>无处不在：墙上、街上、胸前、手中、纸上。</strong> 这些材料不是同一场景的照片复原，而是来自同时期或相邻年份的视觉证据，共同说明领袖形象如何跨越公共空间、家庭生活、劳动现场和私人书写。",
+      galleryIntroEn:"<strong>Everywhere: on walls, in streets, on the chest, in the hand, and on paper.</strong> These are not photographs of one reconstructed room. They are visual evidence from the period and adjacent years, showing how the leader's image crossed public space, domestic life, workplaces, and private writing.",
+      galleryIntroVariant:"ubiquity",
+      gallery:[
+        {
+          image:"assets/references/ch4-mao-gallery/home-revolutionary-commitment.jpg",
+          zh:"家庭墙面：画像进入私人生活空间",
+          en:"Domestic wall: the portrait enters private life",
+          metaZh:"《忆苦思甜》，1965年5月，盛水福，上海人民美术出版社",
+          metaEn:"Remembering the Bitter, Thinking about the Sweet, May 1965, Sheng Shuifu, Shanghai People's Fine Arts Publishing House",
+          descriptionZh:"画面中央的毛泽东画像悬在家庭正墙上，两侧配有政治文字。Mao Era in Objects 指出，领袖像进入家庭后，是否陈列它会被视为家庭政治态度的可见标志。这张作品早于文革正式开始一年，显示这种家庭陈设已经形成，并在随后几年进一步强化。",
+          descriptionEn:"A portrait of Mao occupies the central wall of a home, flanked by political texts. Mao Era in Objects notes that displaying the portrait in a household became a visible sign of revolutionary commitment. Made one year before the Cultural Revolution formally began, this image shows an existing domestic pattern that intensified during the following years.",
+          creditZh:"来源：Mao Era in Objects，伦敦国王学院数字人文部",
+          creditEn:"Source: Mao Era in Objects, King's College London Department of Digital Humanities",
+          href:"https://mao-static.kdl.kcl.ac.uk/sources/mao-posters-expression-revolutionary-commitment-household-members/index.html"
+        },
+        {
+          image:"assets/references/ch4-mao-gallery/school-and-industry-1968.jpg",
+          zh:"学校与工厂：语录、红宝书、像章同时出现",
+          en:"School and factory: quotation, Little Red Book, and badge together",
+          metaZh:"《知识分子必须同工农兵相结合》，1968年11月，四川美术学院附中红尖兵",
+          metaEn:"Intellectuals Must Unite with Fellow Workers, Peasants and Soldiers, November 1968, Red Pioneers at the Middle School Affiliated with Sichuan Fine Arts Institute",
+          descriptionZh:"这张宣传画把学生、工人、工业设施、《毛主席语录》和胸前像章放进同一构图。毛的形象不必总以墙上大幅肖像出现；红宝书和像章也让它随人移动。",
+          descriptionEn:"The poster places students, workers, industrial facilities, Quotations from Chairman Mao, and a Mao badge in one composition. Mao's presence did not always require a large wall portrait; the book and badge made it portable.",
+          creditZh:"BG E16/851，Chineseposters.net，IISH馆藏",
+          creditEn:"BG E16/851, Chineseposters.net, IISH collection",
+          href:"https://chineseposters.net/posters/e16-851",
+          fit:"contain"
+        },
+        {
+          image:"assets/references/ch4-mao-gallery/factory-quotation-board-1970.jpg",
+          zh:"生产现场：标语和语录成为工作环境",
+          en:"Production site: slogans and quotations become the work environment",
+          metaZh:"《备战备荒，为人民；为人民服务》，1970年1月，江苏省革命委员会出版发行局",
+          metaEn:"Prepare for War and Famine, for the People; Serve the People, January 1970, Jiangsu Provincial Revolutionary Committee Publishing and Distribution Bureau",
+          descriptionZh:"钢铁生产场景中，横幅写着“抓革命，促生产，促工作，促战备”，左侧红色语录牌写有“为人民服务”。政治文字被放在工人每日可见的位置，与劳动现场融为一体。",
+          descriptionEn:"In this steel-production scene, the overhead banner calls for revolution, production, work, and war preparation. A red quotation board at left reads “Serve the People.” Political text occupies the worker's daily field of vision and becomes part of the workplace itself.",
+          creditZh:"PC-1970-006，Chineseposters.net，私人收藏",
+          creditEn:"PC-1970-006, Chineseposters.net, private collection",
+          href:"https://chineseposters.net/posters/pc-1970-006"
+        },
+        {
+          image:"assets/references/ch4-mao-gallery/mao-badges.jpg",
+          zh:"胸前：画像缩小成每天佩戴的像章",
+          en:"On the chest: the portrait becomes a badge worn every day",
+          metaZh:"标准毛主席像章，主要流行于1966年至1969年",
+          metaEn:"Standard Chairman Mao badges, most prevalent from 1966 to 1969",
+          descriptionZh:"常见像章直径约1至3厘米，通常为红底铝制、毛泽东侧面浮雕。Mao Era in Objects 估计1966年至1969年间共生产20亿至50亿枚。像章把领袖形象从墙面带到人的身体上，也使政治表态成为可穿戴的日常标识。",
+          descriptionEn:"A standard badge was about 1 to 3 cm wide, usually aluminum with a red ground and Mao's profile in relief. Mao Era in Objects estimates that 2 to 5 billion were produced from 1966 to 1969. The badge moved the leader's image from the wall onto the body and made political declaration wearable.",
+          creditZh:"来源：Mao Era in Objects，伦敦国王学院数字人文部",
+          creditEn:"Source: Mao Era in Objects, King's College London Department of Digital Humanities",
+          href:"https://maoeraobjects.ac.uk/object-biographies/mao-badges/",
+          fit:"contain"
+        },
+        {
+          image:"assets/references/ch4-mao-gallery/cultural-revolution-diary-opening.png",
+          zh:"纸上：私人书写之前已经有政治文字",
+          en:"On paper: political text precedes private writing",
+          metaZh:"《文革日记》内页，1967年至1968年",
+          metaEn:"Cultural Revolution Diary, opening pages, 1967-1968",
+          descriptionZh:"日记开页印有革命歌曲，藏品说明指出其扉页还配有毛主席语录和其他宣传材料；正文则反复记录学习语录及其对行动的指导。书写不是从空白页开始，政治文本已经预先规定了页面的语气。",
+          descriptionEn:"The opening includes a revolutionary song, and the collection notes that the front pages also contain quotations from Chairman Mao and other propaganda material. The entries repeatedly record study of the Quotations and their guidance for action. Writing did not begin on a neutral page; political text had already set its tone.",
+          creditZh:"来源：杜克大学 Sacred Arts of the Black Atlantic 项目",
+          creditEn:"Source: Sacred Arts of the Black Atlantic, Duke University",
+          href:"https://sacredart.caaar.duke.edu/artifacts/cultural-revolution-diary/"
+        }
+      ]
     },
     {
       id:"ch04-inner-thoughts", xPx:420, yPx:640,
@@ -1678,7 +1745,7 @@ function renderGalleryFigures(items = []) {
     const descriptionHtml = item.descriptionZh || item.descriptionEn
       ? `<p class="context-reference-description context-body-zh">${item.descriptionZh || ""}</p><p class="context-reference-description context-en context-body-en">${item.descriptionEn || ""}</p>`
       : "";
-    const figureClass = item.kind === "homage" ? "context-reference is-homage" : "context-reference";
+    const figureClass = ["context-reference", item.kind === "homage" ? "is-homage" : "", item.fit === "contain" ? "is-contain" : ""].filter(Boolean).join(" ");
     const homageLabel = item.kind === "homage"
       ? `<p class="context-reference-kind"><span class="context-body-zh">跨时空视觉致意</span><span class="context-en context-body-en">Transhistorical homage</span></p>`
       : "";
@@ -1690,7 +1757,8 @@ function renderGalleryFigures(items = []) {
 
 function renderGalleryIntro(source) {
   if (!source?.galleryIntroZh && !source?.galleryIntroEn) return "";
-  return `<p class="context-gallery-intro context-body-zh">${source.galleryIntroZh || ""}</p><p class="context-gallery-intro context-en context-body-en">${source.galleryIntroEn || ""}</p>`;
+  const variantClass = source.galleryIntroVariant === "ubiquity" ? " is-ubiquity" : "";
+  return `<p class="context-gallery-intro${variantClass} context-body-zh">${source.galleryIntroZh || ""}</p><p class="context-gallery-intro${variantClass} context-en context-body-en">${source.galleryIntroEn || ""}</p>`;
 }
 
 // 缩略图点了直接打开全站统一的居中大图弹窗（image-lightbox），跟其它参考图片同一套看图方式，

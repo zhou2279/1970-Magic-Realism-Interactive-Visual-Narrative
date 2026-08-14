@@ -737,9 +737,15 @@ html[data-main-language="en"] .context-section summary > [data-context-chinese] 
 }
 .context-section > p:first-of-type,.context-section > figure:first-of-type,.context-section > blockquote:first-of-type { margin-top:.55rem; }
 .context-gallery-intro { margin:0 0 .55rem; font-size:calc(.76rem * var(--content-font-scale)); line-height:1.7; color:rgba(255,255,255,.68); }
+.context-gallery-intro.is-ubiquity {
+  margin:.8rem 0 1.15rem; padding:.75rem .8rem .78rem; border-left:2px solid rgba(190,58,42,.9);
+  background:rgba(190,58,42,.11); color:rgba(255,255,255,.76);
+}
+.context-gallery-intro.is-ubiquity strong { display:block; margin-bottom:.22rem; color:rgba(255,255,255,.96); font-weight:600; letter-spacing:.035em; }
 .context-reference { margin:1rem 0; }
 .context-reference-media { position:relative; }
 .context-reference img { display:block; width:100%; max-height:16rem; object-fit:cover; border-radius:.55rem; border:1px solid rgba(255,255,255,.16); }
+.context-reference.is-contain img { height:16rem; object-fit:contain; background:rgba(255,255,255,.035); }
 .context-reference figcaption { margin-top:.5rem; font-size:var(--content-font-size-caption); line-height:1.5; color:rgba(255,255,255,.68); }
 .context-reference figcaption small { display:block; margin-top:.25rem; color:rgba(255,255,255,.42); }
 .context-reference-description { margin:.62rem 0 0; line-height:1.68; color:rgba(255,255,255,.68); }

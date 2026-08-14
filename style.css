@@ -128,6 +128,11 @@ html.is-kiosk-mode .context-toggle { right:1rem; }
   mask-composite:intersect;
 }
 .chapter-motion-layer.is-playing { opacity:var(--motion-opacity,1); }
+.chapter-motion-still {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:0; pointer-events:none; mix-blend-mode:var(--motion-blend,normal);
+}
+html[data-motion="reduced"] .chapter-motion-still { opacity:var(--motion-opacity,1); }
 
 /* Chapter 6 uses the whole frame as an interaction map. On iPad-like 4:3
    screens, cover crops the cat and its cue off the right edge. */
@@ -708,6 +713,7 @@ html:not(.is-kiosk-mode) body:not(.is-fullscreen) .context-toggle {
 .context-section[open] summary::after { content:"−"; }
 .context-section summary span { display:block; margin-top:.18rem; font:calc(.68rem * var(--content-font-scale))/1.3 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.45); }
 .context-section summary > [data-context-chinese] { display:inline; margin:0; font:inherit; color:inherit; }
+html[data-main-language="en"] .context-section summary > [data-context-chinese] { display:none; }
 .context-section > p:first-of-type,.context-section > figure:first-of-type,.context-section > blockquote:first-of-type { margin-top:.55rem; }
 .context-gallery-intro { margin:0 0 .55rem; font-size:calc(.76rem * var(--content-font-scale)); line-height:1.7; color:rgba(255,255,255,.68); }
 .context-reference { margin:1rem 0; }

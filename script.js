@@ -947,8 +947,8 @@ const HOTSPOTS = [
           image:"assets/references/ch3-gallery/上山下乡.jpg",
           zh:"上山下乡运动主题宣传画",
           en:"Up to the Mountains and Down to the Countryside propaganda poster",
-          creditZh:"参考来源：百度百科“插队”；Chineseposters.net 上山下乡主题说明",
-          creditEn:"Reference sources: Baidu Baike, “Chadui”; Chineseposters.net, Up to the Mountains and Down to the Countryside",
+          creditZh:"来源：百度百科“插队”；Chineseposters.net 上山下乡主题说明",
+          creditEn:"Sources: Baidu Baike, “Chadui”; Chineseposters.net, Up to the Mountains and Down to the Countryside",
           href:"https://baike.baidu.com/item/%E6%8F%92%E9%98%9F/2912986"
         }
       ]
@@ -1128,6 +1128,7 @@ const CHAPTERS = [
         id:"ch4-mao-glow",
         webm:"assets/chapters/motion/ch4-mao-glow.webm",
         hevc:"assets/chapters/motion/ch4-mao-glow-hevc.mov",
+        reducedMotionStill:"assets/chapters/motion/ch4-mao-glow-still.png",
         hevcOnDesktop:true,
         placement:"base", layer:3, start:"image-entry", stop:"chapter-exit",
         startDelay:0, playbackRate:1, loop:true
@@ -1746,10 +1747,16 @@ function initBackgrounds() {
         data-playback-rate="${overlay.playbackRate ?? MOTION_SETTINGS.chapterMotion.playbackRate}"
         style="z-index:${overlay.layer || 2};--motion-opacity:${overlay.opacity ?? 1};--motion-blend:${overlay.blendMode || "normal"};--motion-fade-in:${overlay.fadeInDuration ?? overlay.fadeInBeforePlay ?? 0}ms"></video>`;
     }).join("");
+    const reducedMotionStills = motionOverlays
+      .filter(overlay => overlay.reducedMotionStill)
+      .map(overlay => `<img class="chapter-motion-still" src="${overlay.reducedMotionStill}" alt="" aria-hidden="true" decoding="async"
+        style="z-index:${overlay.layer || 2};--motion-opacity:${overlay.opacity ?? 1};--motion-blend:${overlay.blendMode || "normal"}">`)
+      .join("");
     visual.innerHTML = `
       <img class="chapter-bg chapter-bg-base" src="${chapter.baseImage || chapter.image}" alt="${chapter.title}：底图">
       ${compositeImage}
       ${!chapter.baseOnly && chapter.reveal === "dissolve" ? '<canvas class="chapter-bg chapter-dissolve-canvas" aria-hidden="true"></canvas>' : ''}
+      ${reducedMotionStills}
       ${motionMedia}`;
     backgrounds.appendChild(visual);
     visual.querySelectorAll(".chapter-motion-layer").forEach(configureMotionMedia);

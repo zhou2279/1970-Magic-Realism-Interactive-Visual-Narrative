@@ -6367,12 +6367,15 @@ function showTooltip(button, hotspot) {
   tooltip.innerHTML = `<strong class="tooltip-zh">${convertZh(hotspot.zh)}</strong><span class="tooltip-translation">${hotspot.en}</span><p class="tooltip-zh">${convertZh(hotspot.note)}</p>${hotspot.noteEn ? `<p class="tooltip-note-en">${hotspot.noteEn}</p>` : ""}${isTouchDevice ? `<button class="tooltip-more" type="button">${moreLabel} →</button>` : `<p class="tooltip-more">${moreLabel} →</p>`}`;
   const experienceRect = experience.getBoundingClientRect();
   const buttonRect = button.getBoundingClientRect();
-  const x = buttonRect.left + buttonRect.width / 2;
-  const y = buttonRect.top + buttonRect.height / 2;
-  const tooltipWidth = Math.min(272, experienceRect.width * .72);
-  tooltip.style.left = `${Math.max(12, Math.min(x + 18, window.innerWidth - tooltipWidth - 12))}px`;
+  // Tooltip coordinates are relative to .experience, while getBoundingClientRect()
+  // returns viewport coordinates. Keeping both in the same coordinate space prevents
+  // right-edge hotspots from being shifted outside the framed experience.
+  const x = buttonRect.left - experienceRect.left + buttonRect.width / 2;
+  const y = buttonRect.top - experienceRect.top + buttonRect.height / 2;
+  const tooltipWidth = tooltip.offsetWidth;
+  tooltip.style.left = `${Math.max(12, Math.min(x + 18, experienceRect.width - tooltipWidth - 12))}px`;
   const tooltipHeight = tooltip.offsetHeight;
-  const safeCenterY = Math.max(tooltipHeight / 2 + 12, Math.min(y, window.innerHeight - tooltipHeight / 2 - 12));
+  const safeCenterY = Math.max(tooltipHeight / 2 + 12, Math.min(y, experienceRect.height - tooltipHeight / 2 - 12));
   tooltip.style.top = `${safeCenterY}px`;
   tooltip.classList.add("is-visible");
   tooltip.setAttribute("aria-hidden", "false");

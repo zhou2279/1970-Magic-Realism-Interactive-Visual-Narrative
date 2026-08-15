@@ -1080,7 +1080,7 @@ const CHAPTER_6_MEMORY_CUES = [
     id:"cat", order:3, xPx:1490, yPx:790, widthPx:350, heightPx:270, radiusXPx:190, radiusYPx:155, thoughtPosition:"center",
     openingHold:7000,
     thoughtZh:"猫慢悠悠地走过去，像是在巡自己的地盘……一拐，就没进树影里了。",
-    thoughtEn:"The cat ambles past, as if patrolling ground it already owns...\nthen turns, and slips into the shadow of a tree."
+    thoughtEn:"The cat strolls past, as if the ground already belongs to it.\nThen it turns and slips into the shadow of a tree."
   }
 ];
 

@@ -983,26 +983,16 @@ const HOTSPOTS = [
           href:"https://mao-static.kdl.kcl.ac.uk/sources/mao-posters-expression-revolutionary-commitment-household-members/index.html"
         },
         {
-          image:"assets/references/ch4-mao-gallery/textbook-arithmetic.jpg",
-          zh:"公共教育：算术课本封面的毛泽东头像",
-          en:"Public education: Mao's portrait on an arithmetic textbook",
-          metaZh:"《小学暂用课本 算术》第五册，版次未详",
-          metaEn:"Provisional Primary-School Arithmetic Textbook, Volume 5, edition unknown",
-          descriptionZh:"算术内容尚未开始，毛泽东头像已经占据封面中心。政治形象成为学生进入学科知识前首先看到的内容。",
-          descriptionEn:"Before the arithmetic begins, Mao's portrait occupies the center of the cover. Political imagery precedes the school subject itself.",
-          creditZh:"来源：每日头条原图页面，用户提供藏图",
-          creditEn:"Source: KK News image page; local image provided by the user",
-          href:"https://kknews.cc/zh-my/history/eorj3o4.html",
-          fit:"contain"
-        },
-        {
-          image:"assets/references/ch4-mao-gallery/textbook-english.jpg",
-          zh:"公共教育：英语课文与书写练习中的毛泽东头像",
-          en:"Public education: Mao's portrait in an English lesson and handwriting exercise",
-          metaZh:"英语课本第八课，版次未详",
-          metaEn:"English textbook, Lesson Eight, edition unknown",
-          descriptionZh:"头像、群众图像与“Long live Chairman Mao”同时成为英语阅读、词汇和抄写练习。政治表达被直接编入课堂训练。",
-          descriptionEn:"The portrait, a mass scene, and “Long live Chairman Mao” become material for reading, vocabulary, and handwriting practice. Political expression is built into classroom exercises.",
+          images:[
+            { src:"assets/references/ch4-mao-gallery/textbook-arithmetic.jpg", altZh:"《小学暂用课本 算术》第五册封面上的毛泽东头像", altEn:"Mao's portrait on the cover of a provisional primary-school arithmetic textbook" },
+            { src:"assets/references/ch4-mao-gallery/textbook-english.jpg", altZh:"英语课文与书写练习中的毛泽东头像", altEn:"Mao's portrait in an English lesson and handwriting exercise" }
+          ],
+          zh:"公共教育：算术封面与英语练习中的毛泽东头像",
+          en:"Public education: Mao's portrait in arithmetic and English textbooks",
+          metaZh:"《小学暂用课本 算术》第五册与英语课本第八课，版次未详",
+          metaEn:"Provisional Primary-School Arithmetic Textbook, Volume 5, and English textbook, Lesson Eight; editions unknown",
+          descriptionZh:"一个让头像先于算术内容出现，另一个把头像与政治表达编入英语阅读、词汇和抄写练习。",
+          descriptionEn:"One places the portrait before the arithmetic; the other builds the portrait and political language into English reading, vocabulary, and handwriting exercises.",
           creditZh:"来源：每日头条原图页面，用户提供藏图",
           creditEn:"Source: KK News image page; local image provided by the user",
           href:"https://kknews.cc/zh-my/history/eorj3o4.html"

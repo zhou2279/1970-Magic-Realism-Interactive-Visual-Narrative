@@ -1070,23 +1070,27 @@ const CHAPTER_6_INDEX = 5;
 const CHAPTER_6_MEMORY_CUES = [
   {
     id:"books", order:0, xPx:260, yPx:445, widthPx:500, heightPx:400, radiusPx:255, thoughtPosition:"center",
+    openingHold:5000,
     thoughtZh:"书一排一排立在橱窗里，展示着……我们家那些，是烧掉的。",
-    thoughtEn:"The books stand in rows in the window, on display... Ours were burned."
+    thoughtEn:"The books stand in rows in the window, on display...\nOurs were burned."
   },
   {
     id:"hair", order:1, xPx:583, yPx:564, widthPx:208, heightPx:268, radiusPx:138, thoughtPosition:"center",
+    openingHold:10000,
     thoughtZh:"风把她的头发吹起来……我的长发，在下乡的第一个月剪了，没法打理。辫梢的蝴蝶，飞走了。",
     thoughtEn:"The wind lifts her hair... Mine was cut short in my first month at the farm. There was no way to keep it. The butterflies at the end of my braids flew away."
   },
   {
     id:"conversation", order:2, xPx:1257, yPx:555, widthPx:312, heightPx:216, radiusPx:176, thoughtPosition:"center",
+    openingHold:7000,
     thoughtZh:"他们轻轻松松，说说笑笑……话到嘴边，不必先在脑子里转一圈。",
-    thoughtEn:"They are chatting with such ease, as if words can reach the mouth without turning circles in the mind first."
+    thoughtEn:"They are chatting with such ease, as if words can reach the mouth\nwithout turning circles in the mind first."
   },
   {
     id:"cat", order:3, xPx:1490, yPx:790, widthPx:350, heightPx:270, radiusXPx:190, radiusYPx:155, thoughtPosition:"center",
+    openingHold:7000,
     thoughtZh:"猫慢悠悠地走过去，像是在巡自己的地盘……一拐，就没进树影里了。",
-    thoughtEn:"The cat ambles past, as if patrolling ground it already owns... then turns, and slips into the shadow of a tree."
+    thoughtEn:"The cat ambles past, as if patrolling ground it already owns...\nthen turns, and slips into the shadow of a tree."
   }
 ];
 
@@ -1487,6 +1491,8 @@ let chapter6SpotlightState = null;
 let chapter6CueDismissedAt = Number.NEGATIVE_INFINITY;
 const chapter6SequenceWaits = new Map();
 let chapter6ActiveCueId = null;
+let chapter6OpeningCueActive = false;
+let chapter6OpeningAdvanceRequested = false;
 let soundEnabled = true; // 首次访问默认开启；浏览器会在第一次用户手势后解锁播放。
 let soundUnlocked = false;
 const chapter6Visited = new Set();
@@ -3566,14 +3572,16 @@ function clearChapter6Timers() {
     resolve(false);
   });
   chapter6SequenceWaits.clear();
+  chapter6OpeningCueActive = false;
+  chapter6OpeningAdvanceRequested = false;
   chapter6GlanceTimer = null;
   chapter6HintTimer = null;
   chapter6PassiveCloseTimer = null;
   chapter6SpotlightFrame = null;
 }
 
-function waitForChapter6Sequence(duration, runId) {
-  const actualDuration = prefersReducedMotion()
+function waitForChapter6Sequence(duration, runId, { preserveReadingTime = false } = {}) {
+  const actualDuration = prefersReducedMotion() && !preserveReadingTime
     ? Math.max(500, Math.min(duration, 1200))
     : duration;
   return new Promise(resolve => {
@@ -3583,6 +3591,21 @@ function waitForChapter6Sequence(duration, runId) {
     }, actualDuration);
     chapter6SequenceWaits.set(timer, resolve);
   });
+}
+
+function advanceChapter6OpeningGlance() {
+  if (
+    !isChapter6ImageMode()
+    || !memoryLayer.classList.contains("is-glancing")
+    || !chapter6OpeningCueActive
+  ) return false;
+  chapter6OpeningAdvanceRequested = true;
+  chapter6SequenceWaits.forEach((resolve, timer) => {
+    clearTimeout(timer);
+    chapter6SequenceWaits.delete(timer);
+    resolve(true);
+  });
+  return true;
 }
 
 function hideAudioHint() {
@@ -3703,10 +3726,27 @@ function cancelChapter6Glance(reason = "interrupt") {
 
 async function playChapter6Thought(cue, runId, timing) {
   if (!await waitForChapter6Sequence(timing.focus, runId)) return false;
+  if (timing.advanceOnClick) {
+    chapter6OpeningCueActive = true;
+    chapter6OpeningAdvanceRequested = false;
+  }
   showMemoryThought(cue.thoughtZh, cue.thoughtEn, timing.interactive);
-  if (!await waitForChapter6Sequence(timing.enter, runId)) return false;
+  if (!await waitForChapter6Sequence(timing.enter, runId)) {
+    chapter6OpeningCueActive = false;
+    chapter6OpeningAdvanceRequested = false;
+    return false;
+  }
   if (timing.persist) return true;
-  if (!await waitForChapter6Sequence(timing.hold, runId)) return false;
+  if (
+    !chapter6OpeningAdvanceRequested
+    && !await waitForChapter6Sequence(timing.hold, runId, { preserveReadingTime:true })
+  ) {
+    chapter6OpeningCueActive = false;
+    chapter6OpeningAdvanceRequested = false;
+    return false;
+  }
+  chapter6OpeningCueActive = false;
+  chapter6OpeningAdvanceRequested = false;
   beginMemoryThoughtExit();
   if (!await waitForChapter6Sequence(timing.exit ?? CHAPTER_6_MEMORY_TIMING.thoughtExit, runId)) return false;
   hideMemoryThought();
@@ -3779,8 +3819,9 @@ async function runChapter6OpeningGlance() {
       {
         focus:index === 0 ? CHAPTER_6_MEMORY_TIMING.openingFocus : 0,
         enter:CHAPTER_6_MEMORY_TIMING.openingThoughtEnter,
-        hold:CHAPTER_6_MEMORY_TIMING.openingThoughtHold,
-        exit:CHAPTER_6_MEMORY_TIMING.openingThoughtExit
+        hold:cue.openingHold ?? CHAPTER_6_MEMORY_TIMING.openingThoughtHold,
+        exit:CHAPTER_6_MEMORY_TIMING.openingThoughtExit,
+        advanceOnClick:true
       }
     );
     if (!completed) return;
@@ -6562,7 +6603,10 @@ document.addEventListener("click", event => {
     closeContext();
   }
   if (isChapter6ImageMode() && !event.target.closest(".memory-cue") && !event.target.closest("#sound-toggle")) {
-    if (chapter6Visited.has("opening-glance-complete")) {
+    if (!chapter6Visited.has("opening-glance-complete")) {
+      const clickedControl = event.target.closest("button, a, input, select, textarea, summary, [role='button']");
+      if (!clickedControl) advanceChapter6OpeningGlance();
+    } else {
       if (chapter6ActiveCueId) dismissChapter6Cue();
       else cancelChapter6Glance("click");
     }

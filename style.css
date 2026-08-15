@@ -11,7 +11,7 @@
   --narrative-font-size-zh:calc(1.08rem * var(--content-font-scale));
   --narrative-font-size-en:calc(1rem * var(--content-font-scale));
   --memory-font-size-zh:calc(1.05rem * var(--content-font-scale));
-  --memory-font-size-en:calc(1rem * var(--content-font-scale));
+  --memory-font-size-en:calc(1.1rem * var(--content-font-scale));
   --context-font-size-zh:calc(.88rem * var(--content-font-scale));
   --context-font-size-en:calc(.88rem * var(--content-font-scale));
   --context-caption-size-zh:calc(.76rem * var(--content-font-scale));
@@ -727,7 +727,7 @@ html:not(.is-kiosk-mode) body.is-fullscreen .context-toggle {
 .context-primary { padding-bottom:.75rem; }
 .epilogue-context-section { padding:1rem 0 .15rem; border-top:1px solid rgba(255,255,255,.16); }
 .epilogue-context-section:first-child { padding-top:0; border-top:0; }
-.epilogue-context-section h3 { margin:0 0 .7rem; font-size:var(--content-font-size-ui); line-height:1.4; font-weight:500; letter-spacing:.045em; color:rgba(255,255,255,.9); }
+.epilogue-context-section h3 { margin:0 0 .7rem; font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif; font-size:var(--content-font-size-ui); line-height:1.4; font-weight:500; letter-spacing:.045em; color:rgba(255,255,255,.9); }
 .epilogue-context-section h3 small { display:block; margin-top:.16rem; font:italic calc(.68rem * var(--content-font-scale))/1.35 "Newsreader","Times New Roman",Georgia,serif; letter-spacing:0; color:rgba(255,255,255,.48); }
 .context-panel[data-language="en"] .epilogue-context-section h3 small {
   margin-top:0; font:500 var(--content-font-size-ui)/1.4 "Work Sans","Helvetica Neue",Arial,sans-serif;
@@ -738,7 +738,7 @@ html:not(.is-kiosk-mode) body.is-fullscreen .context-toggle {
 .epilogue-context-sources a { color:rgba(255,255,255,.7); text-underline-offset:.18em; }
 .context-section { border-top:1px solid rgba(255,255,255,.18); padding:.9rem 0; }
 .context-section:last-child { border-bottom:1px solid rgba(255,255,255,.18); }
-.context-section summary { cursor:pointer; list-style:none; font-size:var(--content-font-size-ui-sm); letter-spacing:.05em; color:rgba(255,255,255,.9); }
+.context-section summary { cursor:pointer; list-style:none; font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif; font-size:var(--content-font-size-ui-sm); line-height:1.4; font-weight:500; letter-spacing:.05em; color:rgba(255,255,255,.9); }
 .context-section summary::-webkit-details-marker { display:none; }
 .context-section summary::after { content:"+"; float:right; font-family:Arial,sans-serif; color:rgba(255,255,255,.5); }
 .context-section[open] summary::after { content:"−"; }
@@ -914,7 +914,13 @@ body.is-full-story-open #timeline {
 .hotspot-source { font:.68rem/1.5 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; color:rgba(255,255,255,.48) !important; }
 .hotspot-source a { color:rgba(255,255,255,.72); text-underline-offset:.18em; }
 .reference-gallery { margin:1.4rem 0 1.65rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,.16); }
-.reference-gallery h3,.circulation-records h4 { margin:0 0 .75rem; font-size:var(--content-font-size-ui-sm); font-weight:500; line-height:1.4; letter-spacing:.05em; color:rgba(255,255,255,.92); }
+.reference-gallery h3,.circulation-records h4 { margin:0 0 .75rem; font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif; font-size:var(--content-font-size-ui-sm); font-weight:500; line-height:1.4; letter-spacing:.05em; color:rgba(255,255,255,.92); }
+.context-panel[data-language="zh-hant"] .context-section summary,
+.context-panel[data-language="zh-hant"] .epilogue-context-section h3,
+.context-panel[data-language="zh-hant"] .reference-gallery h3,
+.context-panel[data-language="zh-hant"] .circulation-records h4 {
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
 .reference-gallery h3 span,.circulation-records h4 span { display:block; margin-top:.18rem; font:italic calc(.68rem * var(--content-font-scale))/1.35 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.5); }
 .context-panel[data-language="en"] .reference-gallery h3 span,
 .context-panel[data-language="en"] .circulation-records h4 span {
@@ -1108,9 +1114,10 @@ body.is-light-narrative .context-toggle:hover,body.is-light-narrative .context-t
 }
 .memory-thought-en {
   margin-top:0;
-  font:var(--memory-font-size-en)/1.58 "Newsreader","Times New Roman",Georgia,serif;
-  color:rgba(255,255,255,.76);
-  letter-spacing:.01em;
+  font:500 var(--memory-font-size-en)/1.5 "Newsreader","Times New Roman",Georgia,serif;
+  color:rgba(255,255,255,.88);
+  letter-spacing:.005em;
+  white-space:pre-line;
 }
 .memory-thought.is-center { left:50%; top:29.8%; bottom:auto; }
 .memory-thought.is-center.is-visible { transform:translate(-50%,-50%); }

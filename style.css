@@ -752,8 +752,7 @@ html[data-main-language="en"] .context-section summary > [data-context-chinese] 
 .context-section > p:first-of-type,.context-section > figure:first-of-type,.context-section > blockquote:first-of-type { margin-top:.55rem; }
 .context-gallery-intro { margin:0 0 .55rem; font-size:calc(.76rem * var(--content-font-scale)); line-height:1.7; color:rgba(255,255,255,.68); }
 .context-gallery-intro.is-ubiquity {
-  margin:.8rem 0 1.15rem; padding:.75rem .8rem .78rem; border-left:2px solid rgba(190,58,42,.9);
-  background:rgba(190,58,42,.11); color:rgba(255,255,255,.76);
+  margin:.8rem 0 1.15rem; color:rgba(255,255,255,.76);
 }
 .context-gallery-intro.is-ubiquity strong { display:block; margin-bottom:.22rem; color:rgba(255,255,255,.96); font-weight:600; letter-spacing:.035em; }
 .context-reference { margin:1rem 0; }
@@ -899,6 +898,11 @@ body.is-full-story-open #timeline {
 }
 .hotspot-reading { margin:1rem 0; }
 .context-reading-section { margin-bottom:.9rem !important; }
+.context-reading-section.is-original {
+  margin-top:.75rem; padding:.85rem 1rem .95rem; border-left:2px solid rgba(255,255,255,.55);
+  background:rgba(255,255,255,.035); font-size:calc(.92rem * var(--content-font-scale)); line-height:1.85;
+  color:rgba(255,255,255,.9);
+}
 .context-reading-section.is-personal { margin-top:1.15rem; padding-top:.9rem; border-top:1px dotted rgba(255,255,255,.28); font-style:italic; color:rgba(255,255,255,.57); }
 .context-reading-label { display:block; margin-bottom:.34rem; font:600 .58rem/1.25 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.88); }
 .hotspot-reading-en { margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.13); }
@@ -906,6 +910,7 @@ body.is-full-story-open #timeline {
    the Chinese body starts instead of retaining the bilingual separator. */
 .context-panel[data-language="en"] .hotspot-reading-en { margin-top:0; padding-top:0; border-top:0; }
 .context-en .context-reading-section { font:normal calc(.9rem * var(--content-font-scale))/1.7 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.55); }
+.context-en .context-reading-section.is-original { font-size:calc(.92rem * var(--content-font-scale)); line-height:1.85; color:rgba(255,255,255,.9); }
 .context-en .context-reading-section.is-personal { font-style:italic; color:rgba(255,255,255,.57); }
 .context-en .context-reading-label { font:600 .55rem/1.25 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif; font-style:normal; color:rgba(255,255,255,.58); }
 .context-reading-section.is-supporting { margin-top:1rem; padding-top:.72rem; border-top:1px solid rgba(255,255,255,.1); font-size:var(--content-font-size-caption); line-height:1.6; color:rgba(255,255,255,.5); }

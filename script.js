@@ -660,7 +660,7 @@ const CONTEXTS = [
     leadNoteEn: "“Fighting self-interest, criticizing revisionism” was a political directive introduced by Mao Zedong in 1967 and promoted for years afterward. It required individuals to examine and denounce their own “selfish thoughts.” Speak-bitterness meetings, ideological reports, self-criticism, and struggle sessions brought this political demand into the routine meetings and collective life of production teams.\n\nSource: <a class=\"context-lead-note-source\" href=\"https://zh.wikipedia.org/zh-hans/%E6%96%97%E7%A7%81%E6%89%B9%E4%BF%AE\" target=\"_blank\" rel=\"noopener noreferrer\">Chinese Wikipedia: \u201cDou Si Pi Xiu\u201d</a>",
     zh: "生产大队会议室是公社日常政治生活的重要空间。这里可以安排劳动、传达通知，也可以进行政治学习、忆苦思甜、思想汇报和批斗。毛泽东画像、政治口号和黑板通常位于会议室的正面或醒目位置，与会议程序共同规定人们应当使用的政治语言和表态方式。\n\n参加者不仅接收通知，也可能被要求公开检讨自己的想法、批判他人或表明政治立场。长期处于这种审查与表态压力之下，调整言辞和进行自我审查成为许多人日常生活的一部分。",
     en: "The production brigade meeting room was an important space of everyday political life in a commune. It could be used for work assignments and announcements, as well as political study, speak-bitterness meetings, ideological reports, and struggle sessions. Portraits of Mao Zedong, political slogans, and blackboards were usually placed at the front or in prominent positions; together with meeting procedures, they defined the political language and declarations expected from participants.\n\nParticipants did more than receive notices. They could be required to criticize their own thoughts in public, denounce others, or declare a political position. Under sustained pressure to account for their views, adjusting one's words and practicing self-censorship became part of daily life for many people.",
-    material: "合成记忆图像｜大队会议室、政治标语、黑板与领袖像"
+    material: "合成记忆图像｜大队会议室、政治标语、黑板与毛泽东画像"
   },
   {
     title: "稻田里的门", titleEn: "The Door in the Rice Paddy · 1970",
@@ -872,10 +872,10 @@ const HOTSPOTS = [
     {
       id:"ch02-red-guard-poster", xPx:1027, yPx:596,
       zh:"红卫兵", en:"Red Guards",
-      note:"红卫兵宣传画把青年塑造成警惕、服从领袖著作并随时准备投入斗争的集体形象。",
-      noteEn:"Red Guard posters presented young people as a collective force: vigilant, loyal to Mao’s writings, and ready for struggle.",
-      learnMoreZh:"红卫兵是文革初期由学生和青年组成的群众组织，1966年迅速扩张。他们以“破四旧”、批判所谓资产阶级和旧文化为名，参加抄家、游行、贴大字报、批斗教师和干部等行动；运动很快发展出派性冲突和暴力，后来由军队和各级革委会逐步接管秩序。\n\n这张《早已森严壁垒 更加众志成城》约制于1969年。红、黑、白的高对比便于快速印刷和远距离识读；举枪、持望远镜、举《毛泽东选集》和集体前进的姿态，把青年群众塑造成高度警惕、服从领袖著作、准备斗争的政治形象。",
-      learnMoreEn:"The Red Guards were mass organizations made up largely of students and young people in the early Cultural Revolution, expanding rapidly in 1966. In the name of destroying the Four Olds and criticizing bourgeois or old culture, they took part in house searches, marches, big-character posters, and struggle sessions against teachers and officials. The movement soon developed factional conflict and violence, and order was gradually taken over by the army and revolutionary committees.\n\nThis poster, Already Heavily Fortified, Our Wills Unite Like a Fortress, dates to around 1969. The red-black-white contrast supports quick printing and legibility at a distance; rifles, binoculars, a raised Selected Works of Mao Zedong, and forward collective movement present young masses as vigilant, loyal to the leader’s writings, and ready for struggle.",
+      note:"红卫兵宣传画把青年塑造成警惕、服从毛泽东著作并随时准备投入斗争的集体形象。",
+      noteEn:"Red Guard posters presented young people as a collective force: vigilant, loyal to Mao Zedong’s writings, and ready for struggle.",
+      learnMoreZh:"红卫兵是文革初期由学生和青年组成的群众组织，1966年迅速扩张。他们以“破四旧”、批判所谓资产阶级和旧文化为名，参加抄家、游行、贴大字报、批斗教师和干部等行动；运动很快发展出派性冲突和暴力，后来由军队和各级革委会逐步接管秩序。\n\n这张《早已森严壁垒 更加众志成城》约制于1969年。红、黑、白的高对比便于快速印刷和远距离识读；举枪、持望远镜、举《毛泽东选集》和集体前进的姿态，把青年群众塑造成高度警惕、服从毛泽东著作、准备斗争的政治形象。",
+      learnMoreEn:"The Red Guards were mass organizations made up largely of students and young people in the early Cultural Revolution, expanding rapidly in 1966. In the name of destroying the Four Olds and criticizing bourgeois or old culture, they took part in house searches, marches, big-character posters, and struggle sessions against teachers and officials. The movement soon developed factional conflict and violence, and order was gradually taken over by the army and revolutionary committees.\n\nThis poster, Already Heavily Fortified, Our Wills Unite Like a Fortress, dates to around 1969. The red-black-white contrast supports quick printing and legibility at a distance; rifles, binoculars, a raised Selected Works of Mao Zedong, and forward collective movement present young masses as vigilant, loyal to Mao Zedong’s writings, and ready for struggle.",
       image:"assets/references/ch2-gallery/1.jpg",
       captionZh:"早已森严壁垒，更加众志成城",
       captionEn:"Already Heavily Fortified, Our Wills Unite Like a Fortress",
@@ -965,9 +965,9 @@ const HOTSPOTS = [
       note:"毛泽东画像在机关、学校和公社会议室中通常占据正面或中心位置。", noteEn:"Portraits of Mao Zedong commonly occupied the front wall or visual center in offices, schools, and commune meeting spaces.",
       id:"ch04-mao-portrait",
       learnMoreZh:"毛泽东的形象并不只悬挂在会议室。文革时期，它进入机关、学校、工厂、公社、商店、街道和家庭，也被印在课本、证件、书刊与日用品上。大幅画像通常占据正面墙或视觉中心；在普通物件上，同一张脸又以更小、更频繁的尺度反复出现。\n\n头像之外，还有一整套彼此呼应的视觉和文字物件：《毛主席语录》、毛泽东选集、语录牌、政治标语、像章、塑像，以及印有语录或革命歌曲的日记本和文具。报刊、学习笔记、日记等书写也常以毛语录或“最高指示”开头。\n\n“早请示、晚汇报”把这些物件组织成日常仪式。开工、开会或出工前，人们面对画像诵读语录并“请示”；收工后再汇报思想和工作。画像不只是墙面装饰，也成为每日政治表态的对象。\n\n本章中的画像位于会议室中心。下列材料进一步显示，同一张脸也进入公共教育、婚姻登记、家庭陈设与私人书写。",
-      learnMoreEn:"Mao's image was not confined to meeting rooms. During the Cultural Revolution it entered government offices, schools, factories, communes, shops, streets, and homes. It was also printed on textbooks, certificates, publications, and everyday objects. Large portraits occupied front walls or visual centers; on ordinary documents, the same face reappeared at a smaller and more frequent scale.\n\nThe portrait belonged to a wider system of images and texts: Quotations from Chairman Mao, the Selected Works, quotation boards, political slogans, badges, statues, and notebooks or stationery printed with quotations and revolutionary songs. Newspapers, study notes, and diaries also often opened with a Mao quotation or a “latest instruction.”\n\nThe “morning request, evening report” ritual organized these objects into daily practice. Before work or meetings, groups faced a portrait and recited quotations; afterward they reported on their thoughts and labor. The portrait was not merely decoration but an object of repeated political declaration.\n\nIn this chapter the portrait occupies the meeting room's center. The materials below show the same face entering public education, marriage registration, domestic display, and personal writing.",
-      galleryIntroZh:"<strong>无处不在：公共教育、婚姻登记、家庭墙面与私人书写。</strong> 这些普通物件让领袖形象出现在学习、结婚与记录生活的具体时刻。",
-      galleryIntroEn:"<strong>Everywhere: public education, marriage registration, domestic walls, and personal writing.</strong> These ordinary objects place the leader's face inside studying, marrying, and recording daily life.",
+      learnMoreEn:"Mao Zedong's image was not confined to meeting rooms. During the Cultural Revolution it entered government offices, schools, factories, communes, shops, streets, and homes. It was also printed on textbooks, certificates, publications, and everyday objects. Large portraits occupied front walls or visual centers; on ordinary documents, the same face reappeared at a smaller and more frequent scale.\n\nThe portrait belonged to a wider system of images and texts: Quotations from Chairman Mao, the Selected Works, quotation boards, political slogans, badges, statues, and notebooks or stationery printed with quotations and revolutionary songs. Newspapers, study notes, and diaries also often opened with a Mao quotation or a “latest instruction.”\n\nThe “morning request, evening report” ritual organized these objects into daily practice. Before work or meetings, groups faced a portrait and recited quotations; afterward they reported on their thoughts and labor. The portrait was not merely decoration but an object of repeated political declaration.\n\nIn this chapter the portrait occupies the meeting room's center. The materials below show the same face entering public education, marriage registration, domestic display, and personal writing.",
+      galleryIntroZh:"<strong>无处不在：公共教育、婚姻登记、家庭墙面与私人书写。</strong> 这些普通物件让毛泽东的形象出现在学习、结婚与记录生活的具体时刻。",
+      galleryIntroEn:"<strong>Everywhere: public education, marriage registration, domestic walls, and personal writing.</strong> These ordinary objects place Mao Zedong's image inside studying, marrying, and recording daily life.",
       galleryIntroVariant:"ubiquity",
       gallery:[
         {
@@ -1702,25 +1702,32 @@ function renderRichText(text, refs = [], language) {
 
 function renderLayeredReading(text, language = "zh") {
   const sections = text.split(/\n\n+/).reduce((merged, section) => {
-    const divider = section.indexOf("｜");
-    const label = divider === -1 ? "" : section.slice(0, divider);
-    const supporting = label === "脚注" || label === "Notes";
+    const pipeDivider = section.indexOf("｜");
+    const colonHeading = section.match(/^(原文|注释|繁简夹写)：\s*|^(Original text(?: \(translated\))?|Note|Mixed traditional and simplified characters):\s*/);
+    const label = pipeDivider !== -1
+      ? section.slice(0, pipeDivider)
+      : (colonHeading?.[1] || colonHeading?.[2] || "");
+    const body = pipeDivider !== -1
+      ? section.slice(pipeDivider + 1)
+      : (colonHeading ? section.slice(colonHeading[0].length) : section);
+    const supporting = ["脚注", "Notes", "注释", "Note", "繁简夹写", "Mixed traditional and simplified characters"].includes(label);
     const previous = merged[merged.length - 1];
     if (supporting && previous?.label === label) {
-      previous.body += `\n\n${section.slice(divider + 1)}`;
+      previous.body += `\n\n${body}`;
     } else {
-      merged.push({ label, body: divider === -1 ? section : section.slice(divider + 1) });
+      merged.push({ label, body });
     }
     return merged;
   }, []);
   return sections.map(({ label, body: rawBody }) => {
     if (!label) return `<p>${rawBody.replaceAll("\n", "<br>")}</p>`;
-    const supporting = label === "脚注" || label === "Notes";
+    const supporting = ["脚注", "Notes", "注释", "Note", "繁简夹写", "Mixed traditional and simplified characters"].includes(label);
+    const original = ["原文", "Original text", "Original text (translated)"].includes(label);
     const historical = label === "历史核心" || label === "History core";
     const personal = label === "与沈蕙兰的关系" || label === "Shen Huilan";
     const linkedBody = rawBody.includes("<a") ? rawBody : rawBody.replace(/https:\/\/[^\s<]+/g, url => `<a class="context-lead-note-source" href="${url}" target="_blank" rel="noopener noreferrer">${language === "zh" ? "相关词条" : "Source entry"}</a>`);
     const body = supporting ? linkedBody : linkedBody.replace(/\[(\d+)\]/g, '<sup class="context-citation">[$1]</sup>');
-    const classes = ["context-reading-section", supporting ? "is-supporting" : "", personal ? "is-personal" : ""].filter(Boolean).join(" ");
+    const classes = ["context-reading-section", supporting ? "is-supporting" : "", original ? "is-original" : "", personal ? "is-personal" : ""].filter(Boolean).join(" ");
     const visibleLabel = historical || personal ? "" : `<span class="context-reading-label">${label}</span>`;
     return `<p class="${classes}" lang="${language === "zh" ? "zh-CN" : "en"}">${visibleLabel}${body.replaceAll("\n", "<br>")}</p>`;
   }).join("");

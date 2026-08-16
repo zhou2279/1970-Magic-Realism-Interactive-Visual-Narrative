@@ -930,26 +930,136 @@ const HOTSPOTS = [
       zh:"破四旧", en:"Destroy the Four Olds",
       note:"“破四旧”把旧思想、旧文化、旧风俗和旧习惯列为批判对象，旧书和家庭旧藏常因此受冲击。",
       noteEn:"The “Destroy the Four Olds” campaign targeted old ideas, culture, customs, and habits, putting old books and family possessions at risk.",
-      learnMoreZh:"1966年“破四旧”开始后，旧书、月份牌和家庭旧藏可能被查抄、停售、封存或毁损。各地抄家的范围和做法不同，并带有很大任意性；现有材料不支持“所有《康熙字典》均被销毁”的说法。[1][2]\n\n在本章的人物设定中，沈家的月份牌被撕碎，《康熙字典》被泼墨焚烧。两件物品分别与家庭日常图像和蕙兰学习自己姓名的记忆相连，又一同被运动归入需要清除的“旧”。\n\n注释：[1] 中发〔67〕158号及新华书店记录反映查抄、封存与停售。[2] 1970年9月17日，周恩来在辞书会议上谈到《新华字典》与《康熙字典》的继承关系。沈家所藏字典的具体遭遇属于人物设定。",
-      learnMoreEn:"After the Destroy the Four Olds campaign began in 1966, old books, yuefenpai, and family possessions could be confiscated, withdrawn from sale, sealed away, or destroyed. The scope and methods of house searches differed by place and were often arbitrary; available evidence does not support the claim that every copy of the Kangxi Dictionary was destroyed.[1][2]\n\nIn this chapter's fictional history, the Shen family's yuefenpai is torn apart and its Kangxi Dictionary is splashed with ink and burned. The two objects are connected respectively to domestic imagery and to Huilan's memory of learning the characters in her name, but both are classified by the campaign as “old” objects to be removed.\n\nNotes: [1] Central Document No. 158 and Xinhua Bookstore records document confiscation, sequestration, and withdrawal. [2] On 17 September 1970, Zhou Enlai discussed the relationship between the Xinhua Dictionary and the Kangxi Dictionary. The fate of the Shen family's copy is fictional.",
+      learnMoreZh:"“抄家”是红卫兵以搜查“四旧”和所谓“不义之财”为名，闯入私人住宅，查找、没收或毁坏书籍、字画、古董和日用品；行动常伴随殴打、羞辱与强制驱逐。1966年8月18日毛泽东首次接见红卫兵后，抄家在北京急剧升级，并在8月下旬迅速扩展到上海等城市。北京在一个多月内至少有33,695户被抄、85,196人被驱逐；上海仅8月23日至9月8日就有84,222户被抄。运动高峰集中在1966年8至9月，之后查抄与没收仍有延续。[1][2][3]\n\n被查抄的并不只是所谓“反革命证据”。书籍、字画、古董、钟表、钢琴、地毯、首饰和日用品也可能被归为“封建”或“资产阶级”物品。查抄所得被装车送往工厂、学校、政府机关或临时仓库，经过登记、封存和分类，再进入保管、调拨、转售、出口或发还程序。研究显示，天津的查抄物资一度占用52座仓库、约6万平方米；保存不善又使部分衣物、书画遭雨水和霉变损毁。[4]\n\n马传德的回忆显示，上海一些资本家和小业主家庭的书籍、字画、钱币与印章被抄走。为了避免财物落入抄家者手中，有人事先转移或自行毁坏贵重物品；到20世纪80年代办理发还时，许多藏品已经散失、损坏或无法认领。[5] 各地对象、范围和做法不同，并带有很大任意性。旧书、月份牌和家庭旧藏可能被查抄、停售、封存或毁损；现有材料不支持“所有《康熙字典》均被销毁”的说法。[6][7]\n\n在本章的人物设定中，沈家的月份牌被撕碎，《康熙字典》被泼墨焚烧。两件物品分别与家庭日常图像和蕙兰学习自己姓名的记忆相连，又一同被运动归入需要清除的“旧”。\n\n注释：[1] Barbara Mittler梳理“破四旧”的时间与范围，并列出北京33,695户被抄等统计。[2] 丁大华记载上海1966年8月23日至9月8日被抄84,222户。[3] Sciences Po年表记录1966年8月下旬北京红卫兵向全国主要城市传播暴力行动。[4] UC Berkeley Social Science Matrix对Puck Engman的访谈梳理了查抄物资的登记、仓储、处置和发还。[5] 马传德《文革抄家见闻录》回忆上海的查抄与发还。[6] 中发〔67〕158号及新华书店记录反映查抄、封存与停售。[7] 1970年9月17日，周恩来在辞书会议上谈到《新华字典》与《康熙字典》的继承关系。沈家所藏字典的具体遭遇属于人物设定。",
+      learnMoreEn:"House raids were carried out by Red Guards in the name of searching for the Four Olds and so-called ill-gotten wealth. They entered private homes and searched for, confiscated, or destroyed books, paintings, antiques, and everyday possessions; raids were often accompanied by beatings, humiliation, and forced expulsion. After Mao Zedong's first mass reception of Red Guards on 18 August 1966, raids escalated sharply in Beijing and spread rapidly to Shanghai and other cities later that month. In just over a month, at least 33,695 Beijing households were raided and 85,196 people were expelled. In Shanghai, 84,222 households were raided between 23 August and 8 September. The peak came in August and September 1966, although searches and confiscations continued afterward.[1][2][3]\n\nWhat was taken was not limited to supposed evidence of counterrevolution. Books, paintings, antiques, watches, pianos, rugs, jewelry, and everyday goods could be classified as “feudal” or “bourgeois.” Confiscated property was trucked to factories, schools, government offices, and improvised warehouses, where it was inventoried, sealed, sorted, stored, reassigned, resold, exported, or eventually returned. In Tianjin, the seized goods once occupied 52 warehouses covering roughly 60,000 square metres; poor storage exposed some clothing, books, and paintings to rain and mildew.[4]\n\nMa Chuande's recollections describe books, paintings, coins, and seals being removed from the homes of capitalists and small business owners in Shanghai. Some families moved or destroyed valuables before a raid; when restitution was organized in the 1980s, many collections had already been dispersed, damaged, or rendered impossible to identify.[5] Targets and methods varied by place and were often arbitrary. Old books, yuefenpai, and family collections could be confiscated, withdrawn from sale, sealed away, or destroyed; available evidence does not support the claim that every copy of the Kangxi Dictionary was destroyed.[6][7]\n\nIn this chapter's fictional history, the Shen family's yuefenpai is torn apart and its Kangxi Dictionary is splashed with ink and burned. The two objects are connected respectively to domestic imagery and to Huilan's memory of learning the characters in her name, but both are classified by the campaign as “old” objects to be removed.\n\nNotes: [1] Barbara Mittler surveys the timing and scope of the campaign and cites the figure of 33,695 Beijing households raided. [2] Ding Dahua records 84,222 Shanghai households raided from 23 August to 8 September 1966. [3] The Sciences Po chronology documents the spread of Red Guard violence from Beijing to major cities in late August 1966. [4] UC Berkeley Social Science Matrix's interview with Puck Engman traces the inventorying, storage, disposal, and restitution of confiscated objects. [5] Ma Chuande's “Recollections of Cultural Revolution House Raids” describes confiscation and later restitution in Shanghai. [6] Central Document No. 158 and Xinhua Bookstore records document confiscation, sequestration, and withdrawal. [7] On 17 September 1970, Zhou Enlai discussed the relationship between the Xinhua Dictionary and the Kangxi Dictionary. The fate of the Shen family's copy is fictional.",
+      galleryIntroZh:"以下图像并置公开焚烧、查抄清单与封存物证：抄家不仅发生在住宅现场，也通过登记、封条、仓库和后续处置形成一套物品流转过程。",
+      galleryIntroEn:"These images pair scenes of public destruction with inventories and sealed evidence. House raids extended beyond the home into documentation, storage, and the later disposal or restitution of property.",
+      gallery:[
+        {
+          image:"https://static01.nyt.com/images/2016/09/29/world/29CHINAWOESER03/29CHINAWOESER03-jumbo-v3.jpg?quality=75&auto=webp",
+          zh:"拉萨焚烧佛教经文",
+          en:"Burning Buddhist scriptures in Lhasa",
+          metaZh:"1966年8月24日",
+          metaEn:"24 August 1966",
+          creditZh:"摄影：Tsering Dorje；来源：《纽约时报》",
+          creditEn:"Photograph by Tsering Dorje; source: The New York Times",
+          href:"https://www.nytimes.com/2016/10/04/world/asia/tibet-china-cultural-revolution-photographs.html"
+        },
+        {
+          image:"https://static01.nyt.com/images/2008/09/04/arts/24772075.JPG?quality=75&auto=webp&disable=upscale",
+          zh:"文化大革命中的破坏行动",
+          en:"Destruction during the Cultural Revolution",
+          metaZh:"原图说明与署名见《纽约时报》图集第5张",
+          metaEn:"See slide 5 of the New York Times gallery for the original caption and credit",
+          creditZh:"来源：《纽约时报》“Art and China's Revolution”图集",
+          creditEn:"Source: The New York Times, Art and China's Revolution gallery",
+          href:"https://www.nytimes.com/slideshow/2008/09/05/arts/20080905-REVO_index/s/20080905-REVO_slide5.html"
+        },
+        {
+          image:"assets/references/ch2-gallery/house-raid-evidence-01.jpg",
+          zh:"把查抄所得统计为“辉煌战果”",
+          en:"A newspaper tally presents confiscated property as “battle achievements”",
+          metaZh:"上海红卫兵查抄物资统计；原转载页未注明报刊与日期",
+          metaEn:"A Shanghai Red Guard tally; the republished source does not identify the newspaper or date",
+          descriptionZh:"材料把武器、证件、收音机、金银首饰、外币和古玩玉器等不同物品并列统计，显示私人财物如何被政治化并计入运动“战果”。",
+          descriptionEn:"Weapons, documents, radios, precious metals, foreign currency, jewelry, antiques, and jade are counted together, showing how private possessions were politicized and recorded as campaign “achievements.”",
+          creditZh:"来源：马传德《文革抄家见闻录》，禁闻网转载",
+          creditEn:"Source: Ma Chuande, “Recollections of Cultural Revolution House Raids,” republished by Bannedbook.org",
+          href:"https://www.bannedbook.org/bnews/lifebaike/20240210/1999437.html"
+        },
+        {
+          image:"assets/references/ch2-gallery/house-raid-evidence-02.jpg",
+          zh:"红卫兵《查抄物资清单》封面",
+          en:"Red Guard inventory covers for confiscated property",
+          metaZh:"“北京革命造反联合委员会”查抄清单与另一册《抄家物品清单》",
+          metaEn:"An inventory from the Beijing Revolutionary Rebel Joint Committee and another “House-Raid Property List”",
+          descriptionZh:"清单封面留下组织名称、物品类别与盖章痕迹，说明抄家除现场搜掠与毁坏外，还伴随登记、分类和后续处置。",
+          descriptionEn:"Organization names, property categories, and seals show that raids involved not only searching and destruction but also documentation, classification, and later disposition.",
+          creditZh:"来源：马传德《文革抄家见闻录》，禁闻网转载",
+          creditEn:"Source: Ma Chuande, “Recollections of Cultural Revolution House Raids,” republished by Bannedbook.org",
+          href:"https://www.bannedbook.org/bnews/lifebaike/20240210/1999437.html"
+        },
+        {
+          image:"assets/references/ch2-gallery/tianjin-confiscated-possessions.jpg",
+          zh:"天津封存的查抄物资箱",
+          en:"A sealed suitcase containing confiscated possessions in Tianjin",
+          metaZh:"箱面附有“抄家清单”，列出字画、玉器、瓷器及被抄对象",
+          metaEn:"The attached inventory lists paintings and calligraphy, jade, porcelain, and the targeted household",
+          descriptionZh:"封条和清单把住宅中的私人物品转成可搬运、入库和追踪的“查抄物资”。研究显示，天津的查抄物资一度占用52座仓库、约6万平方米。",
+          descriptionEn:"Seals and an inventory transformed household possessions into movable, storable, and trackable “confiscated property.” Research indicates that such goods once occupied 52 warehouses—about 60,000 square metres—in Tianjin.",
+          creditZh:"来源：UC Berkeley Social Science Matrix；Puck Engman访谈",
+          creditEn:"Source: UC Berkeley Social Science Matrix; interview with Puck Engman",
+          href:"https://live-ssmatrix.pantheon.berkeley.edu/research-article/confiscated-objects-of-the-cultural-revolution-a-visual-interview-with-puck-engman/"
+        }
+      ],
     }
   ],
   [
     {
       id:"ch03-commune-poster", x:50, y:62, zh:"上山下乡的宣传海报", en:"Up to the Mountains Propaganda Poster",
       note:"上山下乡宣传画把农村描绘成青年接受再教育、扎根成长并带去知识技术的理想去处。", noteEn:"Up to the Mountains posters pictured the countryside as an ideal place for young people to be re-educated, take root, and bring knowledge and skills.",
-      learnMoreZh:"“上山下乡”宣传画通常采用明亮色彩、集体劳动和青年出发的姿态，把下乡表现为主动接受“再教育”、扎根农村并支援农业建设。画面中的知青携带行李和农具，在贫下中农的引导下劳动、学习，并被塑造成“有文化的新型农民”。\n\n1968年以后，大批城市青年在政策安排下离开城市，个人通常难以选择去向。各地生活条件不同；高强度劳动、口粮和住房压力、疾病，以及返城困难，是许多知青经历中的具体问题。本章的水田场景把这些政策后果落实为每日的劳动、工分、口粮分配和政治学习。",
-      learnMoreEn:"Up to the Mountains and Down to the Countryside posters typically used bright colors, collective labor, and images of young people setting out to present relocation as a voluntary commitment to “re-education,” rural settlement, and agricultural development. Educated youth appeared with luggage and farm tools, working and studying under the guidance of poor and lower-middle peasants and becoming “new-style educated peasants.”\n\nAfter 1968, large numbers of urban young people left the cities under state policy and usually had little control over their destination. Conditions differed by region; intensive labor, pressure on food and housing, illness, and difficulty returning to the cities were concrete parts of many sent-down youths' experiences. This chapter's rice-field scene presents these policy consequences through daily labor, work points, grain distribution, and political study.",
-      galleryIntroZh:"以下为上山下乡运动主题宣传画参考。",
-      galleryIntroEn:"A reference image of an Up to the Mountains and Down to the Countryside poster from the same period.",
+      learnMoreZh:"“上山下乡”宣传画通常采用明亮色彩、集体劳动和青年出发的姿态，把下乡表现为主动接受“再教育”、扎根农村并支援农业建设。画面中的知青携带行李和农具，在贫下中农的引导下劳动、学习，并被塑造成“有文化的新型农民”。列车、红旗、日出、春景、笑容与昂扬的身体姿态共同制造一种充满希望的启程叙事。\n\n宣传图像与实际经验之间存在明显距离。1968年以后，大批城市青年在政策安排下离开城市，个人通常难以选择去向。各地生活条件不同；高强度劳动、口粮和住房压力、疾病、城乡关系中的摩擦、家庭分离，以及漫长而不确定的返城过程，是许多知青经历中的具体问题。宣传画很少呈现这些困难，也不呈现青年对去留缺乏决定权。\n\n本章的水田场景有意把宣传画省略的部分放回日常：湿冷的田地、重复的体力劳动、工分、口粮分配和政治学习。下列图片是理解政策如何描述自身的视觉材料，不是知青生活状况的直接记录。",
+      learnMoreEn:"Up to the Mountains and Down to the Countryside posters typically used bright colors, collective labor, and images of young people setting out to present relocation as a voluntary commitment to “re-education,” rural settlement, and agricultural development. Educated youth appeared with luggage and farm tools, working and studying under the guidance of poor and lower-middle peasants and becoming “new-style educated peasants.” Trains, red flags, sunrises, spring scenery, smiles, and confident poses combined to create a hopeful story of departure.\n\nThere was a clear distance between this imagery and lived experience. After 1968, large numbers of urban young people left the cities under state policy and usually had little control over their destination. Conditions differed by region, but intensive labor, pressure on food and housing, illness, friction with rural communities, family separation, and a long and uncertain path back to the cities shaped many sent-down youths' lives. The posters rarely showed these hardships or the limited power young people had over whether they left or stayed.\n\nThis chapter's rice-field scene deliberately restores what the posters omit: wet and cold fields, repetitive physical labor, work points, grain distribution, and political study. The images below document how the policy represented itself; they are not direct records of everyday life in the countryside.",
+      galleryIntroZh:"以下五幅宣传画以红旗、日出、春色、笑容和集体劳动构成充满希望的农村图景。逐图阅读时，也要留意画面没有呈现的艰苦劳动、物资压力、城乡摩擦与返城困难。",
+      galleryIntroEn:"These five posters use red flags, sunrises, spring color, smiles, and collective labor to construct a hopeful rural world. Read them alongside what they leave out: exhausting work, material scarcity, rural-urban friction, and difficulty returning home.",
       gallery:[
         {
           image:"assets/references/ch3-gallery/上山下乡.jpg",
           zh:"上山下乡运动主题宣传画",
           en:"Up to the Mountains and Down to the Countryside propaganda poster",
+          descriptionZh:"青年、贫下中农、地图、红旗和语录共同构成团结而自信的集体形象。画面把“再教育”表现为主动扎根农村的革命使命。",
+          descriptionEn:"Educated youth, peasants, a map, a red flag, and political texts form a confident collective. Re-education is presented as a voluntary revolutionary mission to take root in the countryside.",
           creditZh:"来源：百度百科“插队”；Chineseposters.net 上山下乡主题说明",
           creditEn:"Sources: Baidu Baike, “Chadui”; Chineseposters.net, Up to the Mountains and Down to the Countryside",
           href:"https://baike.baidu.com/item/%E6%8F%92%E9%98%9F/2912986"
+        },
+        {
+          image:"assets/references/ch3-gallery/e39-184.jpg",
+          zh:"《立志做一辈子农民》",
+          en:"Determined to Be a Peasant for Life",
+          metaZh:"约1968年，设计者不详，北京出版者不详",
+          metaEn:"Circa 1968, designer unknown, unidentified Beijing publisher",
+          descriptionZh:"女知青牵牛扶犁，面带笑容，人物从低视点显得强健而坚定。标题把下乡描述为终身志愿，却没有呈现政策安排下个人选择的有限性。",
+          descriptionEn:"A smiling young woman grips a plow beside an ox, viewed from below to appear strong and resolute. The title frames rural settlement as a lifelong aspiration while omitting how little choice many young people had.",
+          creditZh:"来源：Chineseposters.net，IISH馆藏，编号BG E39/184",
+          creditEn:"Source: Chineseposters.net, IISH collection, BG E39/184",
+          href:"https://chineseposters.net/posters/e39-184"
+        },
+        {
+          image:"assets/references/ch3-gallery/e15-35.jpg",
+          zh:"《知识青年到农村去，接受贫下中农的再教育！》",
+          en:"Educated Youth Must Go to the Countryside to Receive Re-education",
+          metaZh:"1969年4月，四川美术学院革命委员会，四川人民出版社",
+          metaEn:"April 1969, Sichuan Fine Arts College Revolutionary Committee, Sichuan People's Publishing House",
+          descriptionZh:"知青与贫下中农并肩站在日出和群众队伍前，人物手持语录、农具和书本。画面把政治学习、农业劳动与光明未来合并为同一个愿景。",
+          descriptionEn:"Educated youth and a peasant stand before a sunrise and a mass procession, holding political texts, tools, and books. Political study, farm labor, and a radiant future are compressed into one vision.",
+          creditZh:"来源：Chineseposters.net，Landsberger馆藏，编号BG E15/35",
+          creditEn:"Source: Chineseposters.net, Landsberger collection, BG E15/35",
+          href:"https://chineseposters.net/posters/e15-35"
+        },
+        {
+          image:"assets/references/ch3-gallery/e16-331.jpg",
+          zh:"《到农村去，到边疆去，到祖国最需要的地方去》",
+          en:"Go to the Countryside, the Border Areas, Where the Motherland Needs You Most",
+          metaZh:"1970年2月，设计者不详，上海市革命组",
+          metaEn:"February 1970, designer unknown, Shanghai Municipal Revolutionary Group",
+          descriptionZh:"青年从驶离上海的列车窗口挥手，红旗、语录和延伸的车厢把离开城市塑造成热烈而自愿的集体奔赴。家庭分离、未知去向和长期安置并未进入画面。",
+          descriptionEn:"Young people wave from a train departing Shanghai. Red flags, Mao quotations, and receding carriages turn departure into an enthusiastic collective journey, leaving family separation and uncertain long-term resettlement outside the frame.",
+          creditZh:"来源：Chineseposters.net，IISH馆藏，编号BG E16/331",
+          creditEn:"Source: Chineseposters.net, IISH collection, BG E16/331",
+          href:"https://chineseposters.net/posters/e16-331"
+        },
+        {
+          image:"assets/references/ch3-gallery/e15-178.jpg",
+          zh:"《春风杨柳》",
+          en:"Willows in the Spring Breeze",
+          metaZh:"1975年7月，周树桥，人民美术出版社",
+          metaEn:"July 1975, Zhou Shuqiao, People's Fine Arts Publishing House",
+          descriptionZh:"刚到农村的城市青年围坐进餐，行李、草帽与热水瓶暗示旅途和安置，人物神情轻松，室内充满欢迎气氛。“春风”把迁移比作充满生机的新开始。",
+          descriptionEn:"Newly arrived urban youth eat together beside luggage, straw hats, and thermos flasks. Relaxed faces and a welcoming room turn resettlement into a lively new beginning, captured by the title's image of a spring breeze.",
+          creditZh:"来源：Chineseposters.net，Landsberger馆藏，编号BG E15/178",
+          creditEn:"Source: Chineseposters.net, Landsberger collection, BG E15/178",
+          href:"https://chineseposters.net/posters/e15-178"
         }
       ]
     }

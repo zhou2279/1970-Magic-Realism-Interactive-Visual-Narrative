@@ -6547,7 +6547,7 @@ narrative.addEventListener("pointercancel", cancelNarrativePointer);
 startScreen.addEventListener("pointermove", scatterIntroParticles);
 startScreen.addEventListener("pointerleave", () => { introParticlePointer.active = false; });
 startScreen.addEventListener("click", event => {
-  if (!event.target.closest("button, .term-ref") && startActive) advanceStart();
+  if (!event.target.closest("a, button, .term-ref") && startActive) advanceStart();
 });
 epilogueScreen.addEventListener("pointermove", scatterIntroParticles);
 epilogueScreen.addEventListener("pointerleave", () => { introParticlePointer.active = false; });
@@ -6678,6 +6678,8 @@ updateContextChineseLabels();
 buildTraditionalStaticVariant("start-zh", "start-hant");
 buildTraditionalStaticVariant("epilogue-zh", "epilogue-hant");
 buildTraditionalStaticVariant("epilogue-fullstory-zh", "epilogue-fullstory-hant");
+buildTraditionalStaticVariant("start-credit-zh", "start-credit-hant");
+buildTraditionalStaticVariant("epilogue-credit-zh", "epilogue-credit-hant");
 buildTraditionalStaticVariant("story-back-zh", "story-back-hant");
 // 序言"进入/退出全屏"大按钮、按钮下方的邀请文案、时间线上"序/跋"两个站点的年份标签、
 // 六章时间线的场景标题——之前中英一直是拼在同一段字符串/同一节点里显示，现在拆成

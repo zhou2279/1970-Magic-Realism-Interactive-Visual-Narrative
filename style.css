@@ -47,6 +47,13 @@ html.is-mobile-device .mobile-gate {
 .mobile-gate h1 span { display:block; margin-top:.45rem; font:italic 1.15rem/1.4 "Newsreader","Times New Roman",Georgia,serif; letter-spacing:.03em; color:rgba(255,255,255,.72); }
 .mobile-gate-zh { margin-top:2.4rem; font-size:1rem; line-height:1.75; letter-spacing:.05em; }
 .mobile-gate-en { margin:1rem auto 0; max-width:25rem; font:normal .9rem/1.6 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.68); }
+.mobile-gate-credit {
+  display:grid; gap:.22rem; margin:2.4rem auto 0;
+  font:500 .65rem/1.45 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.045em; color:rgba(255,255,255,.52);
+}
+.mobile-gate-credit a { justify-self:center; color:rgba(255,255,255,.88); text-underline-offset:.22em; }
+.mobile-gate-credit a:hover,.mobile-gate-credit a:focus-visible { color:#fff; }
 
 .experience {
   position:absolute; left:50%; top:50%; width:92vw; height:88dvh; overflow:visible;
@@ -195,6 +202,14 @@ html[data-motion="reduced"] .chapter-motion-still { opacity:var(--motion-opacity
 .start-paragraph.is-visible { opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
 .start-zh, .start-hant { display:block; font-size:var(--content-font-size-zh); line-height:1.7; letter-spacing:.055em; color:rgba(255,255,255,.78); margin-bottom:.24rem; }
 .start-en { display:block; font:calc(var(--start-en-font-size,.95rem) * var(--content-font-scale))/1.5 "Newsreader","Times New Roman",Georgia,serif; color:rgba(255,255,255,.7); }
+.start-credit {
+  position:absolute; z-index:4; left:1.35rem; top:1.15rem; max-width:22rem;
+  font:500 .61rem/1.5 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.035em; color:rgba(255,255,255,.46);
+}
+.start-credit a,.epilogue-credit a { color:rgba(255,255,255,.78); text-underline-offset:.2em; }
+.start-credit a:hover,.start-credit a:focus-visible,
+.epilogue-credit a:hover,.epilogue-credit a:focus-visible { color:#fff; }
 
 .epilogue-screen {
   position:absolute; inset:0; z-index:70; display:flex; align-items:center; justify-content:center;
@@ -235,6 +250,10 @@ html[data-motion="reduced"] .chapter-motion-still { opacity:var(--motion-opacity
   border-color:rgba(255,196,120,.75); background:rgba(255,196,120,.08);
 }
 .epilogue-fullstory-zh, .epilogue-fullstory-hant, .epilogue-fullstory-en { font:inherit; letter-spacing:inherit; color:inherit; }
+.epilogue-credit {
+  margin-top:.72rem; font:500 .61rem/1.45 "Noto Sans SC","Work Sans","Helvetica Neue",Arial,sans-serif;
+  letter-spacing:.035em; color:rgba(255,255,255,.48);
+}
 html[data-content-font-size="large"] .start-text,
 html[data-content-font-size="large"] .epilogue-text {
   width:88vw;
@@ -443,6 +462,12 @@ html[data-main-language="zh-hant"] .start-zh,
 html[data-main-language="zh-hant"] .start-en,
 html[data-main-language="en"] .start-zh,
 html[data-main-language="en"] .start-hant,
+html[data-main-language="zh-hans"] .start-credit-hant,
+html[data-main-language="zh-hans"] .start-credit-en,
+html[data-main-language="zh-hant"] .start-credit-zh,
+html[data-main-language="zh-hant"] .start-credit-en,
+html[data-main-language="en"] .start-credit-zh,
+html[data-main-language="en"] .start-credit-hant,
 html[data-main-language="zh-hans"] .epilogue-hant,
 html[data-main-language="zh-hans"] .epilogue-en,
 html[data-main-language="zh-hant"] .epilogue-zh,
@@ -455,6 +480,12 @@ html[data-main-language="zh-hant"] .epilogue-fullstory-zh,
 html[data-main-language="zh-hant"] .epilogue-fullstory-en,
 html[data-main-language="en"] .epilogue-fullstory-zh,
 html[data-main-language="en"] .epilogue-fullstory-hant,
+html[data-main-language="zh-hans"] .epilogue-credit-hant,
+html[data-main-language="zh-hans"] .epilogue-credit-en,
+html[data-main-language="zh-hant"] .epilogue-credit-zh,
+html[data-main-language="zh-hant"] .epilogue-credit-en,
+html[data-main-language="en"] .epilogue-credit-zh,
+html[data-main-language="en"] .epilogue-credit-hant,
 html[data-main-language="zh-hans"] .story-back-hant,
 html[data-main-language="zh-hans"] .story-back-en,
 html[data-main-language="zh-hant"] .story-back-zh,
@@ -1438,6 +1469,7 @@ html.is-small-device .rotate-overlay.is-visible { display:flex; pointer-events:a
   .epilogue-paragraph { margin-bottom:.58rem; }
   .epilogue-zh, .epilogue-hant { font-size:calc(.78rem * var(--content-font-scale)); line-height:1.45; }
   .epilogue-en { margin-top:.12rem; font-size:calc(.63rem * var(--content-font-scale)); line-height:1.3; }
+  .start-credit { left:1rem; top:.85rem; max-width:18rem; font-size:.56rem; }
   .fullscreen-invitation { left:auto; right:1rem; bottom:3.8rem; width:13rem; transform:none; }
   .fullscreen-invitation-zh,.fullscreen-invitation-hant,.fullscreen-invitation-en { display:none; }
   .desktop-invitation { left:auto; right:1rem; bottom:3.8rem; width:13rem; transform:none; }

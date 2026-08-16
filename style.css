@@ -56,12 +56,20 @@ html.is-mobile-device .mobile-gate {
 .mobile-gate-credit a:hover,.mobile-gate-credit a:focus-visible { color:#fff; }
 
 .experience {
-  position:absolute; left:50%; top:50%; width:92vw; height:88dvh; overflow:visible;
+  position:absolute; left:50%; top:50%; width:92vw; height:88vh; height:88dvh; overflow:visible;
   transform:translate(-50%,-50%); background:#000; border:1px solid rgba(255,255,255,.18);
   box-shadow:0 1.2rem 4rem rgba(0,0,0,.9); transition:width .45s ease,height .45s ease,border-color .45s ease;
 }
-body.is-fullscreen .experience { width:100vw; height:100dvh; border-color:transparent; box-shadow:none; }
-html.is-kiosk-mode .experience { width:100vw; height:100dvh; border-color:transparent; box-shadow:none; }
+body.is-fullscreen .experience,
+.experience:fullscreen,
+.experience:-webkit-full-screen {
+  left:0; top:0; width:100vw; height:100vh; height:100dvh;
+  transform:none; border-color:transparent; box-shadow:none;
+}
+html.is-kiosk-mode .experience {
+  left:0; top:0; width:100vw; height:100vh; height:100dvh;
+  transform:none; border-color:transparent; box-shadow:none;
+}
 html.is-kiosk-mode .fullscreen-invitation,
 html.is-kiosk-mode .fullscreen-button-corner,
 html.is-kiosk-mode #font-size-toggle,
@@ -175,7 +183,7 @@ html[data-motion="reduced"] .chapter-motion-still { opacity:var(--motion-opacity
 }
 
 .start-screen {
-  position:absolute; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;
+  position:absolute; inset:0; width:100%; height:100%; z-index:100; display:flex; align-items:center; justify-content:center;
   overflow:hidden; background:#000; opacity:1; transition:opacity 1.4s ease;
 }
 .start-screen.is-hidden { opacity:0; pointer-events:none; }
@@ -194,7 +202,10 @@ html[data-motion="reduced"] .chapter-motion-still { opacity:var(--motion-opacity
 .start-bg.stage-1 { filter:blur(1.8rem) brightness(.32); }
 .start-bg.stage-2 { filter:blur(1.1rem) brightness(.38); }
 .start-bg.stage-3 { filter:blur(.6rem) brightness(.46); }
-.start-text { position:relative; z-index:2; width:min(76vw,52rem); text-align:center; padding-bottom:6rem; }
+.start-text {
+  position:absolute; z-index:2; left:50%; top:50%; width:76%; max-width:52rem;
+  transform:translate(-50%,-50%); text-align:center; padding-bottom:6rem;
+}
 .start-paragraph {
   opacity:0; transform:translateY(.35rem) scale(1.22); filter:blur(24px);
   margin-bottom:1.15rem; transform-origin:center; will-change:opacity,filter,transform;
@@ -212,7 +223,7 @@ html[data-motion="reduced"] .chapter-motion-still { opacity:var(--motion-opacity
 .epilogue-credit a:hover,.epilogue-credit a:focus-visible { color:#fff; }
 
 .epilogue-screen {
-  position:absolute; inset:0; z-index:70; display:flex; align-items:center; justify-content:center;
+  position:absolute; inset:0; width:100%; height:100%; z-index:70; display:flex; align-items:center; justify-content:center;
   overflow:hidden; background:#000; opacity:0; visibility:hidden; pointer-events:none;
   transition:opacity .18s ease,visibility 0s linear .18s;
 }
@@ -288,7 +299,7 @@ html[data-content-font-size="large"] .epilogue-screen.is-safety-condensed .epilo
 }
 html[data-content-font-size="large"] .epilogue-screen.is-safety-condensed .epilogue-paragraph { margin-bottom:.44rem; }
 .fullscreen-invitation {
-  position:absolute; z-index:4; left:50%; bottom:8.5rem; width:min(88%,32rem);
+  position:absolute; z-index:4; left:50%; bottom:8.5rem; width:88%; max-width:32rem;
   transform:translateX(-50%); text-align:center; color:rgba(255,255,255,.88);
 }
 .fullscreen-invitation-note {
@@ -1302,7 +1313,7 @@ html.is-touch-device .door-trigger { min-width:52px; min-height:52px; }
 
 @media (max-width:900px) {
   /* iPad 分屏和较窄平板直接使用完整可见区域，不制造横向画布。 */
-  .experience { width:100vw; height:100dvh; border:none; }
+  .experience { width:100vw; height:100vh; height:100dvh; border:none; }
   .context-toggle { right:1rem; }
   .context-panel { width:min(78vw,27rem); }
   .context-collapse { right:min(78vw,27rem); }

@@ -447,10 +447,7 @@ const CHAPTER_5_LOOP_SOUND = {
 };
 
 const reducedMotionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)");
-let motionPreference = "full";
-try {
-  motionPreference = localStorage.getItem("1970-motion-preference") || motionPreference;
-} catch (_) {}
+let motionPreference = "full"; // 每次打开网页都默认开启动效，不记住上一次的切换结果。
 
 const UI_TEXT = {
   "zh-hans": {
@@ -529,13 +526,17 @@ document.documentElement.style.setProperty("--start-en-font-size", `${START_EN_F
 document.documentElement.style.setProperty("--start-en-font-size-mobile", `${START_EN_FONT_SIZE_MOBILE_REM}rem`);
 
 // 全局语言状态：不再只作用于侧栏，主屏叙事正文 / hotspot 提示 / 控制栏文案都读这一个值。
-// 三个状态：zh-hans（默认，简体）、zh-hant（繁体）、en（仅英文，隐藏中文行）。
-// 不做浏览器语言自动检测——只有用户自己点过切换器，localStorage 里才会有记录，否则永远从简体开场。
-let mainLanguage = "zh-hans";
-try {
-  const savedLanguage = localStorage.getItem("1970-language-preference");
-  if (["zh-hans", "zh-hant", "en"].includes(savedLanguage)) mainLanguage = savedLanguage;
-} catch (_) {}
+// 三个状态：zh-hans、zh-hant、en。默认值跟随浏览器语言（navigator.language），不再固定简体，
+// 也不写 localStorage——每次重新打开网页都按当前浏览器语言重新判断，不记住上一次手动切换的结果。
+function detectBrowserMainLanguage() {
+  const tags = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""]);
+  const primary = (tags[0] || "").toLowerCase();
+  if (!primary.startsWith("zh")) return "en";
+  // zh-Hant / zh-TW / zh-HK / zh-MO 视为繁体，其余（zh-Hans / zh-CN / zh-SG / 裸的 "zh"）视为简体。
+  if (/hant|-tw|-hk|-mo/.test(primary)) return "zh-hant";
+  return "zh-hans";
+}
+let mainLanguage = detectBrowserMainLanguage();
 
 function prefersReducedMotion() {
   if (motionPreference === "full") return false;
@@ -728,8 +729,8 @@ const HOTSPOTS = [
       zh:"《康熙字典》中的“沈蕙兰”", en:"“Shen Huilan” in the Kangxi Dictionary",
       note:"《康熙字典》按部首和笔画检索汉字，是阅读旧书时常用的工具书。",
       noteEn:"The Kangxi Dictionary indexes Chinese characters by radicals and stroke counts, making it a standard reference for reading older texts.",
-      learnMoreZh:"《康熙字典》成书于清代康熙五十五年，是大型官修字书。它按部首和笔画组织汉字：先判断一个字归入哪个部首，再数部首外剩余笔画，到相应位置查读音、字义和古籍引文。它不像20世纪面向现代读者的《新华字典》那样小型、白话、便携，而是一部需要通过索引和分册翻检的古典字书。\n\n在本章的人物设定中，蕙兰小时候在父亲书房里依次查找自己姓名中的“沈”“蕙”“兰／蘭”。下面三张图对应这三个字在《康熙字典》中的检字页。",
-      learnMoreEn:"Compiled in the fifty-fifth year of the Kangxi reign, the Kangxi Dictionary is a large Qing court-sponsored character dictionary. It organizes characters by radicals and stroke counts: readers identify a character's radical, count the remaining strokes, and use the appropriate index and fascicle to find its pronunciation, meanings, and classical citations. Unlike the compact, vernacular Xinhua Dictionary produced for modern readers in the twentieth century, it is a classical reference work consulted through indexes and multiple volumes.\n\nIn this chapter's fictional history, Huilan uses this method in her father's study to look up the three characters in her name: Shen (沈), Hui (蕙), and Lan (兰 / 蘭). The images below show the dictionary pages on which those characters appear.",
+      learnMoreZh:"《康熙字典》成书于清代康熙五十五年（1716年），是大型官修字书。正文按部首和笔画组织汉字，分装十二集，对应地支子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥，每集再分上、中、下三册，全书共三十六册。查一个字，先辨其部首，在《部首目录》中按部首笔画数找到该部首所属的地支卷册；再扣除部首、按古法计算剩余笔画数，在对应卷册的《检字表》中定位正文页码；最后翻至正文，依反切注音查读音，并参看所引古籍释义。它不像20世纪面向现代读者的《新华字典》那样小型、白话、便携，而是一部需要按地支分册、逐层翻检的古典字书。\n\n在本章的人物设定中，蕙兰小时候在父亲书房里依次查找自己姓名中的“沈”“蕙”“兰／蘭”。下面三张图对应这三个字在《康熙字典》中各自所在的检字页，图注标出的“巳集上”“申集中”等即为其所属的地支卷册。",
+      learnMoreEn:"Compiled in the fifty-fifth year of the Kangxi reign (1716), the Kangxi Dictionary is a large Qing court-sponsored character dictionary. Its main text organizes characters by radical and stroke count across twelve fascicle groups named for the twelve Earthly Branches — zi, chou, yin, mao, chen, si, wu, wei, shen, you, xu, hai — each further divided into upper, middle, and lower volumes, thirty-six volumes in total. To look up a character, a reader first identifies its radical and consults the Radical Index by stroke count to find which Earthly-Branch group and volume it belongs to; counts the remaining strokes after the radical to locate the page in that volume's Character Index; then turns to the main text to read the pronunciation via fanqie notation and the meanings cited from classical sources. Unlike the compact, vernacular Xinhua Dictionary produced for modern readers in the twentieth century, it is a classical reference work consulted by working through Earthly-Branch volumes in sequence.\n\nIn this chapter's fictional history, Huilan uses this method in her father's study to look up the three characters in her name: Shen (沈), Hui (蕙), and Lan (兰 / 蘭). The images below show the dictionary pages on which those characters appear; captions such as “Sì fascicle, upper” or “Shēn fascicle, middle” name the Earthly-Branch volume each page belongs to.",
       sourceZh:"清康熙五十五年（1716年）内府刊本 · 哈佛大学图书馆 HOLLIS",
       sourceEn:"Imperial edition, Kangxi 55 (1716) · Harvard Library HOLLIS",
       sourceUrl:"https://hollis.harvard.edu/discovery/fulldisplay?context=L&vid=01HVD_INST:HVD2&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=Everything&docid=alma990032703120203941",
@@ -2964,7 +2965,7 @@ function animateTextToStep(target) {
 function setChapterInfo() {
   const chapter = CHAPTERS[chapterIndex];
   yearEl.textContent = chapter.year;
-  titleZhEl.textContent = chapter.title;
+  titleZhEl.textContent = convertZh(chapter.title);
   titleEnEl.textContent = chapter.titleEn;
 }
 
@@ -3625,7 +3626,6 @@ function renderContext(target, hotspot = null) {
 function setMainLanguage(language) {
   const nextLanguage = ["zh-hans", "zh-hant", "en"].includes(language) ? language : "zh-hans";
   mainLanguage = nextLanguage;
-  try { localStorage.setItem("1970-language-preference", nextLanguage); } catch (_) {}
 
   document.documentElement.dataset.mainLanguage = nextLanguage; // 给 CSS 用，比如 en 状态下隐藏中文行
   contextPanel.dataset.language = nextLanguage; // 侧栏原有的簡/繁/EN 单字段显示逻辑继续复用，不用改 CSS
@@ -3637,6 +3637,7 @@ function setMainLanguage(language) {
   updateContextChineseLabels();
   updateContextLocaleChrome();
   updateImageLightboxCaption();
+  if (yearEl && titleZhEl && titleEnEl) setChapterInfo();
 
   // 侧栏内容如果已经渲染过（比如面板正开着），跟着重新生成一次繁体镜像
   if (contextContent && contextContent.children.length) buildTraditionalContextBodies();
@@ -6629,7 +6630,6 @@ function updateMotionState() {
 
 function toggleMotionPreference() {
   motionPreference = prefersReducedMotion() ? "full" : "reduced";
-  try { localStorage.setItem("1970-motion-preference", motionPreference); } catch (_) {}
   updateMotionState();
 }
 
@@ -6772,13 +6772,12 @@ updateFullscreenState();
 updateRotateOverlay();
 initBackgrounds();
 initIntroParticles();
-// 用保存下来的语言状态（没保存过就是默认简体）点亮控制栏按钮、贴好 html[data-main-language]，
-// 这样第一屏渲染出来的时候，简繁 / 中英 就已经是对的，不会先闪一下简体再跳到用户上次的选择。
+// 用浏览器语言判断出的默认状态（detectBrowserMainLanguage）点亮控制栏按钮、贴好 html[data-main-language]，
+// 这样第一屏渲染出来的时候，简繁 / 中英 就已经是对的，不会先闪一下再跳一次。
 document.documentElement.dataset.mainLanguage = mainLanguage;
-// 之前这里漏了侧栏自己的 data-language 同步——contextPanel 的简/繁/英显示逻辑单独读它自己的 data-language 属性，
-// HTML 里写死的初始值是 zh-hans。如果只在点击语言切换按钮时才同步（setMainLanguage 里那行），
-// 刷新页面后 localStorage 里明明记着 en，html[data-main-language] 也对了，但侧栏这个属性没人补，
-// 侧栏内容就会一直显示简体，直到用户重新点一次语言按钮。这里补上，跟上面那行一起做。
+// 侧栏自己的 data-language 也要在这里同步一次——contextPanel 的简/繁/英显示逻辑单独读它自己的
+// data-language 属性，HTML 里写死的初始值是 zh-hans，只在点击语言切换按钮时同步是不够的，
+// 首屏如果检测出来的默认语言不是简体，侧栏这个属性也要一起补上，否则侧栏内容会一直显示简体。
 contextPanel.dataset.language = mainLanguage;
 mainLanguageButtons.forEach(button => {
   button.setAttribute("aria-pressed", String(button.dataset.mainLanguage === mainLanguage));

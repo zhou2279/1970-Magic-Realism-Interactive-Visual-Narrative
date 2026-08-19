@@ -801,6 +801,7 @@ html[data-main-language="en"] .context-section summary > [data-context-chinese] 
 }
 .context-gallery-intro.is-ubiquity strong { display:block; margin-bottom:.22rem; color:rgba(255,255,255,.96); font-weight:600; letter-spacing:.035em; }
 .context-reference { margin:1rem 0; }
+.context-reference.is-gallery-pair { margin-top:1.85rem; }
 .context-reference-media { position:relative; }
 .context-reference-media.is-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.45rem; }
 .context-reference-media-item { position:relative; min-width:0; }

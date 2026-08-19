@@ -810,15 +810,66 @@ const HOTSPOTS = [
     },
     {
       id:"ch01-young-companion", xPx:993, yPx:780,
-      zh:"《良友》画报封面女郎", en:"Cover Girl of The Young Companion",
-      note:"《良友》是1926年至1945年出版的大型画报，封面女郎常用来呈现都市女性的摩登形象。",
-      noteEn:"The Young Companion was a major illustrated magazine published from 1926 to 1945; its cover women often presented a modern urban ideal.",
-      learnMoreZh:"《良友》1926年创刊、1945年停刊，是中国早期的大型综合性摄影图文画报。它的封面多用知名女性、影星或社会名流，内容涵盖战争、政治、文娱与社会生活。[1]\n\n这一画面参照《良友》1937年4月15日第127期封面。在本章的人物设定中，生于1918年的母亲年轻时订阅《良友》，并把合订本留在家中。这本刊物于1945年停刊，当时蕙兰一岁。",
-      learnMoreEn:"The Young Companion was founded in 1926 and ceased publication in 1945. It was an early large-format illustrated photographic magazine in China. Its covers often featured well-known women, film stars, or public figures, while its contents included war, politics, entertainment, and social life.[1]\n\nThis image references the cover of issue 127, dated 15 April 1937. In this chapter's fictional history, Huilan's mother, born in 1918, subscribed to the magazine as a young woman and kept the bound volumes at home. The magazine ceased publication in 1945, one year after Huilan was born.",
+      zh:"《良友》", en:"The Young Companion",
+      note:"《良友》是1926年至1945年出版的大型画报，封面常以女性、影星、社会名流和公共人物呈现民国都市与时代面貌。",
+      noteEn:"The Young Companion was a major illustrated magazine published from 1926 to 1945; its covers presented Republican-era urban life and public culture through women, film stars, social figures, and public personalities.",
+      learnMoreZh:"《良友》1926年创刊、1945年停刊，是中国早期的大型综合性摄影图文画报。它的封面多用知名女性、影星或社会名流，内容涵盖战争、政治、文娱与社会生活。《良友》的封面既记录了民国社会的多元面貌，也开创了中国现代视觉传播的重要形式。[1]\n\n这一画面参照《良友》1937年4月15日第127期封面。在本章的人物设定中，生于1918年的母亲年轻时订阅《良友》，收藏历年的很多册在书房。这本刊物于1945年停刊，当时蕙兰一岁。",
+      learnMoreEn:"The Young Companion was founded in 1926 and ceased publication in 1945. It was an early large-format illustrated photographic magazine in China. Its covers often featured well-known women, film stars, or public figures, while its contents included war, politics, entertainment, and social life. The covers of The Young Companion both recorded the diverse facets of Republican-era society and helped pioneer an important form of modern Chinese visual communication.[1]\n\nThis image references the cover of issue 127, dated 15 April 1937. In this chapter's fictional history, Huilan's mother, born in 1918, subscribed to the magazine as a young woman and kept many years' worth of issues in the study. The magazine ceased publication in 1945, one year after Huilan was born.",
       image:"assets/references/ch1-gallery/5.jpeg",
       sourceZh:"[1] 《良友》1937年4月15日第127期 · Internet Archive",
       sourceEn:"[1] The Young Companion, issue 127, 15 April 1937 · Internet Archive",
-      sourceUrl:"https://archive.org/details/liangyou-1937.04.15"
+      sourceUrl:"https://archive.org/details/liangyou-1937.04.15",
+      galleryIntroZh:"以下选摘其他期封面作为参考。",
+      galleryIntroEn:"The covers below are additional selected issues, shown for reference.",
+      gallery:[
+        {
+          images:[
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1936.04.15-%23115.jpeg", altZh:"《良友》第115期封面", altEn:"Cover of The Young Companion, issue 115", zoomCaptionZh:"《良友》1936年4月15日第115期", zoomCaptionEn:"The Young Companion, issue 115, 15 April 1936" },
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1936.07.15-%23118.jpeg", altZh:"《良友》第118期封面", altEn:"Cover of The Young Companion, issue 118", zoomCaptionZh:"《良友》1936年7月15日第118期", zoomCaptionEn:"The Young Companion, issue 118, 15 July 1936" }
+          ],
+          creditZh:"左：<a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1936.04.15\" target=\"_blank\" rel=\"noopener noreferrer\">《良友》1936年4月15日第115期 · Internet Archive</a><br>右：<a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1936.07.15\" target=\"_blank\" rel=\"noopener noreferrer\">《良友》1936年7月15日第118期 · Internet Archive</a>",
+          creditEn:"Left: <a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1936.04.15\" target=\"_blank\" rel=\"noopener noreferrer\">The Young Companion, issue 115, 15 April 1936 · Internet Archive</a><br>Right: <a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1936.07.15\" target=\"_blank\" rel=\"noopener noreferrer\">The Young Companion, issue 118, 15 July 1936 · Internet Archive</a>"
+        },
+        {
+          images:[
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1941.10.15-%23171.jpeg", altZh:"《良友》第171期封面", altEn:"Cover of The Young Companion, issue 171", zoomCaptionZh:"《良友》1941年10月15日第171期封面", zoomCaptionEn:"The Young Companion, issue 171, 15 October 1941: cover" },
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1941.10.15-%23171-inside.jpeg", altZh:"《良友》第171期内页", altEn:"An inside page of The Young Companion, issue 171", zoomCaptionZh:"《良友》1941年10月15日第171期内页", zoomCaptionEn:"The Young Companion, issue 171, 15 October 1941: inside page" }
+          ],
+          descriptionAfterSource:true,
+          descriptionZh:"左图为该期封面，右图为同一期的内页，其中介绍了本期封面图的设计、拍摄和后期制作。",
+          descriptionEn:"The left image is the issue's cover; the right is an inside page from the same issue, introducing the design, photography, and post-production behind that cover image.",
+          creditZh:"《良友》1941年10月15日第171期 · Internet Archive",
+          creditEn:"The Young Companion, 15 October 1941, issue 171 · Internet Archive",
+          href:"https://archive.org/details/liangyou-1941.10.15/mode/2up"
+        },
+        {
+          images:[
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1926.11.1-孙中山.jpeg", altZh:"《良友》孙中山先生纪念特刊封面", altEn:"Cover of The Young Companion, Special Memorial Issue for Dr. Sun Yat-sen", zoomCaptionZh:"《良友》1926年11月1日孙中山先生纪念特刊", zoomCaptionEn:"The Young Companion, 1 November 1926, Special Memorial Issue for Dr. Sun Yat-sen" },
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1938.05.15-%23137-白崇禧.jpeg", altZh:"《良友》第137期封面：白崇禧", altEn:"Cover of The Young Companion, issue 137: Bai Chongxi", zoomCaptionZh:"《良友》1938年5月15日第137期：白崇禧", zoomCaptionEn:"The Young Companion, issue 137, 15 May 1938: Bai Chongxi" }
+          ],
+          descriptionAfterSource:true,
+          descriptionZh:"左：国父孙中山先生纪念特刊。右：封面人物白崇禧是中華民國高級將領，也是白先勇之父。",
+          descriptionEn:"Left: a special memorial issue for Dr. Sun Yat-sen, Father of the Chinese Republic. Right: the cover figure Bai Chongxi was a senior military leader of the Republic of China and the father of the writer Bai Xianyong (Pai Hsien-yung).",
+          creditZh:"左：<a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1926.11.15-2\" target=\"_blank\" rel=\"noopener noreferrer\">《良友》1926年11月1日 孙中山先生纪念特刊 · Internet Archive</a><br>右：<a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1938.05.15\" target=\"_blank\" rel=\"noopener noreferrer\">《良友》1938年5月15日第137期 · Internet Archive</a>",
+          creditEn:"Left: <a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1926.11.15-2\" target=\"_blank\" rel=\"noopener noreferrer\">The Young Companion, 1 November 1926, Special Memorial Issue for Dr. Sun Yat-sen · Internet Archive</a><br>Right: <a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1938.05.15\" target=\"_blank\" rel=\"noopener noreferrer\">The Young Companion, issue 137, 15 May 1938 · Internet Archive</a>"
+        },
+        {
+          images:[
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1937.06.15-%23129.jpeg", altZh:"《良友》第129期封面", altEn:"Cover of The Young Companion, issue 129", zoomCaptionZh:"《良友》1937年6月15日第129期", zoomCaptionEn:"The Young Companion, issue 129, 15 June 1937" },
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1939.02.15-%23139.jpeg", altZh:"《良友》第139期封面", altEn:"Cover of The Young Companion, issue 139", zoomCaptionZh:"《良友》1939年2月15日第139期", zoomCaptionEn:"The Young Companion, issue 139, 15 February 1939" }
+          ],
+          creditZh:"左：<a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1937.06.15\" target=\"_blank\" rel=\"noopener noreferrer\">《良友》1937年6月15日第129期 · Internet Archive</a><br>右：<a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1939.02.15\" target=\"_blank\" rel=\"noopener noreferrer\">《良友》1939年2月15日第139期 · Internet Archive</a>",
+          creditEn:"Left: <a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1937.06.15\" target=\"_blank\" rel=\"noopener noreferrer\">The Young Companion, issue 129, 15 June 1937 · Internet Archive</a><br>Right: <a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1939.02.15\" target=\"_blank\" rel=\"noopener noreferrer\">The Young Companion, issue 139, 15 February 1939 · Internet Archive</a>"
+        },
+        {
+          images:[
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1940.05.15-%23154.jpeg", altZh:"《良友》第154期封面", altEn:"Cover of The Young Companion, issue 154", zoomCaptionZh:"《良友》1940年5月15日第154期", zoomCaptionEn:"The Young Companion, issue 154, 15 May 1940" },
+            { src:"assets/references/ch1-gallery/liangyou/liangyou-1940.06.15-%23155.jpeg", altZh:"《良友》第155期封面", altEn:"Cover of The Young Companion, issue 155", zoomCaptionZh:"《良友》1940年6月15日第155期", zoomCaptionEn:"The Young Companion, issue 155, 15 June 1940" }
+          ],
+          creditZh:"左：<a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1940.05.15\" target=\"_blank\" rel=\"noopener noreferrer\">《良友》1940年5月15日第154期 · Internet Archive</a><br>右：<a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1940.06.15\" target=\"_blank\" rel=\"noopener noreferrer\">《良友》1940年6月15日第155期 · Internet Archive</a>",
+          creditEn:"Left: <a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1940.05.15\" target=\"_blank\" rel=\"noopener noreferrer\">The Young Companion, issue 154, 15 May 1940 · Internet Archive</a><br>Right: <a class=\"context-reference-credit\" href=\"https://archive.org/details/liangyou-1940.06.15\" target=\"_blank\" rel=\"noopener noreferrer\">The Young Companion, issue 155, 15 June 1940 · Internet Archive</a>"
+        }
+      ]
     },
     {
       id:"ch01-gu-huichuntang", xPx:1176, yPx:539,
@@ -1863,20 +1914,31 @@ function renderGalleryFigures(items = []) {
     const descriptionHtml = item.descriptionZh || item.descriptionEn
       ? `<p class="context-reference-description context-body-zh">${item.descriptionZh || ""}</p><p class="context-reference-description context-en context-body-en">${item.descriptionEn || ""}</p>`
       : "";
-    const figureClass = ["context-reference", item.kind === "homage" ? "is-homage" : "", item.fit === "contain" ? "is-contain" : ""].filter(Boolean).join(" ");
+    const figureClass = ["context-reference", item.images?.length ? "is-gallery-pair" : "", item.kind === "homage" ? "is-homage" : "", item.fit === "contain" ? "is-contain" : ""].filter(Boolean).join(" ");
     const homageLabel = item.kind === "homage"
       ? `<p class="context-reference-kind"><span class="context-body-zh">跨时空视觉致意</span><span class="context-en context-body-en">Transhistorical homage</span></p>`
       : "";
-    const zoomCaptionZh = escapeHTML([captionZh, creditZh].filter(Boolean).join(" · "));
-    const zoomCaptionEn = escapeHTML([captionEn, creditEn].filter(Boolean).join(" · "));
     const mediaItems = item.images?.length ? item.images : [{ src:item.image, altZh:altText, altEn:altText }];
     const mediaClass = mediaItems.length > 1 ? "context-reference-media is-pair" : "context-reference-media";
     const mediaHtml = mediaItems.map(media => {
       const mediaAlt = mainLanguage === "en" ? (media.altEn || media.altZh || altText) : (media.altZh || media.altEn || altText);
-      return `<div class="context-reference-media-item"><img src="${media.src}" alt="${escapeHTML(mediaAlt)}" loading="lazy"><button class="context-reference-zoom" type="button" data-zoom-src="${media.src}" data-zoom-alt="${escapeHTML(mediaAlt)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button></div>`;
+      const mediaZoomCaptionZh = escapeHTML(media.zoomCaptionZh || media.altZh || item.zh || item.metaZh || "");
+      const mediaZoomCaptionEn = escapeHTML(media.zoomCaptionEn || media.altEn || item.en || item.metaEn || media.zoomCaptionZh || media.altZh || item.zh || "");
+      return `<div class="context-reference-media-item"><img src="${media.src}" alt="${escapeHTML(mediaAlt)}" loading="lazy"><button class="context-reference-zoom" type="button" data-zoom-src="${media.src}" data-zoom-alt="${escapeHTML(mediaAlt)}" data-zoom-caption-zh="${mediaZoomCaptionZh}" data-zoom-caption-en="${mediaZoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button></div>`;
     }).join("");
-    return `<figure class="${figureClass}">${homageLabel}<div class="${mediaClass}">${mediaHtml}</div><figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${descriptionHtml}${sourceHtml}</figcaption></figure>`;
+    const captionHtml = captionZh || captionEn
+      ? `<span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>`
+      : "";
+    return `<figure class="${figureClass}">${homageLabel}<div class="${mediaClass}">${mediaHtml}</div><figcaption>${captionHtml}${item.descriptionAfterSource ? `${sourceHtml}${descriptionHtml}` : `${descriptionHtml}${sourceHtml}`}</figcaption></figure>`;
   }).join("");
+}
+
+function cleanLightboxCaption(caption = "") {
+  return caption
+    .replace(/<[^>]*>/g, "")
+    .replace(/^\[\d+\]\s*/, "")
+    .replace(/\s*·\s*Internet Archive\s*$/i, "")
+    .trim();
 }
 
 function renderGalleryIntro(source) {
@@ -3540,8 +3602,8 @@ function renderContext(target, hotspot = null) {
           ? `<small><a class="context-reference-credit" href="${reference.href}" target="_blank" rel="noopener noreferrer"><span class="context-body-zh">${referenceSourceZh}</span><span class="context-en context-body-en">${referenceSourceEn}</span></a></small>`
           : `<small><span class="context-body-zh">${referenceSourceZh}</span><span class="context-en context-body-en">${referenceSourceEn}</span></small>`)
       : "";
-    const zoomCaptionZh = escapeHTML([captionZh, referenceSourceZh].filter(Boolean).join(" · "));
-    const zoomCaptionEn = escapeHTML([captionEn, referenceSourceEn].filter(Boolean).join(" · "));
+    const zoomCaptionZh = escapeHTML(captionZh);
+    const zoomCaptionEn = escapeHTML(captionEn);
     const zoomButton = `<button class="context-reference-zoom" type="button" data-zoom-src="${reference.image}" data-zoom-alt="${escapeHTML(altText)}" data-zoom-caption-zh="${zoomCaptionZh}" data-zoom-caption-en="${zoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>`;
     return `<figure class="context-reference">${image}${zoomButton}<figcaption><span class="context-body-zh">${captionZh}</span><span class="context-en context-body-en">${captionEn}</span>${sourceHtml}</figcaption></figure>`;
   }).join("");
@@ -3565,8 +3627,8 @@ function renderContext(target, hotspot = null) {
   const hotspotImageCaption = hotspotCaptionHtml || hotspotSourceHtml
     ? `<figcaption>${hotspotCaptionHtml}${hotspotSourceHtml}</figcaption>`
     : "";
-  const hotspotZoomCaptionZh = escapeHTML([hotspotCaptionZh, hotspotSourceZh].filter(Boolean).join(" · "));
-  const hotspotZoomCaptionEn = escapeHTML([hotspotCaptionEn, hotspotSourceEn].filter(Boolean).join(" · "));
+  const hotspotZoomCaptionZh = escapeHTML(hotspotCaptionZh || cleanLightboxCaption(hotspotSourceZh) || hotspot?.zh || "");
+  const hotspotZoomCaptionEn = escapeHTML(hotspotCaptionEn || cleanLightboxCaption(hotspotSourceEn) || hotspot?.en || hotspot?.zh || "");
   const hotspotImage = hotspot?.image ? `<figure class="context-reference"><img src="${hotspot.image}" alt="${escapeHTML(hotspotAlt)}"><button class="context-reference-zoom" type="button" data-zoom-src="${hotspot.image}" data-zoom-alt="${escapeHTML(hotspotAlt)}" data-zoom-caption-zh="${hotspotZoomCaptionZh}" data-zoom-caption-en="${hotspotZoomCaptionEn}" aria-label="${getUIText("zoomImage")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.4" y2="16.4"></line></svg></button>${hotspotImageCaption}</figure>` : "";
   const hotspotSourceLabel = `${renderContextChineseLabel("图片来源")}<span class="context-en-label">Image source</span>`;
   const hotspotSource = (hotspotSourceZh || hotspotSourceEn) && !hotspot?.image ? `<p class="hotspot-source">${hotspotSourceLabel}: ${hotspot.sourceUrl ? `<a href="${hotspot.sourceUrl}" target="_blank" rel="noopener noreferrer"><span class="context-body-zh">${hotspotSourceZh}</span><span class="context-en context-body-en">${hotspotSourceEn}</span></a>` : `<span class="context-body-zh">${hotspotSourceZh}</span><span class="context-en context-body-en">${hotspotSourceEn}</span>`}</p>` : "";
